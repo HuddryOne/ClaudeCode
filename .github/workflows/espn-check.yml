@@ -9,6 +9,10 @@ on:
         description: "Spieltag JJJJMMTT (leer = aktuelle Woche)"
         required: false
         default: "20261101"
+      event:
+        description: "Event-ID eines laufenden Spiels (leer = erstes laufendes Spiel automatisch)"
+        required: false
+        default: ""
 
 jobs:
   check:
@@ -49,6 +53,29 @@ jobs:
         run: |
           jq '[.events[] | select(.status.type.state == "in")][0] // "kein laufendes Spiel" |
             if type == "string" then . else {name, status: .status, situation: .competitions[0].situation} end' sb.json
+
+      - name: Laufendes Spiel – Einzelabfragen (Core-API), CORS und Größe
+        run: |
+          LIVE_ID="${{ github.event.inputs.event }}"
+          if [ -z "$LIVE_ID" ]; then LIVE_ID=$(jq -r '[.events[] | select(.status.type.state == "in")][0].id // empty' sb.json); fi
+          if [ -z "$LIVE_ID" ]; then LIVE_ID="$EVENT_ID"; echo "Kein laufendes Spiel, nehme $LIVE_ID"; fi
+          echo "LIVE_ID=$LIVE_ID" >> "$GITHUB_ENV"
+          CORE=https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/$LIVE_ID/competitions/$LIVE_ID
+          for u in "$CORE/situation" "$CORE/status" "$CORE"; do
+            echo "=== $u"
+            curl -sS -D h.txt -o b.json -H "Origin: $ORIGIN" "$u"
+            grep -iE '^(HTTP|access-control-allow-origin|cache-control)' h.txt || true
+            echo "Größe: $(wc -c < b.json) Bytes"
+            jq 'del(.["$ref"]) | with_entries(select(.value | type != "object" or has("$ref") | not))' b.json 2>/dev/null | head -60 || head -c 1500 b.json
+          done
+
+      - name: Komprimierte Größen (wie im Browser)
+        run: |
+          D=$(date -u +%Y%m%d)
+          for u in "$BASE/scoreboard" "$BASE/scoreboard?dates=$D" "$BASE/summary?event=$LIVE_ID"; do
+            curl -sS -H "Accept-Encoding: gzip, br" -D h.txt -o z.bin "$u"
+            echo "$u -> $(wc -c < z.bin) Bytes übertragen ($(grep -i '^content-encoding' h.txt | tr -d '\r'))"
+          done
 
       - name: Summary des Broncos-Spiels
         run: |
