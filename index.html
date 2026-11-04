@@ -244,7 +244,11 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .back:hover { color: var(--ink); }
 .hl { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 68ch; }
 .hl li::marker { color: var(--team); }
-#v-wecteam .teamhead { border-bottom-color: var(--team); }
+#v-wecteam .teamhead, #v-f1team .teamhead { border-bottom-color: var(--team); }
+#v-f1team .driver .num { color: var(--team); }
+a.f1team { text-decoration: none; color: inherit; }
+a.f1team:hover { border-color: var(--team); }
+a.f1team:hover h4 { color: var(--team); }
 #v-wecteam .driver .num, #v-wecteam .car-label { color: var(--team); }
 
 @media (max-width: 1000px) { .divgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -430,7 +434,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
             <p class="note">Nach Mexiko gab es mehrere nachträgliche Strafen. Deshalb weichen die Fahrerpunkte bei Red Bull und Racing Bulls je nach Quelle um einige Punkte von der Teamwertung ab. Verbindlich ist die offizielle Tabelle auf <a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noopener">formula1.com</a>.</p>
           </div>
         </div>
-        <div class="section-head"><h2>Alle 11 Teams 2026</h2><span class="eyebrow">Teamchef · Motor · Fahrer</span></div>
+        <div class="section-head"><h2>Alle 11 Teams 2026</h2><span class="eyebrow">Team antippen für alle Daten</span></div>
         <div class="teamgrid" id="f1-teamgrid"></div>
       </div>
 
@@ -457,6 +461,9 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
         <p class="note">Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Vanthoor #15, van der Linde #20). Für die Plätze unter den hier gelisteten Fahrern lag zum Datenstand keine geprüfte Punkteliste vor. Diese Autos sind mit „–“ markiert. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
       </div>
     </section>
+
+    <!-- F1-TEAM (dynamisch) -->
+    <section class="view" id="v-f1team" hidden></section>
 
     <!-- WEC-TEAM (dynamisch) -->
     <section class="view" id="v-wecteam" hidden></section>
@@ -852,6 +859,87 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
     aston:    { n: "Aston Martin Aramco", base: "Silverstone (GB)", tp: "Adrian Newey", pu: "Honda", d: [[14, "Fernando Alonso"], [18, "Lance Stroll"]] },
     cadillac: { n: "Cadillac", base: "Fishers (USA) / Silverstone (GB)", tp: "Graeme Lowdon", pu: "Ferrari", d: [[77, "Valtteri Bottas"], [11, "Sergio Pérez"]] }
   };
+  function f1href(k) { return k === "redbull" ? "#redbull" : "#f1-" + k; }
+  var F1NAT = { "Kimi Antonelli": "Italien", "George Russell": "Großbritannien", "Charles Leclerc": "Monaco", "Lewis Hamilton": "Großbritannien",
+    "Lando Norris": "Großbritannien", "Oscar Piastri": "Australien", "Max Verstappen": "Niederlande", "Isack Hadjar": "Frankreich",
+    "Liam Lawson": "Neuseeland", "Arvid Lindblad": "Großbritannien", "Pierre Gasly": "Frankreich", "Franco Colapinto": "Argentinien",
+    "Esteban Ocon": "Frankreich", "Oliver Bearman": "Großbritannien", "Nico Hülkenberg": "Deutschland", "Gabriel Bortoleto": "Brasilien",
+    "Alexander Albon": "Thailand", "Carlos Sainz": "Spanien", "Fernando Alonso": "Spanien", "Lance Stroll": "Kanada",
+    "Valtteri Bottas": "Finnland", "Sergio Pérez": "Mexiko", "Yuki Tsunoda": "Japan", "Ryō Hirakawa": "Japan" };
+  var F1NOTE = { "Kimi Antonelli": "Weltmeister 2026, mit 20 Jahren einer der jüngsten Champions der Geschichte.", "Lewis Hamilton": "Siebenfacher Weltmeister, seit 2025 bei Ferrari.",
+    "Lando Norris": "Weltmeister 2025, fährt deshalb mit der Nummer 1.", "Fernando Alonso": "Zweifacher Weltmeister (2005, 2006).", "Max Verstappen": "Vierfacher Weltmeister.",
+    "Arvid Lindblad": "Rookie 2026 aus dem Red-Bull-Nachwuchsprogramm.", "Gabriel Bortoleto": "Formel-2-Meister 2024.", "Oliver Bearman": "Debütierte 2024 als Ersatz bei Ferrari.",
+    "Valtteri Bottas": "Zehnfacher GP-Sieger, kam als Stammfahrer zurück.", "Sergio Pérez": "Sechsfacher GP-Sieger, Rückkehr nach einem Jahr Pause.",
+    "Carlos Sainz": "Vierfacher GP-Sieger.", "Charles Leclerc": "Seit 2019 bei Ferrari.", "George Russell": "Seit 2022 bei Mercedes.", "Oscar Piastri": "Mehrfacher GP-Sieger seit 2024.",
+    "Nico Hülkenberg": "Holte 2025 in Silverstone sein erstes Podium.", "Pierre Gasly": "GP-Sieger Monza 2020.", "Isack Hadjar": "2026 neu im Topteam.", "Liam Lawson": "Seit 2025 Stammfahrer bei Racing Bulls.",
+    "Esteban Ocon": "GP-Sieger Ungarn 2021.", "Alexander Albon": "Seit 2022 bei Williams.", "Lance Stroll": "Seit 2017 in der Formel 1.", "Franco Colapinto": "Seit 2025 Stammfahrer bei Alpine." };
+  var F1INFO = {
+    mercedes: { car: "Mercedes W17", first: "1954 (als Werksteam seit 2010)", titles: "8 Konstrukteure (2014–2021) · 10 Fahrer", country: "Deutschland",
+      season: ["Kimi Antonelli hat den WM-Titel beim GP von Mexiko vorzeitig gewonnen", "Führt die Konstrukteurswertung deutlich vor Ferrari an"],
+      history: "Mercedes dominierte die erste Hybrid-Ära von 2014 bis 2021 mit acht Konstrukteurstiteln in Folge. Fahrertitel holten Fangio (1954, 1955), Hamilton (sechs Mal), Rosberg (2016) und 2026 Antonelli.",
+      link: "https://www.mercedesamgf1.com/" },
+    ferrari: { car: "Ferrari SF-26", first: "1950", titles: "16 Konstrukteure · 15 Fahrer", country: "Italien",
+      season: ["Platz 2 der Konstrukteurswertung", "Hamilton und Leclerc kämpfen mit Verstappen und Russell um Platz 2 der Fahrer-WM"],
+      history: "Ferrari ist das einzige Team, das seit der ersten Saison 1950 durchgehend dabei ist, und hält die meisten Titel. Der letzte Fahrertitel gelang Kimi Räikkönen 2007, der letzte Konstrukteurstitel 2008.",
+      link: "https://www.ferrari.com/de-DE/formula1" },
+    mclaren: { car: "McLaren MCL40", first: "1966", titles: "10 Konstrukteure · 13 Fahrer", country: "Großbritannien",
+      season: ["Platz 4 der Konstrukteurswertung, knapp hinter Red Bull", "Titelverteidiger Norris ist WM-Sechster"],
+      history: "McLaren gewann die Konstrukteurs-WM 2024 und 2025, Norris wurde 2025 Weltmeister. Große Namen der Teamgeschichte sind Senna, Prost, Lauda, Häkkinen und Hamilton.",
+      link: "https://www.mclaren.com/racing/" },
+    rb: { car: "Racing Bulls (Modell 2026)", first: "1985 (als Minardi)", titles: "Keine", country: "Italien",
+      season: ["Platz 5 der Konstrukteurswertung, klar vor Alpine", "Rookie Arvid Lindblad hat schon 38 Punkte gesammelt"],
+      history: "Das Team aus Faenza hieß früher Minardi, Toro Rosso und AlphaTauri und ist das Nachwuchsteam von Red Bull. Siege: Sebastian Vettel (Monza 2008) und Pierre Gasly (Monza 2020).",
+      link: "https://www.formula1.com/en/teams" },
+    alpine: { car: "Alpine A526", first: "1981 (Enstone-Team als Toleman)", titles: "Als Benetton und Renault: 3 Konstrukteure · 4 Fahrer", country: "Frankreich",
+      season: ["Erste Saison mit Mercedes-Motor nach dem Ende des Renault-Werksmotors", "Platz 6 der Konstrukteurswertung"],
+      history: "Das Team aus Enstone fuhr als Toleman, Benetton, Renault und Lotus. Michael Schumacher wurde mit Benetton 1994 und 1995 Weltmeister, Fernando Alonso mit Renault 2005 und 2006.",
+      link: "https://www.alpine-cars.com/f1" },
+    haas: { car: "Haas VF-26", first: "2016", titles: "Keine", country: "USA",
+      season: ["Platz 7 der Konstrukteurswertung", "Toyota-Partnerschaft: Ryō Hirakawa kam zu einem Ersatzeinsatz"],
+      history: "Haas fährt seit 2016 als US-amerikanisches Team in der Formel 1. Das Team arbeitet eng mit Ferrari und seit 2025 auch mit Toyota zusammen.",
+      link: "https://www.haasf1team.com/" },
+    audi: { car: "Audi R26", first: "2026 (als Audi; Team seit 1993 als Sauber)", titles: "Keine", country: "Deutschland / Schweiz",
+      season: ["Erste Saison als Audi-Werksteam mit eigenem Motor aus Neuburg an der Donau", "Platz 8 der Konstrukteurswertung"],
+      history: "Audi hat das Schweizer Sauber-Team übernommen, das seit 1993 in der Formel 1 fährt. Die Motoren entstehen in Neuburg an der Donau, das Chassis in Hinwil.",
+      link: "https://www.audi.com/de/sport/formula-1.html" },
+    williams: { car: "Williams FW48", first: "1977", titles: "9 Konstrukteure · 7 Fahrer", country: "Großbritannien",
+      season: ["Platz 9 der Konstrukteurswertung", "Schwieriges erstes Jahr mit dem neuen Reglement"],
+      history: "Williams war in den 1980er- und 1990er-Jahren eines der erfolgreichsten Teams. Weltmeister mit Williams wurden unter anderem Alan Jones, Nelson Piquet, Nigel Mansell, Alain Prost, Damon Hill und Jacques Villeneuve.",
+      link: "https://www.williamsf1.com/" },
+    aston: { car: "Aston Martin AMR26", first: "2021 (als Aston Martin; Team seit 1991 als Jordan)", titles: "Keine", country: "Großbritannien",
+      season: ["Erste Saison mit Honda-Werksmotor und mit Adrian Newey als Teamchef", "Platz 10 der Konstrukteurswertung, Punkte bisher nur durch Alonso"],
+      history: "Das Team aus Silverstone fuhr als Jordan, Midland, Spyker, Force India und Racing Point. Seit 2023 arbeitet das Team in einer neuen Fabrik in Silverstone.",
+      link: "https://www.astonmartinf1.com/" },
+    cadillac: { car: "Cadillac (erstes Auto)", first: "2026", titles: "Keine", country: "USA",
+      season: ["Debütsaison als elftes Team der Formel 1", "Noch ohne WM-Punkte", "Fährt bis zur Fertigstellung des eigenen Motors mit Ferrari-Antrieb"],
+      history: "Cadillac gehört zu General Motors und ist das erste neue Team seit Haas 2016. Mit Bottas und Pérez setzt das Team auf zwei erfahrene GP-Sieger.",
+      link: "https://www.formula1.com/en/teams" }
+  };
+
+  function renderF1Team(k) {
+    var t = F1TEAMS[k], info = F1INFO[k], el = document.getElementById("v-f1team");
+    var cpos = 0, cpts = 0; F1CONS.forEach(function (x, i) { if (x[0] === k) { cpos = i + 1; cpts = x[1]; } });
+    var rk = ranks(F1DRIVERS, function (x) { return x[3]; });
+    var drivers = F1DRIVERS.map(function (x, i) { return { x: x, pos: rk[i] }; }).filter(function (o) { return o.x[2] === k; });
+    var now = new Date();
+    var nextRaces = EVENTS.filter(function (e) { return e.series === "F1" && e.last > now; });
+    el.className = "view tm-" + k;
+    el.innerHTML = '<a class="back" href="#tabellen">← Zurück zur F1-Tabelle</a>' +
+      '<div class="teamhead"><div><div class="eyebrow">Formel 1 · Weltmeisterschaft 2026 · ' + esc(info.country) + '</div><h2>' + esc(t.n) + '</h2><div class="sub">' + esc(t.base) + '</div></div></div>' +
+      '<dl class="facts">' + [["Teamchef", t.tp], ["Auto 2026", info.car], ["Motor", t.pu], ["Standort", t.base], ["Erste Saison", info.first], ["Titel", info.titles], ["Konstrukteurswertung", "Platz " + cpos + " · " + cpts + " Punkte"]]
+        .map(function (f) { return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join("") + '</dl>' +
+      '<div class="section-head"><h2>Fahrer 2026</h2></div><div class="drivers">' + drivers.map(function (o) {
+        var x = o.x;
+        return '<article class="driver"><div class="num">' + (x[0] || "–") + '</div><h4>' + esc(x[1]) + '</h4><div class="meta">' + esc(F1NAT[x[1]] || "") + (x[4] && x[4] !== "Weltmeister" ? " · " + esc(x[4]) : "") +
+          '</div><p><b>WM-Platz ' + o.pos + ' · ' + x[3] + ' Punkte</b>' + (F1NOTE[x[1]] ? '<br>' + esc(F1NOTE[x[1]]) : "") + '</p></article>';
+      }).join("") + '</div>' +
+      '<div class="section-head"><h2>Saison 2026</h2><span class="eyebrow">nach Mexiko · Runde 19 von 22</span></div><ul class="hl">' + info.season.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' +
+      '<div class="section-head"><h2>Nächste Rennen</h2></div><ul class="mini">' + (nextRaces.length ? nextRaces.map(function (e) {
+        return '<li><time>' + esc(fmtDay.format(sStart(e.main)) + " " + fmtTime.format(sStart(e.main))) + '</time><span><a class="rowlink" href="#kalender">' + esc(e.title) + '</a></span></li>'; }).join("") : '<li><span>Saison beendet</span></li>') + '</ul>' +
+      '<div class="section-head"><h2>Geschichte</h2></div><p class="prose" style="margin:0">' + esc(info.history) + '</p>' +
+      '<p class="note">Offizielle Teamseite: <a href="' + info.link + '" target="_blank" rel="noopener">' + esc(info.link.replace(/^https:\/\//, "").replace(/\/.*$/, "")) + ' ↗</a></p>';
+  }
+
   var F1DRIVERS = [
     [12, "Kimi Antonelli", "mercedes", 380, "Weltmeister"],
     [3, "Max Verstappen", "redbull", 261],
@@ -1016,19 +1104,19 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
     document.getElementById("f1-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Fahrer</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
       F1DRIVERS.map(function (x, i) {
         var t = F1TEAMS[x[2]], pct = Math.max(2, Math.round(x[3] / lead * 100));
-        return '<tr class="tm-' + x[2] + (x[2] === "redbull" ? " fav" : "") + '"><td class="p">' + rk[i] + '</td><td class="n">' + (x[0] || "–") + '</td><td><b>' + esc(x[1]) + '</b>' +
+        return '<tr class="tm-' + x[2] + ' link' + (x[2] === "redbull" ? " fav" : "") + '" data-href="' + f1href(x[2]) + '"><td class="p">' + rk[i] + '</td><td class="n">' + (x[0] || "–") + '</td><td><b>' + esc(x[1]) + '</b>' +
           (x[4] === "Weltmeister" ? '<span class="champ">Weltmeister</span>' : x[4] ? ' <span class="muted">(' + esc(x[4]) + ')</span>' : "") +
-          '<br><span class="muted">' + esc(t.n) + '</span><span class="bar" style="width:' + pct + '%"></span></td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (i ? "−" + (lead - x[3]) : "–") + '</td></tr>';
+          '<br><a class="rowlink muted" style="font-weight:400" href="' + f1href(x[2]) + '">' + esc(t.n) + '</a><span class="bar" style="width:' + pct + '%"></span></td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (i ? "−" + (lead - x[3]) : "–") + '</td></tr>';
       }).join("") + '</tbody>';
     var cl = F1CONS[0][1];
     document.getElementById("f1-teams").innerHTML = '<thead><tr><th>Pos.</th><th>Team</th><th class="r">Punkte</th></tr></thead><tbody>' +
       F1CONS.map(function (x, i) {
-        return '<tr class="tm-' + x[0] + (x[0] === "redbull" ? " fav" : "") + '"><td class="p">' + (i + 1) + '</td><td><b>' + esc(F1TEAMS[x[0]].n) + '</b><span class="bar" style="width:' + Math.max(2, Math.round(x[1] / cl * 100)) + '%"></span></td><td class="r"><b>' + x[1] + '</b></td></tr>';
+        return '<tr class="tm-' + x[0] + ' link' + (x[0] === "redbull" ? " fav" : "") + '" data-href="' + f1href(x[0]) + '"><td class="p">' + (i + 1) + '</td><td><a class="rowlink" href="' + f1href(x[0]) + '">' + esc(F1TEAMS[x[0]].n) + ' →</a><span class="bar" style="width:' + Math.max(2, Math.round(x[1] / cl * 100)) + '%"></span></td><td class="r"><b>' + x[1] + '</b></td></tr>';
       }).join("") + '</tbody>';
     document.getElementById("f1-teamgrid").innerHTML = F1CONS.map(function (x) {
       var t = F1TEAMS[x[0]];
-      return '<article class="f1team tm-' + x[0] + '"><h4>' + esc(t.n) + '</h4><div class="meta">' + esc(t.base) + ' · Teamchef: ' + esc(t.tp) + '<br>Motor: ' + esc(t.pu) + '</div><ul>' +
-        t.d.map(function (d) { return '<li><b>' + d[0] + '</b>' + esc(d[1]) + '</li>'; }).join("") + '</ul></article>';
+      return '<a class="f1team tm-' + x[0] + '" href="' + f1href(x[0]) + '"><h4>' + esc(t.n) + ' →</h4><div class="meta">' + esc(t.base) + ' · Teamchef: ' + esc(t.tp) + '<br>Motor: ' + esc(t.pu) + '</div><ul>' +
+        t.d.map(function (d) { return '<li><b>' + d[0] + '</b>' + esc(d[1]) + '</li>'; }).join("") + '</ul></a>';
     }).join("");
 
     function pct(w, l, t) { var g = w + l + (t || 0); return g ? ((w + (t || 0) / 2) / g).toFixed(3).replace(/^0/, "") : ".000"; }
@@ -1078,13 +1166,16 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
   /* ---------- Routing ---------- */
   var VIEWS = ["start", "kalender", "broncos", "redbull", "toyota", "tabellen", "tv"];
   function route() {
-    var h = (location.hash || "#start").slice(1), wec = null;
+    var h = (location.hash || "#start").slice(1), wec = null, f1 = null;
     if (h.indexOf("wec-") === 0 && WECTEAMS[h.slice(4)]) { wec = h.slice(4); }
+    else if (h.indexOf("f1-") === 0 && F1INFO[h.slice(3)]) { f1 = h.slice(3); }
     else if (VIEWS.indexOf(h) < 0) h = "start";
-    VIEWS.forEach(function (v) { document.getElementById("v-" + v).hidden = wec ? true : v !== h; });
+    VIEWS.forEach(function (v) { document.getElementById("v-" + v).hidden = (wec || f1) ? true : v !== h; });
     document.getElementById("v-wecteam").hidden = !wec;
+    document.getElementById("v-f1team").hidden = !f1;
     if (wec) { renderWecTeam(wec); showSeg("wec"); }
-    var navKey = wec ? "tabellen" : h;
+    if (f1) { renderF1Team(f1); showSeg("f1"); }
+    var navKey = (wec || f1) ? "tabellen" : h;
     document.querySelectorAll("nav.tabs a").forEach(function (a) {
       if (a.getAttribute("href") === "#" + navKey) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });

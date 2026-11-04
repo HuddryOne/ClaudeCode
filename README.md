@@ -9,7 +9,7 @@ Persönliche Sport-Website für drei Teams:
 Dazu:
 
 - **Kalender** mit Filter pro Team, „nur Rennen & Spiele“, vergangene Termine und Export als `.ics` (für Google/Apple/Outlook-Kalender)
-- **Tabellen:** F1-Fahrer- und Konstrukteurswertung und alle 11 F1-Teams mit Teamchef, Motor und Fahrern, alle 32 NFL-Teams nach Conference und Division mit Bilanz, WEC-Rangliste der Hypercar-Autos, Herstellerwertung und Fahrerwertung. Ein Klick auf ein WEC-Auto öffnet die Teamseite mit Fahrzeug, Antrieb, Einsatzteam, Fahrern, Saison und Geschichte
+- **Tabellen:** F1-Fahrer- und Konstrukteurswertung und alle 11 F1-Teams mit Teamchef, Motor und Fahrern (ein Klick auf ein Team öffnet die Teamseite mit Auto, Titeln, Fahrern, WM-Stand, Saison, nächsten Rennen und Geschichte), alle 32 NFL-Teams nach Conference und Division mit Bilanz, WEC-Rangliste der Hypercar-Autos, Herstellerwertung und Fahrerwertung. Ein Klick auf ein WEC-Auto öffnet die Teamseite mit Fahrzeug, Antrieb, Einsatzteam, Fahrern, Saison und Geschichte
 - **Countdown** zum nächsten Event
 - **Wo schauen?** – Free-TV (ServusTV, ORF, RTL) und Bezahlangebote (WOW/Sky, DAZN Game Pass, Eurosport/HBO Max, FIAWEC+) in Österreich, pro Termin direkt angezeigt
 - Alle Zeiten automatisch in österreichischer Zeit (Europe/Vienna), helles und dunkles Design, handytauglich
