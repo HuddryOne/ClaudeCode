@@ -16,7 +16,11 @@ Dazu:
 
 ## Benutzen
 
-Einfach `index.html` im Browser öffnen – keine Installation nötig. Für eine Online-Version kann die Datei z. B. über GitHub Pages veröffentlicht werden.
+Online: **https://huddryone.github.io/ClaudeCode/**
+
+Der Workflow `.github/workflows/deploy-pages.yml` veröffentlicht die Seite bei jeder Änderung an `index.html` oder `data/` und nach jeder täglichen Datenaktualisierung. In den Repository-Einstellungen ist dafür unter *Pages* als Quelle „GitHub Actions“ eingestellt.
+
+Offline: `index.html` einfach im Browser öffnen, keine Installation nötig.
 
 ## Automatische Aktualisierung (alle 24 Stunden)
 
