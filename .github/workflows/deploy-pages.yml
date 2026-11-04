@@ -1,0 +1,47 @@
+name: Seite veröffentlichen (GitHub Pages)
+
+on:
+  push:
+    branches: [claude/sports-tracking-nfl-f1-wec-1ggpul]
+    paths: ["index.html", "data/**", ".github/workflows/deploy-pages.yml"]
+  # Commits des täglichen Workflows lösen kein "push"-Ereignis aus,
+  # deshalb wird nach jeder Datenaktualisierung zusätzlich veröffentlicht.
+  workflow_run:
+    workflows: ["Daten täglich aktualisieren"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/sports-tracking-nfl-f1-wec-1ggpul
+
+      - name: Dateien zusammenstellen
+        run: |
+          mkdir -p _site/data
+          cp index.html _site/
+          cp data/live.json _site/data/ 2>/dev/null || true
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
