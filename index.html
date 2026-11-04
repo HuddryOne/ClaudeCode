@@ -89,6 +89,7 @@ nav.tabs a:hover { color: #fff; }
 
 main .wrap { padding-block: 28px 56px; }
 section.view { display: grid; gap: 28px; }
+.view { grid-template-columns: minmax(0, 1fr); }
 .lede { max-width: 68ch; color: var(--muted); margin: 0; }
 .section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
 .section-head h2 { font-size: 30px; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; }
@@ -144,6 +145,18 @@ section.view { display: grid; gap: 28px; }
 .state { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); }
 .state.live { border-color: var(--live); color: var(--live); }
 .state.next { border-color: var(--team); color: var(--team); }
+.ha { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+.ha.home { background: var(--broncos); color: #fff; }
+.ha.away { border: 1px solid var(--broncos-2); color: var(--broncos-2); }
+.res { font-family: var(--mono); font-size: 12px; font-weight: 500; padding: 2px 7px; border-radius: 3px; white-space: nowrap; color: #fff; }
+.res.win { background: var(--live); }
+.res.loss { background: var(--toyota); }
+.res.tie { background: var(--muted); }
+.results td { vertical-align: middle; }
+.results .score { font-family: var(--mono); font-size: 15px; font-variant-numeric: tabular-nums; }
+.results .t { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+.results tr.win td:first-child { box-shadow: inset 4px 0 0 var(--live); }
+.results tr.loss td:first-child { box-shadow: inset 4px 0 0 var(--toyota); }
 .sessions { width: 100%; border-collapse: collapse; font-size: 14px; }
 .sessions td { padding: 5px 0; border-top: 1px dashed var(--line); vertical-align: top; }
 .sessions td:first-child { width: 42%; padding-right: 10px; }
@@ -257,6 +270,8 @@ a.f1team:hover h4 { color: var(--team); }
   .trio, .tvgrid, .two { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 560px) {
+  .results td:nth-child(2), .results th:nth-child(2), .results td .muted { display: none; }
+  .results td, .results th { padding: 8px 8px; }
   .divgrid { grid-template-columns: minmax(0, 1fr); }
   .next { grid-template-columns: minmax(0, 1fr); }
   .countdown div { min-width: 0; flex: 1; padding: 6px 4px; }
@@ -342,6 +357,8 @@ a.f1team:hover h4 { color: var(--team); }
         <table class="roster" id="roster"></table>
       </div>
       <p class="note">Die Depth Chart ändert sich laufend durch Verletzungen und Trades. Den vollständigen 53-Mann-Kader gibt es unter <a href="https://www.denverbroncos.com/team/players-roster/" target="_blank" rel="noopener">denverbroncos.com</a>.</p>
+      <div class="section-head"><h2>Ergebnisse 2026</h2><span class="eyebrow">Broncos-Punkte zuerst</span></div>
+      <div id="broncos-results" class="view" style="gap:12px"></div>
       <div class="section-head"><h2>Spielplan 2026</h2></div>
       <div id="team-cal-broncos" class="view" style="gap:10px"></div>
     </section>
@@ -548,7 +565,7 @@ a.f1team:hover h4 { color: var(--team); }
       round: "Woche " + g[0] + (g[7] ? " · Datum vorläufig" : ""),
       venue: g[4],
       note: (g[8] ? "Ergebnis: " + g[8] + (g[5] ? " · " : "") : "") + (g[5] ? "US-Übertragung: " + g[5] : ""),
-      tv: tv,
+      tv: tv, home: !!g[2], opp: g[3], week: g[0], result: g[8] || "",
       sessions: [{ name: "Kickoff", start: g[1], main: true, dateOnly: !!g[6], tbd: !!g[7] }]
     });
   });
@@ -712,6 +729,11 @@ a.f1team:hover h4 { color: var(--team); }
     var live = !past && e.sessions.some(function (s) { return !s.dateOnly && sStart(s) <= now && sEnd(s) > now; });
     var nextMain = opts.nextId === e;
     var stateHtml = live ? '<span class="state live">Läuft</span>' : past ? '<span class="state">Vorbei</span>' : nextMain ? '<span class="state next">Als Nächstes</span>' : "";
+    if (e.series === "NFL" && !e.bye) {
+      stateHtml = haBadge(e.home) + stateHtml;
+      var r = parseResult(e.result);
+      if (r) stateHtml += '<span class="res ' + r.cls + '">' + r.short + ' ' + esc(r.score) + '</span>';
+    }
     var sessions = e.sessions.filter(function (s) { return !opts.mainOnly || s.main; });
     var rows = sessions.map(function (s) {
       var done = sEnd(s) < now;
@@ -748,6 +770,37 @@ a.f1team:hover h4 { color: var(--team); }
       return '<div class="month"><h3>' + esc(g.key) + '</h3>' + g.items.map(function (e) { return eventCard(e, now, { mainOnly: state.mainOnly, nextId: nxt }); }).join("") + '</div>';
     }).join("");
   }
+  function haBadge(home) { return home ? '<span class="ha home">⌂ Heimspiel</span>' : '<span class="ha away">✈ Auswärts</span>'; }
+  function parseResult(t) {
+    var m = /^(Sieg|Niederlage|Unentschieden)\s+(\d+):(\d+)/.exec(t || "");
+    if (!m) return null;
+    return { cls: m[1] === "Sieg" ? "win" : m[1] === "Niederlage" ? "loss" : "tie", short: m[1] === "Sieg" ? "S" : m[1] === "Niederlage" ? "N" : "U",
+             word: m[1], us: +m[2], them: +m[3], score: m[2] + ":" + m[3] };
+  }
+  function renderResults() {
+    var games = EVENTS.filter(function (e) { return e.series === "NFL" && !e.bye; });
+    var played = games.filter(function (e) { return parseResult(e.result); });
+    var el = document.getElementById("broncos-results");
+    if (!played.length) { el.innerHTML = '<div class="empty">Noch keine Ergebnisse geladen. Sie erscheinen nach der nächsten automatischen Aktualisierung.</div>'; return; }
+    function rec(list) { var w = 0, l = 0, t = 0; list.forEach(function (e) { var r = parseResult(e.result); if (r.cls === "win") w++; else if (r.cls === "loss") l++; else t++; }); return w + "–" + l + (t ? "–" + t : ""); }
+    var home = played.filter(function (e) { return e.home; }), away = played.filter(function (e) { return !e.home; });
+    var pf = 0, pa = 0; played.forEach(function (e) { var r = parseResult(e.result); pf += r.us; pa += r.them; });
+    var w = 0, l = 0, t = 0;
+    var rows = played.map(function (e) {
+      var r = parseResult(e.result);
+      if (r.cls === "win") w++; else if (r.cls === "loss") l++; else t++;
+      return '<tr class="' + r.cls + '"><td class="r">' + e.week + '</td><td class="t">' + esc(fmtDay.format(sStart(e.main))) + '</td><td>' + haBadge(e.home) + '</td>' +
+        '<td><b>' + (e.home ? "vs. " : "@ ") + esc(e.opp) + '</b><br><span class="muted">' + esc(e.venue) + '</span></td>' +
+        '<td><span class="res ' + r.cls + '">' + r.short + '</span> <b class="score">' + r.us + ':' + r.them + '</b></td><td class="r muted">' + w + "–" + l + (t ? "–" + t : "") + '</td></tr>';
+    }).join("");
+    el.innerHTML = '<dl class="facts">' +
+      '<div><dt>Bilanz gesamt</dt><dd>' + rec(played) + '</dd></div>' +
+      '<div><dt>Heimspiele</dt><dd>' + (home.length ? rec(home) : "–") + '</dd></div>' +
+      '<div><dt>Auswärtsspiele</dt><dd>' + (away.length ? rec(away) : "–") + '</dd></div>' +
+      '<div><dt>Punkte für : gegen</dt><dd>' + pf + ' : ' + pa + ' (' + (pf - pa >= 0 ? "+" : "") + (pf - pa) + ')</dd></div></dl>' +
+      '<div class="tablewrap"><table class="stand results"><thead><tr><th class="r">Wo.</th><th>Datum</th><th>Ort</th><th>Gegner</th><th>Ergebnis</th><th class="r">Bilanz</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+  }
+
   function renderTeamCal(team) {
     var now = new Date(), nxt = nextEvent(now);
     document.getElementById("team-cal-" + team).innerHTML = EVENTS.filter(function (e) { return e.team === team; })
@@ -1227,7 +1280,7 @@ a.f1team:hover h4 { color: var(--team); }
     });
     renderAll();
   }
-  function renderAll() { renderTrio(); renderCal(); ["broncos", "redbull", "toyota"].forEach(renderTeamCal); }
+  function renderAll() { renderTrio(); renderCal(); renderResults(); ["broncos", "redbull", "toyota"].forEach(renderTeamCal); }
   window.addEventListener("hashchange", function () { route(); window.scrollTo(0, 0); });
   route();
   renderNext();
