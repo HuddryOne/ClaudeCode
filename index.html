@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Broncos, Bulls &amp; Toyota</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: eine Zeitmonitor-Leiste oben (nächstes Event + Countdown), darunter Tabs; Kalender als Zeitplan-Tafel wie an der Boxenmauer. */
+:root {
+  --bg: #f3f4f7;
+  --surface: #ffffff;
+  --ink: #141823;
+  --muted: #5b6273;
+  --line: #dde0e8;
+  --chip: #eceef3;
+  --broncos: #e2430f;
+  --broncos-2: #0b2347;
+  --redbull: #1b3aa8;
+  --redbull-2: #d4183f;
+  --toyota: #d00a1c;
+  --toyota-2: #22252c;
+  --live: #0f8a4a;
+  --board: #10141d;
+  --board-ink: #f2f4f8;
+  --board-muted: #9aa3b5;
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1017; --surface: #161a24; --ink: #e9ecf3; --muted: #9aa2b4; --line: #272d3b; --chip: #212736;
+    --broncos: #ff6a33; --broncos-2: #8fb0e6; --redbull: #6d8cff; --redbull-2: #ff5577; --toyota: #ff4a55; --toyota-2: #c9ced8;
+    --live: #3ddc84; --board: #06080c; --board-ink: #f2f4f8; --board-muted: #8a93a6;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1017; --surface: #161a24; --ink: #e9ecf3; --muted: #9aa2b4; --line: #272d3b; --chip: #212736;
+  --broncos: #ff6a33; --broncos-2: #8fb0e6; --redbull: #6d8cff; --redbull-2: #ff5577; --toyota: #ff4a55; --toyota-2: #c9ced8;
+  --live: #3ddc84; --board: #06080c; --board-ink: #f2f4f8; --board-muted: #8a93a6;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.55 var(--body);
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--board); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--redbull); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.05; }
+
+/* Kopf / Zeitmonitor */
+.board { background: var(--board); color: var(--board-ink); }
+.board .wrap { padding-block: 20px 0; display: grid; gap: 18px; }
+.brand { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+.brand h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: .01em; text-transform: uppercase; }
+.brand h1 span { display: inline-block; }
+.brand .b1 { color: #ff6a33; } .brand .b2 { color: #6d8cff; } .brand .b3 { color: #ff4a55; }
+.brand .sep { color: var(--board-muted); font-weight: 500; padding: 0 .15em; }
+.clock { font-family: var(--mono); font-size: 13px; color: var(--board-muted); }
+.next {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 24px; align-items: end;
+  border-top: 1px solid #2a3142; padding-block: 16px;
+}
+.next .label { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--board-muted); }
+.next .what { font-family: var(--display); font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; line-height: 1.1; margin-top: 4px; }
+.next .when { color: var(--board-muted); font-size: 14px; margin-top: 2px; }
+.countdown { display: flex; gap: 6px; font-family: var(--mono); }
+.countdown div { background: #1d2331; border-radius: 4px; padding: 6px 10px; text-align: center; min-width: 58px; }
+.countdown b { display: block; font-size: 24px; font-weight: 500; font-variant-numeric: tabular-nums; color: #fff; }
+.countdown small { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--board-muted); }
+nav.tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+nav.tabs a {
+  font-family: var(--display); font-weight: 600; font-size: 18px; letter-spacing: .04em; text-transform: uppercase;
+  text-decoration: none; color: var(--board-muted); padding: 10px 14px 12px; border-bottom: 3px solid transparent; white-space: nowrap;
+}
+nav.tabs a[aria-current="page"] { color: #fff; border-bottom-color: #ff6a33; }
+nav.tabs a:hover { color: #fff; }
+
+main .wrap { padding-block: 28px 56px; }
+section.view { display: grid; gap: 28px; }
+.lede { max-width: 68ch; color: var(--muted); margin: 0; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.section-head h2 { font-size: 30px; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; }
+.eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* Team-Kennung */
+.t-broncos { --team: var(--broncos); --team-2: var(--broncos-2); }
+.t-redbull { --team: var(--redbull); --team-2: var(--redbull-2); }
+.t-toyota  { --team: var(--toyota);  --team-2: var(--toyota-2); }
+.tag {
+  display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--chip); color: var(--ink); white-space: nowrap;
+}
+.tag::before { content: ""; width: 8px; height: 8px; border-radius: 1px; background: var(--team, var(--muted)); }
+
+/* Übersicht: drei Teamspalten */
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.teamcard { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--team); border-radius: 6px; padding: 18px; display: grid; gap: 12px; align-content: start; }
+.teamcard h3 { font-size: 26px; font-weight: 700; text-transform: uppercase; }
+.teamcard .series { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--team); }
+.teamcard .status { margin: 0; color: var(--muted); font-size: 14px; }
+.mini { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.mini li { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 10px; font-size: 14px; align-items: baseline; }
+.mini time { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.mini .past { opacity: .55; }
+.teamcard .go { font-size: 14px; font-weight: 600; color: var(--team); text-decoration: none; }
+.teamcard .go:hover { text-decoration: underline; }
+
+/* Kalender */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.fbtn {
+  font: 500 13px var(--body); border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  padding: 6px 12px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+}
+.fbtn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.fbtn .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--team, var(--muted)); }
+.fbtn.action { border-style: dashed; }
+.spacer { flex: 1; }
+.month { display: grid; gap: 10px; }
+.month h3 { font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+.event {
+  background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--team); border-radius: 4px;
+  display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 0 18px; padding: 14px 16px;
+}
+.event.is-past { opacity: .62; }
+.event .date { font-family: var(--display); line-height: 1; }
+.event .date .d { font-size: 34px; font-weight: 700; }
+.event .date .m { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); display: block; margin-top: 4px; }
+.event .body { min-width: 0; display: grid; gap: 8px; }
+.event .top { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.event h4 { margin: 0; font-family: var(--display); font-size: 22px; font-weight: 700; line-height: 1.1; }
+.event .venue { font-size: 13px; color: var(--muted); }
+.state { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); }
+.state.live { border-color: var(--live); color: var(--live); }
+.state.next { border-color: var(--team); color: var(--team); }
+.sessions { width: 100%; border-collapse: collapse; font-size: 14px; }
+.sessions td { padding: 5px 0; border-top: 1px dashed var(--line); vertical-align: top; }
+.sessions td:first-child { width: 42%; padding-right: 10px; }
+.sessions .t { font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sessions tr.main td:first-child { font-weight: 600; }
+.sessions tr.done { color: var(--muted); }
+.tvline { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; }
+.tv { padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: 600; border: 1px solid var(--line); }
+.tv.free { background: color-mix(in srgb, var(--live) 14%, transparent); border-color: color-mix(in srgb, var(--live) 45%, transparent); }
+.tv.pay { background: var(--chip); }
+.note { font-size: 13px; color: var(--muted); margin: 0; }
+.empty { padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 6px; }
+
+/* Teamseiten */
+.teamhead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: end; border-bottom: 3px solid var(--team); padding-bottom: 14px; }
+.teamhead h2 { font-size: clamp(34px, 6vw, 52px); font-weight: 800; text-transform: uppercase; }
+.teamhead .sub { color: var(--muted); margin-top: 6px; }
+.subnav { display: flex; flex-wrap: wrap; gap: 8px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.facts div { background: var(--surface); padding: 12px 14px; min-width: 0; }
+.facts dt { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-weight: 600; }
+.drivers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.driver { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; align-items: start; }
+.driver .num { font-family: var(--display); font-size: 54px; font-weight: 800; line-height: .9; color: var(--team); grid-row: span 3; min-width: 1.3em; }
+.driver h4 { margin: 0; font-family: var(--display); font-size: 24px; font-weight: 700; }
+.driver .meta { font-size: 13px; color: var(--muted); }
+.driver p { margin: 4px 0 0; font-size: 14px; grid-column: 2; }
+.car-label { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--team); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table.roster { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px; }
+.roster th { text-align: left; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.roster td { padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.roster tr:last-child td { border-bottom: 0; }
+.roster td.pos { font-family: var(--mono); font-size: 12px; color: var(--team); font-weight: 500; white-space: nowrap; }
+.roster .grp td { background: var(--chip); font-family: var(--display); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .06em; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+.prose { max-width: 68ch; }
+.prose p { margin: 0 0 10px; }
+
+/* TV */
+.tvgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tvcard { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--team); border-radius: 6px; padding: 18px; display: grid; gap: 14px; align-content: start; }
+.tvcard h3 { font-size: 24px; text-transform: uppercase; }
+.provider { display: grid; gap: 2px; padding-top: 10px; border-top: 1px dashed var(--line); }
+.provider .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.provider b { font-size: 15px; }
+.provider p { margin: 0; font-size: 14px; color: var(--muted); }
+.provider a { font-size: 13px; }
+.badge { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; }
+.badge.free { color: var(--live); border: 1px solid var(--live); }
+.badge.pay { color: var(--muted); border: 1px solid var(--muted); }
+.callout { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 14px; color: var(--muted); max-width: 80ch; }
+.callout b { color: var(--ink); }
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); display: grid; gap: 6px; }
+
+@media (max-width: 860px) {
+  .trio, .tvgrid, .two { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .next { grid-template-columns: minmax(0, 1fr); }
+  .countdown div { min-width: 0; flex: 1; padding: 6px 4px; }
+  .event { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .event .date { display: flex; gap: 8px; align-items: baseline; }
+  .event .date .d { font-size: 26px; }
+  .event .date .m { margin: 0; }
+  .teamhead { grid-template-columns: minmax(0, 1fr); }
+  .sessions td:first-child { width: 50%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .event, .teamcard { transition: transform .15s ease; }
+}
+</style>
+</head>
+<body>
+
+<header class="board">
+  <div class="wrap">
+    <div class="brand">
+      <h1><span class="b1">Broncos</span><span class="sep">·</span><span class="b2">Red Bull</span><span class="sep">·</span><span class="b3">Toyota</span></h1>
+      <div class="clock" id="clock">Zeit in Wien</div>
+    </div>
+    <div class="next" id="next" aria-live="polite"></div>
+    <nav class="tabs" aria-label="Bereiche">
+      <a href="#start">Übersicht</a>
+      <a href="#kalender">Kalender</a>
+      <a href="#broncos">Broncos</a>
+      <a href="#redbull">Red Bull</a>
+      <a href="#toyota">Toyota</a>
+      <a href="#tv">Wo schauen?</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ÜBERSICHT -->
+    <section class="view" id="v-start">
+      <p class="lede">Alle Termine der Denver Broncos (NFL), von Oracle Red Bull Racing (Formel 1) und Toyota Racing (WEC) an einem Ort. Alle Zeiten werden automatisch in österreichischer Zeit (Europe/Vienna) angezeigt.</p>
+      <div class="trio" id="trio"></div>
+    </section>
+
+    <!-- KALENDER -->
+    <section class="view" id="v-kalender" hidden>
+      <div class="section-head">
+        <h2>Kalender</h2>
+        <span class="eyebrow">Zeiten in MEZ/MESZ · Wien</span>
+      </div>
+      <div class="filters" role="group" aria-label="Filter">
+        <button class="fbtn t-broncos" id="f-broncos" data-team="broncos" aria-pressed="true"><span class="dot"></span>Broncos</button>
+        <button class="fbtn t-redbull" id="f-redbull" data-team="redbull" aria-pressed="true"><span class="dot"></span>Red Bull</button>
+        <button class="fbtn t-toyota" id="f-toyota" data-team="toyota" aria-pressed="true"><span class="dot"></span>Toyota</button>
+        <span class="spacer"></span>
+        <button class="fbtn" id="f-main" aria-pressed="false">Nur Rennen &amp; Spiele</button>
+        <button class="fbtn" id="f-past" aria-pressed="false">Vergangene zeigen</button>
+        <button class="fbtn action" id="ics">Kalenderdatei (.ics)</button>
+      </div>
+      <div id="cal" class="view" style="gap:24px"></div>
+    </section>
+
+    <!-- BRONCOS -->
+    <section class="view t-broncos" id="v-broncos" hidden>
+      <div class="teamhead">
+        <div>
+          <div class="eyebrow">NFL · AFC West</div>
+          <h2>Denver Broncos</h2>
+          <div class="sub">Saison 2026 · Heimstadion Empower Field at Mile High, Denver (Colorado)</div>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Head Coach</dt><dd>Sean Payton</dd></div>
+        <div><dt>General Manager</dt><dd>George Paton</dd></div>
+        <div><dt>Eigentümer</dt><dd>Walton-Penner-Gruppe</dd></div>
+        <div><dt>Super-Bowl-Siege</dt><dd>3 (XXXII, XXXIII, 50)</dd></div>
+        <div><dt>Gegründet</dt><dd>1960</dd></div>
+        <div><dt>Vorsaison 2025</dt><dd>14–3, Sieger AFC West</dd></div>
+      </dl>
+      <div class="section-head"><h2>Kader · Stammformation</h2><span class="eyebrow">Stand Depth Chart Okt./Nov. 2026</span></div>
+      <div class="tablewrap">
+        <table class="roster" id="roster"></table>
+      </div>
+      <p class="note">Die Depth Chart ändert sich laufend durch Verletzungen und Trades. Den vollständigen 53-Mann-Kader gibt es unter <a href="https://www.denverbroncos.com/team/players-roster/" target="_blank" rel="noopener">denverbroncos.com</a>.</p>
+      <div class="section-head"><h2>Spielplan 2026</h2></div>
+      <div id="team-cal-broncos" class="view" style="gap:10px"></div>
+    </section>
+
+    <!-- RED BULL -->
+    <section class="view t-redbull" id="v-redbull" hidden>
+      <div class="teamhead">
+        <div>
+          <div class="eyebrow">Formel 1 · Weltmeisterschaft 2026</div>
+          <h2>Oracle Red Bull Racing</h2>
+          <div class="sub">Fabrik in Milton Keynes (England) · Team mit österreichischer Lizenz</div>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Teamchef</dt><dd>Laurent Mekies</dd></div>
+        <div><dt>Auto 2026</dt><dd>Red Bull RB22</dd></div>
+        <div><dt>Motor</dt><dd>Red Bull Ford Powertrains (eigener Antrieb, neu ab 2026)</dd></div>
+        <div><dt>Konstrukteurs-Titel</dt><dd>6 (2010–2013, 2022, 2023)</dd></div>
+        <div><dt>Fahrer-Titel</dt><dd>8 (Vettel 4, Verstappen 4)</dd></div>
+        <div><dt>Schwesterteam</dt><dd>Racing Bulls (Faenza)</dd></div>
+      </dl>
+      <div class="section-head"><h2>Fahrer</h2></div>
+      <div class="drivers">
+        <article class="driver"><div class="num">3</div><h4>Max Verstappen</h4><div class="meta">Niederlande · geb. 30.09.1997</div><p>Vierfacher Weltmeister (2021–2024). Fährt seit 2026 mit der Startnummer 3 statt der 1.</p></article>
+        <article class="driver"><div class="num">6</div><h4>Isack Hadjar</h4><div class="meta">Frankreich · geb. 28.09.2004</div><p>Aufstieg von den Racing Bulls nach starker Rookie-Saison 2025 mit Podium in Zandvoort.</p></article>
+        <article class="driver"><div class="num">R</div><h4>Yuki Tsunoda</h4><div class="meta">Japan · Ersatzfahrer</div><p>Test- und Ersatzfahrer für Red Bull Racing und Racing Bulls in der Saison 2026.</p></article>
+      </div>
+      <div class="section-head"><h2>Restliche Rennen 2026</h2><span class="eyebrow">mit Trainings &amp; Qualifying</span></div>
+      <div id="team-cal-redbull" class="view" style="gap:10px"></div>
+    </section>
+
+    <!-- TOYOTA -->
+    <section class="view t-toyota" id="v-toyota" hidden>
+      <div class="teamhead">
+        <div>
+          <div class="eyebrow">FIA WEC · Klasse Hypercar</div>
+          <h2>Toyota Racing</h2>
+          <div class="sub">Ehemals Toyota Gazoo Racing · Einsatzbasis in Köln</div>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Auto</dt><dd>Toyota TR010 Hybrid (Nachfolger des GR010)</dd></div>
+        <div><dt>Startnummern</dt><dd>#7 und #8</dd></div>
+        <div><dt>Teamchef</dt><dd>Kamui Kobayashi (auch Fahrer #7)</dd></div>
+        <div><dt>Saison 2026</dt><dd>Herstellertitel gesichert (Barcelona)</dd></div>
+        <div><dt>Le-Mans-Siege</dt><dd>6 (2018–2022, 2026)</dd></div>
+        <div><dt>Hersteller-WM-Titel</dt><dd>8</dd></div>
+      </dl>
+      <div class="callout"><b>Showdown in Monza:</b> Der Fahrertitel 2026 wird beim Finale am 8. November zwischen den beiden Toyota-Crews entschieden. Die #8 hat Fuji und Barcelona gewonnen und führt die Wertung an, die #7 gewann die 24 Stunden von Le Mans.</div>
+      <div class="section-head"><h2>Fahrer</h2></div>
+      <div class="two">
+        <div class="view" style="gap:12px">
+          <div class="car-label">Auto #7 · TR010 Hybrid</div>
+          <article class="driver"><div class="num">7</div><h4>Mike Conway</h4><div class="meta">Großbritannien</div><p>Weltmeister 2021, Le-Mans-Sieger 2021.</p></article>
+          <article class="driver"><div class="num">7</div><h4>Kamui Kobayashi</h4><div class="meta">Japan</div><p>Weltmeister 2021, früherer F1-Pilot, zugleich Teamchef.</p></article>
+          <article class="driver"><div class="num">7</div><h4>Nyck de Vries</h4><div class="meta">Niederlande</div><p>Formel-E-Weltmeister 2020/21, früherer F1-Pilot.</p></article>
+        </div>
+        <div class="view" style="gap:12px">
+          <div class="car-label">Auto #8 · TR010 Hybrid</div>
+          <article class="driver"><div class="num">8</div><h4>Sébastien Buemi</h4><div class="meta">Schweiz</div><p>Vierfacher Weltmeister, vierfacher Le-Mans-Sieger.</p></article>
+          <article class="driver"><div class="num">8</div><h4>Brendon Hartley</h4><div class="meta">Neuseeland</div><p>Dreifacher Weltmeister, dreifacher Le-Mans-Sieger.</p></article>
+          <article class="driver"><div class="num">8</div><h4>Ryō Hirakawa</h4><div class="meta">Japan</div><p>Weltmeister 2022, Le-Mans-Sieger 2022.</p></article>
+        </div>
+      </div>
+      <div class="section-head"><h2>WEC-Kalender 2026</h2></div>
+      <div id="team-cal-toyota" class="view" style="gap:10px"></div>
+    </section>
+
+    <!-- TV -->
+    <section class="view" id="v-tv" hidden>
+      <div class="section-head"><h2>Wo kann ich das in Österreich schauen?</h2></div>
+      <p class="lede">Übersicht über Free-TV und Bezahlangebote in Österreich, Stand November 2026. Senderzuteilungen einzelner Rennen und Spiele können sich kurzfristig ändern, daher vor dem Event kurz im Programm nachsehen.</p>
+      <div class="tvgrid" id="tvgrid"></div>
+      <div class="callout"><b>Tipp:</b> Die Streams von ServusTV und ORF ON sind auf Österreich beschränkt (Geoblocking). Im Ausland funktionieren sie nur mit österreichischer IP-Adresse. Die Bezahldienste DAZN, WOW und FIAWEC+ funktionieren innerhalb der EU auch auf Reisen.</div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Datenstand: 4. November 2026. Termine laut NFL, FIA, F1 und FIA WEC; „TBD“ = Anstoßzeit noch nicht festgelegt. Alle Angaben ohne Gewähr.</div>
+    <div>Inoffizielle Fan-Seite, keine Verbindung zu den genannten Teams, Ligen oder Sendern.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var TZ = "Europe/Vienna";
+
+  /* ---------- Sender ---------- */
+  var TV = {
+    servus:  { n: "ServusTV / ServusTV On", free: true },
+    orf:     { n: "ORF 1 / ORF ON", free: true },
+    servusorf: { n: "ServusTV oder ORF 1", free: true },
+    orfsport:{ n: "ORF Sport+ / ORF ON", free: true },
+    sky:     { n: "Sky Sport F1 (WOW / Sky Österreich)", free: false },
+    skynfl:  { n: "Sky Sport NFL (WOW / Sky Österreich)", free: false },
+    rtl:     { n: "RTL / RTL+ (falls ausgewählt)", free: true },
+    gamepass:{ n: "NFL Game Pass auf DAZN", free: false },
+    netflix: { n: "Netflix", free: false },
+    eurosport:{ n: "Eurosport / HBO Max", free: false },
+    wecplus: { n: "FIAWEC+ App", free: false }
+  };
+
+  /* ---------- Termine (Zeiten in UTC) ---------- */
+  var EVENTS = [];
+  function ev(o) { EVENTS.push(o); }
+
+  // NFL – Denver Broncos 2026 (Kickoff in UTC; dateOnly = Uhrzeit nicht hinterlegt)
+  var nfl = [
+    // wk, iso, home?, opponent, venue, us-tv, dateOnly, tbd
+    [1, "2026-09-15T00:15:00Z", false, "Kansas City Chiefs", "GEHA Field at Arrowhead Stadium, Kansas City", "Monday Night Football (ESPN)"],
+    [2, "2026-09-20", true, "Jacksonville Jaguars", "Empower Field at Mile High, Denver", "", true],
+    [3, "2026-09-28T00:20:00Z", true, "Los Angeles Rams", "Empower Field at Mile High, Denver", "Sunday Night Football (NBC)"],
+    [4, "2026-10-04T20:25:00Z", false, "San Francisco 49ers", "Levi's Stadium, Santa Clara", "CBS"],
+    [5, "2026-10-11", false, "Los Angeles Chargers", "SoFi Stadium, Inglewood", "", true],
+    [6, "2026-10-16T00:15:00Z", true, "Seattle Seahawks", "Empower Field at Mile High, Denver", "Thursday Night Football (Prime Video)"],
+    [7, "2026-10-25T20:05:00Z", false, "Arizona Cardinals", "State Farm Stadium, Glendale", "CBS"],
+    [8, "2026-11-01T21:25:00Z", true, "Kansas City Chiefs", "Empower Field at Mile High, Denver", "CBS"],
+    [9, "2026-11-08T18:00:00Z", false, "Carolina Panthers", "Bank of America Stadium, Charlotte", "CBS"],
+    [11, "2026-11-22T21:25:00Z", true, "Las Vegas Raiders", "Empower Field at Mile High, Denver", "CBS"],
+    [12, "2026-11-27T20:00:00Z", false, "Pittsburgh Steelers", "Acrisure Stadium, Pittsburgh", "Black Friday (Prime Video)"],
+    [13, "2026-12-06T21:05:00Z", true, "Miami Dolphins", "Empower Field at Mile High, Denver", "CBS"],
+    [14, "2026-12-13T18:00:00Z", false, "New York Jets", "MetLife Stadium, East Rutherford", "CBS"],
+    [15, "2026-12-20T21:25:00Z", false, "Las Vegas Raiders", "Allegiant Stadium, Las Vegas", "CBS"],
+    [16, "2026-12-25T21:30:00Z", true, "Buffalo Bills", "Empower Field at Mile High, Denver", "Christmas Day (Netflix)"],
+    [17, "2027-01-03", false, "New England Patriots", "Gillette Stadium, Foxborough", "", true, true],
+    [18, "2027-01-10", true, "Los Angeles Chargers", "Empower Field at Mile High, Denver", "", true, true]
+  ];
+  nfl.forEach(function (g) {
+    var tv = ["gamepass", "skynfl", "rtl"];
+    if (/Netflix/.test(g[5])) tv = ["netflix", "gamepass", "rtl"];
+    ev({
+      team: "broncos", series: "NFL",
+      title: (g[2] ? "Broncos vs. " : "Broncos @ ") + g[3],
+      round: "Woche " + g[0] + (g[0] >= 17 ? " · Datum vorläufig" : ""),
+      venue: g[4],
+      note: g[5] ? "US-Übertragung: " + g[5] : "",
+      tv: tv,
+      sessions: [{ name: "Kickoff", start: g[1], main: true, dateOnly: !!g[6], tbd: !!g[7] }]
+    });
+  });
+  ev({ team: "broncos", series: "NFL", title: "Bye Week (spielfrei)", round: "Woche 10", venue: "", tv: [], bye: true,
+       sessions: [{ name: "Kein Spiel", start: "2026-11-15", dateOnly: true, main: true }] });
+
+  // Formel 1 – restliche Rennen 2026 (Sessionzeiten in UTC)
+  ev({ team: "redbull", series: "F1", title: "Großer Preis von Las Vegas", round: "Formel 1 · Las Vegas Strip Circuit", venue: "Las Vegas, USA · Nachtrennen am Samstag (Ortszeit)",
+       tv: ["servusorf", "sky"], note: "Zeitverschiebung: Alles läuft in der Nacht bzw. am frühen Morgen österreichischer Zeit.",
+       sessions: [
+         { name: "1. Freies Training", start: "2026-11-20T00:30:00Z", dur: 60 },
+         { name: "2. Freies Training", start: "2026-11-20T04:00:00Z", dur: 60 },
+         { name: "3. Freies Training", start: "2026-11-21T00:30:00Z", dur: 60 },
+         { name: "Qualifying", start: "2026-11-21T04:00:00Z", dur: 60, quali: true },
+         { name: "Rennen (50 Runden)", start: "2026-11-22T04:00:00Z", dur: 120, main: true } ] });
+  ev({ team: "redbull", series: "F1", title: "Großer Preis von Katar", round: "Formel 1 · Lusail International Circuit", venue: "Lusail, Katar",
+       tv: ["servusorf", "sky"],
+       sessions: [
+         { name: "1. Freies Training", start: "2026-11-27T13:30:00Z", dur: 60 },
+         { name: "2. Freies Training", start: "2026-11-27T17:00:00Z", dur: 60 },
+         { name: "3. Freies Training", start: "2026-11-28T14:30:00Z", dur: 60 },
+         { name: "Qualifying", start: "2026-11-28T18:00:00Z", dur: 60, quali: true },
+         { name: "Rennen", start: "2026-11-29T16:00:00Z", dur: 120, main: true } ] });
+  ev({ team: "redbull", series: "F1", title: "Großer Preis von Abu Dhabi", round: "Formel 1 · Saisonfinale · Yas Marina Circuit", venue: "Abu Dhabi, VAE",
+       tv: ["orf", "sky"],
+       sessions: [
+         { name: "1. Freies Training", start: "2026-12-04T09:30:00Z", dur: 60 },
+         { name: "2. Freies Training", start: "2026-12-04T13:00:00Z", dur: 60 },
+         { name: "3. Freies Training", start: "2026-12-05T10:30:00Z", dur: 60 },
+         { name: "Qualifying", start: "2026-12-05T14:00:00Z", dur: 60, quali: true },
+         { name: "Rennen", start: "2026-12-06T13:00:00Z", dur: 120, main: true } ] });
+
+  // WEC – Toyota Racing 2026
+  var wecPast = [
+    ["6 Stunden von Imola", "Autodromo Enzo e Dino Ferrari, Italien", "2026-04-19"],
+    ["6 Stunden von Spa-Francorchamps", "Circuit de Spa-Francorchamps, Belgien", "2026-05-09"],
+    ["24 Stunden von Le Mans", "Circuit de la Sarthe, Frankreich", "2026-06-13", "Sieg Toyota #7 (Conway / Kobayashi / de Vries)"],
+    ["6 Stunden von São Paulo", "Autódromo José Carlos Pace (Interlagos), Brasilien", "2026-07-12"],
+    ["Lone Star Le Mans", "Circuit of the Americas, Austin, USA", "2026-09-06"],
+    ["6 Stunden von Fuji", "Fuji Speedway, Japan", "2026-09-27", "Sieg Toyota #8 (Buemi / Hartley / Hirakawa)"],
+    ["6 Stunden von Barcelona", "Circuit de Barcelona-Catalunya, Spanien", "2026-10-18", "Doppelsieg Toyota, #8 vor #7 · Herstellertitel gesichert"]
+  ];
+  wecPast.forEach(function (r, i) {
+    ev({ team: "toyota", series: "WEC", title: r[0], round: "WEC · Lauf " + (i + 1), venue: r[1], note: r[3] || "",
+         tv: ["orfsport", "eurosport", "wecplus"], sessions: [{ name: "Rennen", start: r[2], dateOnly: true, main: true }] });
+  });
+  ev({ team: "toyota", series: "WEC", title: "6 Stunden von Monza", round: "WEC · Lauf 8 · Saisonfinale", venue: "Autodromo Nazionale Monza, Italien",
+       note: "Ersatz für das abgesagte Rennen in Bahrain. Hier fällt die Entscheidung um den Fahrertitel (#7 gegen #8).",
+       tv: ["orfsport", "eurosport", "wecplus"],
+       sessions: [
+         { name: "1. Freies Training", start: "2026-11-06T09:30:00Z", dur: 90 },
+         { name: "2. Freies Training", start: "2026-11-06T13:30:00Z", dur: 90 },
+         { name: "3. Freies Training", start: "2026-11-07T09:30:00Z", dur: 60 },
+         { name: "Qualifying Hypercar", start: "2026-11-07T14:00:00Z", dur: 12, quali: true },
+         { name: "Hyperpole Hypercar", start: "2026-11-07T14:20:00Z", dur: 10, quali: true },
+         { name: "Rennen (6 Stunden)", start: "2026-11-08T10:00:00Z", dur: 360, main: true } ] });
+
+  /* ---------- Zeit-Helfer ---------- */
+  function d(s) { return new Date(s.length === 10 ? s + "T12:00:00Z" : s); }
+  var fmtDay = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, weekday: "short", day: "2-digit", month: "2-digit" });
+  var fmtTime = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, hour: "2-digit", minute: "2-digit" });
+  var fmtDayNum = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, day: "numeric" });
+  var fmtMonOnly = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, month: "short" });
+  var fmtWd = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, weekday: "short" });
+  function fmtMonFn(x) { return fmtWd.format(x).replace(".", "") + " · " + fmtMonOnly.format(x).replace(".", ""); }
+  var fmtMonth = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, month: "long", year: "numeric" });
+  var fmtLong = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+  var fmtLongDate = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, weekday: "long", day: "numeric", month: "long" });
+  var fmtClock = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+  function sStart(s) { return d(s.start); }
+  function sEnd(s) {
+    if (s.dateOnly) { var e = d(s.start); return new Date(e.getTime() + 12 * 3600e3); }
+    return new Date(sStart(s).getTime() + (s.dur || 210) * 60e3);
+  }
+  EVENTS.forEach(function (e) {
+    e.first = sStart(e.sessions[0]);
+    e.last = sEnd(e.sessions[e.sessions.length - 1]);
+    e.main = e.sessions.filter(function (s) { return s.main; })[0] || e.sessions[e.sessions.length - 1];
+  });
+  EVENTS.sort(function (a, b) { return a.main && b.main ? sStart(a.main) - sStart(b.main) : a.first - b.first; });
+
+  function sessionLabel(s) {
+    if (s.tbd) return fmtDay.format(sStart(s)) + " · Zeit TBD";
+    if (s.dateOnly) return fmtDay.format(sStart(s));
+    return fmtDay.format(sStart(s)) + " · " + fmtTime.format(sStart(s));
+  }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  var TEAMNAME = { broncos: "Broncos", redbull: "Red Bull", toyota: "Toyota" };
+
+  /* ---------- Nächstes Event + Countdown ---------- */
+  function upcomingSessions(now) {
+    var list = [];
+    EVENTS.forEach(function (e) { e.sessions.forEach(function (s) { if (!e.bye && !s.dateOnly && sEnd(s) > now) list.push({ e: e, s: s }); }); });
+    list.sort(function (a, b) { return sStart(a.s) - sStart(b.s); });
+    return list;
+  }
+  var nextEl = document.getElementById("next");
+  function renderNext() {
+    var now = new Date();
+    document.getElementById("clock").textContent = fmtClock.format(now) + " · Wien";
+    var up = upcomingSessions(now)[0];
+    if (!up) { nextEl.innerHTML = '<div><div class="label">Als Nächstes</div><div class="what">Saison 2026 beendet</div></div>'; return; }
+    var st = sStart(up.s), diff = st - now, live = diff <= 0;
+    var cd = "";
+    if (!live) {
+      var sec = Math.floor(diff / 1000), dd = Math.floor(sec / 86400), hh = Math.floor(sec % 86400 / 3600), mm = Math.floor(sec % 3600 / 60), ss = sec % 60;
+      var p = function (n) { return (n < 10 ? "0" : "") + n; };
+      cd = '<div class="countdown" aria-label="Countdown"><div><b>' + dd + '</b><small>Tage</small></div><div><b>' + p(hh) + '</b><small>Std</small></div><div><b>' + p(mm) + '</b><small>Min</small></div><div><b>' + p(ss) + '</b><small>Sek</small></div></div>';
+    } else {
+      cd = '<div class="countdown"><div style="background:#0f8a4a"><b>LIVE</b><small>läuft gerade</small></div></div>';
+    }
+    nextEl.innerHTML = '<div style="min-width:0"><div class="label">Als Nächstes · ' + esc(TEAMNAME[up.e.team]) + " · " + esc(up.e.series) + '</div>' +
+      '<div class="what">' + esc(up.e.title) + " – " + esc(up.s.name) + '</div>' +
+      '<div class="when">' + esc(fmtLong.format(st)) + ' Uhr</div></div>' + cd;
+  }
+
+  /* ---------- Übersicht ---------- */
+  var TEAMINFO = {
+    broncos: { name: "Denver Broncos", series: "NFL · Saison 2026", status: "Bye in Woche 10 (15. Nov.). Danach folgen sieben Spiele bis Anfang Jänner, darunter das Weihnachtsspiel gegen Buffalo." },
+    redbull: { name: "Red Bull Racing", series: "Formel 1 · Saison 2026", status: "Noch drei Rennen: der Triple-Header Las Vegas, Katar und Abu Dhabi beendet die erste Saison mit dem neuen Ford-Motor." },
+    toyota:  { name: "Toyota Racing", series: "WEC · Hypercar 2026", status: "Herstellertitel bereits gewonnen. In Monza entscheidet sich der Fahrertitel zwischen den Autos #7 und #8." }
+  };
+  function renderTrio() {
+    var now = new Date();
+    document.getElementById("trio").innerHTML = ["broncos", "redbull", "toyota"].map(function (t) {
+      var info = TEAMINFO[t];
+      var evs = EVENTS.filter(function (e) { return e.team === t && e.last > now; }).slice(0, 4);
+      var items = evs.map(function (e) {
+        var s = e.main;
+        return '<li><time>' + esc(s.dateOnly ? fmtDay.format(sStart(s)) : fmtDay.format(sStart(s)) + " " + fmtTime.format(sStart(s))) + '</time><span>' + esc(e.title) + '</span></li>';
+      }).join("");
+      return '<article class="teamcard t-' + t + '"><div class="series">' + info.series + '</div><h3>' + info.name + '</h3>' +
+        '<p class="status">' + info.status + '</p><ul class="mini">' + (items || '<li><span>Keine weiteren Termine 2026</span></li>') + '</ul>' +
+        '<a class="go" href="#' + t + '">Team, Kader &amp; Termine →</a></article>';
+    }).join("");
+  }
+
+  /* ---------- Kalender ---------- */
+  var state = { teams: { broncos: true, redbull: true, toyota: true }, mainOnly: false, past: false };
+  try {
+    var saved = JSON.parse(localStorage.getItem("bbt-filter") || "null");
+    if (saved && saved.teams) state = saved;
+  } catch (e) {}
+  function save() { try { localStorage.setItem("bbt-filter", JSON.stringify(state)); } catch (e) {} }
+
+  function eventCard(e, now, opts) {
+    opts = opts || {};
+    var past = e.last < now;
+    var live = !past && e.sessions.some(function (s) { return !s.dateOnly && sStart(s) <= now && sEnd(s) > now; });
+    var nextMain = opts.nextId === e;
+    var stateHtml = live ? '<span class="state live">Läuft</span>' : past ? '<span class="state">Vorbei</span>' : nextMain ? '<span class="state next">Als Nächstes</span>' : "";
+    var sessions = e.sessions.filter(function (s) { return !opts.mainOnly || s.main; });
+    var rows = sessions.map(function (s) {
+      var done = sEnd(s) < now;
+      return '<tr class="' + (s.main ? "main " : "") + (done ? "done" : "") + '"><td>' + esc(s.name) + '</td><td class="t">' + esc(sessionLabel(s)) + (s.dateOnly || s.tbd ? "" : " Uhr") + '</td></tr>';
+    }).join("");
+    var tv = e.tv.length ? '<div class="tvline"><span class="note">In Österreich:</span>' + e.tv.map(function (k) {
+      return '<span class="tv ' + (TV[k].free ? "free" : "pay") + '">' + esc(TV[k].n) + (TV[k].free ? " · gratis" : "") + "</span>";
+    }).join("") + "</div>" : "";
+    var m = sStart(e.main);
+    return '<article class="event t-' + e.team + (past ? " is-past" : "") + '">' +
+      '<div class="date"><span class="d">' + esc(fmtDayNum.format(m)) + '</span><span class="m">' + esc(fmtMonFn(m)) + '</span></div>' +
+      '<div class="body"><div class="top"><span class="tag t-' + e.team + '">' + esc(TEAMNAME[e.team]) + " · " + esc(e.series) + '</span>' + stateHtml + '</div>' +
+      '<h4>' + esc(e.title) + '</h4>' +
+      '<div class="venue">' + esc(e.round) + (e.venue ? " · " + esc(e.venue) : "") + '</div>' +
+      (e.bye ? "" : '<table class="sessions"><tbody>' + rows + '</tbody></table>') +
+      (e.note ? '<p class="note">' + esc(e.note) + '</p>' : "") + tv + '</div></article>';
+  }
+  function nextEvent(now) { return EVENTS.filter(function (e) { return !e.bye && e.last > now; })[0]; }
+
+  function renderCal() {
+    var now = new Date(), nxt = nextEvent(now);
+    ["broncos", "redbull", "toyota"].forEach(function (t) { document.getElementById("f-" + t).setAttribute("aria-pressed", String(state.teams[t])); });
+    document.getElementById("f-main").setAttribute("aria-pressed", String(state.mainOnly));
+    document.getElementById("f-past").setAttribute("aria-pressed", String(state.past));
+    var list = EVENTS.filter(function (e) { return state.teams[e.team] && (state.past || e.last >= now); });
+    if (!list.length) { document.getElementById("cal").innerHTML = '<div class="empty">Keine Termine für diese Auswahl. Wähle oben mindestens ein Team aus.</div>'; return; }
+    var groups = [], cur = null;
+    list.forEach(function (e) {
+      var key = fmtMonth.format(sStart(e.main));
+      if (!cur || cur.key !== key) { cur = { key: key, items: [] }; groups.push(cur); }
+      cur.items.push(e);
+    });
+    document.getElementById("cal").innerHTML = groups.map(function (g) {
+      return '<div class="month"><h3>' + esc(g.key) + '</h3>' + g.items.map(function (e) { return eventCard(e, now, { mainOnly: state.mainOnly, nextId: nxt }); }).join("") + '</div>';
+    }).join("");
+  }
+  function renderTeamCal(team) {
+    var now = new Date(), nxt = nextEvent(now);
+    document.getElementById("team-cal-" + team).innerHTML = EVENTS.filter(function (e) { return e.team === team; })
+      .map(function (e) { return eventCard(e, now, { nextId: nxt }); }).join("");
+  }
+  document.querySelectorAll(".fbtn[data-team]").forEach(function (b) {
+    b.addEventListener("click", function () { var t = b.getAttribute("data-team"); state.teams[t] = !state.teams[t]; save(); renderCal(); });
+  });
+  document.getElementById("f-main").addEventListener("click", function () { state.mainOnly = !state.mainOnly; save(); renderCal(); });
+  document.getElementById("f-past").addEventListener("click", function () { state.past = !state.past; save(); renderCal(); });
+
+  /* ---------- ICS-Export ---------- */
+  var icsBtn = document.getElementById("ics");
+  var framed = false; try { framed = window.self !== window.top; } catch (e) { framed = true; }
+  if (framed) icsBtn.hidden = true;
+  function icsDate(dt) { return dt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); }
+  icsBtn.addEventListener("click", function () {
+    var now = new Date(), lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//BBT//Sportkalender//DE", "CALSCALE:GREGORIAN"];
+    EVENTS.filter(function (e) { return state.teams[e.team] && !e.bye && e.last >= now; }).forEach(function (e, i) {
+      e.sessions.forEach(function (s, j) {
+        if (state.mainOnly && !s.main) return;
+        lines.push("BEGIN:VEVENT", "UID:bbt-" + e.team + "-" + i + "-" + j + "@sportkalender", "DTSTAMP:" + icsDate(now));
+        if (s.dateOnly) {
+          var ds = s.start.replace(/-/g, "");
+          lines.push("DTSTART;VALUE=DATE:" + ds);
+        } else {
+          lines.push("DTSTART:" + icsDate(sStart(s)), "DTEND:" + icsDate(sEnd(s)));
+        }
+        lines.push("SUMMARY:" + (TEAMNAME[e.team] + " · " + e.title + " – " + s.name).replace(/[,;]/g, "\\$&"),
+                   "LOCATION:" + (e.venue || "").replace(/[,;]/g, "\\$&"),
+                   "DESCRIPTION:" + ("TV Österreich: " + e.tv.map(function (k) { return TV[k].n; }).join(" / ")).replace(/[,;]/g, "\\$&"),
+                   "END:VEVENT");
+      });
+    });
+    lines.push("END:VCALENDAR");
+    var blob = new Blob([lines.join("\r\n")], { type: "text/calendar" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "broncos-redbull-toyota-2026.ics";
+    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  });
+
+  /* ---------- Broncos-Kader ---------- */
+  var ROSTER = [
+    ["Offense"],
+    ["QB", "Bo Nix", "Starter seit 2024, Erstrunden-Pick aus Oregon"],
+    ["QB", "Jarrett Stidham", "Backup"],
+    ["QB", "Sam Ehlinger", "3. Quarterback"],
+    ["RB", "J.K. Dobbins", "Laut Depth Chart Starter, teils Rotation"],
+    ["RB", "RJ Harvey", "Zweitrunden-Pick 2025"],
+    ["RB", "Jonah Coleman", "Rookie 2026"],
+    ["WR", "Courtland Sutton", "Nummer-1-Receiver, seit 2018 in Denver"],
+    ["WR", "Jaylen Waddle", "Neu 2026, kam von den Miami Dolphins"],
+    ["WR", "Troy Franklin", "Slot / WR3"],
+    ["TE", "Evan Engram", "Starter, kam 2025 aus Jacksonville"],
+    ["TE", "Adam Trautman", "Blocking-TE"],
+    ["LT", "Garett Bolles", "Seit 2017 im Team"],
+    ["LG", "Ben Powers", ""],
+    ["C", "Luke Wattenberg", ""],
+    ["RG", "Quinn Meinerz", "Pro Bowl / All-Pro Guard"],
+    ["RT", "Mike McGlinchey", ""],
+    ["Defense"],
+    ["DL", "Zach Allen", "Defensive End"],
+    ["DL", "D.J. Jones", "Nose Tackle"],
+    ["DL", "Eyioma Uwazurike", ""],
+    ["OLB", "Nik Bonitto", "Pass Rusher, Pro Bowl"],
+    ["OLB", "Jonathon Cooper / Jonah Elliss", "Rotation"],
+    ["ILB", "Alex Singleton", ""],
+    ["ILB", "Justin Strnad", ""],
+    ["CB", "Pat Surtain II", "Defensive Player of the Year 2024"],
+    ["CB", "Riley Moss", ""],
+    ["NB", "Ja'Quan McMillian", "Slot-Cornerback"],
+    ["S", "Talanoa Hufanga", "Kam 2025 von den 49ers"],
+    ["S", "Brandon Jones", ""],
+    ["Special Teams"],
+    ["K", "Wil Lutz", "Kicker"],
+    ["P", "Jeremy Crawshaw", "Punter"]
+  ];
+  document.getElementById("roster").innerHTML = '<thead><tr><th>Pos.</th><th>Spieler</th><th>Info</th></tr></thead><tbody>' +
+    ROSTER.map(function (r) {
+      if (r.length === 1) return '<tr class="grp"><td colspan="3">' + esc(r[0]) + '</td></tr>';
+      return '<tr><td class="pos">' + esc(r[0]) + '</td><td><b>' + esc(r[1]) + '</b></td><td>' + esc(r[2]) + '</td></tr>';
+    }).join("") + '</tbody>';
+
+  /* ---------- TV-Seite ---------- */
+  var TVPAGE = [
+    { team: "broncos", title: "NFL · Broncos", items: [
+      { n: "RTL (Free-TV) & RTL+", free: true, p: "RTL hält mit Sky die NFL-Rechte für Österreich bis 2028/29. Gratis laufen jeden Sonntag zwei Spiele (ca. 19:00 und 22:00 Uhr) sowie ausgewählte Night Games. Ob die Broncos dabei sind, entscheidet RTL pro Woche.", u: "https://www.rtl.de/sport/nfl/" },
+      { n: "WOW / Sky Österreich (Sky Sport NFL)", free: false, p: "Fünf Einzelspiele pro Woche, NFL-Konferenz und RedZone, eigener 24/7-Sender Sky Sport NFL. Puls 4 zeigt seit 2026 keine NFL mehr.", u: "https://www.sky.at/sport/nfl/sendeplan" },
+      { n: "NFL Game Pass auf DAZN", free: false, p: "Der sichere Weg: Alle Broncos-Spiele live und auf Abruf, inklusive Prime-Time-Spiele. Saisonpass oder Monatsabo, Preis bei DAZN prüfen.", u: "https://www.dazn.com/de-AT/nfl" },
+      { n: "Netflix", free: false, p: "Das Weihnachtsspiel Bills @ Broncos am 25. Dezember läuft bei Netflix, zusätzlich über Game Pass.", u: "https://www.netflix.com/" }
+    ]},
+    { team: "redbull", title: "Formel 1 · Red Bull", items: [
+      { n: "ServusTV / ServusTV On", free: true, p: "Rechteinhaber in Österreich (verlängert bis 2029). Zeigt die Hälfte der Rennwochenenden live und gratis, inklusive Trainings und Qualifying, auch im Stream.", u: "https://www.servustv.com/sport/formel-1/" },
+      { n: "ORF 1 / ORF ON", free: true, p: "Übernimmt die andere Hälfte der Rennen von ServusTV, darunter das Saisonfinale in Abu Dhabi. Stream gratis in ORF ON.", u: "https://on.orf.at/" },
+      { n: "Sky Sport F1 über WOW", free: false, p: "Alle Sessions aller Wochenenden live, ohne Werbeunterbrechung, mit deutschem Kommentar.", u: "https://www.sky.at/sport/formel-1" },
+      { n: "F1 TV", free: false, p: "In Österreich gibt es nur F1 TV Access (Wiederholungen, Live-Timing, keine Live-Bilder). F1 TV Pro ist hier nicht buchbar.", u: "https://f1tv.formula1.com/" }
+    ]},
+    { team: "toyota", title: "WEC · Toyota", items: [
+      { n: "ORF Sport+ / ORF ON", free: true, p: "Zeigt ausgewählte WEC-Rennen gratis, 2026 unter anderem Spa und São Paulo. Le Mans und das Finale laut Programm prüfen.", u: "https://sport.orf.at/" },
+      { n: "Eurosport / HBO Max", free: false, p: "Warner Bros. Discovery hat die Europa-Rechte bis 2030: alle acht Rennen inklusive Le Mans live auf Eurosport und im Stream.", u: "https://www.eurosport.de/motorsport/" },
+      { n: "FIAWEC+ (offizielle App)", free: false, p: "Jede Session live: alle Trainings, Qualifying, Hyperpole und das komplette Rennen mit Onboard-Kameras und Live-Timing.", u: "https://www.fiawec.com/" }
+    ]}
+  ];
+  document.getElementById("tvgrid").innerHTML = TVPAGE.map(function (c) {
+    return '<article class="tvcard t-' + c.team + '"><h3>' + esc(c.title) + '</h3>' + c.items.map(function (i) {
+      return '<div class="provider"><div class="row"><b>' + esc(i.n) + '</b><span class="badge ' + (i.free ? "free" : "pay") + '">' + (i.free ? "Free-TV" : "Bezahlt") + '</span></div><p>' + esc(i.p) + '</p><a href="' + i.u + '" target="_blank" rel="noopener">Zum Angebot ↗</a></div>';
+    }).join("") + '</article>';
+  }).join("");
+
+  /* ---------- Routing ---------- */
+  var VIEWS = ["start", "kalender", "broncos", "redbull", "toyota", "tv"];
+  function route() {
+    var h = (location.hash || "#start").slice(1);
+    if (VIEWS.indexOf(h) < 0) h = "start";
+    VIEWS.forEach(function (v) { document.getElementById("v-" + v).hidden = v !== h; });
+    document.querySelectorAll("nav.tabs a").forEach(function (a) {
+      if (a.getAttribute("href") === "#" + h) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    renderAll();
+  }
+  function renderAll() { renderTrio(); renderCal(); ["broncos", "redbull", "toyota"].forEach(renderTeamCal); }
+  window.addEventListener("hashchange", function () { route(); window.scrollTo(0, 0); });
+  route();
+  renderNext();
+  setInterval(renderNext, 1000);
+  setInterval(renderAll, 60000);
+})();
+</script>
+</body>
+</html>
