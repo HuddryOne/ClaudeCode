@@ -1,0 +1,42 @@
+name: Pages-Prüfung (temporär)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  pages: read
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pages-Einstellungen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/pages" --jq '{status, html_url, source, build_type, https_enforced}' || echo "Pages nicht aktiv oder nicht lesbar"
+          gh api "repos/${{ github.repository }}/pages/builds/latest" --jq '{status, error: .error.message, created_at, commit}' || true
+
+      - name: Seite abrufen
+        run: |
+          URL="https://huddryone.github.io/ClaudeCode/"
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -sS -o page.html -w "%{http_code}" "$URL" || echo 000)
+            echo "Versuch $i: HTTP $code, $(wc -c < page.html) Bytes"
+            [ "$code" = "200" ] && break
+            sleep 20
+          done
+          grep -o '<title>[^<]*' page.html || true
+          grep -c 'id="live-data"' page.html || true
+
+      - name: Seite im Browser rendern
+        run: |
+          google-chrome --headless=new --no-sandbox --disable-gpu --virtual-time-budget=8000 \
+            --dump-dom "https://huddryone.github.io/ClaudeCode/#tabellen" > dom.html 2> chrome.log || true
+          echo "DOM: $(wc -c < dom.html) Bytes"
+          echo "--- Zeitmonitor:"; grep -o '<div class="what">[^<]*' dom.html | head -1
+          echo "--- F1-Stand:"; grep -o 'class="eyebrow f1-stamp">[^<]*' dom.html | head -1
+          echo "--- Fußzeile:"; grep -o 'id="data-stamp">[^<]*' dom.html
+          echo "--- Zeilen F1-Fahrer: $(grep -o '<tr class="tm-' dom.html | wc -l)"
+          grep -iE 'error|uncaught' chrome.log | grep -v -iE 'gpu|dbus|sandbox' | head -10 || true
