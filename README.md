@@ -9,6 +9,7 @@ Persönliche Sport-Website für drei Teams:
 Dazu:
 
 - **Kalender** mit Filter pro Team, „nur Rennen & Spiele“, vergangene Termine und Export als `.ics` (für Google/Apple/Outlook-Kalender)
+- **Tabellen:** F1-Fahrer- und Konstrukteurswertung und alle 11 F1-Teams mit Teamchef, Motor und Fahrern, alle 32 NFL-Teams nach Conference und Division mit Bilanz, WEC-Rangliste der Hypercar-Autos, Herstellerwertung und Fahrerwertung
 - **Countdown** zum nächsten Event
 - **Wo schauen?** – Free-TV (ServusTV, ORF, RTL) und Bezahlangebote (WOW/Sky, DAZN Game Pass, Eurosport/HBO Max, FIAWEC+) in Österreich, pro Termin direkt angezeigt
 - Alle Zeiten automatisch in österreichischer Zeit (Europe/Vienna), helles und dunkles Design, handytauglich
@@ -19,6 +20,6 @@ Einfach `index.html` im Browser öffnen – keine Installation nötig. Für eine
 
 ## Daten aktualisieren
 
-Alle Termine, Kader und Sender stehen im `<script>`-Block in `index.html` (Abschnitte `nfl`, `ev({...})`, `ROSTER`, `TVPAGE`). Zeiten werden in UTC eingetragen und automatisch umgerechnet.
+Alle Termine, Kader und Sender stehen im `<script>`-Block in `index.html` (Abschnitte `nfl`, `ev({...})`, `ROSTER`, `TVPAGE`, `F1DRIVERS`, `F1CONS`, `F1TEAMS`, `NFL`, `WECCARS`, `WECMAKES`, `WECDRIVERS`). Zeiten werden in UTC eingetragen und automatisch umgerechnet.
 
 Datenstand: 4. November 2026. Angaben ohne Gewähr.

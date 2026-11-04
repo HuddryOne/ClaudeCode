@@ -201,10 +201,49 @@ table.roster { width: 100%; border-collapse: collapse; font-size: 14px; min-widt
 footer { border-top: 1px solid var(--line); }
 footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); display: grid; gap: 6px; }
 
+/* Tabellen */
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.seg button { font: 600 15px var(--display); letter-spacing: .06em; text-transform: uppercase; border: 0; background: transparent; color: var(--muted); padding: 8px 16px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.stand { width: 100%; border-collapse: collapse; font-size: 14px; }
+.stand th { text-align: left; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.stand td { padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.stand tr:last-child td { border-bottom: 0; }
+.stand .r { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stand .p { font-family: var(--display); font-weight: 700; font-size: 18px; width: 44px; }
+.stand .n { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--team, var(--muted)); width: 44px; }
+.stand tr.fav td { background: color-mix(in srgb, var(--team) 9%, transparent); }
+.stand tr.fav td:first-child { box-shadow: inset 4px 0 0 var(--team); }
+.stand .bar { display: block; height: 4px; border-radius: 2px; background: var(--team, var(--muted)); margin-top: 4px; opacity: .8; }
+.stand .muted { color: var(--muted); }
+.stand .champ { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--live); border: 1px solid var(--live); padding: 1px 6px; border-radius: 3px; margin-left: 6px; white-space: nowrap; }
+.tm-mercedes { --team: #27b3a5; } .tm-ferrari { --team: #dc1b1b; } .tm-mclaren { --team: #f28a00; } .tm-redbull { --team: var(--redbull); }
+.tm-rb { --team: #5a7bd8; } .tm-aston { --team: #1d7a5c; } .tm-alpine { --team: #e85aa8; } .tm-williams { --team: #2a7de1; }
+.tm-haas { --team: #8a8f99; } .tm-audi { --team: #b0b6c0; } .tm-cadillac { --team: #c9a227; }
+.tm-toyota { --team: var(--toyota); } .tm-bmw { --team: #2f6fd6; } .tm-peugeot { --team: #7c8a3a; } .tm-genesis { --team: #b0703a; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.teamgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.f1team { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--team); border-radius: 4px; padding: 12px 14px; display: grid; gap: 6px; }
+.f1team h4 { margin: 0; font-family: var(--display); font-size: 20px; font-weight: 700; }
+.f1team .meta { font-size: 13px; color: var(--muted); }
+.f1team ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: 14px; }
+.f1team li b { display: inline-block; min-width: 2.2em; font-family: var(--display); font-size: 17px; color: var(--team); }
+.divgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; min-width: 0; }
+.div h4 { margin: 0; padding: 9px 12px; font-family: var(--display); font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); background: var(--chip); }
+.div .stand td { padding: 7px 12px; }
+.conf { display: grid; gap: 10px; }
+.conf h3 { font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.t-broncos-row { --team: var(--broncos); }
+
+@media (max-width: 1000px) { .divgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) {
+  .grid2 { grid-template-columns: minmax(0, 1fr); }
   .trio, .tvgrid, .two { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 560px) {
+  .divgrid { grid-template-columns: minmax(0, 1fr); }
   .next { grid-template-columns: minmax(0, 1fr); }
   .countdown div { min-width: 0; flex: 1; padding: 6px 4px; }
   .event { grid-template-columns: minmax(0, 1fr); gap: 10px; }
@@ -234,6 +273,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
       <a href="#broncos">Broncos</a>
       <a href="#redbull">Red Bull</a>
       <a href="#toyota">Toyota</a>
+      <a href="#tabellen">Tabellen</a>
       <a href="#tv">Wo schauen?</a>
     </nav>
   </div>
@@ -356,6 +396,58 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
       <div id="team-cal-toyota" class="view" style="gap:10px"></div>
     </section>
 
+    <!-- TABELLEN -->
+    <section class="view" id="v-tabellen" hidden>
+      <div class="section-head">
+        <h2>Tabellen &amp; Teams</h2>
+        <div class="seg" role="group" aria-label="Serie wählen">
+          <button id="seg-f1" data-seg="f1" aria-pressed="true">Formel 1</button>
+          <button id="seg-nfl" data-seg="nfl" aria-pressed="false">NFL</button>
+          <button id="seg-wec" data-seg="wec" aria-pressed="false">WEC</button>
+        </div>
+      </div>
+
+      <div id="tb-f1" class="view">
+        <div class="callout"><b>Kimi Antonelli ist Weltmeister 2026.</b> Der Mercedes-Fahrer hat den Titel beim Großen Preis von Mexiko vorzeitig gesichert. Dahinter kämpfen Verstappen, Hamilton, Russell und Leclerc um Platz 2, Max liegt nach seinem Sieg in Mexiko vorne.</div>
+        <div class="grid2">
+          <div class="view" style="gap:10px">
+            <div class="section-head"><h2>Fahrerwertung</h2><span class="eyebrow">nach Mexiko · Runde 19 von 22</span></div>
+            <div class="tablewrap"><table class="stand" id="f1-drivers"></table></div>
+          </div>
+          <div class="view" style="gap:10px">
+            <div class="section-head"><h2>Konstrukteure</h2><span class="eyebrow">nach Mexiko</span></div>
+            <div class="tablewrap"><table class="stand" id="f1-teams"></table></div>
+            <p class="note">Nach Mexiko gab es mehrere nachträgliche Strafen. Deshalb weichen die Fahrerpunkte bei Red Bull und Racing Bulls je nach Quelle um einige Punkte von der Teamwertung ab. Verbindlich ist die offizielle Tabelle auf <a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noopener">formula1.com</a>.</p>
+          </div>
+        </div>
+        <div class="section-head"><h2>Alle 11 Teams 2026</h2><span class="eyebrow">Teamchef · Motor · Fahrer</span></div>
+        <div class="teamgrid" id="f1-teamgrid"></div>
+      </div>
+
+      <div id="tb-nfl" class="view" hidden>
+        <p class="lede">Alle 32 NFL-Teams in ihren zwei Conferences (AFC und NFC) mit je vier Divisions. Bilanz nach Woche 8 in Siegen–Niederlagen(–Unentschieden). Die Broncos spielen in der AFC West.</p>
+        <div id="nfl-conf" class="view"></div>
+        <p class="note">Stand nach Woche 8 (2. November 2026), zusammengestellt aus mehreren Tabellen; einzelne Bilanzen können sich durch spätere Spiele dieser Woche bereits geändert haben. Live-Tabelle: <a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a>.</p>
+      </div>
+
+      <div id="tb-wec" class="view" hidden>
+        <div class="callout"><b>Toyota ist Hersteller-Weltmeister 2026.</b> Der Fahrertitel geht sicher an eine Toyota-Crew: Die #8 führt vor dem Finale in Monza mit 17 Punkten vor der #7. In Monza gibt es maximal 26 Punkte (25 für den Sieg und 1 für die Pole Position).</div>
+        <div class="grid2">
+          <div class="view" style="gap:10px">
+            <div class="section-head"><h2>Rangliste der Autos</h2><span class="eyebrow">Hypercar · nach Barcelona</span></div>
+            <div class="tablewrap"><table class="stand" id="wec-cars"></table></div>
+          </div>
+          <div class="view" style="gap:10px">
+            <div class="section-head"><h2>Hersteller</h2><span class="eyebrow">nach Barcelona</span></div>
+            <div class="tablewrap"><table class="stand" id="wec-makes"></table></div>
+          </div>
+        </div>
+        <div class="section-head"><h2>Fahrerwertung Hypercar</h2><span class="eyebrow">nach 7 von 8 Rennen</span></div>
+        <div class="tablewrap"><table class="stand" id="wec-drivers"></table></div>
+        <p class="note">Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Vanthoor #15, van der Linde #20). Für die Plätze unter den hier gelisteten Fahrern lag zum Datenstand keine geprüfte Punkteliste vor. Diese Autos sind mit „–“ markiert. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
+      </div>
+    </section>
+
     <!-- TV -->
     <section class="view" id="v-tv" hidden>
       <div class="section-head"><h2>Wo kann ich das in Österreich schauen?</h2></div>
@@ -436,6 +528,14 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
        sessions: [{ name: "Kein Spiel", start: "2026-11-15", dateOnly: true, main: true }] });
 
   // Formel 1 – restliche Rennen 2026 (Sessionzeiten in UTC)
+  ev({ team: "redbull", series: "F1", title: "Großer Preis von São Paulo", round: "Formel 1 · Autódromo José Carlos Pace (Interlagos)", venue: "São Paulo, Brasilien",
+       tv: ["servusorf", "sky"],
+       sessions: [
+         { name: "1. Freies Training", start: "2026-11-06T15:30:00Z", dur: 60 },
+         { name: "2. Freies Training", start: "2026-11-06T19:00:00Z", dur: 60 },
+         { name: "3. Freies Training", start: "2026-11-07T14:30:00Z", dur: 60 },
+         { name: "Qualifying", start: "2026-11-07T18:00:00Z", dur: 60, quali: true },
+         { name: "Rennen (71 Runden)", start: "2026-11-08T17:00:00Z", dur: 120, main: true } ] });
   ev({ team: "redbull", series: "F1", title: "Großer Preis von Las Vegas", round: "Formel 1 · Las Vegas Strip Circuit", venue: "Las Vegas, USA · Nachtrennen am Samstag (Ortszeit)",
        tv: ["servusorf", "sky"], note: "Zeitverschiebung: Alles läuft in der Nacht bzw. am frühen Morgen österreichischer Zeit.",
        sessions: [
@@ -549,7 +649,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
   /* ---------- Übersicht ---------- */
   var TEAMINFO = {
     broncos: { name: "Denver Broncos", series: "NFL · Saison 2026", status: "Bye in Woche 10 (15. Nov.). Danach folgen sieben Spiele bis Anfang Jänner, darunter das Weihnachtsspiel gegen Buffalo." },
-    redbull: { name: "Red Bull Racing", series: "Formel 1 · Saison 2026", status: "Noch drei Rennen: der Triple-Header Las Vegas, Katar und Abu Dhabi beendet die erste Saison mit dem neuen Ford-Motor." },
+    redbull: { name: "Red Bull Racing", series: "Formel 1 · Saison 2026", status: "Verstappen ist nach seinem Sieg in Mexiko WM-Zweiter. Noch vier Rennen: São Paulo, dann der Triple-Header Las Vegas, Katar und Abu Dhabi." },
     toyota:  { name: "Toyota Racing", series: "WEC · Hypercar 2026", status: "Herstellertitel bereits gewonnen. In Monza entscheidet sich der Fahrertitel zwischen den Autos #7 und #8." }
   };
   function renderTrio() {
@@ -725,8 +825,158 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
     }).join("") + '</article>';
   }).join("");
 
+  /* ---------- Tabellen-Daten ---------- */
+  var F1TEAMS = {
+    mercedes: { n: "Mercedes-AMG Petronas", base: "Brackley (GB)", tp: "Toto Wolff", pu: "Mercedes", d: [[12, "Kimi Antonelli"], [63, "George Russell"]] },
+    ferrari:  { n: "Scuderia Ferrari HP", base: "Maranello (IT)", tp: "Frédéric Vasseur", pu: "Ferrari", d: [[16, "Charles Leclerc"], [44, "Lewis Hamilton"]] },
+    redbull:  { n: "Oracle Red Bull Racing", base: "Milton Keynes (GB)", tp: "Laurent Mekies", pu: "Red Bull Ford", d: [[3, "Max Verstappen"], [6, "Isack Hadjar"]] },
+    mclaren:  { n: "McLaren", base: "Woking (GB)", tp: "Andrea Stella", pu: "Mercedes", d: [[1, "Lando Norris"], [81, "Oscar Piastri"]] },
+    rb:       { n: "Racing Bulls", base: "Faenza (IT)", tp: "Alan Permane", pu: "Red Bull Ford", d: [[30, "Liam Lawson"], [41, "Arvid Lindblad"]] },
+    alpine:   { n: "BWT Alpine", base: "Enstone (GB)", tp: "Flavio Briatore (Teamleitung)", pu: "Mercedes", d: [[10, "Pierre Gasly"], [43, "Franco Colapinto"]] },
+    haas:     { n: "Haas", base: "Kannapolis (USA) / Banbury (GB)", tp: "Ayao Komatsu", pu: "Ferrari", d: [[31, "Esteban Ocon"], [87, "Oliver Bearman"]] },
+    audi:     { n: "Audi", base: "Hinwil (CH)", tp: "Jonathan Wheatley", pu: "Audi", d: [[27, "Nico Hülkenberg"], [5, "Gabriel Bortoleto"]] },
+    williams: { n: "Williams", base: "Grove (GB)", tp: "James Vowles", pu: "Mercedes", d: [[23, "Alexander Albon"], [55, "Carlos Sainz"]] },
+    aston:    { n: "Aston Martin Aramco", base: "Silverstone (GB)", tp: "Adrian Newey", pu: "Honda", d: [[14, "Fernando Alonso"], [18, "Lance Stroll"]] },
+    cadillac: { n: "Cadillac", base: "Fishers (USA) / Silverstone (GB)", tp: "Graeme Lowdon", pu: "Ferrari", d: [[77, "Valtteri Bottas"], [11, "Sergio Pérez"]] }
+  };
+  var F1DRIVERS = [
+    [12, "Kimi Antonelli", "mercedes", 380, "Weltmeister"],
+    [3, "Max Verstappen", "redbull", 261],
+    [44, "Lewis Hamilton", "ferrari", 259],
+    [63, "George Russell", "mercedes", 250],
+    [16, "Charles Leclerc", "ferrari", 245],
+    [1, "Lando Norris", "mclaren", 221],
+    [81, "Oscar Piastri", "mclaren", 144],
+    [6, "Isack Hadjar", "redbull", 107],
+    [30, "Liam Lawson", "rb", 83],
+    [10, "Pierre Gasly", "alpine", 42],
+    [41, "Arvid Lindblad", "rb", 38],
+    [43, "Franco Colapinto", "alpine", 27],
+    [87, "Oliver Bearman", "haas", 23],
+    [5, "Gabriel Bortoleto", "audi", 14],
+    [27, "Nico Hülkenberg", "audi", 13],
+    [31, "Esteban Ocon", "haas", 7],
+    [14, "Fernando Alonso", "aston", 7],
+    [55, "Carlos Sainz", "williams", 7],
+    [23, "Alexander Albon", "williams", 5],
+    [22, "Yuki Tsunoda", "rb", 1, "Ersatzeinsatz"],
+    [0, "Ryō Hirakawa", "haas", 1, "Ersatzeinsatz"],
+    [18, "Lance Stroll", "aston", 0],
+    [77, "Valtteri Bottas", "cadillac", 0],
+    [11, "Sergio Pérez", "cadillac", 0]
+  ];
+  var F1CONS = [["mercedes", 630], ["ferrari", 504], ["redbull", 382], ["mclaren", 365], ["rb", 108], ["alpine", 69], ["haas", 31], ["audi", 27], ["williams", 12], ["aston", 7], ["cadillac", 0]];
+
+  var NFL = {
+    AFC: {
+      East:  [["Buffalo Bills", 6, 1], ["New England Patriots", 5, 3], ["New York Jets", 2, 6], ["Miami Dolphins", 1, 6]],
+      North: [["Pittsburgh Steelers", 6, 2], ["Cincinnati Bengals", 5, 2], ["Cleveland Browns", 5, 3], ["Baltimore Ravens", 4, 4]],
+      South: [["Jacksonville Jaguars", 5, 2], ["Houston Texans", 2, 5], ["Indianapolis Colts", 2, 6], ["Tennessee Titans", 1, 7]],
+      West:  [["Denver Broncos", 6, 2], ["Kansas City Chiefs", 5, 2], ["Las Vegas Raiders", 4, 4], ["Los Angeles Chargers", 0, 7]]
+    },
+    NFC: {
+      East:  [["New York Giants", 4, 2, 1], ["Dallas Cowboys", 3, 5], ["Washington Commanders", 2, 4, 1], ["Philadelphia Eagles", 2, 6]],
+      North: [["Minnesota Vikings", 6, 1], ["Detroit Lions", 5, 2], ["Chicago Bears", 5, 2], ["Green Bay Packers", 5, 3]],
+      South: [["Carolina Panthers", 3, 4], ["Tampa Bay Buccaneers", 3, 5], ["Atlanta Falcons", 3, 5], ["New Orleans Saints", 2, 5]],
+      West:  [["San Francisco 49ers", 6, 1], ["Seattle Seahawks", 4, 3], ["Los Angeles Rams", 4, 4], ["Arizona Cardinals", 3, 5]]
+    }
+  };
+
+  var WECCARS = [
+    ["8", "Toyota Racing", "toyota", "Toyota TR010 Hybrid", "Buemi / Hartley / Hirakawa", 114],
+    ["7", "Toyota Racing", "toyota", "Toyota TR010 Hybrid", "Conway / Kobayashi / de Vries", 97],
+    ["15", "BMW M Team WRT", "bmw", "BMW M Hybrid V8", "Vanthoor / Magnussen / Marciello", 75],
+    ["20", "BMW M Team WRT", "bmw", "BMW M Hybrid V8", "van der Linde / Frijns / Rast", 75],
+    ["50", "Ferrari AF Corse", "ferrari", "Ferrari 499P", "Fuoco / Molina / Nielsen", 69],
+    ["51", "Ferrari AF Corse", "ferrari", "Ferrari 499P", "Pier Guidi / Calado / Giovinazzi", 59],
+    ["12", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Stevens / Nato u. a.", null],
+    ["38", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Bamber / Lynn u. a.", null],
+    ["35", "Alpine Endurance Team", "alpine", "Alpine A424", "", null],
+    ["36", "Alpine Endurance Team", "alpine", "Alpine A424", "", null],
+    ["007", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "", null],
+    ["009", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "", null],
+    ["93", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null],
+    ["94", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null],
+    ["17", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "", null],
+    ["19", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "", null],
+    ["83", "AF Corse (Privatteam)", "ferrari", "Ferrari 499P", "", null]
+  ];
+  var WECMAKES = [["Toyota", "toyota", 212, "Weltmeister"], ["BMW", "bmw", 154], ["Ferrari", "ferrari", 130], ["Cadillac", "cadillac", 118], ["Alpine", "alpine", 104], ["Aston Martin", "aston", 58], ["Peugeot", "peugeot", 24], ["Genesis", "genesis", 14]];
+  var WECDRIVERS = [
+    ["Sébastien Buemi", "8", "toyota", 114], ["Brendon Hartley", "8", "toyota", 114], ["Ryō Hirakawa", "8", "toyota", 114],
+    ["Mike Conway", "7", "toyota", 97], ["Kamui Kobayashi", "7", "toyota", 97], ["Nyck de Vries", "7", "toyota", 97],
+    ["Kevin Magnussen", "15", "bmw", 75], ["Raffaele Marciello", "15", "bmw", 75], ["Robin Frijns", "20", "bmw", 75], ["René Rast", "20", "bmw", 75],
+    ["Dries Vanthoor", "15", "bmw", 69], ["Antonio Fuoco", "50", "ferrari", 69], ["Miguel Molina", "50", "ferrari", 69], ["Nicklas Nielsen", "50", "ferrari", 69],
+    ["Sheldon van der Linde", "20", "bmw", 65],
+    ["James Calado", "51", "ferrari", 59], ["Alessandro Pier Guidi", "51", "ferrari", 59], ["Antonio Giovinazzi", "51", "ferrari", 59]
+  ];
+
+  function ranks(arr, key) { var out = [], last = null, pos = 0; arr.forEach(function (x, i) { var v = key(x); if (v !== last) { pos = i + 1; last = v; } out.push(pos); }); return out; }
+
+  function renderTables() {
+    var lead = F1DRIVERS[0][3], rk = ranks(F1DRIVERS, function (x) { return x[3]; });
+    document.getElementById("f1-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Fahrer</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
+      F1DRIVERS.map(function (x, i) {
+        var t = F1TEAMS[x[2]], pct = Math.max(2, Math.round(x[3] / lead * 100));
+        return '<tr class="tm-' + x[2] + (x[2] === "redbull" ? " fav" : "") + '"><td class="p">' + rk[i] + '</td><td class="n">' + (x[0] || "–") + '</td><td><b>' + esc(x[1]) + '</b>' +
+          (x[4] === "Weltmeister" ? '<span class="champ">Weltmeister</span>' : x[4] ? ' <span class="muted">(' + esc(x[4]) + ')</span>' : "") +
+          '<br><span class="muted">' + esc(t.n) + '</span><span class="bar" style="width:' + pct + '%"></span></td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (i ? "−" + (lead - x[3]) : "–") + '</td></tr>';
+      }).join("") + '</tbody>';
+    var cl = F1CONS[0][1];
+    document.getElementById("f1-teams").innerHTML = '<thead><tr><th>Pos.</th><th>Team</th><th class="r">Punkte</th></tr></thead><tbody>' +
+      F1CONS.map(function (x, i) {
+        return '<tr class="tm-' + x[0] + (x[0] === "redbull" ? " fav" : "") + '"><td class="p">' + (i + 1) + '</td><td><b>' + esc(F1TEAMS[x[0]].n) + '</b><span class="bar" style="width:' + Math.max(2, Math.round(x[1] / cl * 100)) + '%"></span></td><td class="r"><b>' + x[1] + '</b></td></tr>';
+      }).join("") + '</tbody>';
+    document.getElementById("f1-teamgrid").innerHTML = F1CONS.map(function (x) {
+      var t = F1TEAMS[x[0]];
+      return '<article class="f1team tm-' + x[0] + '"><h4>' + esc(t.n) + '</h4><div class="meta">' + esc(t.base) + ' · Teamchef: ' + esc(t.tp) + '<br>Motor: ' + esc(t.pu) + '</div><ul>' +
+        t.d.map(function (d) { return '<li><b>' + d[0] + '</b>' + esc(d[1]) + '</li>'; }).join("") + '</ul></article>';
+    }).join("");
+
+    function pct(w, l, t) { var g = w + l + (t || 0); return g ? ((w + (t || 0) / 2) / g).toFixed(3).replace(/^0/, "") : ".000"; }
+    document.getElementById("nfl-conf").innerHTML = ["AFC", "NFC"].map(function (c) {
+      return '<div class="conf"><h3>' + (c === "AFC" ? "American Football Conference (AFC)" : "National Football Conference (NFC)") + '</h3><div class="divgrid">' +
+        ["East", "North", "South", "West"].map(function (dv) {
+          return '<div class="div"><h4>' + c + ' ' + dv + '</h4><table class="stand"><tbody>' + NFL[c][dv].map(function (tm) {
+            var me = tm[0] === "Denver Broncos";
+            return '<tr class="' + (me ? "fav t-broncos-row" : "") + '"><td>' + (me ? "<b>" + esc(tm[0]) + "</b>" : esc(tm[0])) + '</td><td class="r">' + tm[1] + "–" + tm[2] + (tm[3] ? "–" + tm[3] : "") + '</td><td class="r muted">' + pct(tm[1], tm[2], tm[3]) + '</td></tr>';
+          }).join("") + '</tbody></table></div>';
+        }).join("") + '</div></div>';
+    }).join("");
+
+    var ck = WECCARS.filter(function (x) { return x[5] != null; }), cr = ranks(ck, function (x) { return x[5]; });
+    document.getElementById("wec-cars").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Auto / Team</th><th class="r">Punkte</th></tr></thead><tbody>' +
+      WECCARS.map(function (x, i) {
+        var has = x[5] != null;
+        return '<tr class="tm-' + x[2] + (x[2] === "toyota" ? " fav" : "") + '"><td class="p">' + (has ? cr[i] : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><b>' + esc(x[1]) + '</b><br><span class="muted">' + esc(x[3]) + (x[4] ? " · " + esc(x[4]) : "") + (x[0] === "83" ? " · ohne Herstellerpunkte" : "") + '</span></td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '</td></tr>';
+      }).join("") + '</tbody>';
+    var ml = WECMAKES[0][2];
+    document.getElementById("wec-makes").innerHTML = '<thead><tr><th>Pos.</th><th>Hersteller</th><th class="r">Punkte</th></tr></thead><tbody>' +
+      WECMAKES.map(function (x, i) {
+        return '<tr class="tm-' + x[1] + (x[1] === "toyota" ? " fav" : "") + '"><td class="p">' + (i + 1) + '</td><td><b>' + esc(x[0]) + '</b>' + (x[3] ? '<span class="champ">' + x[3] + '</span>' : "") + '<span class="bar" style="width:' + Math.round(x[2] / ml * 100) + '%"></span></td><td class="r"><b>' + x[2] + '</b></td></tr>';
+      }).join("") + '</tbody>';
+    var dr = ranks(WECDRIVERS, function (x) { return x[3]; }), dl = WECDRIVERS[0][3];
+    document.getElementById("wec-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Fahrer</th><th>Auto</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
+      WECDRIVERS.map(function (x, i) {
+        return '<tr class="tm-' + x[2] + (x[2] === "toyota" ? " fav" : "") + '"><td class="p">' + dr[i] + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n">#' + x[1] + '</td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
+      }).join("") + '</tbody>';
+  }
+  renderTables();
+
+  var seg = "f1";
+  try { seg = localStorage.getItem("bbt-seg") || "f1"; } catch (e) {}
+  function showSeg(k) {
+    seg = k; try { localStorage.setItem("bbt-seg", k); } catch (e) {}
+    ["f1", "nfl", "wec"].forEach(function (x) {
+      document.getElementById("tb-" + x).hidden = x !== k;
+      document.getElementById("seg-" + x).setAttribute("aria-pressed", String(x === k));
+    });
+  }
+  document.querySelectorAll(".seg button").forEach(function (b) { b.addEventListener("click", function () { showSeg(b.getAttribute("data-seg")); }); });
+  showSeg(seg);
+
   /* ---------- Routing ---------- */
-  var VIEWS = ["start", "kalender", "broncos", "redbull", "toyota", "tv"];
+  var VIEWS = ["start", "kalender", "broncos", "redbull", "toyota", "tabellen", "tv"];
   function route() {
     var h = (location.hash || "#start").slice(1);
     if (VIEWS.indexOf(h) < 0) h = "start";
