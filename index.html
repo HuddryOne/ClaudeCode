@@ -337,7 +337,7 @@ a.f1team:hover h4 { color: var(--team); }
         <div><dt>Gegründet</dt><dd>1960</dd></div>
         <div><dt>Vorsaison 2025</dt><dd>14–3, Sieger AFC West</dd></div>
       </dl>
-      <div class="section-head"><h2>Kader · Stammformation</h2><span class="eyebrow">Stand Depth Chart Okt./Nov. 2026</span></div>
+      <div class="section-head"><h2 id="roster-title">Kader · Stammformation</h2><span class="eyebrow" id="roster-stamp">Stand Depth Chart Okt./Nov. 2026</span></div>
       <div class="tablewrap">
         <table class="roster" id="roster"></table>
       </div>
@@ -425,11 +425,11 @@ a.f1team:hover h4 { color: var(--team); }
         <div class="callout"><b>Kimi Antonelli ist Weltmeister 2026.</b> Der Mercedes-Fahrer hat den Titel beim Großen Preis von Mexiko vorzeitig gesichert. Dahinter kämpfen Verstappen, Hamilton, Russell und Leclerc um Platz 2, Max liegt nach seinem Sieg in Mexiko vorne.</div>
         <div class="grid2">
           <div class="view" style="gap:10px">
-            <div class="section-head"><h2>Fahrerwertung</h2><span class="eyebrow">nach Mexiko · Runde 19 von 22</span></div>
+            <div class="section-head"><h2>Fahrerwertung</h2><span class="eyebrow f1-stamp">nach Mexiko · Runde 19 von 22</span></div>
             <div class="tablewrap"><table class="stand" id="f1-drivers"></table></div>
           </div>
           <div class="view" style="gap:10px">
-            <div class="section-head"><h2>Konstrukteure</h2><span class="eyebrow">nach Mexiko</span></div>
+            <div class="section-head"><h2>Konstrukteure</h2><span class="eyebrow f1-stamp">nach Mexiko</span></div>
             <div class="tablewrap"><table class="stand" id="f1-teams"></table></div>
             <p class="note">Nach Mexiko gab es mehrere nachträgliche Strafen. Deshalb weichen die Fahrerpunkte bei Red Bull und Racing Bulls je nach Quelle um einige Punkte von der Teamwertung ab. Verbindlich ist die offizielle Tabelle auf <a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noopener">formula1.com</a>.</p>
           </div>
@@ -439,9 +439,9 @@ a.f1team:hover h4 { color: var(--team); }
       </div>
 
       <div id="tb-nfl" class="view" hidden>
-        <p class="lede">Alle 32 NFL-Teams in ihren zwei Conferences (AFC und NFC) mit je vier Divisions. Bilanz nach Woche 8 in Siegen–Niederlagen(–Unentschieden). Die Broncos spielen in der AFC West.</p>
+        <p class="lede">Alle 32 NFL-Teams in ihren zwei Conferences (AFC und NFC) mit je vier Divisions. Bilanz in Siegen–Niederlagen(–Unentschieden). Die Broncos spielen in der AFC West.</p>
         <div id="nfl-conf" class="view"></div>
-        <p class="note">Stand nach Woche 8 (2. November 2026), zusammengestellt aus mehreren Tabellen; einzelne Bilanzen können sich durch spätere Spiele dieser Woche bereits geändert haben. Live-Tabelle: <a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a>.</p>
+        <p class="note"><span id="nfl-stamp">Stand nach Woche 8 (2. November 2026), zusammengestellt aus mehreren Tabellen; einzelne Bilanzen können sich durch spätere Spiele dieser Woche bereits geändert haben. Live-Tabelle: </span><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a>.</p>
       </div>
 
       <div id="tb-wec" class="view" hidden>
@@ -481,14 +481,20 @@ a.f1team:hover h4 { color: var(--team); }
 
 <footer>
   <div class="wrap">
-    <div>Datenstand: 4. November 2026. Termine laut NFL, FIA, F1 und FIA WEC; „TBD“ = Anstoßzeit noch nicht festgelegt. Alle Angaben ohne Gewähr.</div>
+    <div id="data-stamp">Datenstand: 4. November 2026. Termine laut NFL, FIA, F1 und FIA WEC; „TBD“ = Anstoßzeit noch nicht festgelegt. Alle Angaben ohne Gewähr.</div>
     <div>Inoffizielle Fan-Seite, keine Verbindung zu den genannten Teams, Ligen oder Sendern.</div>
   </div>
 </footer>
 
+<script id="live-data" type="application/json">{}</script>
 <script>
 (function () {
   "use strict";
+  /* Automatisch aktualisierte Daten (GitHub-Workflow, täglich). Leer = fest eingetragener Stand. */
+  var LIVE = {};
+  try { LIVE = JSON.parse(document.getElementById("live-data").textContent || "{}") || {}; } catch (e) { LIVE = {}; }
+  var fmtUpd = new Intl.DateTimeFormat("de-AT", { timeZone: "Europe/Vienna", day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  function updLabel(key) { var t = LIVE.sources && LIVE.sources[key]; return t ? "automatisch aktualisiert am " + fmtUpd.format(new Date(t)) + " Uhr" : ""; }
   var TZ = "Europe/Vienna";
 
   /* ---------- Sender ---------- */
@@ -531,21 +537,26 @@ a.f1team:hover h4 { color: var(--team); }
     [17, "2027-01-03", false, "New England Patriots", "Gillette Stadium, Foxborough", "", true, true],
     [18, "2027-01-10", true, "Los Angeles Chargers", "Empower Field at Mile High, Denver", "", true, true]
   ];
+  if (LIVE.broncosSchedule && LIVE.broncosSchedule.games && LIVE.broncosSchedule.games.length) nfl = LIVE.broncosSchedule.games;
+  var NFL_BYE = (LIVE.broncosSchedule && LIVE.broncosSchedule.bye) || 10;
   nfl.forEach(function (g) {
     var tv = ["gamepass", "skynfl", "rtl"];
     if (/Netflix/.test(g[5])) tv = ["netflix", "gamepass", "rtl"];
     ev({
       team: "broncos", series: "NFL",
       title: (g[2] ? "Broncos vs. " : "Broncos @ ") + g[3],
-      round: "Woche " + g[0] + (g[0] >= 17 ? " · Datum vorläufig" : ""),
+      round: "Woche " + g[0] + (g[7] ? " · Datum vorläufig" : ""),
       venue: g[4],
-      note: g[5] ? "US-Übertragung: " + g[5] : "",
+      note: (g[8] ? "Ergebnis: " + g[8] + (g[5] ? " · " : "") : "") + (g[5] ? "US-Übertragung: " + g[5] : ""),
       tv: tv,
       sessions: [{ name: "Kickoff", start: g[1], main: true, dateOnly: !!g[6], tbd: !!g[7] }]
     });
   });
-  ev({ team: "broncos", series: "NFL", title: "Bye Week (spielfrei)", round: "Woche 10", venue: "", tv: [], bye: true,
-       sessions: [{ name: "Kein Spiel", start: "2026-11-15", dateOnly: true, main: true }] });
+  (function () {
+    var sun = new Date(Date.UTC(2026, 8, 13 + (NFL_BYE - 1) * 7, 12));
+    ev({ team: "broncos", series: "NFL", title: "Bye Week (spielfrei)", round: "Woche " + NFL_BYE, venue: "", tv: [], bye: true,
+         sessions: [{ name: "Kein Spiel", start: sun.toISOString().slice(0, 10), dateOnly: true, main: true }] });
+  })();
 
   // Formel 1 – restliche Rennen 2026 (Sessionzeiten in UTC)
   ev({ team: "redbull", series: "F1", title: "Großer Preis von São Paulo", round: "Formel 1 · Autódromo José Carlos Pace (Interlagos)", venue: "São Paulo, Brasilien",
@@ -813,6 +824,11 @@ a.f1team:hover h4 { color: var(--team); }
     ["K", "Wil Lutz", "Kicker"],
     ["P", "Jeremy Crawshaw", "Punter"]
   ];
+  if (LIVE.broncosRoster && LIVE.broncosRoster.length > 30) {
+    ROSTER = LIVE.broncosRoster;
+    document.getElementById("roster-title").textContent = "Kader · alle Spieler";
+    document.getElementById("roster-stamp").textContent = updLabel("broncosRoster");
+  }
   document.getElementById("roster").innerHTML = '<thead><tr><th>Pos.</th><th>Spieler</th><th>Info</th></tr></thead><tbody>' +
     ROSTER.map(function (r) {
       if (r.length === 1) return '<tr class="grp"><td colspan="3">' + esc(r[0]) + '</td></tr>';
@@ -933,7 +949,7 @@ a.f1team:hover h4 { color: var(--team); }
         return '<article class="driver"><div class="num">' + (x[0] || "–") + '</div><h4>' + esc(x[1]) + '</h4><div class="meta">' + esc(F1NAT[x[1]] || "") + (x[4] && x[4] !== "Weltmeister" ? " · " + esc(x[4]) : "") +
           '</div><p><b>WM-Platz ' + o.pos + ' · ' + x[3] + ' Punkte</b>' + (F1NOTE[x[1]] ? '<br>' + esc(F1NOTE[x[1]]) : "") + '</p></article>';
       }).join("") + '</div>' +
-      '<div class="section-head"><h2>Saison 2026</h2><span class="eyebrow">nach Mexiko · Runde 19 von 22</span></div><ul class="hl">' + info.season.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' +
+      '<div class="section-head"><h2>Saison 2026</h2><span class="eyebrow">' + esc(LIVE.f1 ? "Stand Runde " + LIVE.f1.round : "nach Mexiko · Runde 19 von 22") + '</span></div><ul class="hl">' + info.season.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' +
       '<div class="section-head"><h2>Nächste Rennen</h2></div><ul class="mini">' + (nextRaces.length ? nextRaces.map(function (e) {
         return '<li><time>' + esc(fmtDay.format(sStart(e.main)) + " " + fmtTime.format(sStart(e.main))) + '</time><span><a class="rowlink" href="#kalender">' + esc(e.title) + '</a></span></li>'; }).join("") : '<li><span>Saison beendet</span></li>') + '</ul>' +
       '<div class="section-head"><h2>Geschichte</h2></div><p class="prose" style="margin:0">' + esc(info.history) + '</p>' +
@@ -982,6 +998,35 @@ a.f1team:hover h4 { color: var(--team); }
       West:  [["San Francisco 49ers", 6, 1], ["Seattle Seahawks", 4, 3], ["Los Angeles Rams", 4, 4], ["Arizona Cardinals", 3, 5]]
     }
   };
+
+  /* Live-Daten übernehmen */
+  if (LIVE.f1 && LIVE.f1.drivers && LIVE.f1.drivers.length) {
+    var byFamily = {};
+    F1DRIVERS.forEach(function (x) { byFamily[x[1].split(" ").slice(-1)[0].toLowerCase()] = x; });
+    F1DRIVERS = LIVE.f1.drivers.slice().sort(function (a, b) { return a.pos - b.pos; }).map(function (d) {
+      var old = byFamily[(d.family || "").split(" ").slice(-1)[0].toLowerCase()];
+      var team = d.team || (old && old[2]) || "cadillac";
+      var note = old && old[4] && old[4] !== "Weltmeister" ? old[4] : "";
+      if (old && old[4] === "Weltmeister") note = "Weltmeister";
+      return [old ? old[0] : (d.number || 0), old ? old[1] : (d.given + " " + d.family), team, d.points, note];
+    });
+  }
+  if (LIVE.f1 && LIVE.f1.constructors && LIVE.f1.constructors.length) {
+    F1CONS = LIVE.f1.constructors.filter(function (c) { return F1TEAMS[c.team]; }).sort(function (a, b) { return a.pos - b.pos; }).map(function (c) { return [c.team, c.points]; });
+  }
+  if (LIVE.nflStandings && LIVE.nflStandings.AFC && LIVE.nflStandings.NFC) NFL = LIVE.nflStandings;
+  function applyStamps() {
+    if (LIVE.f1) {
+      var lbl = "Runde " + LIVE.f1.round + " · " + updLabel("f1");
+      document.querySelectorAll(".f1-stamp").forEach(function (el) { el.textContent = lbl; });
+    }
+    if (LIVE.nflStandings) {
+      document.getElementById("nfl-stamp").textContent = "Tabelle " + updLabel("nflStandings") + ". Live-Tabelle: ";
+    }
+    if (LIVE.updated) {
+      document.getElementById("data-stamp").textContent = "Formel 1 und NFL werden täglich automatisch aktualisiert, zuletzt am " + fmtUpd.format(new Date(LIVE.updated)) + " Uhr. WEC-Daten werden von Hand gepflegt (Stand 4. November 2026). „TBD“ = Anstoßzeit noch nicht festgelegt. Alle Angaben ohne Gewähr.";
+    }
+  }
 
   var WECCARS = [
     ["8", "Toyota Racing", "toyota", "Toyota TR010 Hybrid", "Buemi / Hartley / Hirakawa", 114, "toyota"],
@@ -1150,6 +1195,7 @@ a.f1team:hover h4 { color: var(--team); }
       }).join("") + '</tbody>';
   }
   renderTables();
+  applyStamps();
 
   var seg = "f1";
   try { seg = localStorage.getItem("bbt-seg") || "f1"; } catch (e) {}

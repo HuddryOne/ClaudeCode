@@ -18,7 +18,22 @@ Dazu:
 
 Einfach `index.html` im Browser öffnen – keine Installation nötig. Für eine Online-Version kann die Datei z. B. über GitHub Pages veröffentlicht werden.
 
-## Daten aktualisieren
+## Automatische Aktualisierung (alle 24 Stunden)
+
+Der GitHub-Workflow `.github/workflows/update-data.yml` läuft jeden Tag um 04:17 UTC (und auf Knopfdruck unter *Actions → Daten täglich aktualisieren → Run workflow*). Er startet `scripts/update-data.mjs`, das diese Daten holt:
+
+| Bereich | Quelle |
+|---|---|
+| F1-Fahrer- und Konstrukteurswertung | Jolpica F1 API (Nachfolger von Ergast) |
+| NFL-Tabelle aller 32 Teams | ESPN (öffentliche Endpunkte) |
+| Broncos-Kader (alle Spieler) | ESPN |
+| Broncos-Spielplan inkl. Ergebnissen und Anstoßzeiten | ESPN |
+
+Die Ergebnisse landen in `data/live.json` und im Block `<script id="live-data">` in `index.html`, der Workflow committet die Änderung. Fällt eine Quelle aus, bleibt deren letzter Stand erhalten. Ist der Block leer, zeigt die Seite die fest eingetragenen Daten.
+
+**Nicht automatisch:** WEC (es gibt keine öffentliche Schnittstelle), F1-Teamsteckbriefe, Teamgeschichte und TV-Sender. Diese Daten werden weiter von Hand gepflegt.
+
+## Daten von Hand ändern
 
 Alle Termine, Kader und Sender stehen im `<script>`-Block in `index.html` (Abschnitte `nfl`, `ev({...})`, `ROSTER`, `TVPAGE`, `F1DRIVERS`, `F1CONS`, `F1TEAMS`, `NFL`, `WECCARS`, `WECMAKES`, `WECDRIVERS`). Zeiten werden in UTC eingetragen und automatisch umgerechnet.
 
