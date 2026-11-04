@@ -66,7 +66,7 @@ jobs:
             curl -sS -D h.txt -o b.json -H "Origin: $ORIGIN" "$u"
             grep -iE '^(HTTP|access-control-allow-origin|cache-control)' h.txt || true
             echo "Größe: $(wc -c < b.json) Bytes"
-            jq 'del(.["$ref"]) | with_entries(select(.value | type != "object" or has("$ref") | not))' b.json 2>/dev/null | head -60 || head -c 1500 b.json
+            head -c 2500 b.json; echo
           done
 
       - name: Komprimierte Größen (wie im Browser)
