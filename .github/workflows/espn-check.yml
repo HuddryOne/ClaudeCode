@@ -1,0 +1,68 @@
+name: ESPN-Live-Prüfung (temporär)
+
+# Einmaliger Prüf-Workflow: Welche Felder liefern Scoreboard und Summary,
+# und erlaubt ESPN Abfragen direkt aus dem Browser (CORS)?
+on:
+  workflow_dispatch:
+    inputs:
+      dates:
+        description: "Spieltag JJJJMMTT (leer = aktuelle Woche)"
+        required: false
+        default: "20261101"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      BASE: https://site.api.espn.com/apis/site/v2/sports/football/nfl
+      ORIGIN: https://huddryone.github.io
+    steps:
+      - name: CORS-Header
+        run: |
+          for u in "$BASE/scoreboard" "$BASE/summary?event=401671789" "$BASE/teams/den"; do
+            echo "=== $u"
+            curl -sS -D - -o /dev/null -H "Origin: $ORIGIN" "$u" | grep -iE '^(HTTP|access-control|cache-control|content-type|age|x-cache)' || true
+          done
+          echo "=== Preflight (OPTIONS)"
+          curl -sS -D - -o /dev/null -X OPTIONS -H "Origin: $ORIGIN" -H "Access-Control-Request-Method: GET" "$BASE/scoreboard" | grep -iE '^(HTTP|access-control)' || true
+
+      - name: Scoreboard aktuelle Woche
+        run: |
+          curl -sS "$BASE/scoreboard" -o sb.json
+          jq '{week: .week, season: .season.type, events: [.events[] | {id, date, name, state: .status.type.state, statusName: .status.type.name, detail: .status.type.shortDetail}]}' sb.json
+
+      - name: Scoreboard Broncos-Spieltag
+        run: |
+          D="${{ github.event.inputs.dates }}"
+          curl -sS "$BASE/scoreboard?dates=$D" -o sbd.json
+          jq '[.events[] | select(.competitions[0].competitors[].team.abbreviation == "DEN")][0] |
+            {id, date, name, timeValid,
+             status: {clock: .status.clock, displayClock: .status.displayClock, period: .status.period, type: .status.type},
+             competitors: [.competitions[0].competitors[] | {homeAway, id, score, winner, team: {id: .team.id, abbreviation: .team.abbreviation, displayName: .team.displayName, logo: .team.logo, color: .team.color}, linescores, records: [.records[]? | {type, summary}]}],
+             situationKeys: (.competitions[0].situation // {} | keys),
+             situation: .competitions[0].situation,
+             broadcasts: .competitions[0].broadcasts,
+             competitionKeys: (.competitions[0] | keys)}' sbd.json
+          echo "EVENT_ID=$(jq -r '[.events[] | select(.competitions[0].competitors[].team.abbreviation == "DEN")][0].id' sbd.json)" >> "$GITHUB_ENV"
+
+      - name: Laufendes Spiel (falls gerade eines läuft) – situation-Felder
+        run: |
+          jq '[.events[] | select(.status.type.state == "in")][0] // "kein laufendes Spiel" |
+            if type == "string" then . else {name, status: .status, situation: .competitions[0].situation} end' sb.json
+
+      - name: Summary des Broncos-Spiels
+        run: |
+          curl -sS "$BASE/summary?event=$EVENT_ID" -o sum.json
+          jq '{topKeys: keys,
+               headerStatus: .header.competitions[0].status,
+               drivesKeys: (.drives // {} | keys),
+               lastDrive: (.drives.previous[-1]? | {description, result: .displayResult, team: .team.abbreviation}),
+               lastPlay: (.drives.previous[-1].plays[-1]? | {text, start: .start, end: .end, clock: .clock, period: .period}),
+               winprobabilitySample: (.winprobability[-1]? // null),
+               situation: (.situation // null)}' sum.json
+          echo "Größe Scoreboard: $(wc -c < sbd.json) Bytes, Summary: $(wc -c < sum.json) Bytes"
+
+      - name: Teamseite Broncos (nächstes Spiel)
+        run: |
+          curl -sS "$BASE/teams/den" -o den.json
+          jq '.team.nextEvent[0] | {id, date, name, state: .competitions[0].status.type.state, timeValid}' den.json
