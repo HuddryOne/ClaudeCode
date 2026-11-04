@@ -162,8 +162,8 @@ section.view { display: grid; gap: 28px; }
 .teamhead h2 { font-size: clamp(34px, 6vw, 52px); font-weight: 800; text-transform: uppercase; }
 .teamhead .sub { color: var(--muted); margin-top: 6px; }
 .subnav { display: flex; flex-wrap: wrap; gap: 8px; }
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-.facts div { background: var(--surface); padding: 12px 14px; min-width: 0; }
+.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.facts div { padding: 12px 14px; min-width: 0; box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line); }
 .facts dt { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .facts dd { margin: 2px 0 0; font-weight: 600; }
 .drivers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
@@ -236,6 +236,16 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .conf { display: grid; gap: 10px; }
 .conf h3 { font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
 .t-broncos-row { --team: var(--broncos); }
+.stand tr.link { cursor: pointer; }
+.stand tr.link:hover td { background: color-mix(in srgb, var(--team) 14%, transparent); }
+.rowlink { font-weight: 600; text-decoration: none; color: var(--ink); }
+.rowlink:hover { text-decoration: underline; color: var(--team); }
+.back { font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; }
+.back:hover { color: var(--ink); }
+.hl { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 68ch; }
+.hl li::marker { color: var(--team); }
+#v-wecteam .teamhead { border-bottom-color: var(--team); }
+#v-wecteam .driver .num, #v-wecteam .car-label { color: var(--team); }
 
 @media (max-width: 1000px) { .divgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) {
@@ -434,7 +444,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
         <div class="callout"><b>Toyota ist Hersteller-Weltmeister 2026.</b> Der Fahrertitel geht sicher an eine Toyota-Crew: Die #8 führt vor dem Finale in Monza mit 17 Punkten vor der #7. In Monza gibt es maximal 26 Punkte (25 für den Sieg und 1 für die Pole Position).</div>
         <div class="grid2">
           <div class="view" style="gap:10px">
-            <div class="section-head"><h2>Rangliste der Autos</h2><span class="eyebrow">Hypercar · nach Barcelona</span></div>
+            <div class="section-head"><h2>Rangliste der Autos</h2><span class="eyebrow">Auto antippen für Teamdaten</span></div>
             <div class="tablewrap"><table class="stand" id="wec-cars"></table></div>
           </div>
           <div class="view" style="gap:10px">
@@ -447,6 +457,9 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
         <p class="note">Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Vanthoor #15, van der Linde #20). Für die Plätze unter den hier gelisteten Fahrern lag zum Datenstand keine geprüfte Punkteliste vor. Diese Autos sind mit „–“ markiert. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
       </div>
     </section>
+
+    <!-- WEC-TEAM (dynamisch) -->
+    <section class="view" id="v-wecteam" hidden></section>
 
     <!-- TV -->
     <section class="view" id="v-tv" hidden>
@@ -883,24 +896,76 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
   };
 
   var WECCARS = [
-    ["8", "Toyota Racing", "toyota", "Toyota TR010 Hybrid", "Buemi / Hartley / Hirakawa", 114],
-    ["7", "Toyota Racing", "toyota", "Toyota TR010 Hybrid", "Conway / Kobayashi / de Vries", 97],
-    ["15", "BMW M Team WRT", "bmw", "BMW M Hybrid V8", "Vanthoor / Magnussen / Marciello", 75],
-    ["20", "BMW M Team WRT", "bmw", "BMW M Hybrid V8", "van der Linde / Frijns / Rast", 75],
-    ["50", "Ferrari AF Corse", "ferrari", "Ferrari 499P", "Fuoco / Molina / Nielsen", 69],
-    ["51", "Ferrari AF Corse", "ferrari", "Ferrari 499P", "Pier Guidi / Calado / Giovinazzi", 59],
-    ["12", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Stevens / Nato u. a.", null],
-    ["38", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Bamber / Lynn u. a.", null],
-    ["35", "Alpine Endurance Team", "alpine", "Alpine A424", "", null],
-    ["36", "Alpine Endurance Team", "alpine", "Alpine A424", "", null],
-    ["007", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "", null],
-    ["009", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "", null],
-    ["93", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null],
-    ["94", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null],
-    ["17", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "", null],
-    ["19", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "", null],
-    ["83", "AF Corse (Privatteam)", "ferrari", "Ferrari 499P", "", null]
+    ["8", "Toyota Racing", "toyota", "Toyota TR010 Hybrid", "Buemi / Hartley / Hirakawa", 114, "toyota"],
+    ["7", "Toyota Racing", "toyota", "Toyota TR010 Hybrid", "Conway / Kobayashi / de Vries", 97, "toyota"],
+    ["15", "BMW M Team WRT", "bmw", "BMW M Hybrid V8", "Vanthoor / Magnussen / Marciello", 75, "bmw"],
+    ["20", "BMW M Team WRT", "bmw", "BMW M Hybrid V8", "van der Linde / Frijns / Rast", 75, "bmw"],
+    ["50", "Ferrari AF Corse", "ferrari", "Ferrari 499P", "Fuoco / Molina / Nielsen", 69, "ferrari"],
+    ["51", "Ferrari AF Corse", "ferrari", "Ferrari 499P", "Pier Guidi / Calado / Giovinazzi", 59, "ferrari"],
+    ["12", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Lynn / Stevens / Nato", null, "cadillac"],
+    ["38", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Bamber / Bourdais / Aitken", null, "cadillac"],
+    ["35", "Alpine Endurance Team", "alpine", "Alpine A424", "da Costa u. a.", null, "alpine"],
+    ["36", "Alpine Endurance Team", "alpine", "Alpine A424", "Makowiecki u. a.", null, "alpine"],
+    ["007", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "Tincknell / Gamble / Gunn", null, "aston"],
+    ["009", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "Riberas / Sørensen / De Angelis", null, "aston"],
+    ["93", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null, "peugeot"],
+    ["94", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null, "peugeot"],
+    ["17", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "Lotterer / Derani / Jaubert", null, "genesis"],
+    ["19", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "Jaminet / Chatin / Juncadella", null, "genesis"],
+    ["83", "AF Corse (Privatteam)", "ferrari", "Ferrari 499P", "", null, "afcorse"]
   ];
+  var WECMAKEPOS = { toyota: [1, 212], bmw: [2, 154], ferrari: [3, 130], cadillac: [4, 118], alpine: [5, 104], aston: [6, 58], peugeot: [7, 24], genesis: [8, 14] };
+  var WECTEAMS = {
+    bmw: { n: "BMW M Team WRT", make: "bmw", maker: "BMW", country: "Deutschland / Belgien",
+      facts: [["Auto", "BMW M Hybrid V8"], ["Reglement", "LMDh (Chassis von Dallara)"], ["Antrieb", "4,0-Liter-V8-Biturbo + Hybrid"], ["Einsatzteam", "Team WRT, Baudour (Belgien)"], ["Teamchef WRT", "Vincent Vosse"], ["WEC-Einstieg", "2024"]],
+      crews: { "15": ["Dries Vanthoor (BEL)", "Kevin Magnussen (DEN)", "Raffaele Marciello (SUI)"], "20": ["Sheldon van der Linde (RSA)", "Robin Frijns (NED)", "René Rast (GER)"] },
+      season: ["Sieg bei den 6 Stunden von São Paulo (#15)", "Beide Crews mit 75 Punkten gleichauf auf Platz 3 der Fahrerwertung", "Kämpft in Monza mit Ferrari und Cadillac um Platz 2 bei den Herstellern"],
+      history: "BMW gewann Le Mans bereits 1999 mit dem V12 LMR. Seit 2024 tritt BMW mit dem M Hybrid V8 in der WEC an, eingesetzt vom belgischen Team WRT.",
+      link: "https://www.bmw-m.com/de/topics/magazine-article-pool/bmw-m-motorsport.html" },
+    ferrari: { n: "Ferrari AF Corse", make: "ferrari", maker: "Ferrari", country: "Italien",
+      facts: [["Auto", "Ferrari 499P"], ["Reglement", "LMH (eigenes Chassis)"], ["Antrieb", "3,0-Liter-V6-Turbo + Hybrid an der Vorderachse"], ["Einsatzteam", "AF Corse, Piacenza"], ["Leiter Langstrecke", "Antonello Coletta"], ["WEC-Einstieg Hypercar", "2023"]],
+      crews: { "50": ["Antonio Fuoco (ITA)", "Miguel Molina (ESP)", "Nicklas Nielsen (DEN)"], "51": ["Alessandro Pier Guidi (ITA)", "James Calado (GBR)", "Antonio Giovinazzi (ITA)"] },
+      season: ["Pole Position in Spa durch Antonio Fuoco (#50)", "Zweite Plätze in Imola und São Paulo (#51)", "Dritter in Barcelona (#50)", "Finale in Monza ist das Heimrennen"],
+      history: "Ferrari gewann Le Mans 2023, 2024 und 2025 mit dem 499P und wurde 2025 Hersteller-Weltmeister. Die #51-Crew holte 2025 den Fahrertitel.",
+      link: "https://www.ferrari.com/de-DE/hypercar" },
+    afcorse: { n: "AF Corse (Privatteam)", make: "ferrari", maker: "Ferrari (privat eingesetzt)", country: "Italien", noMaker: true,
+      facts: [["Auto", "Ferrari 499P (gelbe Lackierung)"], ["Reglement", "LMH"], ["Antrieb", "3,0-Liter-V6-Turbo + Hybrid"], ["Team", "AF Corse, Piacenza"], ["Gründer", "Amato Ferrari"], ["Status", "Privatteam ohne Herstellerpunkte"]],
+      crews: { "83": [] },
+      season: ["Einziges privat eingesetztes Hypercar im Feld", "Fährt um die Wertung für Hypercar-Privatteams, nicht um Herstellerpunkte"],
+      history: "Die #83 gewann 2025 als Privatteam die 24 Stunden von Le Mans, ein seltener Gesamtsieg ohne Werksstatus.",
+      link: "https://www.afcorse.it/" },
+    cadillac: { n: "Cadillac Hertz Team Jota", make: "cadillac", maker: "Cadillac", country: "USA / Großbritannien",
+      facts: [["Auto", "Cadillac V-Series.R"], ["Reglement", "LMDh (Chassis von Dallara)"], ["Antrieb", "5,5-Liter-V8-Saugmotor + Hybrid"], ["Einsatzteam", "Jota, Kent (England)"], ["Teamchef Jota", "Sam Hignett"], ["Werkspartner seit", "2025"]],
+      crews: { "12": ["Alex Lynn (GBR)", "Will Stevens (GBR)", "Norman Nato (FRA)"], "38": ["Earl Bamber (NZL)", "Sébastien Bourdais (FRA)", "Jack Aitken (GBR)"] },
+      season: ["Platz 4 der Herstellerwertung, noch mit Chance auf Platz 2", "In Barcelona auf den Plätzen 4 (#38) und 6 (#12)", "In Le Mans lange im Kampf um die Führung"],
+      history: "Cadillac kam 2023 in die Hypercar-Klasse. Seit 2025 setzt das britische Team Jota die Werksautos in der WEC ein.",
+      link: "https://www.cadillac.com/racing" },
+    alpine: { n: "Alpine Endurance Team", make: "alpine", maker: "Alpine", country: "Frankreich",
+      facts: [["Auto", "Alpine A424"], ["Reglement", "LMDh (Chassis von Oreca)"], ["Antrieb", "3,4-Liter-V6-Turbo + Hybrid"], ["Einsatzteam", "Signatech, Bourges"], ["Marke", "Renault-Gruppe"], ["WEC-Einstieg Hypercar", "2024"]],
+      crews: { "35": ["António Félix da Costa (POR)"], "36": ["Frédéric Makowiecki (FRA)"] },
+      season: ["Platz 5 der Herstellerwertung mit 104 Punkten", "Noch ohne Pole Position in dieser Saison"],
+      history: "Alpine startete 2024 mit dem A424 in der Hypercar-Klasse. Zuvor war das Team mit Signatech in LMP1 und LMP2 aktiv.",
+      link: "https://www.alpine-cars.com/" },
+    aston: { n: "Aston Martin THOR Team", make: "aston", maker: "Aston Martin", country: "Großbritannien / USA",
+      facts: [["Auto", "Aston Martin Valkyrie AMR-LMH"], ["Reglement", "LMH, abgeleitet vom Straßensportwagen"], ["Antrieb", "6,5-Liter-V12-Saugmotor (Cosworth), ohne Hybrid"], ["Einsatzteam", "The Heart of Racing (THOR)"], ["Teamchef", "Ian James"], ["WEC-Einstieg Hypercar", "2025"]],
+      crews: { "007": ["Harry Tincknell (GBR)", "Tom Gamble (GBR)", "Ross Gunn (GBR)"], "009": ["Alex Riberas (ESP)", "Marco Sørensen (DEN)", "Roman De Angelis (CAN)"] },
+      season: ["Platz 6 der Herstellerwertung mit 58 Punkten", "Einziges Hypercar mit V12-Saugmotor im Feld"],
+      history: "Aston Martin gewann Le Mans 1959 und kehrte 2025 mit dem Valkyrie in die Topklasse zurück.",
+      link: "https://www.astonmartin.com/de/racing" },
+    peugeot: { n: "Peugeot TotalEnergies", make: "peugeot", maker: "Peugeot", country: "Frankreich",
+      facts: [["Auto", "Peugeot 9X8"], ["Reglement", "LMH (eigenes Chassis)"], ["Antrieb", "2,6-Liter-V6-Biturbo + Hybrid an der Vorderachse"], ["Basis", "Satory bei Versailles"], ["Marke", "Stellantis"], ["WEC-Einstieg Hypercar", "2022"]],
+      crews: { "93": [], "94": [] },
+      pool: ["Paul di Resta (GBR)", "Loïc Duval (FRA)", "Malthe Jakobsen (DEN)", "Stoffel Vandoorne (BEL)", "Nick Cassidy (NZL)", "Théo Pourchaire (FRA)"],
+      season: ["Platz 7 der Herstellerwertung mit 24 Punkten"],
+      history: "Peugeot gewann Le Mans 1992, 1993 und 2009. Seit 2022 fährt der 9X8 in der Hypercar-Klasse.",
+      link: "https://www.peugeot-sport.com/" },
+    genesis: { n: "Genesis Magma Racing", make: "genesis", maker: "Genesis (Hyundai Motor Group)", country: "Südkorea / Frankreich",
+      facts: [["Auto", "Genesis GMR-001"], ["Reglement", "LMDh (Chassis von Oreca)"], ["Marke", "Hyundai Motor Group"], ["Leitung", "Cyril Abiteboul"], ["WEC-Einstieg", "2026 (Debütsaison)"], ["Status", "Neues Werksteam"]],
+      crews: { "17": ["André Lotterer (GER)", "Pipo Derani (BRA)", "Mathys Jaubert (FRA)"], "19": ["Mathieu Jaminet (FRA)", "Paul-Loup Chatin (FRA)", "Daniel Juncadella (ESP)"] },
+      season: ["Erste WEC-Saison der Marke", "Platz 8 der Herstellerwertung mit 14 Punkten"],
+      history: "Genesis ist die Premiummarke von Hyundai. Mit dem GMR-001 stieg sie 2026 in die WEC und in Le Mans ein. André Lotterer ist dreifacher Le-Mans-Sieger.",
+      link: "https://www.genesis.com/" }
+  };
   var WECMAKES = [["Toyota", "toyota", 212, "Weltmeister"], ["BMW", "bmw", 154], ["Ferrari", "ferrari", 130], ["Cadillac", "cadillac", 118], ["Alpine", "alpine", 104], ["Aston Martin", "aston", 58], ["Peugeot", "peugeot", 24], ["Genesis", "genesis", 14]];
   var WECDRIVERS = [
     ["Sébastien Buemi", "8", "toyota", 114], ["Brendon Hartley", "8", "toyota", 114], ["Ryō Hirakawa", "8", "toyota", 114],
@@ -910,6 +975,39 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
     ["Sheldon van der Linde", "20", "bmw", 65],
     ["James Calado", "51", "ferrari", 59], ["Alessandro Pier Guidi", "51", "ferrari", 59], ["Antonio Giovinazzi", "51", "ferrari", 59]
   ];
+
+  function carSlug(num) { var c = WECCARS.filter(function (x) { return x[0] === num; })[0]; return c ? c[6] : ""; }
+  document.addEventListener("click", function (ev) {
+    var tr = ev.target.closest && ev.target.closest("tr.link");
+    if (!tr || ev.target.closest("a")) return;
+    location.hash = tr.getAttribute("data-href");
+  });
+
+  function renderWecTeam(slug) {
+    var t = WECTEAMS[slug], el = document.getElementById("v-wecteam");
+    var cars = WECCARS.filter(function (x) { return x[6] === slug; });
+    var mp = WECMAKEPOS[t.make];
+    var rankAll = ranks(WECCARS.filter(function (x) { return x[5] != null; }), function (x) { return x[5]; });
+    function carPos(num) { var scored = WECCARS.filter(function (x) { return x[5] != null; }); for (var i = 0; i < scored.length; i++) if (scored[i][0] === num) return rankAll[i]; return null; }
+    var crewHtml = cars.map(function (c) {
+      var crew = t.crews[c[0]] || [], pos = carPos(c[0]);
+      return '<div class="view" style="gap:10px"><div class="car-label">Auto #' + esc(c[0]) + ' · ' + esc(c[3]) + (c[5] != null ? ' · Platz ' + pos + ' mit ' + c[5] + ' Punkten' : '') + '</div>' +
+        (crew.length ? crew.map(function (d) {
+          return '<article class="driver"><div class="num">' + esc(c[0]) + '</div><h4>' + esc(d.replace(/ \(.*\)$/, "")) + '</h4><div class="meta">' + esc((d.match(/\((.*)\)$/) || ["", ""])[1]) + '</div></article>';
+        }).join("") + (crew.length < 3 ? '<p class="note">Weitere Fahrer dieses Autos lagen zum Datenstand nicht gesichert vor.</p>' : '')
+        : '<p class="note">Die genaue Fahrerbesetzung dieses Autos lag zum Datenstand nicht gesichert vor.</p>') + '</div>';
+    }).join("");
+    el.className = "view tm-" + t.make;
+    el.innerHTML = '<a class="back" href="#tabellen">← Zurück zur WEC-Tabelle</a>' +
+      '<div class="teamhead"><div><div class="eyebrow">FIA WEC · Hypercar · ' + esc(t.country) + '</div><h2>' + esc(t.n) + '</h2><div class="sub">Hersteller: ' + esc(t.maker) + '</div></div></div>' +
+      '<dl class="facts">' + t.facts.map(function (f) { return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join("") +
+      (t.noMaker ? "" : '<div><dt>Herstellerwertung</dt><dd>Platz ' + mp[0] + ' · ' + mp[1] + ' Punkte</dd></div>') + '</dl>' +
+      '<div class="section-head"><h2>Autos &amp; Fahrer 2026</h2></div><div class="two">' + crewHtml + '</div>' +
+      (t.pool ? '<div class="callout"><b>Fahrerkader 2026:</b> ' + t.pool.map(esc).join(", ") + '. Wer genau in welchem Auto sitzt, lag zum Datenstand nicht gesichert vor.</div>' : '') +
+      '<div class="section-head"><h2>Saison 2026</h2></div><ul class="hl">' + t.season.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' +
+      '<div class="section-head"><h2>Geschichte</h2></div><p class="prose" style="margin:0">' + esc(t.history) + '</p>' +
+      '<p class="note">Fahrerbesetzungen laut Nennliste 2026. Offizielle Teamseite: <a href="' + t.link + '" target="_blank" rel="noopener">' + esc(t.link.replace(/^https:\/\//, "").replace(/\/.*$/, "")) + ' ↗</a></p>';
+  }
 
   function ranks(arr, key) { var out = [], last = null, pos = 0; arr.forEach(function (x, i) { var v = key(x); if (v !== last) { pos = i + 1; last = v; } out.push(pos); }); return out; }
 
@@ -948,17 +1046,19 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
     document.getElementById("wec-cars").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Auto / Team</th><th class="r">Punkte</th></tr></thead><tbody>' +
       WECCARS.map(function (x, i) {
         var has = x[5] != null;
-        return '<tr class="tm-' + x[2] + (x[2] === "toyota" ? " fav" : "") + '"><td class="p">' + (has ? cr[i] : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><b>' + esc(x[1]) + '</b><br><span class="muted">' + esc(x[3]) + (x[4] ? " · " + esc(x[4]) : "") + (x[0] === "83" ? " · ohne Herstellerpunkte" : "") + '</span></td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '</td></tr>';
+        var href = x[6] === "toyota" ? "#toyota" : "#wec-" + x[6];
+        return '<tr class="tm-' + x[2] + ' link' + (x[2] === "toyota" ? " fav" : "") + '" data-href="' + href + '"><td class="p">' + (has ? cr[i] : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><a class="rowlink" href="' + href + '">' + esc(x[1]) + ' →</a><br><span class="muted">' + esc(x[3]) + (x[4] ? " · " + esc(x[4]) : "") + (x[0] === "83" ? " · ohne Herstellerpunkte" : "") + '</span></td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '</td></tr>';
       }).join("") + '</tbody>';
     var ml = WECMAKES[0][2];
     document.getElementById("wec-makes").innerHTML = '<thead><tr><th>Pos.</th><th>Hersteller</th><th class="r">Punkte</th></tr></thead><tbody>' +
       WECMAKES.map(function (x, i) {
-        return '<tr class="tm-' + x[1] + (x[1] === "toyota" ? " fav" : "") + '"><td class="p">' + (i + 1) + '</td><td><b>' + esc(x[0]) + '</b>' + (x[3] ? '<span class="champ">' + x[3] + '</span>' : "") + '<span class="bar" style="width:' + Math.round(x[2] / ml * 100) + '%"></span></td><td class="r"><b>' + x[2] + '</b></td></tr>';
+        var mh = x[1] === "toyota" ? "#toyota" : "#wec-" + x[1];
+        return '<tr class="tm-' + x[1] + ' link' + (x[1] === "toyota" ? " fav" : "") + '" data-href="' + mh + '"><td class="p">' + (i + 1) + '</td><td><a class="rowlink" href="' + mh + '">' + esc(x[0]) + '</a>' + (x[3] ? '<span class="champ">' + x[3] + '</span>' : "") + '<span class="bar" style="width:' + Math.round(x[2] / ml * 100) + '%"></span></td><td class="r"><b>' + x[2] + '</b></td></tr>';
       }).join("") + '</tbody>';
     var dr = ranks(WECDRIVERS, function (x) { return x[3]; }), dl = WECDRIVERS[0][3];
     document.getElementById("wec-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Fahrer</th><th>Auto</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
       WECDRIVERS.map(function (x, i) {
-        return '<tr class="tm-' + x[2] + (x[2] === "toyota" ? " fav" : "") + '"><td class="p">' + dr[i] + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n">#' + x[1] + '</td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
+        return '<tr class="tm-' + x[2] + (x[2] === "toyota" ? " fav" : "") + '"><td class="p">' + dr[i] + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n"><a class="rowlink" href="' + (x[2] === "toyota" ? "#toyota" : "#wec-" + carSlug(x[1])) + '">#' + x[1] + '</a></td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
       }).join("") + '</tbody>';
   }
   renderTables();
@@ -978,11 +1078,15 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
   /* ---------- Routing ---------- */
   var VIEWS = ["start", "kalender", "broncos", "redbull", "toyota", "tabellen", "tv"];
   function route() {
-    var h = (location.hash || "#start").slice(1);
-    if (VIEWS.indexOf(h) < 0) h = "start";
-    VIEWS.forEach(function (v) { document.getElementById("v-" + v).hidden = v !== h; });
+    var h = (location.hash || "#start").slice(1), wec = null;
+    if (h.indexOf("wec-") === 0 && WECTEAMS[h.slice(4)]) { wec = h.slice(4); }
+    else if (VIEWS.indexOf(h) < 0) h = "start";
+    VIEWS.forEach(function (v) { document.getElementById("v-" + v).hidden = wec ? true : v !== h; });
+    document.getElementById("v-wecteam").hidden = !wec;
+    if (wec) { renderWecTeam(wec); showSeg("wec"); }
+    var navKey = wec ? "tabellen" : h;
     document.querySelectorAll("nav.tabs a").forEach(function (a) {
-      if (a.getAttribute("href") === "#" + h) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      if (a.getAttribute("href") === "#" + navKey) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
     renderAll();
   }
