@@ -22,6 +22,15 @@ Der Workflow `.github/workflows/deploy-pages.yml` veröffentlicht die Seite bei 
 
 Offline: `index.html` einfach im Browser öffnen, keine Installation nötig.
 
+## Live-Karte für Broncos-Spiele
+
+Während eines Broncos-Spiels zeigt die App eine Live-Karte im Zeitmonitor, auf der Übersicht und auf der Broncos-Seite: Spielstand, Viertel und Uhr, Ballbesitz, Down & Distance, Red Zone, Timeouts, letzter Spielzug, Punkte pro Viertel und Siegchance. Nach Spielende erscheint der Endstand und wird sofort in die Ergebnistabelle übernommen.
+
+- Abgefragt wird direkt im Browser bei ESPN, nur von 30 Minuten vor Kickoff bis 6 Stunden danach. An anderen Tagen gibt es keine einzige Abfrage.
+- Takt: vor dem Spiel jede Minute, im Spiel alle 15 Sekunden (Core-API `/status` und `/situation`, je unter 1 KB; Scoreboard höchstens jede Minute oder nach einem neuen Spielzug), in Pausen jede Minute.
+- Im Hintergrund-Tab und offline wird pausiert; bei Fehlern wartet die App immer länger (30 s bis 5 min) und zeigt den letzten Stand.
+- In der claude.ai-Vorschau sind Abfragen nach außen gesperrt, dort erscheint ein Hinweis auf die Web-Version.
+
 ## Automatische Aktualisierung (alle 24 Stunden)
 
 Der GitHub-Workflow `.github/workflows/update-data.yml` läuft jeden Tag um 04:17 UTC (und auf Knopfdruck unter *Actions → Daten täglich aktualisieren → Run workflow*). Er startet `scripts/update-data.mjs`, das diese Daten holt:

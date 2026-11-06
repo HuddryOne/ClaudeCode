@@ -1,0 +1,42 @@
+name: Live-Karte prüfen (temporär)
+
+# Öffnet die veröffentlichte Seite während eines Broncos-Spiels in Chrome
+# und gibt Live-Karte, Kopfzeile und Browser-Fehler aus.
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Live-Karte auslesen
+        run: |
+          npm i --silent --no-save playwright-core@1.48.2
+          cat > check.js <<'EOF'
+          const { chromium } = require('playwright-core');
+          (async () => {
+            const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] });
+            const p = await b.newPage({ viewport: { width: 1200, height: 1400 } });
+            const errs = [], espn = [];
+            p.on('pageerror', e => errs.push('pageerror: ' + e.message));
+            p.on('console', m => { if (m.type() === 'error') errs.push('console: ' + m.text()); });
+            p.on('response', r => { if (/espn\.com/.test(r.url())) espn.push(r.status() + ' ' + r.url().replace(/^https:\/\//, '')); });
+            await p.goto('https://huddryone.github.io/ClaudeCode/#broncos', { waitUntil: 'load' });
+            for (const t of [5, 25]) {
+              await p.waitForTimeout(t === 5 ? 5000 : 20000);
+              const card = await p.evaluate(() => (document.querySelector('#live-broncos .livecard') || {}).innerText || '(keine Live-Karte)');
+              const head = await p.evaluate(() => document.getElementById('next').innerText);
+              console.log(`\n=== nach ${t} s\nKARTE: ${card.replace(/\n+/g, ' | ')}\nKOPF:  ${head.replace(/\n+/g, ' | ')}`);
+            }
+            console.log('\nESPN-Abfragen:\n' + espn.join('\n'));
+            console.log('\nFehler: ' + (errs.length ? errs.join('\n') : 'keine'));
+            await p.screenshot({ path: 'livecard.png' });
+            await b.close();
+          })();
+          EOF
+          node check.js
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: livecard-screenshot
+          path: livecard.png

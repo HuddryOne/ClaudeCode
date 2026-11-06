@@ -2,10 +2,10 @@
 
 Stand: 4. November 2026. Umgesetzt wird jeweils erst nach Freigabe.
 
-## 1. NFL: Live-Karte für Broncos-Spiele (in Planung)
+## 1. NFL: Live-Karte für Broncos-Spiele (umgesetzt am 6.11.2026, Live-Test am 8.11.2026)
 
 - **Quelle:** ESPN-Scoreboard `site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=JJJJMMTT`, direkt aus dem Browser (CORS erlaubt, geprüft am 4.11.2026).
-- **Felder:** Status (`status.type.state`), Viertel und Uhr (`status.period`, `status.displayClock`), Spielstand (`competitors[].score`), Punkte pro Viertel (`linescores`), Ballbesitz, Down & Distance, Red Zone, Timeouts und letzter Spielzug (`competitions[0].situation`). Die `situation`-Felder werden bei laufenden Spielen bestätigt (Prüfläufe am 6.11. und 8.11.2026).
+- **Felder:** Status (`status.type.state`), Viertel und Uhr (`status.period`, `status.displayClock`), Spielstand (`competitors[].score`), Punkte pro Viertel (`linescores`), Ballbesitz, Down & Distance, Red Zone, Timeouts und letzter Spielzug (`competitions[0].situation`). Die `situation`-Felder wurden beim Spiel Jaguars @ Ravens am 6.11.2026 bestätigt. Während des Spiels liefert die Core-API (`/status`, `/situation`) aktuellere Daten als das Scoreboard. Der Datumsfilter des Scoreboards erwartet das US-Datum (Eastern Time).
 - **Abfragetakt:** nur an Spieltagen ab 30 Minuten vor Kickoff, jede Minute vor dem Spiel, alle 15 s während des Spiels, alle 60 s in der Halbzeit, nach Spielende eine letzte Abfrage. Pause, solange der Tab im Hintergrund ist; bei Fehlern immer längere Wartezeiten (30 s bis 5 min).
 - **Anzeige:** Live-Karte im Zeitmonitor, auf der Übersicht und auf der Broncos-Seite; nach Spielende Endstand und sofortige Übernahme in die Ergebnistabelle.
 - **Fehlerfälle:** ESPN nicht erreichbar, kein Spiel heute, Spiel verlegt oder verschoben, fehlende Felder, offline, claude.ai-Vorschau ohne Netzzugriff.
