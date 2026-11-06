@@ -39,15 +39,15 @@ jobs:
         run: |
           D="${{ github.event.inputs.dates }}"
           curl -sS "$BASE/scoreboard?dates=$D" -o sbd.json
-          jq '[.events[] | select(.competitions[0].competitors[].team.abbreviation == "DEN")][0] |
+          jq '([.events[] | select(.competitions[0].competitors[].team.abbreviation == "DEN")][0] // empty) |
             {id, date, name, timeValid,
              status: {clock: .status.clock, displayClock: .status.displayClock, period: .status.period, type: .status.type},
              competitors: [.competitions[0].competitors[] | {homeAway, id, score, winner, team: {id: .team.id, abbreviation: .team.abbreviation, displayName: .team.displayName, logo: .team.logo, color: .team.color}, linescores, records: [.records[]? | {type, summary}]}],
              situationKeys: (.competitions[0].situation // {} | keys),
              situation: .competitions[0].situation,
              broadcasts: .competitions[0].broadcasts,
-             competitionKeys: (.competitions[0] | keys)}' sbd.json
-          echo "EVENT_ID=$(jq -r '[.events[] | select(.competitions[0].competitors[].team.abbreviation == "DEN")][0].id' sbd.json)" >> "$GITHUB_ENV"
+             competitionKeys: (.competitions[0] | keys)}' sbd.json || echo "Kein Broncos-Spiel an diesem Tag"
+          echo "EVENT_ID=$(jq -r '[.events[] | select(.competitions[0].competitors[].team.abbreviation == "DEN")][0].id // "401873033"' sbd.json)" >> "$GITHUB_ENV"
 
       - name: Laufendes Spiel (falls gerade eines läuft) – situation-Felder
         run: |
