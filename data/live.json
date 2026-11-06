@@ -1,9 +1,9 @@
 {
  "sources": {
-  "f1": "2026-11-05T05:06:50.069Z",
-  "nflStandings": "2026-11-05T05:06:50.069Z",
-  "broncosRoster": "2026-11-05T05:06:50.069Z",
-  "broncosSchedule": "2026-11-05T05:06:50.069Z"
+  "f1": "2026-11-06T05:05:29.626Z",
+  "nflStandings": "2026-11-06T05:05:29.626Z",
+  "broncosRoster": "2026-11-06T05:05:29.626Z",
+  "broncosSchedule": "2026-11-06T05:05:29.626Z"
  },
  "f1": {
   "round": 19,
@@ -373,13 +373,13 @@
     [
      "Baltimore Ravens",
      4,
-     4
+     5
     ]
    ],
    "South": [
     [
      "Jacksonville Jaguars",
-     5,
+     6,
      2
     ],
     [
@@ -1131,5 +1131,5 @@
   ],
   "bye": 10
  },
- "updated": "2026-11-05T05:06:50.069Z"
+ "updated": "2026-11-06T05:05:29.626Z"
 }
