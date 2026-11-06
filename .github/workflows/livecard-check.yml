@@ -4,12 +4,24 @@ name: Live-Karte prüfen (temporär)
 # und gibt Live-Karte, Kopfzeile und Browser-Fehler aus.
 on:
   workflow_dispatch:
+    inputs:
+      sim_dates:
+        description: "Test mit einem anderen laufenden Spiel: US-Datum JJJJMMTT (leer = echter Broncos-Spieltag)"
+        required: false
+        default: ""
+      sim_team:
+        description: "ESPN-Team-ID, die als Broncos ausgegeben wird (z. B. 33 = Ravens)"
+        required: false
+        default: ""
 
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
       - name: Live-Karte auslesen
+        env:
+          SIM_DATES: ${{ github.event.inputs.sim_dates }}
+          SIM_TEAM: ${{ github.event.inputs.sim_team }}
         run: |
           npm i --silent --no-save playwright-core@1.48.2
           cat > check.js <<'EOF'
@@ -21,9 +33,20 @@ jobs:
             p.on('pageerror', e => errs.push('pageerror: ' + e.message));
             p.on('console', m => { if (m.type() === 'error') errs.push('console: ' + m.text()); });
             p.on('response', r => { if (/espn\.com/.test(r.url())) espn.push(r.status() + ' ' + r.url().replace(/^https:\/\//, '')); });
+            const sim = process.env.SIM_DATES && process.env.SIM_TEAM;
+            if (sim) {
+              // Uhr der Seite auf das Broncos-Spiel am 8.11. stellen und ein anderes laufendes Spiel als Broncos-Spiel ausgeben
+              await p.clock.install({ time: new Date('2026-11-08T18:40:00Z') });
+              await p.route(/scoreboard\?dates=/, async (r) => {
+                const real = await r.fetch({ url: r.request().url().replace(/dates=\d+/, 'dates=' + process.env.SIM_DATES) });
+                const body = (await real.text()).split('"id":"' + process.env.SIM_TEAM + '"').join('"id":"7"');
+                await r.fulfill({ response: real, body });
+              });
+            }
             await p.goto('https://huddryone.github.io/ClaudeCode/#broncos', { waitUntil: 'load' });
             for (const t of [5, 25]) {
-              await p.waitForTimeout(t === 5 ? 5000 : 20000);
+              if (sim) { await p.clock.runFor(t === 5 ? 1000 : 16000); await p.waitForTimeout(4000); }
+              else await p.waitForTimeout(t === 5 ? 5000 : 20000);
               const card = await p.evaluate(() => (document.querySelector('#live-broncos .livecard') || {}).innerText || '(keine Live-Karte)');
               const head = await p.evaluate(() => document.getElementById('next').innerText);
               console.log(`\n=== nach ${t} s\nKARTE: ${card.replace(/\n+/g, ' | ')}\nKOPF:  ${head.replace(/\n+/g, ' | ')}`);
