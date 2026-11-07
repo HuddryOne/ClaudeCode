@@ -1,9 +1,9 @@
 {
  "sources": {
-  "f1": "2026-11-06T05:05:29.626Z",
-  "nflStandings": "2026-11-06T05:05:29.626Z",
-  "broncosRoster": "2026-11-06T05:05:29.626Z",
-  "broncosSchedule": "2026-11-06T05:05:29.626Z"
+  "f1": "2026-11-07T04:58:07.266Z",
+  "nflStandings": "2026-11-07T04:58:07.266Z",
+  "broncosRoster": "2026-11-07T04:58:07.266Z",
+  "broncosSchedule": "2026-11-07T04:58:07.266Z"
  },
  "f1": {
   "round": 19,
@@ -654,7 +654,7 @@
   [
    "DE",
    "Eyioma Uwazurike",
-   "Nr. 96 · 4. NFL-Jahr · Iowa State · verletzt: Questionable"
+   "Nr. 96 · 4. NFL-Jahr · Iowa State · verletzt: Out"
   ],
   [
    "DE",
@@ -719,7 +719,7 @@
   [
    "LB",
    "Dondrea Tillman",
-   "Nr. 92 · 3. NFL-Jahr · IU Pennsylvania"
+   "Nr. 92 · 3. NFL-Jahr · IU Pennsylvania · verletzt: Questionable"
   ],
   [
    "CB",
@@ -744,7 +744,7 @@
   [
    "CB",
    "Kris Abrams-Draine",
-   "Nr. 31 · 3. NFL-Jahr · Missouri · verletzt: Questionable"
+   "Nr. 31 · 3. NFL-Jahr · Missouri · verletzt: Out"
   ],
   [
    "CB",
@@ -769,7 +769,7 @@
   [
    "S",
    "Brandon Jones",
-   "Nr. 22 · 7. NFL-Jahr · Texas · verletzt: Questionable"
+   "Nr. 22 · 7. NFL-Jahr · Texas · verletzt: Out"
   ],
   [
    "S",
@@ -1131,5 +1131,5 @@
   ],
   "bye": 10
  },
- "updated": "2026-11-06T05:05:29.626Z"
+ "updated": "2026-11-07T04:58:07.266Z"
 }
