@@ -63,6 +63,7 @@ async function fetchF1() {
     pos: num(d.position || d.positionText),
     points: num(d.points),
     wins: num(d.wins),
+    id: d.Driver.driverId,
     given: d.Driver.givenName,
     family: d.Driver.familyName,
     number: d.Driver.permanentNumber ? Number(d.Driver.permanentNumber) : null,
@@ -168,6 +169,139 @@ async function fetchBroncosSchedule() {
   return { games, bye };
 }
 
+
+/* ---------------- Hilfen für viele Abfragen ---------------- */
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+async function pool(items, size, fn) {
+  const out = new Array(items.length); let i = 0;
+  await Promise.all(Array.from({ length: size }, async () => {
+    while (i < items.length) { const k = i++; try { out[k] = await fn(items[k], k); } catch (e) { out[k] = { error: e.message }; } }
+  }));
+  return out;
+}
+
+/* ---------------- NFL: alle 32 Teams, Tabelle, Spiele ---------------- */
+const ESPN = "https://site.api.espn.com/apis/site/v2/sports/football/nfl";
+function gameFrom(ev, seasonLabel) {
+  const comp = (ev.competitions || [])[0]; if (!comp) return null;
+  const st = (comp.status || ev.status || {}).type || {};
+  const side = (c) => c && ({ id: String(c.id || (c.team && c.team.id)), abbr: c.team && c.team.abbreviation, name: c.team && c.team.displayName, score: scoreOf(c), winner: !!c.winner });
+  const home = side(comp.competitors.find((c) => c.homeAway === "home")), away = side(comp.competitors.find((c) => c.homeAway === "away"));
+  if (!home || !away) return null;
+  return {
+    id: ev.id, date: ev.date, week: ev.week ? ev.week.number : null, season: seasonLabel,
+    type: (ev.seasonType && ev.seasonType.abbreviation) || "", completed: !!st.completed, timeValid: ev.timeValid !== false,
+    home, away, venue: comp.venue ? [comp.venue.fullName, comp.venue.address && comp.venue.address.city].filter(Boolean).join(", ") : ""
+  };
+}
+async function fetchNflLeague() {
+  const list = await getJson(`${ESPN}/teams`);
+  const teams = (((list.sports || [])[0] || {}).leagues || [])[0].teams.map((t) => t.team);
+  if (teams.length < 30) throw new Error("NFL-Teamliste unvollständig");
+  // Tabelle mit allen Kennzahlen
+  const st = await getJson(`https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=${SEASON}&level=3`);
+  const divisions = { AFC: {}, NFC: {} };
+  for (const d of collectDivisions(st, [])) {
+    divisions[d.conf][d.div] = d.entries.map((e) => {
+      const s = {}; (e.stats || []).forEach((x) => { const k = x.name || x.type; if (k) s[k] = x.displayValue != null ? x.displayValue : x.value; if (x.type && x.type !== k) s[x.type] = x.displayValue != null ? x.displayValue : x.value; });
+      return { id: String(e.team.id), abbr: e.team.abbreviation, name: e.team.displayName, stats: s };
+    });
+  }
+  const games = {}; const info = {};
+  const seasons = [[SEASON, 2], [String(+SEASON - 1), 3], [String(+SEASON - 1), 2]];
+  await pool(teams, 4, async (t) => {
+    const det = await getJson(`${ESPN}/teams/${t.id}`).catch(() => null);
+    const tm = det && det.team || {};
+    const rec = {}; ((tm.record || {}).items || []).forEach((it) => { rec[it.type] = it.summary; });
+    const ven = tm.franchise && tm.franchise.venue || tm.venue || null;
+    info[t.abbreviation] = {
+      id: String(t.id), abbr: t.abbreviation, name: t.displayName, short: t.shortDisplayName, location: t.location,
+      color: t.color, alt: t.alternateColor, logo: (t.logos || [])[0] && t.logos[0].href,
+      standing: tm.standingSummary || "", record: rec,
+      venue: ven ? [ven.fullName, ven.address && ven.address.city, ven.address && ven.address.state].filter(Boolean).join(", ") : ""
+    };
+    const mine = [];
+    for (const [season, type] of seasons) {
+      const sch = await getJson(`${ESPN}/teams/${t.id}/schedule?season=${season}&seasontype=${type}`).catch(() => null);
+      for (const ev of (sch && sch.events) || []) {
+        const g = gameFrom(ev, season + (type === 3 ? " Playoffs" : ""));
+        if (!g) continue;
+        if (season === SEASON && type === 2) games[g.id] = g;
+        mine.push(g);
+      }
+      await sleep(100);
+    }
+    const done = mine.filter((g) => g.completed).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 10);
+    const next = mine.filter((g) => !g.completed && g.season === SEASON).sort((a, b) => a.date.localeCompare(b.date))[0] || null;
+    info[t.abbreviation].last10 = done; info[t.abbreviation].next = next;
+  });
+  const all = Object.values(games).sort((a, b) => a.date.localeCompare(b.date));
+  if (Object.keys(info).length < 30 || all.length < 50) throw new Error("NFL-Liga-Daten unvollständig");
+  return { divisions, teams: info, games: all };
+}
+
+/* ---------------- Formel 1: Erfolge aller Fahrer und Teams ---------------- */
+const JOL = "https://api.jolpi.ca/ergast/f1";
+async function jol(p) { await sleep(350); return getJson(JOL + p); }
+const total = (js) => num(js && js.MRData && js.MRData.total);
+async function fetchF1Stats() {
+  const ds = await jol(`/${SEASON}/driverstandings/?limit=100`);
+  const cs = await jol(`/${SEASON}/constructorstandings/?limit=100`);
+  const dl = ds.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+  const cl = cs.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+  // Saisonbilanz aus allen Ergebnissen dieser Saison
+  const res = await jol(`/${SEASON}/results/?limit=1000`);
+  const sd = {}, sc = {};
+  for (const race of res.MRData.RaceTable.Races || []) for (const r of race.Results || []) {
+    const p = num(r.position), d = (sd[r.Driver.driverId] ||= { wins: 0, podiums: 0, best: 99, races: 0 }), c = (sc[r.Constructor.constructorId] ||= { wins: 0, podiums: 0 });
+    d.races++; if (p === 1) { d.wins++; c.wins++; } if (p >= 1 && p <= 3) { d.podiums++; c.podiums++; } if (p && p < d.best) d.best = p;
+  }
+  const drivers = {};
+  for (const s of dl) {
+    const id = s.Driver.driverId;
+    const titles = await jol(`/drivers/${id}/driverstandings/1/?limit=100`).catch(() => null);
+    const starts = await jol(`/drivers/${id}/results/?limit=1`);
+    const wins = await jol(`/drivers/${id}/results/1/?limit=1`);
+    const p2 = await jol(`/drivers/${id}/results/2/?limit=1`);
+    const p3 = await jol(`/drivers/${id}/results/3/?limit=1`);
+    const poles = await jol(`/drivers/${id}/qualifying/1/?limit=1`).catch(() => null);
+    const first = (starts.MRData.RaceTable.Races || [])[0], fw = (wins.MRData.RaceTable.Races || [])[0];
+    drivers[id] = {
+      id, given: s.Driver.givenName, family: s.Driver.familyName, code: s.Driver.code || "", number: s.Driver.permanentNumber || "",
+      nationality: s.Driver.nationality || "", dob: s.Driver.dateOfBirth || "", url: s.Driver.url || "",
+      team: f1Team(s.Constructors[s.Constructors.length - 1]), pos: num(s.position || s.positionText), points: num(s.points),
+      titles: titles ? (titles.MRData.StandingsTable.StandingsLists || []).map((l) => l.season) : [],
+      starts: total(starts), wins: total(wins), podiums: total(wins) + total(p2) + total(p3), poles: total(poles),
+      firstRace: first ? first.season + " " + first.raceName : "", firstWin: fw ? fw.season + " " + fw.raceName : "",
+      season: sd[id] || { wins: 0, podiums: 0, best: null, races: 0 }
+    };
+  }
+  const constructors = {};
+  for (const c of cl) {
+    const id = c.Constructor.constructorId, key = f1Team(c.Constructor);
+    const ct = await jol(`/constructors/${id}/constructorstandings/1/?limit=100`).catch(() => null);
+    const dt = await jol(`/constructors/${id}/driverstandings/1/?limit=100`).catch(() => null);
+    const seasons = await jol(`/constructors/${id}/seasons/?limit=100`);
+    const wins = await jol(`/constructors/${id}/results/1/?limit=1`);
+    const p2 = await jol(`/constructors/${id}/results/2/?limit=1`);
+    const p3 = await jol(`/constructors/${id}/results/3/?limit=1`);
+    const poles = await jol(`/constructors/${id}/qualifying/1/?limit=1`).catch(() => null);
+    const races = await jol(`/constructors/${id}/races/?limit=1`).catch(() => null);
+    const ss = (seasons.MRData.SeasonTable.Seasons || []).map((x) => x.season);
+    constructors[key || id] = {
+      id, key, name: c.Constructor.name, nationality: c.Constructor.nationality || "", url: c.Constructor.url || "",
+      pos: num(c.position || c.positionText), points: num(c.points),
+      titles: ct ? (ct.MRData.StandingsTable.StandingsLists || []).map((l) => l.season) : [],
+      driverTitles: dt ? (dt.MRData.StandingsTable.StandingsLists || []).map((l) => [l.season, l.DriverStandings[0].Driver.givenName + " " + l.DriverStandings[0].Driver.familyName]) : [],
+      seasons: ss.length, firstSeason: ss[0] || "", races: total(races),
+      wins: total(wins), podiums: total(wins) + total(p2) + total(p3), poles: total(poles),
+      season: sc[id] || { wins: 0, podiums: 0 }
+    };
+  }
+  if (Object.keys(drivers).length < 15 || Object.keys(constructors).length < 8) throw new Error("F1-Statistik unvollständig");
+  return { round: num(ds.MRData.StandingsTable.StandingsLists[0].round), drivers, constructors };
+}
+
 /* ---------------- Ablauf ---------------- */
 async function main() {
   let prev = {};
@@ -178,7 +312,9 @@ async function main() {
     f1: fetchF1,
     nflStandings: fetchNflStandings,
     broncosRoster: fetchBroncosRoster,
-    broncosSchedule: fetchBroncosSchedule
+    broncosSchedule: fetchBroncosSchedule,
+    nflLeague: fetchNflLeague,
+    f1Stats: fetchF1Stats
   };
   let ok = 0;
   for (const [key, fn] of Object.entries(tasks)) {
