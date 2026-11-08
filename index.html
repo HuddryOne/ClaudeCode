@@ -116,6 +116,15 @@ section.view { display: grid; gap: 28px; }
 .mini time { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .mini .past { opacity: .55; }
 .teamcard .go { font-size: 14px; font-weight: 600; color: var(--team); text-decoration: none; }
+.tcd { display: grid; gap: 4px; padding: 12px; border-radius: 4px; background: color-mix(in srgb, var(--team) 9%, transparent); }
+.tcd-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.tcd-title { font-family: var(--display); font-size: 20px; font-weight: 700; line-height: 1.15; }
+.tcd-when { font-size: 13px; color: var(--muted); }
+.tcd-digits { display: flex; gap: 6px; margin-top: 6px; }
+.tcd-digits div { flex: 1; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 5px 2px; }
+.tcd-digits b { display: block; font-family: var(--display); font-size: 26px; font-weight: 700; line-height: 1; color: var(--team); font-variant-numeric: tabular-nums; }
+.tcd-digits small { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.tcd-live { color: var(--live); font-weight: 500; }
 .teamcard .go:hover { text-decoration: underline; }
 
 /* Kalender */
@@ -717,6 +726,7 @@ a.f1team:hover h4 { color: var(--team); }
   function renderNext() {
     var now = new Date();
     document.getElementById("clock").textContent = fmtClock.format(now) + " · Wien";
+    updateTeamTimers();
     var lh = typeof liveHeader === "function" ? liveHeader() : "";
     if (lh) {
       nextEl.innerHTML = lh;
@@ -756,9 +766,50 @@ a.f1team:hover h4 { color: var(--team); }
         return '<li><time>' + esc(s.dateOnly ? fmtDay.format(sStart(s)) : fmtDay.format(sStart(s)) + " " + fmtTime.format(sStart(s))) + '</time><span>' + esc(e.title) + '</span></li>';
       }).join("");
       return '<article class="teamcard t-' + t + '"><div class="series">' + info.series + '</div><h3>' + info.name + '</h3>' +
+        '<div class="tcd" id="tcd-' + t + '" aria-live="off"></div>' +
         '<p class="status">' + info.status + '</p><ul class="mini">' + (items || '<li><span>Keine weiteren Termine 2026</span></li>') + '</ul>' +
         '<a class="go" href="#' + t + '">Team, Kader &amp; Termine →</a></article>';
     }).join("");
+    updateTeamTimers();
+  }
+
+  /* Countdown pro Team bis zum nächsten Rennen bzw. Spiel (Trainings und Qualifying zählen nicht) */
+  function nextMainEvent(team, now) {
+    var list = EVENTS.filter(function (e) { return e.team === team && !e.bye; });
+    for (var i = 0; i < list.length; i++) {
+      var s = list[i].main, st = sStart(s);
+      var end = s.dateOnly ? new Date(Date.parse(s.start + "T23:59:59Z") + 6 * 3600e3) : sEnd(s);
+      if (end > now) return { e: list[i], s: s, start: st, running: !s.dateOnly && st <= now };
+    }
+    return null;
+  }
+  function updateTeamTimers() {
+    var now = new Date(), p2 = function (n) { return (n < 10 ? "0" : "") + n; };
+    ["broncos", "redbull", "toyota"].forEach(function (t) {
+      var el = document.getElementById("tcd-" + t);
+      if (!el) return;
+      var n = nextMainEvent(t, now), kind = t === "broncos" ? "Spiel" : "Rennen";
+      var html;
+      if (!n) html = '<div class="tcd-label">Nächstes ' + kind + '</div><div class="tcd-title">Saison 2026 beendet</div>';
+      else if (n.running) {
+        var score = "";
+        if (t === "broncos" && typeof live !== "undefined" && live && live.win && live.win.ev === n.e && live.data && live.data.state !== "pre") score = live.data.teams[0].abbr + " " + live.data.teams[0].score + " : " + live.data.teams[1].score + " " + live.data.teams[1].abbr + " · " + liveStatusText(live.data);
+        html = '<div class="tcd-label"><span class="tcd-live">● Läuft gerade</span></div><div class="tcd-title">' + esc(n.e.title) + '</div>' +
+          '<div class="tcd-when">' + esc(score || ("seit " + fmtTime.format(n.start) + " Uhr")) + '</div>';
+      } else {
+        var head = '<div class="tcd-label">Nächstes ' + kind + '</div><div class="tcd-title">' + esc(n.e.title) + '</div>';
+        if (n.s.dateOnly || n.s.tbd) {
+          var days = Math.max(0, Math.ceil((Date.parse(n.s.start + "T00:00:00Z") - now) / 864e5));
+          html = head + '<div class="tcd-when">' + esc(fmtLongDate.format(n.start)) + ' · Uhrzeit noch offen</div><div class="tcd-digits"><div><b>' + days + '</b><small>Tage</small></div></div>';
+        } else {
+          var sec = Math.max(0, Math.floor((n.start - now) / 1000));
+          var d = Math.floor(sec / 86400), h = Math.floor(sec % 86400 / 3600), m = Math.floor(sec % 3600 / 60), ss = sec % 60;
+          html = head + '<div class="tcd-when">' + esc(fmtLong.format(n.start)) + ' Uhr</div>' +
+            '<div class="tcd-digits" role="timer" aria-label="Countdown"><div><b>' + d + '</b><small>Tage</small></div><div><b>' + p2(h) + '</b><small>Std</small></div><div><b>' + p2(m) + '</b><small>Min</small></div><div><b>' + p2(ss) + '</b><small>Sek</small></div></div>';
+        }
+      }
+      if (el.innerHTML !== html) el.innerHTML = html;
+    });
   }
 
   /* ---------- Kalender ---------- */
