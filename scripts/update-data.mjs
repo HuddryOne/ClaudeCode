@@ -317,6 +317,36 @@ async function fetchF1Stats() {
   return { round: num(ds.MRData.StandingsTable.StandingsLists[0].round), drivers, constructors };
 }
 
+/* ---------------- Formel 1: alle Weltmeister seit 1950 ---------------- */
+async function standingsChampions(kind) {
+  // erst die Sammelabfrage versuchen, sonst Saison für Saison
+  const out = [];
+  try {
+    for (let off = 0, tot = 1; off < tot; off += 100) {
+      const js = await jol(`/${kind}/1/?limit=100&offset=${off}`);
+      tot = total(js);
+      standingsLists(js).forEach((l) => out.push(l));
+    }
+  } catch (e) { out.length = 0; }
+  if (out.length < 50) {
+    out.length = 0;
+    for (let y = 1950; y < +SEASON; y++) {
+      if (kind === "constructorstandings" && y < 1958) continue;
+      const js = await jol(`/${y}/${kind}/1/`).catch(() => null);
+      standingsLists(js).forEach((l) => out.push(l));
+    }
+  }
+  return out;
+}
+async function fetchF1Champions() {
+  const dl = await standingsChampions("driverstandings");
+  const cl = await standingsChampions("constructorstandings");
+  const drivers = dl.filter((l) => l.season !== SEASON).map((l) => { const d = l.DriverStandings[0]; return [l.season, d.Driver.driverId, d.Driver.givenName + " " + d.Driver.familyName, (d.Constructors || []).map((c) => c.constructorId)]; });
+  const constructors = cl.filter((l) => l.season !== SEASON).map((l) => { const c = l.ConstructorStandings[0]; return [l.season, c.Constructor.constructorId, c.Constructor.name]; });
+  if (drivers.length < 60 || constructors.length < 50) throw new Error(`F1-Weltmeisterliste unvollständig (${drivers.length}/${constructors.length})`);
+  return { drivers, constructors };
+}
+
 /* ---------------- Ablauf ---------------- */
 async function main() {
   let prev = {};
@@ -329,11 +359,13 @@ async function main() {
     broncosRoster: fetchBroncosRoster,
     broncosSchedule: fetchBroncosSchedule,
     nflLeague: fetchNflLeague,
+    f1Champions: fetchF1Champions,
     f1Stats: fetchF1Stats
   };
   let ok = 0;
   for (const [key, fn] of Object.entries(tasks)) {
     // Die F1-Karrierestatistik ist aufwendig (ca. 250 Abfragen): nur montags oder wenn älter als 3 Tage
+    if (key === "f1Champions" && prev.f1Champions && !process.env.FORCE_ALL && new Date().getUTCDay() !== 1) { console.log("SKIP f1Champions (nur montags)"); continue; }
     if (key === "f1Stats" && prev.f1Stats && prev.sources && prev.sources.f1Stats && !process.env.FORCE_ALL) {
       const age = Date.now() - Date.parse(prev.sources.f1Stats);
       if (new Date().getUTCDay() !== 1 && age < 3 * 864e5) { console.log("SKIP f1Stats (aktuell genug)"); continue; }

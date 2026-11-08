@@ -1489,6 +1489,11 @@ a.f1team:hover h4 { color: var(--team); }
 
   /* ---------- Formel 1: Fahrer-Seiten und Erfolge ---------- */
   var F1S = LIVE.f1Stats || null;
+  var F1C = LIVE.f1Champions || null;
+  // Titel aus der Weltmeisterliste (falls vorhanden), sonst aus der Statistik
+  function driverTitles(id, d) { return F1C ? F1C.drivers.filter(function (x) { return x[1] === id; }).map(function (x) { return x[0]; }) : (d.titles || []); }
+  function teamTitles(c) { return F1C ? F1C.constructors.filter(function (x) { return x[1] === c.id; }).map(function (x) { return x[0]; }) : (c.titles || []); }
+  function teamDriverTitles(c) { return F1C ? F1C.drivers.filter(function (x) { return x[3].indexOf(c.id) >= 0; }).map(function (x) { return [x[0], x[2]]; }) : (c.driverTitles || []); }
   var F1NAT_EN = { Dutch: "Niederlande", British: "Großbritannien", Monegasque: "Monaco", Italian: "Italien", Spanish: "Spanien", Australian: "Australien", French: "Frankreich", German: "Deutschland", Mexican: "Mexiko", Finnish: "Finnland", Canadian: "Kanada", Japanese: "Japan", Thai: "Thailand", "New Zealander": "Neuseeland", Brazilian: "Brasilien", Argentine: "Argentinien", Argentinian: "Argentinien", Danish: "Dänemark", Chinese: "China", American: "USA", Swiss: "Schweiz", Austrian: "Österreich" };
   function natDe(n) { return F1NAT_EN[n] || n || ""; }
   function yearsText(arr) { return arr && arr.length ? arr.length + " (" + arr.join(", ") + ")" : "0"; }
@@ -1508,7 +1513,7 @@ a.f1team:hover h4 { color: var(--team); }
       '<dl class="facts">' + [["WM-Platz", d.pos + "."], ["Punkte", d.points], ["Siege", d.season.wins], ["Podestplätze", d.season.podiums], ["Bestes Ergebnis", d.season.best && d.season.best < 99 ? d.season.best + "." : "–"], ["Rennen", d.season.races]]
         .map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join("") + '</dl>' +
       '<div class="section-head"><h2>Erfolge in der Karriere</h2></div>' +
-      '<dl class="facts achieve">' + [["Weltmeistertitel", yearsText(d.titles)], ["Grand-Prix-Starts", d.starts], ["Siege", d.wins], ["Podestplätze", d.podiums], ["Pole Positions", d.poles], ["Erstes Rennen", d.firstRace || "–"], ["Erster Sieg", d.firstWin || "noch keiner"]]
+      '<dl class="facts achieve">' + [["Weltmeistertitel", yearsText(driverTitles(id, d))], ["Grand-Prix-Starts", d.starts], ["Siege", d.wins], ["Podestplätze", d.podiums], ["Pole Positions", d.poles], ["Erstes Rennen", d.firstRace || "–"], ["Erster Sieg", d.firstWin || "noch keiner"]]
         .map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join("") + '</dl>' +
       (F1NOTE[name] ? '<p class="prose" style="margin:0">' + esc(F1NOTE[name]) + '</p>' : "") +
       '<p class="note">Quelle: Jolpica F1 (Ergast-Datenbank), ' + esc(updLabel("f1Stats")) + '. Pole Positions laut Qualifying-Ergebnissen.' + (d.url ? ' Mehr: <a href="' + esc(d.url) + '" target="_blank" rel="noopener">Wikipedia ↗</a>' : "") + '</p>';
@@ -1518,7 +1523,7 @@ a.f1team:hover h4 { color: var(--team); }
     var c = F1S && F1S.constructors[k];
     if (!c) return "";
     return '<div class="section-head"><h2>Erfolge</h2><span class="eyebrow">als ' + esc(c.name) + (c.firstSeason ? " · seit " + c.firstSeason : "") + '</span></div>' +
-      '<dl class="facts achieve">' + [["Konstrukteurstitel", yearsText(c.titles)], ["Fahrertitel", c.driverTitles.length ? c.driverTitles.length + " (" + c.driverTitles.map(function (x) { return x[0] + " " + x[1]; }).join(", ") + ")" : "0"],
+      '<dl class="facts achieve">' + [["Konstrukteurstitel", yearsText(teamTitles(c))], ["Fahrertitel", teamDriverTitles(c).length ? teamDriverTitles(c).length + " (" + teamDriverTitles(c).map(function (x) { return x[0] + " " + x[1]; }).join(", ") + ")" : "0"],
         ["Siege", c.wins], ["Podestplätze", c.podiums], ["Pole Positions", c.poles], ["Grand Prix", c.races || "–"], ["Saisons", c.seasons], ["Siege " + SEASON_YEAR, c.season.wins + " · Podien " + c.season.podiums]]
         .map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join("") + '</dl>' +
       '<p class="note">Zahlen unter dem heutigen Teamnamen laut Jolpica F1 (Ergast-Datenbank); Erfolge von Vorgängerteams stehen unter „Geschichte“. Podestplätze zählen jedes Auto einzeln.</p>';
