@@ -1,12 +1,12 @@
 {
  "sources": {
-  "f1": "2026-11-07T04:58:07.266Z",
-  "nflStandings": "2026-11-07T04:58:07.266Z",
-  "broncosRoster": "2026-11-07T04:58:07.266Z",
-  "broncosSchedule": "2026-11-07T04:58:07.266Z"
+  "f1": "2026-11-08T04:59:04.857Z",
+  "nflStandings": "2026-11-08T04:59:04.857Z",
+  "broncosRoster": "2026-11-08T04:59:04.857Z",
+  "broncosSchedule": "2026-11-08T04:59:04.857Z"
  },
  "f1": {
-  "round": 19,
+  "round": 20,
   "season": "2026",
   "drivers": [
    {
@@ -248,6 +248,16 @@
     "number": 11,
     "nationality": "Mexican",
     "team": "cadillac"
+   },
+   {
+    "pos": 25,
+    "points": 0,
+    "wins": 0,
+    "given": "Rafael",
+    "family": "Camara",
+    "number": null,
+    "nationality": "",
+    "team": "haas"
    }
   ],
   "constructors": [
@@ -540,6 +550,11 @@
   ],
   [
    "RB",
+   "Cody Schrader",
+   "Nr. 25 · 3. NFL-Jahr · Missouri"
+  ],
+  [
+   "RB",
    "J.K. Dobbins",
    "Nr. 27 · 7. NFL-Jahr · Ohio State"
   ],
@@ -650,11 +665,6 @@
    "DE",
    "Sai'vion Jones",
    "Nr. 95 · 2. NFL-Jahr · LSU"
-  ],
-  [
-   "DE",
-   "Eyioma Uwazurike",
-   "Nr. 96 · 4. NFL-Jahr · Iowa State · verletzt: Out"
   ],
   [
    "DE",
@@ -820,7 +830,7 @@
   [
    "WR",
    "Pat Bryant",
-   "Nr. 13 · 2. NFL-Jahr · Illinois · verletzt: Injured Reserve"
+   "Nr. 13 · 2. NFL-Jahr · Illinois · verletzt: Questionable"
   ],
   [
    "TE",
@@ -848,6 +858,11 @@
    "Nr. 91 · 4. NFL-Jahr · Wisconsin · verletzt: Injured Reserve"
   ],
   [
+   "DE",
+   "Eyioma Uwazurike",
+   "Nr. 96 · 4. NFL-Jahr · Iowa State · verletzt: Injured Reserve"
+  ],
+  [
    "LB",
    "Jonah Elliss",
    "Nr. 52 · 3. NFL-Jahr · Utah · verletzt: Injured Reserve"
@@ -867,11 +882,6 @@
    "RB",
    "Jaret Patterson",
    "3. NFL-Jahr · Buffalo"
-  ],
-  [
-   "RB",
-   "Cody Schrader",
-   "Nr. 25 · 3. NFL-Jahr · Missouri"
   ],
   [
    "WR",
@@ -1131,5 +1141,5 @@
   ],
   "bye": 10
  },
- "updated": "2026-11-07T04:58:07.266Z"
+ "updated": "2026-11-08T04:59:04.857Z"
 }
