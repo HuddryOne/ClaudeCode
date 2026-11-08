@@ -1246,7 +1246,7 @@ a.f1team:hover h4 { color: var(--team); }
     F1DRIVERS.forEach(function (x) { byFamily[x[1].split(" ").slice(-1)[0].toLowerCase()] = x; });
     F1DRIVERS = LIVE.f1.drivers.slice().sort(function (a, b) { return a.pos - b.pos; }).map(function (d) {
       var old = byFamily[(d.family || "").split(" ").slice(-1)[0].toLowerCase()];
-      var team = d.team || (old && old[2]) || "cadillac";
+      var team = (old && old[2]) || d.team || "cadillac"; // Stammteam bevorzugen (Ersatzeinsätze bei anderen Teams)
       var note = old && old[4] && old[4] !== "Weltmeister" ? old[4] : "";
       if (old && old[4] === "Weltmeister") note = "Weltmeister";
       return [old ? old[0] : (d.number || 0), old ? old[1] : (d.given + " " + d.family), team, d.points, note, d.id || ""];
@@ -1406,6 +1406,10 @@ a.f1team:hover h4 { color: var(--team); }
     var t = NFLL && NFLL.teams[abbr];
     return t && t.logo ? '<img class="nfl-logo" src="' + esc(t.logo) + '" alt="" width="' + size + '" height="' + size + '" loading="lazy" onerror="this.style.visibility=\'hidden\'">' : "";
   }
+  function standingDe(t) {
+    var m = /^(\d+)(?:st|nd|rd|th) in (.+)$/.exec(t || "");
+    return m ? "Platz " + m[1] + " in der " + m[2] : (t || "");
+  }
   function nflHref(abbr) { return "#nfl-" + String(abbr).toLowerCase(); }
   function renderNflLeague() {
     var el = document.getElementById("nfl-conf");
@@ -1426,7 +1430,7 @@ a.f1team:hover h4 { color: var(--team); }
       return '<div class="div' + (cd[0] === "AFC" && cd[1] === "West" ? " div-fav" : "") + '"><h4>' + cd[0] + ' ' + cd[1] + '</h4><div class="tablewrap"><table class="stand nflt"><thead><tr><th></th><th>Team</th><th class="r">Bilanz</th><th class="r">Pct</th><th class="r">Heim</th><th class="r">Ausw.</th><th class="r">Pkt</th><th class="r">Diff</th></tr></thead><tbody>' +
         rows.map(function (t, i) {
           var r = nflRecord(t), me = t.abbr === "DEN";
-          return '<tr class="link' + (me ? " fav t-broncos-row" : "") + '" data-href="' + nflHref(t.abbr) + '"><td class="p">' + (i + 1) + '</td><td class="nfl-team">' + nflLogo(t.abbr, 22) + '<a class="rowlink" href="' + nflHref(t.abbr) + '">' + esc(t.name) + '</a></td>' +
+          return '<tr class="link' + (me ? " fav t-broncos-row" : "") + '" data-href="' + nflHref(t.abbr) + '"><td class="p">' + (i + 1) + '</td><td><div class="nfl-team">' + nflLogo(t.abbr, 22) + '<a class="rowlink" href="' + nflHref(t.abbr) + '" title="' + esc(t.name) + '">' + esc((NFLL.teams[t.abbr] || {}).short || t.name) + '</a></div></td>' +
             '<td class="r"><b>' + r.txt + '</b></td><td class="r muted">' + esc(r.pct) + '</td><td class="r muted">' + esc(r.home) + '</td><td class="r muted">' + esc(r.road) + '</td><td class="r muted">' + esc(r.pf && r.pa ? r.pf + ":" + r.pa : "") + '</td><td class="r">' + esc(r.diff) + '</td></tr>';
         }).join("") + '</tbody></table></div></div>';
     }).join("") + '</div>';
@@ -1465,13 +1469,13 @@ a.f1team:hover h4 { color: var(--team); }
       var home = g.home.abbr === A, me = home ? g.home : g.away, op = home ? g.away : g.home;
       var res = +me.score > +op.score ? ["win", "S"] : +me.score < +op.score ? ["loss", "N"] : ["tie", "U"];
       return '<tr class="' + res[0] + '"><td class="t">' + esc(fmtDay.format(new Date(g.date))) + '<br><span class="muted">' + esc(g.season + (g.week ? " · Wo. " + g.week : "")) + '</span></td><td>' + haBadge(home) + '</td>' +
-        '<td class="nfl-team">' + nflLogo(op.abbr, 22) + '<a class="rowlink" href="' + nflHref(op.abbr) + '">' + (home ? "vs. " : "@ ") + esc(op.name) + '</a></td><td><span class="res ' + res[0] + '">' + res[1] + '</span> <b class="score">' + esc(me.score) + ':' + esc(op.score) + '</b></td></tr>';
+        '<td><div class="nfl-team">' + nflLogo(op.abbr, 22) + '<a class="rowlink" href="' + nflHref(op.abbr) + '">' + (home ? "vs. " : "@ ") + esc(op.name) + '</a></div></td><td><span class="res ' + res[0] + '">' + res[1] + '</span> <b class="score">' + esc(me.score) + ':' + esc(op.score) + '</b></td></tr>';
     }).join("");
     var nx = t.next;
     el.className = "view nflteam";
-    el.style.setProperty("--team", color || "var(--broncos)");
+    el.style.setProperty("--team", A === "DEN" ? "var(--broncos)" : (color || "var(--muted)"));
     el.innerHTML = '<a class="back" href="#nfl">← Zurück zur NFL</a>' +
-      '<div class="teamhead"><div class="nfl-head">' + nflLogo(A, 64) + '<div><div class="eyebrow">NFL · ' + esc(conf + " " + dv) + '</div><h2>' + esc(t.name) + '</h2><div class="sub">' + esc(t.standing || "") + '</div></div></div></div>' +
+      '<div class="teamhead"><div class="nfl-head">' + nflLogo(A, 64) + '<div><div class="eyebrow">NFL · ' + esc(conf + " " + dv) + '</div><h2>' + esc(t.name) + '</h2><div class="sub">' + esc(standingDe(t.standing)) + '</div></div></div></div>' +
       '<dl class="facts">' + [
         ["Bilanz 2026", rec.total || (r ? r.txt : "")], ["Heim", rec.home || (r ? r.home : "")], ["Auswärts", rec.road || rec.away || (r ? r.road : "")],
         ["Punkte für : gegen", r && r.pf ? r.pf + " : " + r.pa : ""], ["Serie", r ? r.streak : ""], ["Stadion", t.venue]
@@ -1493,12 +1497,12 @@ a.f1team:hover h4 { color: var(--team); }
     var d = F1S && F1S.drivers[id], el = document.getElementById("v-f1driver");
     if (!d) return false;
     var row = F1DRIVERS.filter(function (x) { return x[5] === id; })[0];
-    var name = row ? row[1] : d.given + " " + d.family, num = row ? row[0] : d.number, team = d.team && F1TEAMS[d.team];
+    var tkey = row ? row[2] : d.team, name = row ? row[1] : d.given + " " + d.family, num = row ? row[0] : d.number, team = tkey && F1TEAMS[tkey];
     var age = d.dob ? Math.floor((Date.now() - Date.parse(d.dob)) / (365.25 * 864e5)) : null;
-    el.className = "view tm-" + (d.team || "none") + (d.team === "redbull" ? " is-fav" : "");
+    el.className = "view tm-" + (tkey || "none") + (tkey === "redbull" ? " is-fav" : "");
     el.innerHTML = '<a class="back" href="#f1">← Zurück zur Formel 1</a>' +
       '<div class="teamhead"><div class="drv-head"><div class="num big">' + esc(num || "–") + '</div><div><div class="eyebrow">Formel 1 · Fahrer · ' + esc(natDe(d.nationality)) + '</div><h2>' + esc(name) + '</h2><div class="sub">' +
-      (team ? '<a class="rowlink" href="' + f1href(d.team) + '">' + esc(team.n) + ' →</a>' : "") + (d.dob ? " · geb. " + esc(d.dob.split("-").reverse().join(".")) + (age ? " (" + age + " Jahre)" : "") : "") + '</div></div></div></div>' +
+      (team ? '<a class="rowlink" href="' + f1href(tkey) + '">' + esc(team.n) + ' →</a>' : "") + (d.dob ? " · geb. " + esc(d.dob.split("-").reverse().join(".")) + (age ? " (" + age + " Jahre)" : "") : "") + '</div></div></div></div>' +
       (row && row[4] === "Weltmeister" ? '<div class="callout"><b>Weltmeister ' + SEASON_YEAR + '.</b></div>' : "") +
       '<div class="section-head"><h2>Saison ' + SEASON_YEAR + '</h2><span class="eyebrow">nach Runde ' + F1S.round + '</span></div>' +
       '<dl class="facts">' + [["WM-Platz", d.pos + "."], ["Punkte", d.points], ["Siege", d.season.wins], ["Podestplätze", d.season.podiums], ["Bestes Ergebnis", d.season.best && d.season.best < 99 ? d.season.best + "." : "–"], ["Rennen", d.season.races]]
