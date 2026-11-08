@@ -266,7 +266,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 .seg-sm { justify-self: start; }
-#tb-f1, #tb-nfl, #tb-wec, #wec-hy, #wec-gt { gap: 20px; }
+#tb-f1, #tb-nfl, #tb-wec, #wec-hy, #wec-gt, #wec-lm { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
 .seg-sm button { font-size: 14px; padding: 6px 14px; }
 .stand { width: 100%; border-collapse: collapse; font-size: 14px; }
 .stand th { text-align: left; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
@@ -283,7 +283,12 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .tm-mercedes { --team: #27b3a5; } .tm-ferrari { --team: #dc1b1b; } .tm-mclaren { --team: #f28a00; } .tm-redbull { --team: var(--redbull); }
 .tm-rb { --team: #5a7bd8; } .tm-aston { --team: #1d7a5c; } .tm-alpine { --team: #e85aa8; } .tm-williams { --team: #2a7de1; }
 .tm-haas { --team: #8a8f99; } .tm-audi { --team: #b0b6c0; } .tm-cadillac { --team: #c9a227; }
-.tm-toyota { --team: var(--toyota); } .tm-corvette { --team: #c99a06; } .tm-porsche { --team: #8b5a2b; } .tm-ford { --team: #1f4fa3; } .tm-lexus { --team: #6b7280; } .tm-bmw { --team: #2f6fd6; } .tm-peugeot { --team: #7c8a3a; } .tm-genesis { --team: #b0703a; }
+.tm-toyota { --team: var(--toyota); } .tm-corvette { --team: #c99a06; } .tm-porsche { --team: #8b5a2b; } .tm-ford { --team: #1f4fa3; } .tm-lexus { --team: #6b7280; } .tm-lmp2 { --team: #7b4bb3; }
+.lm-drivers { display: grid; gap: 2px; font-size: 13px; }
+.lm-drv { white-space: nowrap; }
+.lm-cat { font-family: var(--mono); font-size: 10px; text-decoration: none; padding: 0 4px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); }
+.lm-P { color: var(--ink); border-color: var(--ink); }
+.lm-table td { vertical-align: top; } .tm-bmw { --team: #2f6fd6; } .tm-peugeot { --team: #7c8a3a; } .tm-genesis { --team: #b0703a; }
 .grid2 { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; align-items: start; }
 .teamgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
 .f1team { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--team); border-radius: 4px; padding: 12px 14px; display: grid; gap: 6px; }
@@ -516,6 +521,7 @@ a.f1team:hover h4 { color: var(--team); }
         <div class="seg seg-sm" role="group" aria-label="WEC-Klasse wählen">
           <button id="cls-hy" data-cls="hy" aria-pressed="true">Hypercar</button>
           <button id="cls-gt" data-cls="gt" aria-pressed="false">LMGT3</button>
+          <button id="cls-lm" data-cls="lm" aria-pressed="false">Le Mans</button>
         </div>
         <div id="wec-hy" class="view">
         <div class="callout"><b>Toyota ist Hersteller-Weltmeister 2026.</b> Der Fahrertitel geht sicher an eine Toyota-Crew: Die #8 führt vor dem Finale in Monza mit 17 Punkten vor der #7. In Monza gibt es maximal 26 Punkte (25 für den Sieg und 1 für die Pole Position).</div>
@@ -548,7 +554,18 @@ a.f1team:hover h4 { color: var(--team); }
           </div>
           <div class="section-head"><h2>Fahrerwertung LMGT3</h2><span class="eyebrow">nach 7 von 8 Rennen</span></div>
           <div class="tablewrap"><table class="stand" id="gt3-drivers"></table></div>
-          <p class="note">In der LMGT3 fährt pro Auto je ein Profi, ein Silber- und ein Bronze-Fahrer. Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Ben Keating #33). Für die übrigen Autos und Fahrer lag zum Datenstand keine geprüfte Punkteliste vor („–“). Die Fahrerbesetzungen stammen aus den Nennlisten der Saison und können sich bei einzelnen Rennen geändert haben. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
+          <p class="note" id="gt3-note">In der LMGT3 fährt pro Auto je ein Profi, ein Silber- und ein Bronze-Fahrer. Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Ben Keating #33). Für die übrigen Autos und Fahrer lag zum Datenstand keine geprüfte Punkteliste vor („–“). Die Fahrerbesetzungen stammen aus den Nennlisten der Saison und können sich bei einzelnen Rennen geändert haben. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
+        </div>
+
+        <div id="wec-lm" class="view" hidden>
+          <div class="section-head"><h2>24 Stunden von Le Mans</h2><div class="seg seg-sm" id="lm-years" role="group" aria-label="Jahr wählen"></div></div>
+          <dl class="facts" id="lm-head"></dl>
+          <div class="view" style="gap:10px">
+            <div class="section-head"><h2>Klassensieger</h2></div>
+            <div class="tablewrap"><table class="stand" id="lm-winners"></table></div>
+          </div>
+          <div id="lm-classes" class="view" style="gap:24px"></div>
+          <p class="note" id="lm-source"></p>
         </div>
       </div>
     </section>
@@ -1214,15 +1231,15 @@ a.f1team:hover h4 { color: var(--team); }
     ["51", "Ferrari AF Corse", "ferrari", "Ferrari 499P", "Pier Guidi / Calado / Giovinazzi", 59, "ferrari"],
     ["12", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Lynn / Stevens / Nato", null, "cadillac"],
     ["38", "Cadillac Hertz Team Jota", "cadillac", "Cadillac V-Series.R", "Bamber / Bourdais / Aitken", null, "cadillac"],
-    ["35", "Alpine Endurance Team", "alpine", "Alpine A424", "da Costa u. a.", null, "alpine"],
-    ["36", "Alpine Endurance Team", "alpine", "Alpine A424", "Makowiecki u. a.", null, "alpine"],
+    ["35", "Alpine Endurance Team", "alpine", "Alpine A424", "da Costa / Milesi / Habsburg", null, "alpine"],
+    ["36", "Alpine Endurance Team", "alpine", "Alpine A424", "Makowiecki / Gounon / Martins", null, "alpine"],
     ["007", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "Tincknell / Gamble / Gunn", null, "aston"],
     ["009", "Aston Martin THOR Team", "aston", "Aston Martin Valkyrie", "Riberas / Sørensen / De Angelis", null, "aston"],
-    ["93", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null, "peugeot"],
-    ["94", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "", null, "peugeot"],
+    ["93", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "di Resta / Vandoorne / Cassidy", null, "peugeot"],
+    ["94", "Peugeot TotalEnergies", "peugeot", "Peugeot 9X8", "Duval / Jakobsen / Pourchaire", null, "peugeot"],
     ["17", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "Lotterer / Derani / Jaubert", null, "genesis"],
     ["19", "Genesis Magma Racing", "genesis", "Genesis GMR-001", "Jaminet / Chatin / Juncadella", null, "genesis"],
-    ["83", "AF Corse (Privatteam)", "ferrari", "Ferrari 499P", "", null, "afcorse"]
+    ["83", "AF Corse (Privatteam)", "ferrari", "Ferrari 499P", "Ye / Kubica / Hanson", null, "afcorse"]
   ];
   var WECMAKEPOS = { toyota: [1, 212], bmw: [2, 154], ferrari: [3, 130], cadillac: [4, 118], alpine: [5, 104], aston: [6, 58], peugeot: [7, 24], genesis: [8, 14] };
   var WECTEAMS = {
@@ -1240,7 +1257,7 @@ a.f1team:hover h4 { color: var(--team); }
       link: "https://www.ferrari.com/de-DE/hypercar" },
     afcorse: { n: "AF Corse (Privatteam)", make: "ferrari", maker: "Ferrari (privat eingesetzt)", country: "Italien", noMaker: true,
       facts: [["Auto", "Ferrari 499P (gelbe Lackierung)"], ["Reglement", "LMH"], ["Antrieb", "3,0-Liter-V6-Turbo + Hybrid"], ["Team", "AF Corse, Piacenza"], ["Gründer", "Amato Ferrari"], ["Status", "Privatteam ohne Herstellerpunkte"]],
-      crews: { "83": [] },
+      crews: { "83": ["Yifei Ye (CHN)", "Robert Kubica (POL)", "Philip Hanson (GBR)"] },
       season: ["Einziges privat eingesetztes Hypercar im Feld", "Fährt um die Wertung für Hypercar-Privatteams, nicht um Herstellerpunkte"],
       history: "Die #83 gewann 2025 als Privatteam die 24 Stunden von Le Mans, ein seltener Gesamtsieg ohne Werksstatus.",
       link: "https://www.afcorse.it/" },
@@ -1252,7 +1269,7 @@ a.f1team:hover h4 { color: var(--team); }
       link: "https://www.cadillac.com/racing" },
     alpine: { n: "Alpine Endurance Team", make: "alpine", maker: "Alpine", country: "Frankreich",
       facts: [["Auto", "Alpine A424"], ["Reglement", "LMDh (Chassis von Oreca)"], ["Antrieb", "3,4-Liter-V6-Turbo + Hybrid"], ["Einsatzteam", "Signatech, Bourges"], ["Marke", "Renault-Gruppe"], ["WEC-Einstieg Hypercar", "2024"]],
-      crews: { "35": ["António Félix da Costa (POR)"], "36": ["Frédéric Makowiecki (FRA)"] },
+      crews: { "35": ["António Félix da Costa (POR)", "Charles Milesi (FRA)", "Ferdinand Habsburg (AUT)"], "36": ["Frédéric Makowiecki (FRA)", "Jules Gounon (FRA)", "Victor Martins (FRA)"] },
       season: ["Platz 5 der Herstellerwertung mit 104 Punkten", "Noch ohne Pole Position in dieser Saison"],
       history: "Alpine startete 2024 mit dem A424 in der Hypercar-Klasse. Zuvor war das Team mit Signatech in LMP1 und LMP2 aktiv.",
       link: "https://www.alpine-cars.com/" },
@@ -1264,8 +1281,7 @@ a.f1team:hover h4 { color: var(--team); }
       link: "https://www.astonmartin.com/de/racing" },
     peugeot: { n: "Peugeot TotalEnergies", make: "peugeot", maker: "Peugeot", country: "Frankreich",
       facts: [["Auto", "Peugeot 9X8"], ["Reglement", "LMH (eigenes Chassis)"], ["Antrieb", "2,6-Liter-V6-Biturbo + Hybrid an der Vorderachse"], ["Basis", "Satory bei Versailles"], ["Marke", "Stellantis"], ["WEC-Einstieg Hypercar", "2022"]],
-      crews: { "93": [], "94": [] },
-      pool: ["Paul di Resta (GBR)", "Loïc Duval (FRA)", "Malthe Jakobsen (DEN)", "Stoffel Vandoorne (BEL)", "Nick Cassidy (NZL)", "Théo Pourchaire (FRA)"],
+      crews: { "93": ["Paul di Resta (GBR)", "Stoffel Vandoorne (BEL)", "Nick Cassidy (NZL)"], "94": ["Loïc Duval (FRA)", "Malthe Jakobsen (DEN)", "Théo Pourchaire (FRA)"] },
       season: ["Platz 7 der Herstellerwertung mit 24 Punkten"],
       history: "Peugeot gewann Le Mans 1992, 1993 und 2009. Seit 2022 fährt der 9X8 in der Hypercar-Klasse.",
       link: "https://www.peugeot-sport.com/" },
@@ -1388,10 +1404,10 @@ a.f1team:hover h4 { color: var(--team); }
     ["77", "Proton Competition", "ford", "Ford Mustang GT3 Evo", "Powell / Tuck / Priaulx", null],
     ["88", "Proton Competition", "ford", "Ford Mustang GT3 Evo", "Levorato / Gattuso / Sargeant", null],
     ["79", "Iron Lynx", "mercedes", "Mercedes-AMG GT3 Evo", "Zelger / Hanafin / Cressoni", null],
-    ["61", "Iron Lynx", "mercedes", "Mercedes-AMG GT3 Evo", "Andrade u. a.", null],
-    ["58", "Garage 59", "mclaren", "McLaren 720S GT3 Evo", "", null],
-    ["78", "Akkodis ASP", "lexus", "Lexus RC F GT3", "", null],
-    ["87", "Akkodis ASP", "lexus", "Lexus RC F GT3", "", null]
+    ["61", "Iron Lynx", "mercedes", "Mercedes-AMG GT3 Evo", "Berry / Andrade / Martin", null],
+    ["58", "Garage 59", "mclaren", "McLaren 720S GT3 Evo", "West / Gehrsitz / Goethe", null],
+    ["78", "Akkodis ASP", "lexus", "Lexus RC F GT3", "van Rompuy / David / Hawksworth", null],
+    ["87", "Akkodis ASP", "lexus", "Lexus RC F GT3", "Umbrărescu / Schmid / López", null]
   ];
   var GT3DRIVERS = [
     ["Jonny Edgar", "33", "corvette", 92], ["Nicky Catsburg", "33", "corvette", 88],
@@ -1424,12 +1440,129 @@ a.f1team:hover h4 { color: var(--team); }
       }).join("") + '</tbody>';
   }
   renderGT3();
+  /* ---------- 24 Stunden von Le Mans: Starterfelder je Jahr ----------
+     Format je Auto: "Nr|Team|Fahrzeug|Zusatz|Fahrer 1 (NAT) Kat;Fahrer 2 (NAT) Kat;Fahrer 3 (NAT) Kat"
+     Kategorie: P = Platin, G = Gold, S = Silber, B = Bronze. Neues Jahr = neuer Eintrag oben. */
+  var LEMANS = {
+    "2026": {
+      race: "13.–14. Juni 2026", edition: "94. Auflage", circuit: "Circuit de la Sarthe, Le Mans (Frankreich)",
+      source: "Offizielle Starterliste (Version 4) vom 3. Juni 2026, ACO / FIA WEC",
+      winners: [
+        ["Gesamtsieg / Hypercar", "7", "Toyota Racing", "Conway / Kobayashi / de Vries", "toyota"],
+        ["LMP2", "43", "Inter Europol Competition", "Smiechowski / Dillmann / Yelloly", "lmp2"],
+        ["LMP2 Pro-Am", "4", "CrowdStrike Racing by APR", "Kurtz / Quinn / Heinrich", "lmp2"],
+        ["LMGT3", "33", "TF Sport (Corvette)", "Keating / Edgar / Catsburg", "corvette"]
+      ],
+      classes: [
+        { name: "Hypercar", rows: [
+          "007|Aston Martin THOR Team|Aston Martin Valkyrie||Harry Tincknell (GBR) P;Tom Gamble (GBR) G;Ross Gunn (GBR) P",
+          "009|Aston Martin THOR Team|Aston Martin Valkyrie||Alex Riberas (ESP) G;Marco Sørensen (DEN) P;Roman De Angelis (CAN) G",
+          "7|Toyota Racing|Toyota TR010 Hybrid|Hybrid|Mike Conway (GBR) P;Kamui Kobayashi (JPN) P;Nyck de Vries (NED) P",
+          "8|Toyota Racing|Toyota TR010 Hybrid|Hybrid|Sébastien Buemi (SUI) P;Brendon Hartley (NZL) P;Ryō Hirakawa (JPN) P",
+          "12|Cadillac Hertz Team Jota|Cadillac V-Series.R|Hybrid|Louis Delétraz (SUI) G;Will Stevens (GBR) P;Norman Nato (FRA) G",
+          "15|BMW M Team WRT|BMW M Hybrid V8|Hybrid|Kevin Magnussen (DEN) P;Raffaele Marciello (SUI) P;Dries Vanthoor (BEL) P",
+          "17|Genesis Magma Racing|Genesis GMR-001|Hybrid|André Lotterer (GER) P;Luis Felipe Derani (BRA) P;Mathys Jaubert (FRA) S",
+          "19|Genesis Magma Racing|Genesis GMR-001|Hybrid|Mathieu Jaminet (FRA) P;Paul-Loup Chatin (FRA) G;Daniel Juncadella (ESP) P",
+          "20|BMW M Team WRT|BMW M Hybrid V8|Hybrid|Robin Frijns (NED) P;René Rast (GER) P;Sheldon van der Linde (RSA) P",
+          "35|Alpine Endurance Team|Alpine A424|Hybrid|António Félix da Costa (POR) P;Charles Milesi (FRA) P;Ferdinand Habsburg (AUT) G",
+          "36|Alpine Endurance Team|Alpine A424|Hybrid|Frédéric Makowiecki (FRA) P;Jules Gounon (FRA) P;Victor Martins (FRA) G",
+          "38|Cadillac Hertz Team Jota|Cadillac V-Series.R|Hybrid|Sébastien Bourdais (FRA) P;Earl Bamber (NZL) P;Jack Aitken (GBR) P",
+          "50|Ferrari AF Corse|Ferrari 499P|Hybrid|Antonio Fuoco (ITA) P;Nicklas Nielsen (DEN) P;Miguel Molina (ESP) P",
+          "51|Ferrari AF Corse|Ferrari 499P|Hybrid|Alessandro Pier Guidi (ITA) P;James Calado (GBR) P;Antonio Giovinazzi (ITA) P",
+          "83|AF Corse|Ferrari 499P|Hybrid, Privatteam|Yifei Ye (CHN) G;Robert Kubica (POL) P;Philip Hanson (GBR) G",
+          "93|Peugeot TotalEnergies|Peugeot 9X8|Hybrid|Paul di Resta (GBR) P;Stoffel Vandoorne (BEL) P;Nick Cassidy (NZL) P",
+          "94|Peugeot TotalEnergies|Peugeot 9X8|Hybrid|Loïc Duval (FRA) P;Malthe Jakobsen (DEN) G;Théo Pourchaire (FRA) P",
+          "101|Cadillac WTR|Cadillac V-Series.R|Hybrid, nur Le Mans|Ricky Taylor (USA) P;Jordan Taylor (USA) P;Filipe Albuquerque (POR) P"
+        ] },
+        { name: "LMP2", rows: [
+          "3|DKR Engineering|Oreca 07 - Gibson|Pro-Am|John Farano (CAN) B;Sebastian Alvarez (MEX) S;Renger van der Zande (NED) P",
+          "4|CrowdStrike Racing by APR|Oreca 07 - Gibson|Pro-Am|George Kurtz (USA) B;Alexander Quinn (GBR) G;Laurin Heinrich (GER) G",
+          "9|Proton Competition|Oreca 07 - Gibson||Jonas Ried (GER) S;Kakunoshin Ohta (JPN) G;Harry King (GBR) G",
+          "14|TDS Racing|Oreca 07 - Gibson|Pro-Am|Tobias Lütke (CAN) B;Mathias Beche (SUI) G;Kévin Estre (FRA) P",
+          "22|United Autosports|Oreca 07 - Gibson||Rasmus Lindh (SWE) S;Grégoire Saucy (SUI) G;Mikkel Jensen (DEN) P",
+          "24|Nielsen Racing|Oreca 07 - Gibson||David Heinemeier Hansson (DEN) S;Edward Pearson (GBR) S;Jack Doohan (AUS) P",
+          "25|Algarve Pro Racing|Oreca 07 - Gibson|Pro-Am|Michael Jensen (DEN) B;Enzo Trulli (ITA) S;Jake Hughes (GBR) G",
+          "26|Vector Sport|Oreca 07 - Gibson||Ryan Cullen (IRL) S;Vladislav Lomko (GRN) G;Pietro Fittipaldi (BRA) P",
+          "28|IDEC Sport|Oreca 07 - Gibson||Paul Lafargue (FRA) S;Valerio Rinicella (ITA) S;Job van Uitert (NED) G",
+          "29|Forestier Racing by Panis|Oreca 07 - Gibson||Louis Rousset (FRA) S;Esteban Masson (FRA) G;Oliver Gray (GBR) G",
+          "30|Duqueine Team|Oreca 07 - Gibson||Doriane Pin (FRA) S;Julien Andlauer (FRA) G;Richard Verschoor (NED) G",
+          "37|CLX Motorsport|Oreca 07 - Gibson||Adrien Closmenil (FRA) S;Ian Aguilera (MEX) S;Theodor Jensen (DEN) S",
+          "43|Inter Europol Competition|Oreca 07 - Gibson||Jakub Smiechowski (POL) S;Tom Dillmann (FRA) G;Nicholas Yelloly (GBR) P",
+          "44|Proton Competition|Oreca 07 - Gibson|Pro-Am|Horst Felbermayr jr. (AUT) B;Horst Felix Felbermayr (AUT) S;Lorenzo Fluxà (ESP) G",
+          "48|RD Limited|Oreca 07 - Gibson|Pro-Am|Fred Poordad (USA) B;Tristan Vautier (FRA) G;Romain Dumas (FRA) P",
+          "99|AO by TF|Oreca 07 - Gibson|Pro-Am|PJ Hyett (USA) B;James Allen (AUS) G;Dane Cameron (USA) P",
+          "183|AF Corse|Oreca 07 - Gibson|Pro-Am|François Perrodo (FRA) B;Matthieu Vaxivière (FRA) G;Ben Barnicoat (GBR) P",
+          "222|United Autosports|Oreca 07 - Gibson|Pro-Am|Daniel Schneider (BRA) B;Benjamin Hanley (GBR) G;Oliver Jarvis (GBR) P",
+          "343|Inter Europol Competition|Oreca 07 - Gibson||Bijoy Garg (USA) S;Reshad de Gérus (FRA) G;Nico Müller (SUI) P"
+        ] },
+        { name: "LMGT3", rows: [
+          "2|TF Sport|Corvette Z06 LMGT3.R||Prince Jefri Ibrahim (MAS) B;Lorcan Hanafin (GBR) S;Ben Green (GBR) P",
+          "10|Garage 59|McLaren 720S LMGT3 Evo||Antares Au (HKG) B;Thomas Fleming (GBR) S;Marvin Kirchhöfer (GER) P",
+          "13|13 Autosport|Corvette Z06 LMGT3.R||Orey Fidani (CAN) B;Lars Kern (GER) S;Matthew Bell (GBR) G",
+          "21|Vista AF Corse|Ferrari 296 LMGT3 Evo||François Hériau (FRA) B;Simon Mann (USA) S;Alessio Rovera (ITA) P",
+          "23|Heart of Racing Team|Aston Martin Vantage AMR LMGT3||Gray Newell (USA) B;Eduardo Barrichello (BRA) S;Jonny Adam (GBR) P",
+          "27|Heart of Racing Team|Aston Martin Vantage AMR LMGT3||Ian James (USA) B;Zacharie Robichon (CAN) S;Mattia Drudi (ITA) P",
+          "32|Team WRT|BMW M4 LMGT3 Evo||Darren Leung (GBR) B;Sean Gelael (INA) S;Augusto Farfus (BRA) P",
+          "33|TF Sport|Corvette Z06 LMGT3.R||Ben Keating (USA) B;Jonny Edgar (GBR) S;Nicky Catsburg (NED) P",
+          "34|Racing Team Turkey by TF|Corvette Z06 LMGT3.R||Peter Dempsey (IRL) B;Salih Yoluç (TUR) S;Charlie Eastwood (IRL) G",
+          "54|Vista AF Corse|Ferrari 296 LMGT3 Evo||Thomas Flohr (SUI) B;Francesco Castellacci (MON) S;Davide Rigon (ITA) P",
+          "57|Kessel Racing|Ferrari 296 LMGT3 Evo||Takeshi Kimura (JPN) B;Conrad Laursen (DEN) S;Daniel Serra (BRA) P",
+          "58|Garage 59|McLaren 720S LMGT3 Evo||Alexander West (SWE) B;Finn Gehrsitz (GER) S;Benjamin Goethe (DEN) G",
+          "59|Racing Spirit of Léman|Aston Martin Vantage AMR LMGT3||Clément Mateu (FRA) B;Marius Fossard (FRA) S;Valentin Hasse-Clot (FRA) G",
+          "61|Iron Lynx|Mercedes-AMG LMGT3||Martin Berry (AUS) B;Rui Andrade (ANG) S;Maxime Martin (BEL) P",
+          "62|Team Qatar by Iron Lynx|Mercedes-AMG LMGT3||Abdulla Al-Khelaifi (QAT) B;Julian Hanses (GER) S;Giuliano Alesi (FRA) G",
+          "69|Team WRT|BMW M4 LMGT3 Evo||Anthony McIntosh (USA) B;Parker Thompson (CAN) S;Dan Harper (GBR) P",
+          "74|Kessel Racing|Ferrari 296 LMGT3 Evo||Dustin Blattner (USA) B;Lorenzo Patrese (ITA) S;Dennis Marschall (GER) P",
+          "77|Proton Competition|Ford Mustang LMGT3||Eric Powell (USA) B;Ben Tuck (GBR) S;Sebastian Priaulx (GBR) G",
+          "78|Akkodis ASP Team|Lexus RC F LMGT3||Tom van Rompuy (BEL) B;Hadrien David (FRA) S;Jack Hawksworth (GBR) G",
+          "79|Iron Lynx|Mercedes-AMG LMGT3||Johannes Zelger (ITA) B;Matteo Cressoni (ITA) S;Lin Hodenius (NED) S",
+          "87|Akkodis ASP Team|Lexus RC F LMGT3||Petru Umbrărescu (ROU) B;Clemens Schmid (AUT) S;José María López (ARG) P",
+          "88|Proton Competition|Ford Mustang LMGT3||Stefano Gattuso (ITA) B;Giammarco Levorato (ITA) S;Logan Sargeant (USA) P",
+          "91|Manthey DK Engineering|Porsche 911 GT3 R LMGT3||James Cottingham (GBR) B;Timur Boguslavskiy S;Ayhancan Güven (TUR) P",
+          "92|The Bend Manthey|Porsche 911 GT3 R LMGT3||Yasser Shahin (AUS) B;Riccardo Pera (ITA) S;Richard Lietz (AUT) P",
+          "150|Richard Mille AF Corse|Ferrari 296 LMGT3 Evo||Custodio Toledo (BRA) B;Lilou Wadoux (FRA) S;Riccardo Agostini (ITA) G"
+        ] }
+      ],
+      reserve: ["#86 GR Racing (Ferrari 296)", "#56 Blackthorn (Aston Martin Vantage)", "#18 IDEC Sport (Oreca 07)", "#16 Vector Sport (Oreca 07)", "#151 AF Corse (Ferrari 296)", "#11 Proton Competition (Oreca 07)"]
+    }
+  };
+  var LM_CAT = { P: "Platin", G: "Gold", S: "Silber", B: "Bronze" };
+  var LM_MAKER = [["Toyota", "toyota"], ["BMW", "bmw"], ["Ferrari", "ferrari"], ["Cadillac", "cadillac"], ["Alpine", "alpine"], ["Aston", "aston"], ["Peugeot", "peugeot"], ["Genesis", "genesis"], ["Corvette", "corvette"], ["Porsche", "porsche"], ["Ford", "ford"], ["Lexus", "lexus"], ["McLaren", "mclaren"], ["Mercedes", "mercedes"], ["Oreca", "lmp2"]];
+  function lmMaker(car) { for (var i = 0; i < LM_MAKER.length; i++) if (car.indexOf(LM_MAKER[i][0]) >= 0) return LM_MAKER[i][1]; return "none"; }
+  var lmYear = Object.keys(LEMANS).sort().reverse()[0];
+  function renderLeMans() {
+    var years = Object.keys(LEMANS).sort().reverse(), d = LEMANS[lmYear];
+    document.getElementById("lm-years").innerHTML = years.map(function (y) { return '<button data-lmy="' + y + '" aria-pressed="' + (y === lmYear) + '">' + y + '</button>'; }).join("");
+    var total = d.classes.reduce(function (n, c) { return n + c.rows.length; }, 0);
+    document.getElementById("lm-head").innerHTML = '<div><dt>Rennen</dt><dd>' + esc(d.race) + '</dd></div><div><dt>Strecke</dt><dd>' + esc(d.circuit) + '</dd></div>' +
+      '<div><dt>Starterfeld</dt><dd>' + total + ' Autos · ' + d.classes.map(function (c) { return c.rows.length + " " + c.name; }).join(", ") + '</dd></div><div><dt>Auflage</dt><dd>' + esc(d.edition) + '</dd></div>';
+    document.getElementById("lm-winners").innerHTML = d.winners && d.winners.length ? '<thead><tr><th>Wertung</th><th>Nr.</th><th>Sieger</th></tr></thead><tbody>' + d.winners.map(function (w) {
+      return '<tr class="tm-' + w[4] + (w[4] === "toyota" ? " fav" : "") + '"><td><b>' + esc(w[0]) + '</b></td><td class="n">#' + esc(w[1]) + '</td><td><b>' + esc(w[2]) + '</b><br><span class="muted">' + esc(w[3]) + '</span></td></tr>';
+    }).join("") + '</tbody>' : '<tbody><tr><td class="muted">Das Rennen hat noch nicht stattgefunden.</td></tr></tbody>';
+    document.getElementById("lm-classes").innerHTML = d.classes.map(function (c) {
+      return '<div class="view" style="gap:10px"><div class="section-head"><h2>' + esc(c.name) + '</h2><span class="eyebrow">' + c.rows.length + ' Autos</span></div><div class="tablewrap"><table class="stand lm-table"><thead><tr><th>Nr.</th><th>Team / Fahrzeug</th><th>Fahrer</th></tr></thead><tbody>' +
+        c.rows.map(function (r) {
+          var f = r.split("|"), mk = lmMaker(f[2]);
+          var drivers = f[4].split(";").map(function (x) {
+            var m = /^(.*?)(?: \(([A-Z]{3})\))? ([PGSB])$/.exec(x.trim());
+            return m ? '<span class="lm-drv">' + esc(m[1]) + (m[2] ? ' <span class="muted">' + m[2] + '</span>' : "") + ' <abbr class="lm-cat lm-' + m[3] + '" title="' + LM_CAT[m[3]] + '">' + m[3] + '</abbr></span>' : esc(x);
+          }).join("");
+          return '<tr class="tm-' + mk + (f[1] === "Toyota Racing" ? " fav" : "") + '"><td class="n">#' + esc(f[0]) + '</td><td><b>' + esc(f[1]) + '</b><br><span class="muted">' + esc(f[2]) + (f[3] ? " · " + esc(f[3]) : "") + '</span></td><td><div class="lm-drivers">' + drivers + '</div></td></tr>';
+        }).join("") + '</tbody></table></div></div>';
+    }).join("") + (d.reserve && d.reserve.length ? '<p class="note"><b>Reserveliste:</b> ' + d.reserve.map(esc).join(" · ") + '</p>' : "");
+    document.getElementById("lm-source").textContent = "Quelle: " + d.source + ". Fahrer-Einstufung der FIA: P = Platin, G = Gold, S = Silber, B = Bronze. Kurzfristige Fahrerwechsel nach Erscheinen der Liste sind möglich.";
+    document.querySelectorAll("[data-lmy]").forEach(function (b) { b.addEventListener("click", function () { lmYear = b.getAttribute("data-lmy"); renderLeMans(); }); });
+  }
+  renderLeMans();
+
   var wecCls = "hy";
   try { wecCls = localStorage.getItem("bbt-wec-cls") || "hy"; } catch (e) {}
   function showCls(k) {
     wecCls = k; try { localStorage.setItem("bbt-wec-cls", k); } catch (e) {}
     document.getElementById("wec-hy").hidden = k !== "hy";
     document.getElementById("wec-gt").hidden = k !== "gt";
+    document.getElementById("wec-lm").hidden = k !== "lm";
+    document.getElementById("cls-lm").setAttribute("aria-pressed", String(k === "lm"));
     document.getElementById("cls-hy").setAttribute("aria-pressed", String(k === "hy"));
     document.getElementById("cls-gt").setAttribute("aria-pressed", String(k === "gt"));
   }

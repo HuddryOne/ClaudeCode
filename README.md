@@ -31,6 +31,12 @@ Während eines Broncos-Spiels zeigt die App eine Live-Karte im Zeitmonitor, auf 
 - Im Hintergrund-Tab und offline wird pausiert; bei Fehlern wartet die App immer länger (30 s bis 5 min) und zeigt den letzten Stand.
 - In der claude.ai-Vorschau sind Abfragen nach außen gesperrt, dort erscheint ein Hinweis auf die Web-Version.
 
+## 24 Stunden von Le Mans
+
+Unter *Tabellen → WEC → Le Mans* steht für jedes Jahr das komplette Starterfeld (Hypercar, LMP2, LMGT3) mit Team, Fahrzeug, Fahrern samt FIA-Einstufung (Platin/Gold/Silber/Bronze), die Reserveliste und nach dem Rennen die Klassensieger. Die Daten stehen im Objekt `LEMANS` in `index.html` (ein Eintrag pro Jahr).
+
+Eine geplante Claude-Aufgabe prüft jeden Montag im Mai und Juni, ob das Rennen in der kommenden Woche stattfindet. Wenn ja, sucht sie die neueste offizielle Starterliste, lässt sie vom Workflow `.github/workflows/lemans-entrylist.yml` als Text unter `data/lemans/` ablegen (Auslöser: Push von `data/lemans/request.txt` mit „<Jahr> <PDF-URL>“) und trägt das Starterfeld ein. In der Woche nach dem Rennen ergänzt sie die Klassensieger.
+
 ## Automatische Aktualisierung (alle 24 Stunden)
 
 Der GitHub-Workflow `.github/workflows/update-data.yml` läuft jeden Tag um 04:17 UTC (und auf Knopfdruck unter *Actions → Daten täglich aktualisieren → Run workflow*). Er startet `scripts/update-data.mjs`, das diese Daten holt:

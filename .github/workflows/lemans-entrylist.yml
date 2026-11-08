@@ -1,23 +1,49 @@
-name: Le-Mans-Starterliste lesen (temporär)
+name: Le-Mans-Starterliste lesen
 
-# Lädt eine offizielle Starterliste (PDF) und gibt den Text im Protokoll aus.
+# Lädt eine offizielle Starterliste der 24 Stunden von Le Mans (PDF) und legt sie
+# als Text unter data/lemans/entrylist-<Jahr>.txt ab.
+# Start: von Hand (Actions → Run workflow) oder durch einen Push von
+# data/lemans/request.txt mit dem Inhalt "<Jahr> <URL der PDF>".
 on:
   workflow_dispatch:
     inputs:
+      year:
+        description: "Jahr, z. B. 2027"
+        required: true
       url:
         description: "URL der Starterliste (PDF)"
         required: true
+  push:
+    branches: [claude/sports-tracking-nfl-f1-wec-1ggpul]
+    paths: ["data/lemans/request.txt"]
+
+permissions:
+  contents: write
 
 jobs:
   read:
     runs-on: ubuntu-latest
     steps:
-      - name: PDF laden und als Text ausgeben
+      - uses: actions/checkout@v4
+
+      - name: Starterliste laden und als Text speichern
         env:
-          URL: ${{ github.event.inputs.url }}
+          IN_YEAR: ${{ github.event.inputs.year }}
+          IN_URL: ${{ github.event.inputs.url }}
         run: |
+          if [ -n "$IN_URL" ]; then YEAR="$IN_YEAR"; URL="$IN_URL"; else read -r YEAR URL < data/lemans/request.txt; fi
+          case "$YEAR" in [0-9][0-9][0-9][0-9]) ;; *) echo "Ungültiges Jahr: $YEAR"; exit 1;; esac
+          case "$URL" in https://*) ;; *) echo "Ungültige URL: $URL"; exit 1;; esac
           sudo apt-get install -y -qq poppler-utils > /dev/null
-          curl -sSL -o list.pdf "$URL"
-          file list.pdf
-          pdfinfo list.pdf | grep -E 'Title|Pages|CreationDate|ModDate' || true
-          pdftotext -layout list.pdf - | sed 's/[[:space:]]\+$//' | grep -v '^$'
+          curl -sSLf -o list.pdf "$URL"
+          file list.pdf | grep -q PDF || { echo "Keine PDF-Datei"; exit 1; }
+          mkdir -p data/lemans
+          { echo "# Quelle: $URL"; echo "# Abgerufen: $(date -u +%Y-%m-%dT%H:%MZ)"; pdfinfo list.pdf | grep -E 'CreationDate|ModDate' | sed 's/^/# /';
+            pdftotext -layout list.pdf - | sed 's/[[:space:]]\+$//' | grep -v '^$'; } > "data/lemans/entrylist-$YEAR.txt"
+          cat "data/lemans/entrylist-$YEAR.txt"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add "data/lemans/entrylist-$YEAR.txt"
+          git diff --cached --quiet && { echo "Unverändert."; exit 0; }
+          git commit -m "Le-Mans-Starterliste $YEAR als Text abgelegt"
+          git push
