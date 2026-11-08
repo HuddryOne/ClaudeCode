@@ -1,0 +1,23 @@
+name: Le-Mans-Starterliste lesen (temporär)
+
+# Lädt eine offizielle Starterliste (PDF) und gibt den Text im Protokoll aus.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL der Starterliste (PDF)"
+        required: true
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - name: PDF laden und als Text ausgeben
+        env:
+          URL: ${{ github.event.inputs.url }}
+        run: |
+          sudo apt-get install -y -qq poppler-utils > /dev/null
+          curl -sSL -o list.pdf "$URL"
+          file list.pdf
+          pdfinfo list.pdf | grep -E 'Title|Pages|CreationDate|ModDate' || true
+          pdftotext -layout list.pdf - | sed 's/[[:space:]]\+$//' | grep -v '^$'
