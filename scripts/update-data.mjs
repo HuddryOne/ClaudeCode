@@ -244,22 +244,37 @@ async function fetchNflLeague() {
 const JOL = "https://api.jolpi.ca/ergast/f1";
 async function jol(p) { await sleep(350); return getJson(JOL + p); }
 const total = (js) => num(js && js.MRData && js.MRData.total);
+// Saison-Endstände: Titel = Platz 1 (laufende Saison erst zählen, wenn sie beendet ist)
+function standingsLists(js) { return (js && js.MRData && js.MRData.StandingsTable && js.MRData.StandingsTable.StandingsLists) || []; }
+function champions(js, current) {
+  return standingsLists(js).filter((l) => l.season !== current && ((l.DriverStandings || l.ConstructorStandings || [])[0] || {}).position === "1").map((l) => l.season);
+}
+function driverChampions(js, current) {
+  const out = [];
+  standingsLists(js).forEach((l) => { if (l.season === current) return; (l.DriverStandings || []).forEach((d) => { if (d.position === "1") out.push([l.season, d.Driver.givenName + " " + d.Driver.familyName]); }); });
+  return out;
+}
 async function fetchF1Stats() {
   const ds = await jol(`/${SEASON}/driverstandings/?limit=100`);
   const cs = await jol(`/${SEASON}/constructorstandings/?limit=100`);
   const dl = ds.MRData.StandingsTable.StandingsLists[0].DriverStandings;
   const cl = cs.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
   // Saisonbilanz aus allen Ergebnissen dieser Saison
-  const res = await jol(`/${SEASON}/results/?limit=1000`);
+  const races = [];
+  for (let off = 0, tot = 1; off < tot; off += 100) {
+    const page = await jol(`/${SEASON}/results/?limit=100&offset=${off}`);
+    tot = total(page);
+    (page.MRData.RaceTable.Races || []).forEach((r) => races.push(r));
+  }
   const sd = {}, sc = {};
-  for (const race of res.MRData.RaceTable.Races || []) for (const r of race.Results || []) {
+  for (const race of races) for (const r of race.Results || []) {
     const p = num(r.position), d = (sd[r.Driver.driverId] ||= { wins: 0, podiums: 0, best: 99, races: 0 }), c = (sc[r.Constructor.constructorId] ||= { wins: 0, podiums: 0 });
     d.races++; if (p === 1) { d.wins++; c.wins++; } if (p >= 1 && p <= 3) { d.podiums++; c.podiums++; } if (p && p < d.best) d.best = p;
   }
   const drivers = {};
   for (const s of dl) {
     const id = s.Driver.driverId;
-    const titles = await jol(`/drivers/${id}/driverstandings/1/?limit=100`).catch(() => null);
+    const titles = await jol(`/drivers/${id}/driverstandings/?limit=100`).catch(() => null);
     const starts = await jol(`/drivers/${id}/results/?limit=1`);
     const wins = await jol(`/drivers/${id}/results/1/?limit=1`);
     const p2 = await jol(`/drivers/${id}/results/2/?limit=1`);
@@ -270,7 +285,7 @@ async function fetchF1Stats() {
       id, given: s.Driver.givenName, family: s.Driver.familyName, code: s.Driver.code || "", number: s.Driver.permanentNumber || "",
       nationality: s.Driver.nationality || "", dob: s.Driver.dateOfBirth || "", url: s.Driver.url || "",
       team: f1Team(s.Constructors[s.Constructors.length - 1]), pos: num(s.position || s.positionText), points: num(s.points),
-      titles: titles ? (titles.MRData.StandingsTable.StandingsLists || []).map((l) => l.season) : [],
+      titles: champions(titles, SEASON),
       starts: total(starts), wins: total(wins), podiums: total(wins) + total(p2) + total(p3), poles: total(poles),
       firstRace: first ? first.season + " " + first.raceName : "", firstWin: fw ? fw.season + " " + fw.raceName : "",
       season: sd[id] || { wins: 0, podiums: 0, best: null, races: 0 }
@@ -279,8 +294,8 @@ async function fetchF1Stats() {
   const constructors = {};
   for (const c of cl) {
     const id = c.Constructor.constructorId, key = f1Team(c.Constructor);
-    const ct = await jol(`/constructors/${id}/constructorstandings/1/?limit=100`).catch(() => null);
-    const dt = await jol(`/constructors/${id}/driverstandings/1/?limit=100`).catch(() => null);
+    const ct = await jol(`/constructors/${id}/constructorstandings/?limit=100`).catch(() => null);
+    const dt = await jol(`/constructors/${id}/driverstandings/?limit=200`).catch(() => null);
     const seasons = await jol(`/constructors/${id}/seasons/?limit=100`);
     const wins = await jol(`/constructors/${id}/results/1/?limit=1`);
     const p2 = await jol(`/constructors/${id}/results/2/?limit=1`);
@@ -291,8 +306,8 @@ async function fetchF1Stats() {
     constructors[key || id] = {
       id, key, name: c.Constructor.name, nationality: c.Constructor.nationality || "", url: c.Constructor.url || "",
       pos: num(c.position || c.positionText), points: num(c.points),
-      titles: ct ? (ct.MRData.StandingsTable.StandingsLists || []).map((l) => l.season) : [],
-      driverTitles: dt ? (dt.MRData.StandingsTable.StandingsLists || []).map((l) => [l.season, l.DriverStandings[0].Driver.givenName + " " + l.DriverStandings[0].Driver.familyName]) : [],
+      titles: champions(ct, SEASON),
+      driverTitles: driverChampions(dt, SEASON),
       seasons: ss.length, firstSeason: ss[0] || "", races: total(races),
       wins: total(wins), podiums: total(wins) + total(p2) + total(p3), poles: total(poles),
       season: sc[id] || { wins: 0, podiums: 0 }

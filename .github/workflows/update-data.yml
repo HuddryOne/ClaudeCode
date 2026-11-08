@@ -5,6 +5,11 @@ on:
     # täglich um 04:17 UTC (05:17 Uhr Wien im Winter, 06:17 Uhr im Sommer)
     - cron: "17 4 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Alle Daten neu holen (auch die F1-Karrierestatistik)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -24,6 +29,8 @@ jobs:
           node-version: 20
 
       - name: Daten holen
+        env:
+          FORCE_ALL: ${{ github.event.inputs.force == 'true' && '1' || '' }}
         run: node scripts/update-data.mjs
 
       - name: Änderungen speichern
