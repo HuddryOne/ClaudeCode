@@ -318,6 +318,11 @@ async function main() {
   };
   let ok = 0;
   for (const [key, fn] of Object.entries(tasks)) {
+    // Die F1-Karrierestatistik ist aufwendig (ca. 250 Abfragen): nur montags oder wenn älter als 3 Tage
+    if (key === "f1Stats" && prev.f1Stats && prev.sources && prev.sources.f1Stats && !process.env.FORCE_ALL) {
+      const age = Date.now() - Date.parse(prev.sources.f1Stats);
+      if (new Date().getUTCDay() !== 1 && age < 3 * 864e5) { console.log("SKIP f1Stats (aktuell genug)"); continue; }
+    }
     try {
       next[key] = await fn();
       next.sources[key] = now;
