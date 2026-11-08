@@ -265,6 +265,9 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .seg button { font: 600 15px var(--display); letter-spacing: .06em; text-transform: uppercase; border: 0; background: transparent; color: var(--muted); padding: 8px 16px; cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.seg-sm { justify-self: start; }
+#tb-f1, #tb-nfl, #tb-wec, #wec-hy, #wec-gt { gap: 20px; }
+.seg-sm button { font-size: 14px; padding: 6px 14px; }
 .stand { width: 100%; border-collapse: collapse; font-size: 14px; }
 .stand th { text-align: left; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .stand td { padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
@@ -280,7 +283,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .tm-mercedes { --team: #27b3a5; } .tm-ferrari { --team: #dc1b1b; } .tm-mclaren { --team: #f28a00; } .tm-redbull { --team: var(--redbull); }
 .tm-rb { --team: #5a7bd8; } .tm-aston { --team: #1d7a5c; } .tm-alpine { --team: #e85aa8; } .tm-williams { --team: #2a7de1; }
 .tm-haas { --team: #8a8f99; } .tm-audi { --team: #b0b6c0; } .tm-cadillac { --team: #c9a227; }
-.tm-toyota { --team: var(--toyota); } .tm-bmw { --team: #2f6fd6; } .tm-peugeot { --team: #7c8a3a; } .tm-genesis { --team: #b0703a; }
+.tm-toyota { --team: var(--toyota); } .tm-corvette { --team: #c99a06; } .tm-porsche { --team: #8b5a2b; } .tm-ford { --team: #1f4fa3; } .tm-lexus { --team: #6b7280; } .tm-bmw { --team: #2f6fd6; } .tm-peugeot { --team: #7c8a3a; } .tm-genesis { --team: #b0703a; }
 .grid2 { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; align-items: start; }
 .teamgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
 .f1team { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--team); border-radius: 4px; padding: 12px 14px; display: grid; gap: 6px; }
@@ -510,6 +513,11 @@ a.f1team:hover h4 { color: var(--team); }
       </div>
 
       <div id="tb-wec" class="view" hidden>
+        <div class="seg seg-sm" role="group" aria-label="WEC-Klasse wählen">
+          <button id="cls-hy" data-cls="hy" aria-pressed="true">Hypercar</button>
+          <button id="cls-gt" data-cls="gt" aria-pressed="false">LMGT3</button>
+        </div>
+        <div id="wec-hy" class="view">
         <div class="callout"><b>Toyota ist Hersteller-Weltmeister 2026.</b> Der Fahrertitel geht sicher an eine Toyota-Crew: Die #8 führt vor dem Finale in Monza mit 17 Punkten vor der #7. In Monza gibt es maximal 26 Punkte (25 für den Sieg und 1 für die Pole Position).</div>
         <div class="grid2">
           <div class="view" style="gap:10px">
@@ -524,6 +532,24 @@ a.f1team:hover h4 { color: var(--team); }
         <div class="section-head"><h2>Fahrerwertung Hypercar</h2><span class="eyebrow">nach 7 von 8 Rennen</span></div>
         <div class="tablewrap"><table class="stand" id="wec-drivers"></table></div>
         <p class="note">Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Vanthoor #15, van der Linde #20). Für die Plätze unter den hier gelisteten Fahrern lag zum Datenstand keine geprüfte Punkteliste vor. Diese Autos sind mit „–“ markiert. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
+        </div>
+
+        <div id="wec-gt" class="view" hidden>
+          <div class="callout"><b>LMGT3: Titelentscheidung in Monza.</b> Die GT3-Klasse der WEC mit Kundenteams von neun Herstellern. Vor dem Finale führt die #33 TF-Sport-Corvette (Jonny Edgar 92 Punkte, Nicky Catsburg 88). Rechnerisch können auch die #92 Manthey-Porsche und die #69 WRT-BMW noch Meister werden. Bisher gab es in sieben Rennen sieben verschiedene Sieger, ein Rekord in dieser Klasse.</div>
+          <div class="grid2">
+            <div class="view" style="gap:10px">
+              <div class="section-head"><h2>Rangliste der Autos</h2><span class="eyebrow">Teamwertung · nach Barcelona</span></div>
+              <div class="tablewrap"><table class="stand" id="gt3-cars"></table></div>
+            </div>
+            <div class="view" style="gap:10px">
+              <div class="section-head"><h2>Sieger 2026</h2><span class="eyebrow">LMGT3 · je Rennen</span></div>
+              <div class="tablewrap"><table class="stand" id="gt3-winners"></table></div>
+            </div>
+          </div>
+          <div class="section-head"><h2>Fahrerwertung LMGT3</h2><span class="eyebrow">nach 7 von 8 Rennen</span></div>
+          <div class="tablewrap"><table class="stand" id="gt3-drivers"></table></div>
+          <p class="note">In der LMGT3 fährt pro Auto je ein Profi, ein Silber- und ein Bronze-Fahrer. Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Ben Keating #33). Für die übrigen Autos und Fahrer lag zum Datenstand keine geprüfte Punkteliste vor („–“). Die Fahrerbesetzungen stammen aus den Nennlisten der Saison und können sich bei einzelnen Rennen geändert haben. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
+        </div>
       </div>
     </section>
 
@@ -667,12 +693,13 @@ a.f1team:hover h4 { color: var(--team); }
     ["6 Stunden von Fuji", "Fuji Speedway, Japan", "2026-09-27", "Sieg Toyota #8 (Buemi / Hartley / Hirakawa)"],
     ["6 Stunden von Barcelona", "Circuit de Barcelona-Catalunya, Spanien", "2026-10-18", "Doppelsieg Toyota, #8 vor #7 · Herstellertitel gesichert"]
   ];
+  var GT3WIN = ["#69 Team WRT (BMW M4)", "#10 Garage 59 (McLaren 720S)", "#33 TF Sport (Corvette Z06)", "#34 Racing Team Turkey by TF (Corvette Z06)", "#27 Heart of Racing (Aston Martin Vantage)", "#32 Team WRT (BMW M4)", "#92 The Bend Manthey (Porsche 911)"];
   wecPast.forEach(function (r, i) {
-    ev({ team: "toyota", series: "WEC", title: r[0], round: "WEC · Lauf " + (i + 1), venue: r[1], note: r[3] || "",
+    ev({ team: "toyota", series: "WEC", title: r[0], round: "WEC · Lauf " + (i + 1), venue: r[1], note: [r[3] ? "Hypercar: " + r[3] : "", "LMGT3: Sieg " + GT3WIN[i]].filter(Boolean).join(" · "),
          tv: ["orfsport", "eurosport", "wecplus"], sessions: [{ name: "Rennen", start: r[2], dateOnly: true, main: true }] });
   });
   ev({ team: "toyota", series: "WEC", title: "6 Stunden von Monza", round: "WEC · Lauf 8 · Saisonfinale", venue: "Autodromo Nazionale Monza, Italien",
-       note: "Ersatz für das abgesagte Rennen in Bahrain. Hier fällt die Entscheidung um den Fahrertitel (#7 gegen #8).",
+       note: "Ersatz für das abgesagte Rennen in Bahrain. Hier fällt die Entscheidung um den Fahrertitel (#7 gegen #8) und um die LMGT3-Titel (#33 Corvette führt).",
        tv: ["orfsport", "eurosport", "wecplus"],
        sessions: [
          { name: "1. Freies Training", start: "2026-11-06T09:30:00Z", dur: 90 },
@@ -1345,6 +1372,69 @@ a.f1team:hover h4 { color: var(--team); }
       }).join("") + '</tbody>';
   }
   renderTables();
+
+  /* ---------- WEC LMGT3 ---------- */
+  var GT3CARS = [
+    ["33", "TF Sport", "corvette", "Corvette Z06 GT3.R", "Keating / Edgar / Catsburg", 92],
+    ["92", "The Bend Manthey", "porsche", "Porsche 911 GT3 R", "Shahin / Pera / Lietz", 74],
+    ["34", "Racing Team Turkey by TF", "corvette", "Corvette Z06 GT3.R", "Yoluç / Eastwood / Dempsey", 70],
+    ["69", "Team WRT", "bmw", "BMW M4 GT3 Evo", "McIntosh / Thompson / Harper", 66],
+    ["21", "Vista AF Corse", "ferrari", "Ferrari 296 GT3", "Hériau / Mann / Rovera", 64],
+    ["32", "Team WRT", "bmw", "BMW M4 GT3 Evo", "Leung / Gelael / Farfus", null],
+    ["27", "Heart of Racing Team", "aston", "Aston Martin Vantage AMR GT3 Evo", "James / Robichon / Drudi", null],
+    ["10", "Garage 59", "mclaren", "McLaren 720S GT3 Evo", "Flemming / Au / Kirchhöfer", null],
+    ["91", "Manthey DK Engineering", "porsche", "Porsche 911 GT3 R", "Cottingham / Boguslavskiy / Güven", null],
+    ["23", "Heart of Racing Team", "aston", "Aston Martin Vantage AMR GT3 Evo", "Newell / Barrichello / Adam", null],
+    ["77", "Proton Competition", "ford", "Ford Mustang GT3 Evo", "Powell / Tuck / Priaulx", null],
+    ["88", "Proton Competition", "ford", "Ford Mustang GT3 Evo", "Levorato / Gattuso / Sargeant", null],
+    ["79", "Iron Lynx", "mercedes", "Mercedes-AMG GT3 Evo", "Zelger / Hanafin / Cressoni", null],
+    ["61", "Iron Lynx", "mercedes", "Mercedes-AMG GT3 Evo", "Andrade u. a.", null],
+    ["58", "Garage 59", "mclaren", "McLaren 720S GT3 Evo", "", null],
+    ["78", "Akkodis ASP", "lexus", "Lexus RC F GT3", "", null],
+    ["87", "Akkodis ASP", "lexus", "Lexus RC F GT3", "", null]
+  ];
+  var GT3DRIVERS = [
+    ["Jonny Edgar", "33", "corvette", 92], ["Nicky Catsburg", "33", "corvette", 88],
+    ["Richard Lietz", "92", "porsche", 74], ["Riccardo Pera", "92", "porsche", 74], ["Yasser Shahin", "92", "porsche", 74],
+    ["Peter Dempsey", "34", "corvette", 70], ["Charlie Eastwood", "34", "corvette", 70], ["Salih Yoluç", "34", "corvette", 70], ["Ben Keating", "33", "corvette", 70],
+    ["Dan Harper", "69", "bmw", 66], ["Parker Thompson", "69", "bmw", 66], ["Anthony McIntosh", "69", "bmw", 66]
+  ];
+  var GT3WINNERS = [
+    ["Imola", "69", "Team WRT", "bmw", "BMW M4 GT3 Evo"], ["Spa", "10", "Garage 59", "mclaren", "McLaren 720S GT3 Evo"],
+    ["Le Mans", "33", "TF Sport", "corvette", "Corvette Z06 GT3.R"], ["São Paulo", "34", "Racing Team Turkey by TF", "corvette", "Corvette Z06 GT3.R"],
+    ["Austin", "27", "Heart of Racing Team", "aston", "Aston Martin Vantage"], ["Fuji", "32", "Team WRT", "bmw", "BMW M4 GT3 Evo"],
+    ["Barcelona", "92", "The Bend Manthey", "porsche", "Porsche 911 GT3 R"], ["Monza", "", "steht noch aus", "", ""]
+  ];
+  function renderGT3() {
+    var scored = GT3CARS.filter(function (x) { return x[5] != null; }), cr = ranks(scored, function (x) { return x[5]; }), lead = scored[0][5];
+    document.getElementById("gt3-cars").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Team / Auto</th><th class="r">Punkte</th></tr></thead><tbody>' +
+      GT3CARS.map(function (x, i) {
+        var has = x[5] != null;
+        return '<tr class="tm-' + x[2] + '"><td class="p">' + (has ? cr[i] : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><b>' + esc(x[1]) + '</b><br><span class="muted">' + esc(x[3]) + (x[4] ? " · " + esc(x[4]) : "") + '</span>' +
+          (has ? '<span class="bar" style="width:' + Math.round(x[5] / lead * 100) + '%"></span>' : "") + '</td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '</td></tr>';
+      }).join("") + '</tbody>';
+    var dr = ranks(GT3DRIVERS, function (x) { return x[3]; }), dl = GT3DRIVERS[0][3];
+    document.getElementById("gt3-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Fahrer</th><th>Auto</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
+      GT3DRIVERS.map(function (x, i) {
+        return '<tr class="tm-' + x[2] + '"><td class="p">' + dr[i] + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n">#' + x[1] + '</td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
+      }).join("") + '</tbody>';
+    document.getElementById("gt3-winners").innerHTML = '<thead><tr><th>Rennen</th><th>Nr.</th><th>Sieger</th></tr></thead><tbody>' +
+      GT3WINNERS.map(function (x) {
+        return '<tr class="tm-' + (x[3] || "none") + '"><td><b>' + esc(x[0]) + '</b></td><td class="n">' + (x[1] ? "#" + esc(x[1]) : "") + '</td><td>' + (x[1] ? '<b>' + esc(x[2]) + '</b><br><span class="muted">' + esc(x[4]) + '</span>' : '<span class="muted">' + esc(x[2]) + '</span>') + '</td></tr>';
+      }).join("") + '</tbody>';
+  }
+  renderGT3();
+  var wecCls = "hy";
+  try { wecCls = localStorage.getItem("bbt-wec-cls") || "hy"; } catch (e) {}
+  function showCls(k) {
+    wecCls = k; try { localStorage.setItem("bbt-wec-cls", k); } catch (e) {}
+    document.getElementById("wec-hy").hidden = k !== "hy";
+    document.getElementById("wec-gt").hidden = k !== "gt";
+    document.getElementById("cls-hy").setAttribute("aria-pressed", String(k === "hy"));
+    document.getElementById("cls-gt").setAttribute("aria-pressed", String(k === "gt"));
+  }
+  document.querySelectorAll("[data-cls]").forEach(function (b) { b.addEventListener("click", function () { showCls(b.getAttribute("data-cls")); }); });
+  showCls(wecCls);
   applyStamps();
 
   var seg = "f1";
@@ -1356,7 +1446,7 @@ a.f1team:hover h4 { color: var(--team); }
       document.getElementById("seg-" + x).setAttribute("aria-pressed", String(x === k));
     });
   }
-  document.querySelectorAll(".seg button").forEach(function (b) { b.addEventListener("click", function () { showSeg(b.getAttribute("data-seg")); }); });
+  document.querySelectorAll(".seg button[data-seg]").forEach(function (b) { b.addEventListener("click", function () { showSeg(b.getAttribute("data-seg")); }); });
   showSeg(seg);
 
   /* ---------- NFL live: Broncos-Spiele (ESPN) ----------
