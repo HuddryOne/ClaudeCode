@@ -14,6 +14,17 @@ Dazu:
 - **Wo schauen?** – Free-TV (ServusTV, ORF, RTL) und Bezahlangebote (WOW/Sky, DAZN Game Pass, Eurosport/HBO Max, FIAWEC+) in Österreich, pro Termin direkt angezeigt
 - Alle Zeiten automatisch in österreichischer Zeit (Europe/Vienna), helles und dunkles Design, handytauglich
 
+## Aufbau der Seite
+
+- **Übersicht:** Countdown zum nächsten Rennen/Spiel je Team, nächste Termine, Live-Karte bei Broncos-Spielen.
+- **Kalender:** alle Termine mit Trainings, Qualifying, Rennen und Spielen, Filter und `.ics`-Export.
+- **NFL:** alle 32 Teams nach Divisions (AFC West mit den Broncos zuerst und hervorgehoben), Spielergebnisse je Woche. Ein Klick auf ein Team öffnet `#nfl-<kürzel>` mit Bilanz, Stadion, nächstem Spiel und den letzten 10 Spielen; bei den Broncos zusätzlich Kader, Ergebnisse und Spielplan.
+- **Formel 1:** Fahrer- und Konstrukteurswertung (Red Bull hervorgehoben). Fahrer öffnen `#f1d-<id>` mit Saison- und Karriereerfolgen (Titel, Starts, Siege, Podien, Poles), Teams öffnen `#f1-<team>` mit Steckbrief, Fahrern und Erfolgen.
+- **WEC:** Hypercar, LMGT3 und Le Mans mit allen Autos und ihren Fahrern, Wertungen und Teamseiten (`#wec-<team>`).
+- **Wo schauen?:** TV und Streams in Österreich.
+
+Detailseiten sind nur per Klick erreichbar und haben einen Zurück-Link. Alte Adressen (`#broncos`, `#redbull`, `#toyota`, `#tabellen`) leiten weiter.
+
 ## Benutzen
 
 Online: **https://huddryone.github.io/ClaudeCode/**
@@ -33,7 +44,7 @@ Während eines Broncos-Spiels zeigt die App eine Live-Karte im Zeitmonitor, auf 
 
 ## 24 Stunden von Le Mans
 
-Unter *Tabellen → WEC → Le Mans* steht für jedes Jahr das komplette Starterfeld (Hypercar, LMP2, LMGT3) mit Team, Fahrzeug, Fahrern samt FIA-Einstufung (Platin/Gold/Silber/Bronze), die Reserveliste und nach dem Rennen die Klassensieger. Die Daten stehen im Objekt `LEMANS` in `index.html` (ein Eintrag pro Jahr).
+Im Tab *WEC → Le Mans* steht für jedes Jahr das komplette Starterfeld (Hypercar, LMP2, LMGT3) mit Team, Fahrzeug, Fahrern samt FIA-Einstufung (Platin/Gold/Silber/Bronze), die Reserveliste und nach dem Rennen die Klassensieger. Die Daten stehen im Objekt `LEMANS` in `index.html` (ein Eintrag pro Jahr).
 
 Eine geplante Claude-Aufgabe prüft jeden Montag im Mai und Juni, ob das Rennen in der kommenden Woche stattfindet. Wenn ja, sucht sie die neueste offizielle Starterliste, lässt sie vom Workflow `.github/workflows/lemans-entrylist.yml` als Text unter `data/lemans/` ablegen (Auslöser: Push von `data/lemans/request.txt` mit „<Jahr> <PDF-URL>“) und trägt das Starterfeld ein. In der Woche nach dem Rennen ergänzt sie die Klassensieger.
 
@@ -47,6 +58,8 @@ Der GitHub-Workflow `.github/workflows/update-data.yml` läuft jeden Tag um 04:1
 | NFL-Tabelle aller 32 Teams | ESPN (öffentliche Endpunkte) |
 | Broncos-Kader (alle Spieler) | ESPN |
 | Broncos-Spielplan inkl. Ergebnissen und Anstoßzeiten | ESPN |
+| Alle 32 NFL-Teams: Tabelle, Bilanz, letzte 10 Spiele, alle Spiele der Saison | ESPN |
+| F1-Erfolge aller aktuellen Fahrer und Teams (montags bzw. alle 3 Tage) und Liste aller Weltmeister | Jolpica F1 |
 
 Die Ergebnisse landen in `data/live.json` und im Block `<script id="live-data">` in `index.html`, der Workflow committet die Änderung. Fällt eine Quelle aus, bleibt deren letzter Stand erhalten. Ist der Block leer, zeigt die Seite die fest eingetragenen Daten.
 
