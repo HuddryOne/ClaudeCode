@@ -1,0 +1,13 @@
+name: Kalender-Feed prüfen (temporär)
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Veröffentlichtes Feed abrufen
+        run: |
+          curl -sS -D h.txt -o cal.ics "https://huddryone.github.io/ClaudeCode/calendar.ics"
+          grep -iE '^(HTTP|content-type|cache-control|last-modified|age|etag)' h.txt
+          echo "Termine: $(grep -c 'BEGIN:VEVENT' cal.ics)  Broncos: $(grep -c 'SUMMARY:.*Broncos' cal.ics)  F1: $(grep -c 'SUMMARY:.*Großer Preis' cal.ics)  WEC: $(grep -cE 'SUMMARY:.*(Stunden|1812|Le Mans)' cal.ics)"
+          grep '^SUMMARY' cal.ics | head -40
