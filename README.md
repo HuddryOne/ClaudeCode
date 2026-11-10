@@ -48,6 +48,10 @@ Im Tab *WEC → Le Mans* steht für jedes Jahr das komplette Starterfeld (Hyperc
 
 Eine geplante Claude-Aufgabe prüft jeden Montag im Mai und Juni, ob das Rennen in der kommenden Woche stattfindet. Wenn ja, sucht sie die neueste offizielle Starterliste, lässt sie vom Workflow `.github/workflows/lemans-entrylist.yml` als Text unter `data/lemans/` ablegen (Auslöser: Push von `data/lemans/request.txt` mit „<Jahr> <PDF-URL>“) und trägt das Starterfeld ein. In der Woche nach dem Rennen ergänzt sie die Klassensieger.
 
+## Kalender-Abo mit Erinnerungen
+
+Bei jeder Veröffentlichung erzeugt `scripts/build-ics.mjs` das Feed **https://huddryone.github.io/ClaudeCode/calendar.ics** (abonnierbar als `webcal://huddryone.github.io/ClaudeCode/calendar.ics`). Es enthält nur Broncos-Spiele (Erinnerung 5 Minuten vorher) sowie F1- und WEC-Rennen (Erinnerung 30 Minuten vorher). Die Termine liest das Skript direkt aus der Seite (`window.__BBT_EVENTS`), Änderungen an Terminen oder Anstoßzeiten landen deshalb automatisch im Feed. Anleitung zum Abonnieren steht im Kalender-Tab.
+
 ## Automatische Aktualisierung (alle 24 Stunden)
 
 Der GitHub-Workflow `.github/workflows/update-data.yml` läuft jeden Tag um 04:17 UTC (und auf Knopfdruck unter *Actions → Daten täglich aktualisieren → Run workflow*). Er startet `scripts/update-data.mjs`, das diese Daten holt:

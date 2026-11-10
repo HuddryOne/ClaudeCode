@@ -125,6 +125,13 @@ section.view { display: grid; gap: 28px; }
 .tcd-digits b { display: block; font-family: var(--display); font-size: 26px; font-weight: 700; line-height: 1; color: var(--team); font-variant-numeric: tabular-nums; }
 .tcd-digits small { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .tcd-live { color: var(--live); font-weight: 500; }
+.subscribe { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--redbull); border-radius: 6px; padding: 12px 16px; }
+.subscribe summary { cursor: pointer; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.subscribe summary .muted { font-size: 13px; color: var(--muted); }
+.sub-body { display: grid; gap: 10px; margin-top: 10px; font-size: 14px; }
+.sub-body p { margin: 0; max-width: 72ch; }
+.sub-url { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.sub-url code { font-family: var(--mono); font-size: 13px; background: var(--chip); padding: 6px 10px; border-radius: 4px; overflow-wrap: anywhere; min-width: 0; }
 .teamcard .go:hover { text-decoration: underline; }
 
 /* Kalender */
@@ -432,6 +439,19 @@ a.f1team:hover h4 { color: var(--team); }
         <button class="fbtn" id="f-past" aria-pressed="false">Vergangene zeigen</button>
         <button class="fbtn action" id="ics">Kalenderdatei (.ics)</button>
       </div>
+      <details class="subscribe" id="ics-sub">
+        <summary><b>📅 Kalender abonnieren mit Erinnerungen</b> <span class="muted">Broncos-Spiele 5 Min vorher · F1- und WEC-Rennen 30 Min vorher</span></summary>
+        <div class="sub-body">
+          <p>Abonniere diesen Kalender einmal auf deinem Handy oder Computer. Neue Termine, Zeitänderungen und Ergebnisse kommen dann automatisch, mit Erinnerung vor jedem Spiel bzw. Rennen.</p>
+          <div class="sub-url"><code id="ics-url">webcal://huddryone.github.io/ClaudeCode/calendar.ics</code><button class="fbtn" id="ics-copy" type="button">Kopieren</button><a class="fbtn" href="webcal://huddryone.github.io/ClaudeCode/calendar.ics">Abonnieren</a></div>
+          <ul class="hl">
+            <li><b>iPhone / iPad:</b> Link oben antippen bzw. in Safari öffnen → „Abonnieren“. <b>Wichtig:</b> beim Abonnieren „Erinnerungen entfernen“ bzw. „Alarme entfernen“ <b>ausschalten</b>, sonst kommen keine Hinweise.</li>
+            <li><b>Google Kalender:</b> am Computer unter „Weitere Kalender → Per URL“ die Adresse mit <code>https://</code> statt <code>webcal://</code> einfügen. Google übernimmt die Erinnerungen aus Abos nicht – dort für diesen Kalender eine Standard-Benachrichtigung einstellen.</li>
+            <li><b>Outlook:</b> „Kalender hinzufügen → Aus dem Internet abonnieren“ und die Adresse mit <code>https://</code> einfügen.</li>
+          </ul>
+          <p class="note">Spiele, deren Anstoßzeit noch offen ist, stehen als ganztägiger Termin ohne Erinnerung im Kalender und bekommen ihre Uhrzeit, sobald sie feststeht. Kalender-Apps rufen Abos nur alle paar Stunden ab.</p>
+        </div>
+      </details>
       <div id="cal" class="view" style="gap:24px"></div>
     </section>
 
@@ -806,6 +826,14 @@ a.f1team:hover h4 { color: var(--team); }
     e.main = e.sessions.filter(function (s) { return s.main; })[0] || e.sessions[e.sessions.length - 1];
   });
   EVENTS.sort(function (a, b) { return a.main && b.main ? sStart(a.main) - sStart(b.main) : a.first - b.first; });
+  // Für das Kalender-Feed (scripts/build-ics.mjs): Termine als einfache Daten
+  window.__BBT_EVENTS = function () {
+    return EVENTS.map(function (e) {
+      return { team: e.team, series: e.series, title: e.title, round: e.round, venue: e.venue || "", bye: !!e.bye, result: e.result || "",
+        tv: (e.tv || []).map(function (k) { return TV[k] ? TV[k].n : k; }),
+        sessions: e.sessions.map(function (s) { return { name: s.name, start: s.start, dur: s.dur || null, dateOnly: !!s.dateOnly, tbd: !!s.tbd, main: !!s.main }; }) };
+    });
+  };
 
   function sessionLabel(s) {
     if (s.tbd) return fmtDay.format(sStart(s)) + " · Zeit TBD";
@@ -1008,6 +1036,14 @@ a.f1team:hover h4 { color: var(--team); }
   });
   document.getElementById("f-main").addEventListener("click", function () { state.mainOnly = !state.mainOnly; save(); renderCal(); });
   document.getElementById("f-past").addEventListener("click", function () { state.past = !state.past; save(); renderCal(); });
+
+  /* ---------- Kalender-Abo ---------- */
+  document.getElementById("ics-copy").addEventListener("click", function () {
+    var url = document.getElementById("ics-url").textContent, btn = this;
+    var done = function () { btn.textContent = "Kopiert"; setTimeout(function () { btn.textContent = "Kopieren"; }, 2000); };
+    var fallback = function () { var r = document.createRange(); r.selectNodeContents(document.getElementById("ics-url")); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = "Markiert – jetzt kopieren"; };
+    try { navigator.clipboard.writeText(url).then(done, fallback); } catch (e) { fallback(); }
+  });
 
   /* ---------- ICS-Export ---------- */
   var icsBtn = document.getElementById("ics");

@@ -39,6 +39,11 @@ jobs:
           cp data/live.json _site/data/ 2>/dev/null || true
           touch _site/.nojekyll
 
+      - name: Kalender-Feed erzeugen (calendar.ics)
+        run: |
+          npm i --silent --no-save playwright-core@1.48.2
+          node scripts/build-ics.mjs _site/calendar.ics
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
