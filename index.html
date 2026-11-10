@@ -611,10 +611,10 @@ a.f1team:hover h4 { color: var(--team); }
         </div>
 
         <div id="wec-gt" class="view" hidden>
-          <div class="callout"><b>LMGT3: TF Sport ist Weltmeister 2026.</b> Die #33 TF-Sport-Corvette gewinnt die Teamwertung mit 8 Punkten Vorsprung auf die #92 Manthey-Porsche, den ersten Titel eines anderen Teams als Manthey in der LMGT3-Ära. Jonny Edgar ist Fahrer-Weltmeister (107 Punkte, vier vor Nicky Catsburg). Das Finale in Monza gewann die #92 (Lietz / Pera / Shahin).</div>
+          <div class="callout"><b>LMGT3: TF Sport ist Weltmeister 2026.</b> Die #33 TF-Sport-Corvette gewinnt die Teamwertung mit 8 Punkten Vorsprung auf die #92 Manthey-Porsche, den ersten Titel eines anderen Teams als Manthey in der LMGT3-Ära. Jonny Edgar ist Fahrer-Weltmeister (107 Punkte, vier vor Nicky Catsburg). Das Finale in Monza gewann die #92 (Lietz / Pera / Shahin). Dritter der Teamwertung wurde die #69 WRT-BMW (78 Punkte).</div>
           <div class="grid2">
             <div class="view" style="gap:10px">
-              <div class="section-head"><h2>Rangliste der Autos</h2><span class="eyebrow">Teamwertung · nach Monza</span></div>
+              <div class="section-head"><h2>Rangliste der Autos</h2><span class="eyebrow">Teamwertung · nach Monza (#21 Stand Barcelona)</span></div>
               <div class="tablewrap"><table class="stand" id="gt3-cars"></table></div>
             </div>
             <div class="view" style="gap:10px">
@@ -622,7 +622,7 @@ a.f1team:hover h4 { color: var(--team); }
               <div class="tablewrap"><table class="stand" id="gt3-winners"></table></div>
             </div>
           </div>
-          <div class="section-head"><h2>Fahrerwertung LMGT3</h2><span class="eyebrow">nach 8 von 8 Rennen (teilw. Stand Barcelona)</span></div>
+          <div class="section-head"><h2>Fahrerwertung LMGT3</h2><span class="eyebrow">Endstand nach 8 von 8 Rennen</span></div>
           <div class="tablewrap"><table class="stand" id="gt3-drivers"></table></div>
           <p class="note" id="gt3-note">In der LMGT3 fährt pro Auto je ein Profi, ein Silber- und ein Bronze-Fahrer. Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Ben Keating #33). Für die übrigen Autos und Fahrer lag zum Datenstand keine geprüfte Punkteliste vor („–“). Die Fahrerbesetzungen stammen aus den Nennlisten der Saison und können sich bei einzelnen Rennen geändert haben. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
         </div>
@@ -802,6 +802,24 @@ a.f1team:hover h4 { color: var(--team); }
          { name: "Hyperpole Hypercar", start: "2026-11-07T14:20:00Z", dur: 10, quali: true },
          { name: "Rennen (6 Stunden)", start: "2026-11-08T10:00:00Z", dur: 360, main: true } ] });
 
+  // WEC 2027 (Kalender vom Juni 2026; Session-Zeiten noch nicht veröffentlicht, daher nur Renntag)
+  var wec2027 = [
+    ["Qatar 1812 km", "Lusail International Circuit, Katar", "2027-03-27", "Saisonauftakt · Prolog am 21./22. März"],
+    ["6 Stunden von Imola", "Autodromo Enzo e Dino Ferrari, Italien", "2027-04-11"],
+    ["6 Stunden von Silverstone", "Silverstone Circuit, Großbritannien", "2027-04-25", "Rückkehr nach Silverstone"],
+    ["6 Stunden von Spa-Francorchamps", "Circuit de Spa-Francorchamps, Belgien", "2027-05-15"],
+    ["24 Stunden von Le Mans", "Circuit de la Sarthe, Frankreich", "2027-06-12", "95. Auflage"],
+    ["6 Stunden von São Paulo", "Autódromo José Carlos Pace (Interlagos), Brasilien", "2027-07-11"],
+    ["Lone Star Le Mans", "Circuit of the Americas, Austin, USA", "2027-09-12"],
+    ["6 Stunden von Fuji", "Fuji Speedway, Japan", "2027-09-26"],
+    ["8 Stunden von Bahrain", "Bahrain International Circuit, Sakhir", "2027-11-06", "Saisonfinale"]
+  ];
+  wec2027.forEach(function (r, i) {
+    ev({ team: "toyota", series: "WEC", title: r[0], round: "WEC 2027 · Lauf " + (i + 1), venue: r[1],
+         note: [r[3] || "", "Uhrzeiten noch nicht veröffentlicht"].filter(Boolean).join(" · "),
+         tv: ["orfsport", "eurosport", "wecplus"], sessions: [{ name: "Rennen", start: r[2], dateOnly: true, main: true }] });
+  });
+
   /* ---------- Zeit-Helfer ---------- */
   function d(s) { return new Date(s.length === 10 ? s + "T12:00:00Z" : s); }
   var fmtDay = new Intl.DateTimeFormat("de-AT", { timeZone: TZ, weekday: "short", day: "2-digit", month: "2-digit" });
@@ -882,7 +900,7 @@ a.f1team:hover h4 { color: var(--team); }
   var TEAMINFO = {
     broncos: { name: "Denver Broncos", series: "NFL · Saison 2026", status: "Bye in Woche 10 (15. Nov.). Danach folgen sieben Spiele bis Anfang Jänner, darunter das Weihnachtsspiel gegen Buffalo." },
     redbull: { name: "Red Bull Racing", series: "Formel 1 · Saison 2026", status: "Verstappen ist nach seinem Sieg in Mexiko WM-Zweiter. Noch vier Rennen: São Paulo, dann der Triple-Header Las Vegas, Katar und Abu Dhabi." },
-    toyota:  { name: "Toyota Racing", series: "WEC · Hypercar 2026", status: "Hersteller- und Fahrertitel 2026 gewonnen (#8 in Monza). Saison beendet." }
+    toyota:  { name: "Toyota Racing", series: "WEC · Hypercar 2026", status: "Hersteller- und Fahrertitel 2026 gewonnen (#8 in Monza). Die Saison 2027 beginnt am 27. März mit dem Qatar 1812 km." }
   };
   function renderTrio() {
     var now = new Date();
@@ -1315,7 +1333,7 @@ a.f1team:hover h4 { color: var(--team); }
       document.getElementById("nfl-stamp").textContent = "Tabelle " + updLabel("nflStandings") + ". Live-Tabelle: ";
     }
     if (LIVE.updated) {
-      document.getElementById("data-stamp").textContent = "Formel 1 und NFL werden täglich automatisch aktualisiert, zuletzt am " + fmtUpd.format(new Date(LIVE.updated)) + " Uhr. WEC-Daten werden von Hand gepflegt (Stand 9. November 2026, nach Monza). „TBD“ = Anstoßzeit noch nicht festgelegt. Alle Angaben ohne Gewähr.";
+      document.getElementById("data-stamp").textContent = "Formel 1 und NFL werden täglich automatisch aktualisiert, zuletzt am " + fmtUpd.format(new Date(LIVE.updated)) + " Uhr. WEC-Daten werden von Hand gepflegt (Stand 10. November 2026, nach Monza). „TBD“ = Anstoßzeit noch nicht festgelegt. Alle Angaben ohne Gewähr.";
     }
   }
 
@@ -1641,8 +1659,8 @@ a.f1team:hover h4 { color: var(--team); }
   var GT3CARS = [
     ["33", "TF Sport", "corvette", "Corvette Z06 GT3.R", "Keating / Edgar / Catsburg", 107],
     ["92", "The Bend Manthey", "porsche", "Porsche 911 GT3 R", "Shahin / Pera / Lietz", 99],
+    ["69", "Team WRT", "bmw", "BMW M4 GT3 Evo", "McIntosh / Thompson / Harper", 78],
     ["34", "Racing Team Turkey by TF", "corvette", "Corvette Z06 GT3.R", "Yoluç / Eastwood / Dempsey", 70],
-    ["69", "Team WRT", "bmw", "BMW M4 GT3 Evo", "McIntosh / Thompson / Harper", 66],
     ["21", "Vista AF Corse", "ferrari", "Ferrari 296 GT3", "Hériau / Mann / Rovera", 64],
     ["32", "Team WRT", "bmw", "BMW M4 GT3 Evo", "Leung / Gelael / Farfus", null],
     ["27", "Heart of Racing Team", "aston", "Aston Martin Vantage AMR GT3 Evo", "James / Robichon / Drudi", null],
@@ -1660,8 +1678,9 @@ a.f1team:hover h4 { color: var(--team); }
   var GT3DRIVERS = [
     ["Jonny Edgar", "33", "corvette", 107], ["Nicky Catsburg", "33", "corvette", 103],
     ["Richard Lietz", "92", "porsche", 99], ["Riccardo Pera", "92", "porsche", 99], ["Yasser Shahin", "92", "porsche", 99],
-    ["Peter Dempsey", "34", "corvette", 70], ["Charlie Eastwood", "34", "corvette", 70], ["Salih Yoluç", "34", "corvette", 70], ["Ben Keating", "33", "corvette", 70],
-    ["Dan Harper", "69", "bmw", 66], ["Parker Thompson", "69", "bmw", 66], ["Anthony McIntosh", "69", "bmw", 66]
+    ["Ben Keating", "33", "corvette", 85],
+    ["Dan Harper", "69", "bmw", 78], ["Parker Thompson", "69", "bmw", 78], ["Anthony McIntosh", "69", "bmw", 78],
+    ["Peter Dempsey", "34", "corvette", 70], ["Charlie Eastwood", "34", "corvette", 70], ["Salih Yoluç", "34", "corvette", 70]
   ];
   var GT3WINNERS = [
     ["Imola", "69", "Team WRT", "bmw", "BMW M4 GT3 Evo"], ["Spa", "10", "Garage 59", "mclaren", "McLaren 720S GT3 Evo"],
