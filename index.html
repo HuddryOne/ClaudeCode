@@ -303,6 +303,19 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .game { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; display: grid; gap: 2px; }
 .game-fav { border-color: var(--broncos); box-shadow: inset 4px 0 0 var(--broncos); }
 .gm-date { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.gm-q { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.gm-q th { font-family: var(--mono); font-size: 10px; font-weight: 400; color: var(--muted); padding: 2px 4px; text-align: center; }
+.gm-q td { padding: 3px 4px; color: var(--muted); font-size: 14px; }
+.gm-q td.q { font-family: var(--mono); font-size: 13px; text-align: center; width: 1.9em; }
+.gm-q .tot { font-family: var(--display); font-size: 20px; font-weight: 700; text-align: right; width: 2.4em; }
+.gm-q tr.win td { color: var(--ink); }
+.gm-q tr.win .gm-name { font-weight: 600; }
+.gm-name { display: flex; align-items: center; gap: 6px; text-decoration: none; color: inherit; min-width: 0; }
+.gm-name span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gm-name:hover span { text-decoration: underline; }
+.gm-q tr.me .gm-name span { color: var(--broncos); }
+.qcol { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+.qcol span { display: block; }
 .gm-team { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 8px; align-items: center; text-decoration: none; color: var(--muted); padding: 2px 0; font-size: 14px; }
 .gm-team .nfl-logo { width: 20px; height: 20px; }
 .gm-team span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -357,6 +370,7 @@ a.f1team:hover h4 { color: var(--team); }
 }
 @media (max-width: 560px) {
   .results td:nth-child(2), .results th:nth-child(2), .results td .muted { display: none; }
+  .results .qcol, .results th:nth-child(5) { display: none; }
   .results td, .results th { padding: 8px 8px; }
   .divgrid { grid-template-columns: minmax(0, 1fr); }
   .next { grid-template-columns: minmax(0, 1fr); }
@@ -1450,8 +1464,16 @@ a.f1team:hover h4 { color: var(--team); }
     document.getElementById("nfl-games").innerHTML = '<div class="seg seg-sm nfl-weeks" role="group" aria-label="Spielwoche wählen">' + weeks.map(function (w) { return '<button data-week="' + w + '" aria-pressed="' + (w === nflWeek) + '">' + w + '</button>'; }).join("") + '</div>' +
       '<div class="games">' + list.map(function (g) {
         var hw = +g.home.score > +g.away.score, aw = +g.away.score > +g.home.score;
-        return '<div class="game' + (g.home.abbr === "DEN" || g.away.abbr === "DEN" ? " game-fav" : "") + '"><div class="gm-date">' + esc(fmtDay.format(new Date(g.date))) + '</div>' + side(g.away, aw) + side(g.home, hw) + '</div>';
-      }).join("") + '</div><p class="note">Oben jeweils das Gastteam, unten das Heimteam. Woche ' + nflWeek + ' · ' + list.length + ' Spiele. Ein Klick auf ein Team öffnet die Teamseite.</p>';
+        var fav = g.home.abbr === "DEN" || g.away.abbr === "DEN" ? " game-fav" : "";
+        if (!(g.home.q && g.away.q)) return '<div class="game' + fav + '"><div class="gm-date">' + esc(fmtDay.format(new Date(g.date))) + '</div>' + side(g.away, aw) + side(g.home, hw) + '</div>';
+        var n = Math.max(g.home.q.length, g.away.q.length);
+        var row = function (sd, win) {
+          return '<tr class="' + (win ? "win" : "") + (sd.abbr === "DEN" ? " me" : "") + '"><td><a class="gm-name" href="' + nflHref(sd.abbr) + '">' + nflLogo(sd.abbr, 20) + '<span>' + esc((NFLL.teams[sd.abbr] || {}).short || sd.name) + '</span></a></td>' +
+            Array.from({ length: n }, function (_, k) { return '<td class="q">' + esc(sd.q[k] != null ? sd.q[k] : "") + '</td>'; }).join("") + '<td class="tot">' + esc(sd.score) + '</td></tr>';
+        };
+        return '<div class="game' + fav + '"><div class="gm-date">' + esc(fmtDay.format(new Date(g.date))) + (n > 4 ? " · nach Verlängerung" : "") + '</div><table class="gm-q"><thead><tr><th></th>' +
+          Array.from({ length: n }, function (_, k) { return '<th class="q">' + (k < 4 ? k + 1 : "OT") + '</th>'; }).join("") + '<th class="tot">Ges.</th></tr></thead><tbody>' + row(g.away, aw) + row(g.home, hw) + '</tbody></table></div>';
+      }).join("") + '</div><p class="note">Oben jeweils das Gastteam, unten das Heimteam, mit den Punkten pro Viertel (1–4, OT = Verlängerung). Woche ' + nflWeek + ' · ' + list.length + ' Spiele. Ein Klick auf ein Team öffnet die Teamseite.</p>';
     document.querySelectorAll("[data-week]").forEach(function (b) { b.addEventListener("click", function () { nflWeek = +b.getAttribute("data-week"); renderNflGames(); }); });
   }
   function renderNflTeam(abbr) {
@@ -1469,7 +1491,8 @@ a.f1team:hover h4 { color: var(--team); }
       var home = g.home.abbr === A, me = home ? g.home : g.away, op = home ? g.away : g.home;
       var res = +me.score > +op.score ? ["win", "S"] : +me.score < +op.score ? ["loss", "N"] : ["tie", "U"];
       return '<tr class="' + res[0] + '"><td class="t">' + esc(fmtDay.format(new Date(g.date))) + '<br><span class="muted">' + esc(g.season + (g.week ? " · Wo. " + g.week : "")) + '</span></td><td>' + haBadge(home) + '</td>' +
-        '<td><div class="nfl-team">' + nflLogo(op.abbr, 22) + '<a class="rowlink" href="' + nflHref(op.abbr) + '">' + (home ? "vs. " : "@ ") + esc(op.name) + '</a></div></td><td><span class="res ' + res[0] + '">' + res[1] + '</span> <b class="score">' + esc(me.score) + ':' + esc(op.score) + '</b></td></tr>';
+        '<td><div class="nfl-team">' + nflLogo(op.abbr, 22) + '<a class="rowlink" href="' + nflHref(op.abbr) + '">' + (home ? "vs. " : "@ ") + esc(op.name) + '</a></div></td><td><span class="res ' + res[0] + '">' + res[1] + '</span> <b class="score">' + esc(me.score) + ':' + esc(op.score) + '</b></td>' +
+          '<td class="qcol">' + (me.q && op.q ? '<span>' + me.q.map(esc).join(" · ") + '</span><span class="muted">' + op.q.map(esc).join(" · ") + '</span>' : '<span class="muted">–</span>') + '</td></tr>';
     }).join("");
     var nx = t.next;
     el.className = "view nflteam";
@@ -1482,7 +1505,7 @@ a.f1team:hover h4 { color: var(--team); }
       ].filter(function (f) { return f[1]; }).map(function (f) { return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(String(f[1]).replace(/-/g, "–")) + '</dd></div>'; }).join("") + '</dl>' +
       (nx ? '<div class="callout"><b>Nächstes Spiel:</b> ' + esc(fmtLong.format(new Date(nx.date))) + ' Uhr · ' + (nx.home.abbr === A ? "vs. " + esc(nx.away.name) + " (Heimspiel)" : "@ " + esc(nx.home.name) + " (Auswärtsspiel)") + (nx.venue ? " · " + esc(nx.venue) : "") + '</div>' : "") +
       '<div class="section-head"><h2>Letzte 10 Spiele</h2><span class="eyebrow">neueste zuerst · Punkte des Teams zuerst</span></div>' +
-      (last ? '<div class="tablewrap"><table class="stand results"><thead><tr><th>Datum</th><th>Ort</th><th>Gegner</th><th>Ergebnis</th></tr></thead><tbody>' + last + '</tbody></table></div>' : '<p class="note">Keine Spiele gefunden.</p>') +
+      (last ? '<div class="tablewrap"><table class="stand results"><thead><tr><th>Datum</th><th>Ort</th><th>Gegner</th><th>Ergebnis</th><th>Viertel (Team / Gegner)</th></tr></thead><tbody>' + last + '</tbody></table></div>' : '<p class="note">Keine Spiele gefunden.</p>') +
       '<p class="note">Quelle: ESPN, ' + esc(updLabel("nflLeague")) + '.</p>';
     return true;
   }

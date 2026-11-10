@@ -182,15 +182,20 @@ async function pool(items, size, fn) {
 
 /* ---------------- NFL: alle 32 Teams, Tabelle, Spiele ---------------- */
 const ESPN = "https://site.api.espn.com/apis/site/v2/sports/football/nfl";
+// Punkte pro Viertel (4 Viertel, ggf. Verlängerung)
+function quarters(c) {
+  if (!c || !Array.isArray(c.linescores) || !c.linescores.length) return null;
+  return c.linescores.map((l) => (l.displayValue != null ? String(l.displayValue) : String(num(l.value))));
+}
 function gameFrom(ev, seasonLabel) {
   const comp = (ev.competitions || [])[0]; if (!comp) return null;
   const st = (comp.status || ev.status || {}).type || {};
-  const side = (c) => c && ({ id: String(c.id || (c.team && c.team.id)), abbr: c.team && c.team.abbreviation, name: c.team && c.team.displayName, score: scoreOf(c), winner: !!c.winner });
+  const side = (c) => c && ({ id: String(c.id || (c.team && c.team.id)), abbr: c.team && c.team.abbreviation, name: c.team && c.team.displayName, score: scoreOf(c), winner: !!c.winner, q: quarters(c) });
   const home = side(comp.competitors.find((c) => c.homeAway === "home")), away = side(comp.competitors.find((c) => c.homeAway === "away"));
   if (!home || !away) return null;
   return {
     id: ev.id, date: ev.date, week: ev.week ? ev.week.number : null, season: seasonLabel,
-    type: (ev.seasonType && ev.seasonType.abbreviation) || "", completed: !!st.completed, timeValid: ev.timeValid !== false,
+    type: (ev.seasonType && ev.seasonType.abbreviation) || "", stype: (ev.seasonType && ev.seasonType.type) || null, completed: !!st.completed, timeValid: ev.timeValid !== false,
     home, away, venue: comp.venue ? [comp.venue.fullName, comp.venue.address && comp.venue.address.city].filter(Boolean).join(", ") : ""
   };
 }
@@ -235,6 +240,25 @@ async function fetchNflLeague() {
     const next = mine.filter((g) => !g.completed && g.season === SEASON).sort((a, b) => a.date.localeCompare(b.date))[0] || null;
     info[t.abbreviation].last10 = done; info[t.abbreviation].next = next;
   });
+  // Viertel-Punkte fehlen im Team-Spielplan: einmal pro gespielter Woche das Scoreboard laden
+  const lastAll = Object.values(info).flatMap((t) => t.last10 || []);
+  const need = new Map();
+  for (const g of Object.values(games).concat(lastAll)) {
+    if (!g.completed || (g.home.q && g.away.q) || !g.week) continue;
+    const yr = g.season.slice(0, 4), st = g.stype || (/Playoffs/.test(g.season) ? 3 : 2);
+    need.set(`${yr}|${st}|${g.week}`, [yr, st, g.week]);
+  }
+  const lines = {};
+  await pool([...need.values()], 3, async ([yr, st, wk]) => {
+    const sb = await getJson(`${ESPN}/scoreboard?dates=${yr}&seasontype=${st}&week=${wk}`).catch(() => null);
+    for (const ev of (sb && sb.events) || []) {
+      const comp = (ev.competitions || [])[0]; if (!comp) continue;
+      const h = comp.competitors.find((c) => c.homeAway === "home"), a = comp.competitors.find((c) => c.homeAway === "away");
+      if (quarters(h) && quarters(a)) lines[ev.id] = { home: quarters(h), away: quarters(a) };
+    }
+  });
+  for (const g of Object.values(games).concat(lastAll)) if (lines[g.id] && !(g.home.q && g.away.q)) { g.home.q = lines[g.id].home; g.away.q = lines[g.id].away; }
+  console.log(`NFL: Viertel-Punkte für ${Object.keys(lines).length} Spiele aus ${need.size} Spielwochen`);
   const all = Object.values(games).sort((a, b) => a.date.localeCompare(b.date));
   if (Object.keys(info).length < 30 || all.length < 50) throw new Error("NFL-Liga-Daten unvollständig");
   return { divisions, teams: info, games: all };
