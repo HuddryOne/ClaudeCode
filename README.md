@@ -50,7 +50,7 @@ Eine geplante Claude-Aufgabe prüft jeden Montag im Mai und Juni, ob das Rennen 
 
 ## Kalender-Abo mit Erinnerungen
 
-Bei jeder Veröffentlichung erzeugt `scripts/build-ics.mjs` das Feed **https://huddryone.github.io/ClaudeCode/calendar.ics** (abonnierbar als `webcal://huddryone.github.io/ClaudeCode/calendar.ics`). Es enthält nur Broncos-Spiele (Erinnerung 5 Minuten vorher) sowie F1- und WEC-Rennen (Erinnerung 30 Minuten vorher). Die Termine liest das Skript direkt aus der Seite (`window.__BBT_EVENTS`), Änderungen an Terminen oder Anstoßzeiten landen deshalb automatisch im Feed. Anleitung zum Abonnieren steht im Kalender-Tab.
+`scripts/build-ics.mjs` erzeugt das Feed `calendar.ics` im Repository (täglich durch den Daten-Workflow und bei jeder Veröffentlichung). Die Datei liegt bewusst im Repository, weil GitHub Pages zusätzlich den Branch direkt veröffentlicht. Feed-Adresse: **https://huddryone.github.io/ClaudeCode/calendar.ics** (abonnierbar als `webcal://huddryone.github.io/ClaudeCode/calendar.ics`). Es enthält nur Broncos-Spiele (Erinnerung 5 Minuten vorher) sowie F1- und WEC-Rennen (Erinnerung 30 Minuten vorher). Die Termine liest das Skript direkt aus der Seite (`window.__BBT_EVENTS`), Änderungen an Terminen oder Anstoßzeiten landen deshalb automatisch im Feed. Anleitung zum Abonnieren steht im Kalender-Tab.
 
 ## Automatische Aktualisierung (alle 24 Stunden)
 

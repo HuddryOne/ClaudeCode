@@ -3,7 +3,7 @@ name: Seite veröffentlichen (GitHub Pages)
 on:
   push:
     branches: [claude/sports-tracking-nfl-f1-wec-1ggpul]
-    paths: ["index.html", "data/**", ".github/workflows/deploy-pages.yml"]
+    paths: ["index.html", "calendar.ics", "data/**", ".github/workflows/deploy-pages.yml"]
   # Commits des täglichen Workflows lösen kein "push"-Ereignis aus,
   # deshalb wird nach jeder Datenaktualisierung zusätzlich veröffentlicht.
   workflow_run:

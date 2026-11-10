@@ -2,7 +2,7 @@
 // Enthalten: Broncos-Spiele (Erinnerung 5 Min vorher), F1- und WEC-Rennen (Erinnerung 30 Min vorher).
 // Aufruf: node scripts/build-ics.mjs <ziel.ics>
 // Lädt index.html in Chrome/Chromium und liest die Termine über window.__BBT_EVENTS() aus.
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import path from "node:path";
@@ -24,7 +24,7 @@ await page.goto(pathToFileURL(path.join(ROOT, "index.html")).href);
 const events = await page.evaluate(() => window.__BBT_EVENTS());
 await browser.close();
 
-const esc = (t) => String(t || "").replace(/\\/g, "\\\\").replace(/;/g, "\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+const esc = (t) => String(t || "").replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
 const stamp = (d) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 function fold(line) { // max. 75 Bytes pro Zeile
   const out = []; let cur = "";
@@ -65,5 +65,14 @@ for (const e of events) {
   count++;
 }
 lines.push("END:VCALENDAR");
-await writeFile(OUT, lines.map(fold).join("\r\n") + "\r\n");
-console.log(`Kalender-Feed mit ${count} Terminen geschrieben: ${OUT}`);
+// Unveränderte Termine behalten ihren alten Zeitstempel, damit die Datei nur bei echten Änderungen neu ist.
+const text = lines.map(fold).join("\r\n") + "\r\n";
+const noStamp = (t) => t.replace(/^DTSTAMP:.*$/gm, "");
+let prev = "";
+try { prev = await readFile(OUT, "utf8"); } catch {}
+if (prev && noStamp(prev) === noStamp(text)) {
+  console.log(`Kalender-Feed unverändert (${count} Termine): ${OUT}`);
+} else {
+  await writeFile(OUT, text);
+  console.log(`Kalender-Feed mit ${count} Terminen geschrieben: ${OUT}`);
+}

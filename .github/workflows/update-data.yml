@@ -33,15 +33,20 @@ jobs:
           FORCE_ALL: ${{ github.event.inputs.force == 'true' && '1' || '' }}
         run: node scripts/update-data.mjs
 
+      - name: Kalender-Feed erzeugen (calendar.ics)
+        run: |
+          npm i --silent --no-save playwright-core@1.48.2
+          node scripts/build-ics.mjs calendar.ics
+
       - name: Änderungen speichern
         run: |
-          if git diff --quiet -- index.html data/live.json; then
+          if git diff --quiet -- index.html data/live.json calendar.ics && [ -z "$(git status --porcelain -- calendar.ics)" ]; then
             echo "Keine Änderungen."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add index.html data/live.json
+          git add index.html data/live.json calendar.ics
           git commit -m "Daten automatisch aktualisiert ($(date -u +%Y-%m-%d))"
           for i in 1 2 3 4; do
             git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0

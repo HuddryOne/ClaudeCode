@@ -1,0 +1,575 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Broncos Bulls Toyota//Sportkalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Broncos · Red Bull · Toyota
+X-WR-CALDESC:Broncos-Spiele\, F1- und WEC-Rennen
+X-WR-TIMEZONE:Europe/Vienna
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:bbt-toyota-2026-04-19-6-stunden-von-imola@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Imola – Rennen
+LOCATION:Autodromo Enzo e Dino Ferrari\, Italien
+DESCRIPTION:WEC · Lauf 1\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
+ / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20260419
+DTEND;VALUE=DATE:20260420
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2026-05-09-6-stunden-von-spa-francorchamps@huddryone.github.
+ io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Spa-Francorchamps – Rennen
+LOCATION:Circuit de Spa-Francorchamps\, Belgien
+DESCRIPTION:WEC · Lauf 2\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
+ / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20260509
+DTEND;VALUE=DATE:20260510
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2026-06-13-24-stunden-von-le-mans@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 24 Stunden von Le Mans – Rennen
+LOCATION:Circuit de la Sarthe\, Frankreich
+DESCRIPTION:WEC · Lauf 3\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
+ / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20260613
+DTEND;VALUE=DATE:20260614
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2026-07-12-6-stunden-von-s-o-paulo@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von São Paulo – Rennen
+LOCATION:Autódromo José Carlos Pace (Interlagos)\, Brasilien
+DESCRIPTION:WEC · Lauf 4\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
+ / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20260712
+DTEND;VALUE=DATE:20260713
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2026-09-06-lone-star-le-mans@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 Lone Star Le Mans – Rennen
+LOCATION:Circuit of the Americas\, Austin\, USA
+DESCRIPTION:WEC · Lauf 5\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
+ / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20260906
+DTEND;VALUE=DATE:20260907
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-09-15-broncos-kansas-city-chiefs@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ Kansas City Chiefs
+LOCATION:Arrowhead Stadium\, Kansas City
+DESCRIPTION:Woche 1\nErgebnis: Niederlage 10:31\nIn Österreich: NFL Game P
+ ass auf DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls a
+ usgewählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20260915T001500Z
+DTEND:20260915T034500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ Kansas City Chiefs beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-09-20-broncos-vs-jacksonville-jaguars@huddryone.github
+ .io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Jacksonville Jaguars
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 2\nErgebnis: Sieg 20:13\nIn Österreich: NFL Game Pass au
+ f DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgew
+ ählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20260920T200500Z
+DTEND:20260920T233500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos vs. Jacksonville Jaguars beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2026-09-27-6-stunden-von-fuji@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Fuji – Rennen
+LOCATION:Fuji Speedway\, Japan
+DESCRIPTION:WEC · Lauf 6\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
+ / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-09-28-broncos-vs-los-angeles-rams@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Los Angeles Rams
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 3\nErgebnis: Sieg 30:26\nIn Österreich: NFL Game Pass au
+ f DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgew
+ ählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20260928T002000Z
+DTEND:20260928T035000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos vs. Los Angeles Rams beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-10-04-broncos-san-francisco-49ers@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ San Francisco 49ers
+LOCATION:Levi's Stadium\, Santa Clara
+DESCRIPTION:Woche 4\nErgebnis: Niederlage 14:24\nIn Österreich: NFL Game P
+ ass auf DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls a
+ usgewählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261004T202500Z
+DTEND:20261004T235500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ San Francisco 49ers beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-10-11-broncos-los-angeles-chargers@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ Los Angeles Chargers
+LOCATION:SoFi Stadium\, Inglewood
+DESCRIPTION:Woche 5\nErgebnis: Sieg 23:17\nIn Österreich: NFL Game Pass au
+ f DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgew
+ ählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261011T200500Z
+DTEND:20261011T233500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ Los Angeles Chargers beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-10-16-broncos-vs-seattle-seahawks@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Seattle Seahawks
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 6\nErgebnis: Sieg 17:14\nIn Österreich: NFL Game Pass au
+ f DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgew
+ ählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261016T001500Z
+DTEND:20261016T034500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos vs. Seattle Seahawks beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2026-10-18-6-stunden-von-barcelona@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Barcelona – Rennen
+LOCATION:Circuit de Barcelona-Catalunya\, Spanien
+DESCRIPTION:WEC · Lauf 7\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
+ / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-10-25-broncos-arizona-cardinals@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ Arizona Cardinals
+LOCATION:State Farm Stadium\, Glendale
+DESCRIPTION:Woche 7\nErgebnis: Sieg 30:16\nIn Österreich: NFL Game Pass au
+ f DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgew
+ ählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261025T200500Z
+DTEND:20261025T233500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ Arizona Cardinals beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-11-01-broncos-vs-kansas-city-chiefs@huddryone.github.i
+ o
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Kansas City Chiefs
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 8\nErgebnis: Sieg 28:24\nIn Österreich: NFL Game Pass au
+ f DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgew
+ ählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261101T212500Z
+DTEND:20261102T005500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos vs. Kansas City Chiefs beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2026-11-08-6-stunden-von-monza@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Monza – Rennen (6 Stunden)
+LOCATION:Autodromo Nazionale Monza\, Italien
+DESCRIPTION:WEC · Lauf 8 · Saisonfinale\nIn Österreich: ORF Sport+ / ORF
+  ON / Eurosport / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/Claud
+ eCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261108T100000Z
+DTEND:20261108T160000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:6 Stunden von Monza beginnt in 30 Minuten
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-redbull-2026-11-08-gro-er-preis-von-s-o-paulo@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏎️ Großer Preis von São Paulo – Rennen (71 Runden)
+LOCATION:São Paulo\, Brasilien
+DESCRIPTION:Formel 1 · Autódromo José Carlos Pace (Interlagos)\nIn Öste
+ rreich: ServusTV oder ORF 1 / Sky Sport F1 (WOW / Sky Österreich)\nhttps:
+ //huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261108T170000Z
+DTEND:20261108T190000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Großer Preis von São Paulo beginnt in 30 Minuten
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-11-08-broncos-carolina-panthers@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ Carolina Panthers
+LOCATION:Bank of America Stadium\, Charlotte
+DESCRIPTION:Woche 9\nErgebnis: Sieg 26:21\nIn Österreich: NFL Game Pass au
+ f DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgew
+ ählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261108T180000Z
+DTEND:20261108T213000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ Carolina Panthers beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-redbull-2026-11-22-gro-er-preis-von-las-vegas@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏎️ Großer Preis von Las Vegas – Rennen (50 Runden)
+LOCATION:Las Vegas\, USA · Nachtrennen am Samstag (Ortszeit)
+DESCRIPTION:Formel 1 · Las Vegas Strip Circuit\nIn Österreich: ServusTV o
+ der ORF 1 / Sky Sport F1 (WOW / Sky Österreich)\nhttps://huddryone.github
+ .io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261122T040000Z
+DTEND:20261122T060000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Großer Preis von Las Vegas beginnt in 30 Minuten
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-11-22-broncos-vs-las-vegas-raiders@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Las Vegas Raiders
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 11\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
+ L (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewählt)\nhttps://huddry
+ one.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261122T212500Z
+DTEND:20261123T005500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos vs. Las Vegas Raiders beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-11-27-broncos-pittsburgh-steelers@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ Pittsburgh Steelers
+LOCATION:Acrisure Stadium\, Pittsburgh
+DESCRIPTION:Woche 12\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
+ L (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewählt)\nhttps://huddry
+ one.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261127T200000Z
+DTEND:20261127T233000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ Pittsburgh Steelers beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-redbull-2026-11-29-gro-er-preis-von-katar@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏎️ Großer Preis von Katar – Rennen
+LOCATION:Lusail\, Katar
+DESCRIPTION:Formel 1 · Lusail International Circuit\nIn Österreich: Servu
+ sTV oder ORF 1 / Sky Sport F1 (WOW / Sky Österreich)\nhttps://huddryone.g
+ ithub.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261129T160000Z
+DTEND:20261129T180000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Großer Preis von Katar beginnt in 30 Minuten
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-redbull-2026-12-06-gro-er-preis-von-abu-dhabi@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏎️ Großer Preis von Abu Dhabi – Rennen
+LOCATION:Abu Dhabi\, VAE
+DESCRIPTION:Formel 1 · Saisonfinale · Yas Marina Circuit\nIn Österreich:
+  ORF 1 / ORF ON / Sky Sport F1 (WOW / Sky Österreich)\nhttps://huddryone.
+ github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261206T130000Z
+DTEND:20261206T150000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Großer Preis von Abu Dhabi beginnt in 30 Minuten
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-12-06-broncos-vs-miami-dolphins@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Miami Dolphins
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 13\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
+ L (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewählt)\nhttps://huddry
+ one.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261206T210500Z
+DTEND:20261207T003500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos vs. Miami Dolphins beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-12-13-broncos-new-york-jets@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ New York Jets
+LOCATION:MetLife Stadium\, East Rutherford
+DESCRIPTION:Woche 14\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
+ L (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewählt)\nhttps://huddry
+ one.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261213T180000Z
+DTEND:20261213T213000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ New York Jets beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-12-20-broncos-las-vegas-raiders@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ Las Vegas Raiders
+LOCATION:Allegiant Stadium\, Las Vegas
+DESCRIPTION:Woche 15\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
+ L (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewählt)\nhttps://huddry
+ one.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261220T212500Z
+DTEND:20261221T005500Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos @ Las Vegas Raiders beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2026-12-25-broncos-vs-buffalo-bills@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Buffalo Bills
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 16\nIn Österreich: Netflix / NFL Game Pass auf DAZN / RT
+ L / RTL+ (falls ausgewählt)\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART:20261225T213000Z
+DTEND:20261226T010000Z
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Broncos vs. Buffalo Bills beginnt in 5 Minuten
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2027-01-03-broncos-new-england-patriots@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos @ New England Patriots
+LOCATION:Gillette Stadium\, Foxborough
+DESCRIPTION:Woche 17 · Datum vorläufig\nIn Österreich: NFL Game Pass auf
+  DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewä
+ hlt)\nAnstoßzeit noch offen – wird automatisch nachgetragen.\nhttps://h
+ uddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-broncos-2027-01-10-broncos-vs-los-angeles-chargers@huddryone.github
+ .io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏈 Broncos vs. Los Angeles Chargers
+LOCATION:Empower Field at Mile High\, Denver
+DESCRIPTION:Woche 18 · Datum vorläufig\nIn Österreich: NFL Game Pass auf
+  DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewä
+ hlt)\nAnstoßzeit noch offen – wird automatisch nachgetragen.\nhttps://h
+ uddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-03-27-qatar-1812-km@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 Qatar 1812 km – Rennen
+LOCATION:Lusail International Circuit\, Katar
+DESCRIPTION:WEC 2027 · Lauf 1\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-04-11-6-stunden-von-imola@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Imola – Rennen
+LOCATION:Autodromo Enzo e Dino Ferrari\, Italien
+DESCRIPTION:WEC 2027 · Lauf 2\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-04-25-6-stunden-von-silverstone@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Silverstone – Rennen
+LOCATION:Silverstone Circuit\, Großbritannien
+DESCRIPTION:WEC 2027 · Lauf 3\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-05-15-6-stunden-von-spa-francorchamps@huddryone.github.
+ io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Spa-Francorchamps – Rennen
+LOCATION:Circuit de Spa-Francorchamps\, Belgien
+DESCRIPTION:WEC 2027 · Lauf 4\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-06-12-24-stunden-von-le-mans@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 24 Stunden von Le Mans – Rennen
+LOCATION:Circuit de la Sarthe\, Frankreich
+DESCRIPTION:WEC 2027 · Lauf 5\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-07-11-6-stunden-von-s-o-paulo@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von São Paulo – Rennen
+LOCATION:Autódromo José Carlos Pace (Interlagos)\, Brasilien
+DESCRIPTION:WEC 2027 · Lauf 6\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-09-12-lone-star-le-mans@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 Lone Star Le Mans – Rennen
+LOCATION:Circuit of the Americas\, Austin\, USA
+DESCRIPTION:WEC 2027 · Lauf 7\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-09-26-6-stunden-von-fuji@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 6 Stunden von Fuji – Rennen
+LOCATION:Fuji Speedway\, Japan
+DESCRIPTION:WEC 2027 · Lauf 8\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bbt-toyota-2027-11-06-8-stunden-von-bahrain@huddryone.github.io
+DTSTAMP:20261110T175326Z
+SUMMARY:🏁 8 Stunden von Bahrain – Rennen
+LOCATION:Bahrain International Circuit\, Sakhir
+DESCRIPTION:WEC 2027 · Lauf 9\nIn Österreich: ORF Sport+ / ORF ON / Euros
+ port / HBO Max / FIAWEC+ App\nhttps://huddryone.github.io/ClaudeCode/
+URL:https://huddryone.github.io/ClaudeCode/
+DTSTART;VALUE=DATE:20271106
+DTEND;VALUE=DATE:20271107
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
