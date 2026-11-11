@@ -24,6 +24,9 @@
   --toyota: #d00a1c;
   --toyota-2: #22252c;
   --live: #0f8a4a;
+  --up: #12813f;
+  --down: #c62828;
+  --same: #1f5fd1;
   --board: #10141d;
   --board-ink: #f2f4f8;
   --board-muted: #9aa3b5;
@@ -37,6 +40,7 @@
     --bg: #0d1017; --surface: #161a24; --ink: #e9ecf3; --muted: #9aa2b4; --line: #272d3b; --chip: #212736;
     --broncos: #ff6a33; --broncos-2: #8fb0e6; --redbull: #6d8cff; --redbull-2: #ff5577; --toyota: #ff4a55; --toyota-2: #c9ced8;
     --live: #3ddc84; --board: #06080c; --board-ink: #f2f4f8; --board-muted: #8a93a6;
+    --up: #3ddc84; --down: #ff6b6b; --same: #6ea8ff;
     color-scheme: dark;
   }
 }
@@ -44,6 +48,7 @@
   --bg: #0d1017; --surface: #161a24; --ink: #e9ecf3; --muted: #9aa2b4; --line: #272d3b; --chip: #212736;
   --broncos: #ff6a33; --broncos-2: #8fb0e6; --redbull: #6d8cff; --redbull-2: #ff5577; --toyota: #ff4a55; --toyota-2: #c9ced8;
   --live: #3ddc84; --board: #06080c; --board-ink: #f2f4f8; --board-muted: #8a93a6;
+  --up: #3ddc84; --down: #ff6b6b; --same: #6ea8ff;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -281,6 +286,12 @@ footer .wrap { padding-block: 20px 32px; font-size: 13px; color: var(--muted); d
 .stand tr:last-child td { border-bottom: 0; }
 .stand .r { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .stand .p { font-family: var(--display); font-weight: 700; font-size: 18px; width: 44px; }
+.mv-legend .mv, .mv-legend .lr { display: inline; font-family: var(--mono); font-weight: 600; }
+.mv-legend .mv.up { color: var(--up); } .mv-legend .mv.down { color: var(--down); } .mv-legend .mv.same { color: var(--same); } .mv-legend .lr { color: var(--up); }
+.stand .mv { display: block; font-family: var(--mono); font-size: 11px; font-weight: 600; line-height: 1; margin-top: 3px; white-space: nowrap; }
+.stand .mv.up { color: var(--up); } .stand .mv.down { color: var(--down); } .stand .mv.same { color: var(--same); }
+.stand .lr { display: block; font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--up); white-space: nowrap; margin-top: 2px; }
+.stand .lr.zero { color: var(--muted); font-weight: 400; }
 .stand .n { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--team, var(--muted)); width: 44px; }
 .stand tr.fav td { background: color-mix(in srgb, var(--team) 9%, transparent); }
 .stand tr.fav td:first-child { box-shadow: inset 4px 0 0 var(--team); }
@@ -573,6 +584,7 @@ a.f1team:hover h4 { color: var(--team); }
             <p class="note">Nach Mexiko gab es mehrere nachträgliche Strafen. Deshalb weichen die Fahrerpunkte bei Red Bull und Racing Bulls je nach Quelle um einige Punkte von der Teamwertung ab. Verbindlich ist die offizielle Tabelle auf <a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noopener">formula1.com</a>.</p>
           </div>
         </div>
+        <p class="note mv-legend" data-for="f1-drivers f1-teams" hidden><span class="mv up">▲</span> aufgestiegen · <span class="mv down">▼</span> abgestiegen · <span class="mv same">►</span> Platz gehalten (jeweils gegenüber vor dem letzten Rennen) · <span class="lr">+25</span> Punkte im letzten Rennen (in der Formel 1 inkl. Sprint).</p>
         <div class="section-head"><h2>Alle 11 Teams 2026</h2><span class="eyebrow">Team antippen für alle Daten</span></div>
         <div class="teamgrid" id="f1-teamgrid"></div>
       </div>
@@ -605,6 +617,7 @@ a.f1team:hover h4 { color: var(--team); }
             <div class="tablewrap"><table class="stand" id="wec-makes"></table></div>
           </div>
         </div>
+        <p class="note mv-legend" data-for="wec-cars wec-makes" hidden><span class="mv up">▲</span> aufgestiegen · <span class="mv down">▼</span> abgestiegen · <span class="mv same">►</span> Platz gehalten (jeweils gegenüber vor dem letzten Rennen) · <span class="lr">+25</span> Punkte im letzten Rennen.</p>
         <div class="section-head"><h2>Fahrerwertung Hypercar</h2><span class="eyebrow">nach 8 von 8 Rennen (teilw. Stand Barcelona)</span></div>
         <div class="tablewrap"><table class="stand" id="wec-drivers"></table></div>
         <p class="note">Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Vanthoor #15, van der Linde #20). Für die Plätze unter den hier gelisteten Fahrern lag zum Datenstand keine geprüfte Punkteliste vor. Diese Autos sind mit „–“ markiert. Die Endpunkte nach Monza waren nicht für alle Autos prüfbar, nicht angepasste Zeilen zeigen den Stand nach Barcelona. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
@@ -622,6 +635,7 @@ a.f1team:hover h4 { color: var(--team); }
               <div class="tablewrap"><table class="stand" id="gt3-winners"></table></div>
             </div>
           </div>
+          <p class="note mv-legend" data-for="gt3-cars" hidden><span class="mv up">▲</span> aufgestiegen · <span class="mv down">▼</span> abgestiegen · <span class="mv same">►</span> Platz gehalten (jeweils gegenüber vor dem letzten Rennen) · <span class="lr">+25</span> Punkte im letzten Rennen.</p>
           <div class="section-head"><h2>Fahrerwertung LMGT3</h2><span class="eyebrow">Endstand nach 8 von 8 Rennen</span></div>
           <div class="tablewrap"><table class="stand" id="gt3-drivers"></table></div>
           <p class="note" id="gt3-note">In der LMGT3 fährt pro Auto je ein Profi, ein Silber- und ein Bronze-Fahrer. Fahrer, die ein Rennen verpasst haben, stehen hinter ihren Teamkollegen (z. B. Ben Keating #33). Für die übrigen Autos und Fahrer lag zum Datenstand keine geprüfte Punkteliste vor („–“). Die Fahrerbesetzungen stammen aus den Nennlisten der Saison und können sich bei einzelnen Rennen geändert haben. Offizielle Tabelle: <a href="https://www.fiawec.com/en/page/resultats-1" target="_blank" rel="noopener">fiawec.com</a>.</p>
@@ -1317,11 +1331,11 @@ a.f1team:hover h4 { color: var(--team); }
       var team = (old && old[2]) || d.team || "cadillac"; // Stammteam bevorzugen (Ersatzeinsätze bei anderen Teams)
       var note = old && old[4] && old[4] !== "Weltmeister" ? old[4] : "";
       if (old && old[4] === "Weltmeister") note = "Weltmeister";
-      return [old ? old[0] : (d.number || 0), old ? old[1] : (d.given + " " + d.family), team, d.points, note, d.id || ""];
+      return [old ? old[0] : (d.number || 0), old ? old[1] : (d.given + " " + d.family), team, d.points, note, d.id || "", d.last == null ? null : d.last];
     });
   }
   if (LIVE.f1 && LIVE.f1.constructors && LIVE.f1.constructors.length) {
-    F1CONS = LIVE.f1.constructors.filter(function (c) { return F1TEAMS[c.team]; }).sort(function (a, b) { return a.pos - b.pos; }).map(function (c) { return [c.team, c.points]; });
+    F1CONS = LIVE.f1.constructors.filter(function (c) { return F1TEAMS[c.team]; }).sort(function (a, b) { return a.pos - b.pos; }).map(function (c) { return [c.team, c.points, c.last == null ? null : c.last]; });
   }
   if (LIVE.nflStandings && LIVE.nflStandings.AFC && LIVE.nflStandings.NFC) NFL = LIVE.nflStandings;
   function applyStamps() {
@@ -1450,6 +1464,27 @@ a.f1team:hover h4 { color: var(--team); }
       '<p class="note">Fahrerbesetzungen laut Nennliste 2026. Offizielle Teamseite: <a href="' + t.link + '" target="_blank" rel="noopener">' + esc(t.link.replace(/^https:\/\//, "").replace(/\/.*$/, "")) + ' ↗</a></p>';
   }
 
+  /* Veränderung zum letzten Rennen: vorherige Platzierung aus Punkten minus Punkte im letzten Rennen.
+     Nur wenn für jede gewertete Zeile die Punkte des letzten Rennens bekannt sind. */
+  function moveInfo(rows, cur, last) {
+    var idx = [], ok = true, out = rows.map(function () { return null; });
+    rows.forEach(function (x, i) { if (cur(x) != null) { idx.push(i); if (last(x) == null) ok = false; } });
+    if (!ok || !idx.length) return out;
+    idx.forEach(function (i) {
+      var c = cur(rows[i]), p = c - last(rows[i]), cr = 1, pr = 1;
+      idx.forEach(function (j) { if (j !== i) { if (cur(rows[j]) > c) cr++; if (cur(rows[j]) - last(rows[j]) > p) pr++; } });
+      out[i] = { d: pr - cr, last: last(rows[i]) };
+    });
+    out.any = true;
+    return out;
+  }
+  function mvHtml(m) {
+    if (!m) return "";
+    if (m.d > 0) return '<span class="mv up" title="' + m.d + (m.d === 1 ? " Platz" : " Plätze") + ' gewonnen">▲' + m.d + '</span>';
+    if (m.d < 0) return '<span class="mv down" title="' + (-m.d) + (m.d === -1 ? " Platz" : " Plätze") + ' verloren">▼' + (-m.d) + '</span>';
+    return '<span class="mv same" title="Platz gehalten">►</span>';
+  }
+  function lrPts(mv, i) { var m = mv[i]; return m ? '<span class="lr' + (m.last > 0 ? "" : " zero") + '" title="Punkte im letzten Rennen">+' + m.last + '</span>' : ""; }
   function ranks(arr, key) { var out = [], last = null, pos = 0; arr.forEach(function (x, i) { var v = key(x); if (v !== last) { pos = i + 1; last = v; } out.push(pos); }); return out; }
 
   /* ---------- NFL: Liga-Tabellen, Spielergebnisse, Teamseiten ---------- */
@@ -1612,18 +1647,19 @@ a.f1team:hover h4 { color: var(--team); }
   }
   function renderTables() {
     var lead = F1DRIVERS[0][3], rk = ranks(F1DRIVERS, function (x) { return x[3]; });
+    var fmv = moveInfo(F1DRIVERS, function (x) { return x[3]; }, function (x) { return x[6]; });
     document.getElementById("f1-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Fahrer</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
       F1DRIVERS.map(function (x, i) {
         var t = F1TEAMS[x[2]], pct = Math.max(2, Math.round(x[3] / lead * 100));
         var dh = x[5] && F1S && F1S.drivers[x[5]] ? f1DriverHref(x[5]) : f1href(x[2]);
-        return '<tr class="tm-' + x[2] + ' link' + (x[2] === "redbull" ? " fav" : "") + '" data-href="' + dh + '"><td class="p">' + rk[i] + '</td><td class="n">' + (x[0] || "–") + '</td><td><a class="rowlink" href="' + dh + '">' + esc(x[1]) + '</a>' +
+        return '<tr class="tm-' + x[2] + ' link' + (x[2] === "redbull" ? " fav" : "") + '" data-href="' + dh + '"><td class="p">' + rk[i] + mvHtml(fmv[i]) + '</td><td class="n">' + (x[0] || "–") + '</td><td><a class="rowlink" href="' + dh + '">' + esc(x[1]) + '</a>' +
           (x[4] === "Weltmeister" ? '<span class="champ">Weltmeister</span>' : x[4] ? ' <span class="muted">(' + esc(x[4]) + ')</span>' : "") +
-          '<br><a class="rowlink muted" style="font-weight:400" href="' + f1href(x[2]) + '">' + esc(t.n) + '</a><span class="bar" style="width:' + pct + '%"></span></td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (i ? "−" + (lead - x[3]) : "–") + '</td></tr>';
+          '<br><a class="rowlink muted" style="font-weight:400" href="' + f1href(x[2]) + '">' + esc(t.n) + '</a><span class="bar" style="width:' + pct + '%"></span></td><td class="r"><b>' + x[3] + '</b>' + lrPts(fmv, i) + '</td><td class="r muted">' + (i ? "−" + (lead - x[3]) : "–") + '</td></tr>';
       }).join("") + '</tbody>';
-    var cl = F1CONS[0][1];
+    var cl = F1CONS[0][1], cmv = moveInfo(F1CONS, function (x) { return x[1]; }, function (x) { return x[2]; }), crk = ranks(F1CONS, function (x) { return x[1]; });
     document.getElementById("f1-teams").innerHTML = '<thead><tr><th>Pos.</th><th>Team</th><th class="r">Punkte</th></tr></thead><tbody>' +
       F1CONS.map(function (x, i) {
-        return '<tr class="tm-' + x[0] + ' link' + (x[0] === "redbull" ? " fav" : "") + '" data-href="' + f1href(x[0]) + '"><td class="p">' + (i + 1) + '</td><td><a class="rowlink" href="' + f1href(x[0]) + '">' + esc(F1TEAMS[x[0]].n) + ' →</a><span class="bar" style="width:' + Math.max(2, Math.round(x[1] / cl * 100)) + '%"></span></td><td class="r"><b>' + x[1] + '</b></td></tr>';
+        return '<tr class="tm-' + x[0] + ' link' + (x[0] === "redbull" ? " fav" : "") + '" data-href="' + f1href(x[0]) + '"><td class="p">' + crk[i] + mvHtml(cmv[i]) + '</td><td><a class="rowlink" href="' + f1href(x[0]) + '">' + esc(F1TEAMS[x[0]].n) + ' →</a><span class="bar" style="width:' + Math.max(2, Math.round(x[1] / cl * 100)) + '%"></span></td><td class="r"><b>' + x[1] + '</b>' + lrPts(cmv, i) + '</td></tr>';
       }).join("") + '</tbody>';
     document.getElementById("f1-teamgrid").innerHTML = F1CONS.map(function (x) {
       var t = F1TEAMS[x[0]];
@@ -1635,22 +1671,23 @@ a.f1team:hover h4 { color: var(--team); }
     renderNflLeague();
 
     var ck = WECCARS.filter(function (x) { return x[5] != null; }), cr = ranks(ck, function (x) { return x[5]; });
+    var wmv = moveInfo(WECCARS, function (x) { return x[5]; }, function (x) { return x[7]; });
     document.getElementById("wec-cars").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Auto / Team</th><th>Fahrer</th><th class="r">Punkte</th></tr></thead><tbody>' +
       WECCARS.map(function (x, i) {
         var has = x[5] != null;
         var href = "#wec-" + x[6];
-        return '<tr class="tm-' + x[2] + ' link' + (x[2] === "toyota" ? " fav" : "") + '" data-href="' + href + '"><td class="p">' + (has ? cr[i] : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><a class="rowlink" href="' + href + '">' + esc(x[1]) + ' →</a><br><span class="muted">' + esc(x[3]) + (x[0] === "83" ? " · ohne Herstellerpunkte" : "") + '</span></td><td>' + crewHtml(x[4]) + '</td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '</td></tr>';
+        return '<tr class="tm-' + x[2] + ' link' + (x[2] === "toyota" ? " fav" : "") + '" data-href="' + href + '"><td class="p">' + (has ? cr[i] + mvHtml(wmv[i]) : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><a class="rowlink" href="' + href + '">' + esc(x[1]) + ' →</a><br><span class="muted">' + esc(x[3]) + (x[0] === "83" ? " · ohne Herstellerpunkte" : "") + '</span></td><td>' + crewHtml(x[4]) + '</td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '' + lrPts(wmv, i) + '</td></tr>';
       }).join("") + '</tbody>';
-    var ml = WECMAKES[0][2];
+    var ml = WECMAKES[0][2], mmv = moveInfo(WECMAKES, function (x) { return x[2]; }, function (x) { return x[4]; }), mrk = ranks(WECMAKES, function (x) { return x[2]; });
     document.getElementById("wec-makes").innerHTML = '<thead><tr><th>Pos.</th><th>Hersteller</th><th class="r">Punkte</th></tr></thead><tbody>' +
       WECMAKES.map(function (x, i) {
         var mh = "#wec-" + x[1];
-        return '<tr class="tm-' + x[1] + ' link' + (x[1] === "toyota" ? " fav" : "") + '" data-href="' + mh + '"><td class="p">' + (i + 1) + '</td><td><a class="rowlink" href="' + mh + '">' + esc(x[0]) + '</a>' + (x[3] ? '<span class="champ">' + x[3] + '</span>' : "") + '<span class="bar" style="width:' + Math.round(x[2] / ml * 100) + '%"></span></td><td class="r"><b>' + x[2] + '</b></td></tr>';
+        return '<tr class="tm-' + x[1] + ' link' + (x[1] === "toyota" ? " fav" : "") + '" data-href="' + mh + '"><td class="p">' + mrk[i] + mvHtml(mmv[i]) + '</td><td><a class="rowlink" href="' + mh + '">' + esc(x[0]) + '</a>' + (x[3] ? '<span class="champ">' + x[3] + '</span>' : "") + '<span class="bar" style="width:' + Math.round(x[2] / ml * 100) + '%"></span></td><td class="r"><b>' + x[2] + '</b>' + lrPts(mmv, i) + '</td></tr>';
       }).join("") + '</tbody>';
-    var dr = ranks(WECDRIVERS, function (x) { return x[3]; }), dl = WECDRIVERS[0][3];
+    var dr = ranks(WECDRIVERS, function (x) { return x[3]; }), dl = WECDRIVERS[0][3], dmv = moveInfo(WECDRIVERS, function (x) { return x[3]; }, function (x) { return x[4]; });
     document.getElementById("wec-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Fahrer</th><th>Auto</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
       WECDRIVERS.map(function (x, i) {
-        return '<tr class="tm-' + x[2] + (x[2] === "toyota" ? " fav" : "") + '"><td class="p">' + dr[i] + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n"><a class="rowlink" href="' + ("#wec-" + carSlug(x[1])) + '">#' + x[1] + '</a></td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
+        return '<tr class="tm-' + x[2] + (x[2] === "toyota" ? " fav" : "") + '"><td class="p">' + dr[i] + mvHtml(dmv[i]) + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n"><a class="rowlink" href="' + ("#wec-" + carSlug(x[1])) + '">#' + x[1] + '</a></td><td class="r"><b>' + x[3] + '</b>' + lrPts(dmv, i) + '</td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
       }).join("") + '</tbody>';
   }
   renderTables();
@@ -1690,16 +1727,17 @@ a.f1team:hover h4 { color: var(--team); }
   ];
   function renderGT3() {
     var scored = GT3CARS.filter(function (x) { return x[5] != null; }), cr = ranks(scored, function (x) { return x[5]; }), lead = scored[0][5];
+    var gmv = moveInfo(GT3CARS, function (x) { return x[5]; }, function (x) { return x[6]; });
     document.getElementById("gt3-cars").innerHTML = '<thead><tr><th>Pos.</th><th>Nr.</th><th>Team / Auto</th><th>Fahrer</th><th class="r">Punkte</th></tr></thead><tbody>' +
       GT3CARS.map(function (x, i) {
         var has = x[5] != null;
-        return '<tr class="tm-' + x[2] + '"><td class="p">' + (has ? cr[i] : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><b>' + esc(x[1]) + '</b><br><span class="muted">' + esc(x[3]) + '</span>' +
-          (has ? '<span class="bar" style="width:' + Math.round(x[5] / lead * 100) + '%"></span>' : "") + '</td><td>' + crewHtml(x[4]) + '</td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '</td></tr>';
+        return '<tr class="tm-' + x[2] + '"><td class="p">' + (has ? cr[i] + mvHtml(gmv[i]) : "–") + '</td><td class="n">#' + esc(x[0]) + '</td><td><b>' + esc(x[1]) + '</b><br><span class="muted">' + esc(x[3]) + '</span>' +
+          (has ? '<span class="bar" style="width:' + Math.round(x[5] / lead * 100) + '%"></span>' : "") + '</td><td>' + crewHtml(x[4]) + '</td><td class="r">' + (has ? "<b>" + x[5] + "</b>" : '<span class="muted">–</span>') + '' + lrPts(gmv, i) + '</td></tr>';
       }).join("") + '</tbody>';
-    var dr = ranks(GT3DRIVERS, function (x) { return x[3]; }), dl = GT3DRIVERS[0][3];
+    var dr = ranks(GT3DRIVERS, function (x) { return x[3]; }), dl = GT3DRIVERS[0][3], gdmv = moveInfo(GT3DRIVERS, function (x) { return x[3]; }, function (x) { return x[4]; });
     document.getElementById("gt3-drivers").innerHTML = '<thead><tr><th>Pos.</th><th>Fahrer</th><th>Auto</th><th class="r">Punkte</th><th class="r">Rückstand</th></tr></thead><tbody>' +
       GT3DRIVERS.map(function (x, i) {
-        return '<tr class="tm-' + x[2] + '"><td class="p">' + dr[i] + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n">#' + x[1] + '</td><td class="r"><b>' + x[3] + '</b></td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
+        return '<tr class="tm-' + x[2] + '"><td class="p">' + dr[i] + mvHtml(gdmv[i]) + '</td><td><b>' + esc(x[0]) + '</b></td><td class="n">#' + x[1] + '</td><td class="r"><b>' + x[3] + '</b>' + lrPts(gdmv, i) + '</td><td class="r muted">' + (x[3] === dl ? "–" : "−" + (dl - x[3])) + '</td></tr>';
       }).join("") + '</tbody>';
     document.getElementById("gt3-winners").innerHTML = '<thead><tr><th>Rennen</th><th>Nr.</th><th>Sieger</th></tr></thead><tbody>' +
       GT3WINNERS.map(function (x) {
@@ -1707,6 +1745,9 @@ a.f1team:hover h4 { color: var(--team); }
       }).join("") + '</tbody>';
   }
   renderGT3();
+  document.querySelectorAll(".mv-legend").forEach(function (el) {
+    el.hidden = !el.getAttribute("data-for").split(" ").some(function (id) { var t = document.getElementById(id); return t && t.querySelector(".mv"); });
+  });
   /* ---------- 24 Stunden von Le Mans: Starterfelder je Jahr ----------
      Format je Auto: "Nr|Team|Fahrzeug|Zusatz|Fahrer 1 (NAT) Kat;Fahrer 2 (NAT) Kat;Fahrer 3 (NAT) Kat"
      Kategorie: P = Platin, G = Gold, S = Silber, B = Bronze. Neues Jahr = neuer Eintrag oben. */

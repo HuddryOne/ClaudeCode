@@ -75,7 +75,24 @@ async function fetchF1() {
   }));
   if (drivers.length < 10 || constructors.length < 8) throw new Error("F1-Wertung unvollständig");
   if (constructors.some((c) => !c.team)) console.warn("Unbekanntes F1-Team:", constructors.filter((c) => !c.team).map((c) => c.name));
-  return { round: num(dl.round), season: dl.season, drivers, constructors };
+  // Punkte am letzten Rennwochenende (inkl. Sprint) = aktueller Stand minus Stand nach der Runde davor.
+  // Daraus berechnet die Seite auch, ob jemand in der Wertung auf- oder abgestiegen ist.
+  const round = num(dl.round);
+  try {
+    let prevD = {}, prevC = {};
+    if (round > 1) {
+      const [pd, pc] = await Promise.all([getJson(`${base}/${round - 1}/driverstandings/?limit=100`), getJson(`${base}/${round - 1}/constructorstandings/?limit=100`)]);
+      const pdl = pd.MRData.StandingsTable.StandingsLists[0], pcl = pc.MRData.StandingsTable.StandingsLists[0];
+      if (!pdl || !pcl) throw new Error("Keine Wertung der Vorrunde");
+      pdl.DriverStandings.forEach((d) => { prevD[d.Driver.driverId] = num(d.points); });
+      pcl.ConstructorStandings.forEach((c) => { prevC[c.Constructor.constructorId] = num(c.points); });
+    }
+    drivers.forEach((d) => { d.last = d.points - (prevD[d.id] || 0); });
+    cl.ConstructorStandings.forEach((c, i) => { constructors[i].last = constructors[i].points - (prevC[c.Constructor.constructorId] || 0); });
+  } catch (e) {
+    console.warn("F1: Punkte des letzten Rennens nicht verfügbar:", e.message);
+  }
+  return { round, season: dl.season, drivers, constructors };
 }
 
 /* ---------------- NFL ---------------- */

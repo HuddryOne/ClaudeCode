@@ -74,3 +74,10 @@ Die Ergebnisse landen in `data/live.json` und im Block `<script id="live-data">`
 Alle Termine, Kader und Sender stehen im `<script>`-Block in `index.html` (Abschnitte `nfl`, `ev({...})`, `ROSTER`, `TVPAGE`, `F1DRIVERS`, `F1CONS`, `F1TEAMS`, `NFL`, `WECCARS`, `WECMAKES`, `WECDRIVERS`). Zeiten werden in UTC eingetragen und automatisch umgerechnet.
 
 Datenstand: 4. November 2026. Angaben ohne Gewähr.
+
+## Auf- und Abstieg in den Tabellen
+
+Die Tabellen der Formel 1 und der WEC zeigen unter den Punkten die Punkte aus dem letzten Rennen (`+25`) und unter der Platzierung einen Pfeil: grün ▲ aufgestiegen, rot ▼ abgestiegen, blau ► Platz gehalten. Die vorherige Platzierung rechnet die Seite aus „Punkte minus Punkte im letzten Rennen“ aus.
+
+- Formel 1: `scripts/update-data.mjs` holt zusätzlich die Wertung nach der vorletzten Runde und schreibt `last` je Fahrer und Team (inkl. Sprint).
+- WEC (von Hand gepflegt): Punkte im letzten Rennen als zusätzliches Feld am Ende jeder Zeile: `WECCARS` Index 7, `WECMAKES` Index 4, `WECDRIVERS` Index 4, `GT3CARS` Index 6, `GT3DRIVERS` Index 4. Pfeile erscheinen in einer Tabelle erst, wenn jede gewertete Zeile dieses Feld hat.
