@@ -1,12 +1,12 @@
 {
  "sources": {
-  "f1": "2026-11-15T05:01:58.064Z",
-  "nflStandings": "2026-11-15T05:01:58.064Z",
-  "broncosRoster": "2026-11-15T05:01:58.064Z",
-  "broncosSchedule": "2026-11-15T05:01:58.064Z",
-  "nflLeague": "2026-11-15T05:01:58.064Z",
-  "f1Stats": "2026-11-13T05:07:42.999Z",
-  "f1Champions": "2026-11-09T05:14:57.679Z"
+  "f1": "2026-11-16T05:38:40.096Z",
+  "nflStandings": "2026-11-16T05:38:40.096Z",
+  "broncosRoster": "2026-11-16T05:38:40.096Z",
+  "broncosSchedule": "2026-11-16T05:38:40.096Z",
+  "nflLeague": "2026-11-16T05:38:40.096Z",
+  "f1Stats": "2026-11-16T05:38:40.096Z",
+  "f1Champions": "2026-11-16T05:38:40.096Z"
  },
  "f1": {
   "round": 20,
@@ -409,39 +409,39 @@
    "East": [
     [
      "Buffalo Bills",
-     7,
+     8,
      1
     ],
     [
      "New England Patriots",
      5,
-     4
+     5
     ],
     [
      "New York Jets",
      2,
-     7
+     8
     ],
     [
      "Miami Dolphins",
      1,
-     7
+     8
     ]
    ],
    "North": [
     [
-     "Pittsburgh Steelers",
-     6,
+     "Cincinnati Bengals",
+     7,
      2
     ],
     [
-     "Cincinnati Bengals",
+     "Pittsburgh Steelers",
      6,
-     2
+     3
     ],
     [
      "Cleveland Browns",
-     5,
+     6,
      4
     ],
     [
@@ -453,40 +453,40 @@
    "South": [
     [
      "Jacksonville Jaguars",
-     6,
+     7,
      2
     ],
     [
      "Houston Texans",
      3,
-     5
+     6
     ],
     [
      "Indianapolis Colts",
-     2,
+     3,
      7
     ],
     [
      "Tennessee Titans",
      1,
-     7
+     8
     ]
    ],
    "West": [
+    [
+     "Kansas City Chiefs",
+     7,
+     2
+    ],
     [
      "Denver Broncos",
      7,
      2
     ],
     [
-     "Kansas City Chiefs",
-     6,
-     2
-    ],
-    [
      "Las Vegas Raiders",
      4,
-     5
+     6
     ],
     [
      "Los Angeles Chargers",
@@ -506,7 +506,7 @@
     [
      "Dallas Cowboys",
      4,
-     5
+     6
     ],
     [
      "Washington Commanders",
@@ -522,35 +522,30 @@
    ],
    "North": [
     [
+     "Detroit Lions",
+     7,
+     2
+    ],
+    [
+     "Minnesota Vikings",
+     7,
+     2
+    ],
+    [
      "Chicago Bears",
      7,
      2
     ],
     [
-     "Detroit Lions",
-     6,
-     2
-    ],
-    [
-     "Minnesota Vikings",
-     6,
-     2
-    ],
-    [
      "Green Bay Packers",
      6,
-     3
+     4
     ]
    ],
    "South": [
     [
      "Carolina Panthers",
-     3,
-     5
-    ],
-    [
-     "New Orleans Saints",
-     3,
+     4,
      5
     ],
     [
@@ -559,31 +554,36 @@
      6
     ],
     [
-     "Atlanta Falcons",
+     "New Orleans Saints",
      3,
      6
+    ],
+    [
+     "Atlanta Falcons",
+     3,
+     7
     ]
    ],
    "West": [
     [
      "San Francisco 49ers",
-     7,
+     8,
      1
     ],
     [
      "Seattle Seahawks",
-     5,
+     6,
      4
     ],
     [
      "Los Angeles Rams",
-     5,
+     6,
      4
     ],
     [
      "Arizona Cardinals",
      3,
-     6
+     7
     ]
    ]
   }
@@ -1200,7 +1200,7 @@
   ],
   "bye": 10
  },
- "updated": "2026-11-15T05:01:58.064Z",
+ "updated": "2026-11-16T05:38:40.096Z",
  "nflLeague": {
   "divisions": {
    "AFC": {
@@ -1210,43 +1210,43 @@
       "abbr": "BUF",
       "name": "Buffalo Bills",
       "stats": {
-       "differential": "+69",
+       "differential": "+88",
        "gamesBehind": "-",
        "gamesbehind": "-",
        "losses": "1",
        "playoffSeed": "1",
        "playoffseed": "1",
-       "pointDifferential": "+69",
-       "pointdifferential": "+69",
-       "pointsAgainst": "187",
-       "pointsagainst": "187",
-       "pointsFor": "256",
-       "pointsfor": "256",
-       "streak": "W4",
+       "pointDifferential": "+88",
+       "pointdifferential": "+88",
+       "pointsAgainst": "199",
+       "pointsagainst": "199",
+       "pointsFor": "287",
+       "pointsfor": "287",
+       "streak": "W5",
        "ties": "0",
-       "winPercent": ".875",
-       "winpercent": ".875",
-       "wins": "7",
+       "winPercent": ".889",
+       "winpercent": ".889",
+       "wins": "8",
        "divisionLosses": "1",
        "divisionlosses": "1",
-       "divisionRecord": "0-1",
-       "divisionrecord": "0-1",
+       "divisionRecord": "1-1",
+       "divisionrecord": "1-1",
        "divisionTies": "0.000",
        "divisionties": "0.000",
-       "divisionWins": "0.000",
-       "divisionwins": "0.000",
+       "divisionWins": "1.000",
+       "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "7-1",
-       "total": "7-1",
+       "overall": "8-1",
+       "total": "8-1",
        "Home": "3-1",
        "home": "3-1",
-       "Road": "4-0",
-       "road": "4-0",
-       "vs. Div.": "0-1",
-       "vsdiv": "0-1",
-       "vs. Conf.": "4-1",
-       "vsconf": "4-1"
+       "Road": "5-0",
+       "road": "5-0",
+       "vs. Div.": "1-1",
+       "vsdiv": "1-1",
+       "vs. Conf.": "5-1",
+       "vsconf": "5-1"
       }
      },
      {
@@ -1254,22 +1254,22 @@
       "abbr": "NE",
       "name": "New England Patriots",
       "stats": {
-       "differential": "+4",
-       "gamesBehind": "2.5",
-       "gamesbehind": "2.5",
-       "losses": "4",
-       "playoffSeed": "7",
-       "playoffseed": "7",
-       "pointDifferential": "+4",
-       "pointdifferential": "+4",
-       "pointsAgainst": "207",
-       "pointsagainst": "207",
-       "pointsFor": "211",
-       "pointsfor": "211",
-       "streak": "L1",
+       "differential": "-21",
+       "gamesBehind": "3.5",
+       "gamesbehind": "3.5",
+       "losses": "5",
+       "playoffSeed": "8",
+       "playoffseed": "8",
+       "pointDifferential": "-21",
+       "pointdifferential": "-21",
+       "pointsAgainst": "242",
+       "pointsagainst": "242",
+       "pointsFor": "221",
+       "pointsfor": "221",
+       "streak": "L2",
        "ties": "0",
-       "winPercent": ".556",
-       "winpercent": ".556",
+       "winPercent": ".500",
+       "winpercent": ".500",
        "wins": "5",
        "divisionLosses": "0",
        "divisionlosses": "0",
@@ -1281,12 +1281,12 @@
        "divisionwins": "3.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "5-4",
-       "total": "5-4",
+       "overall": "5-5",
+       "total": "5-5",
        "Home": "3-1",
        "home": "3-1",
-       "Road": "2-3",
-       "road": "2-3",
+       "Road": "2-4",
+       "road": "2-4",
        "vs. Div.": "3-0",
        "vsdiv": "3-0",
        "vs. Conf.": "5-1",
@@ -1298,43 +1298,43 @@
       "abbr": "NYJ",
       "name": "New York Jets",
       "stats": {
-       "differential": "-41",
-       "gamesBehind": "5.5",
-       "gamesbehind": "5.5",
-       "losses": "7",
-       "playoffSeed": "12",
-       "playoffseed": "12",
-       "pointDifferential": "-41",
-       "pointdifferential": "-41",
-       "pointsAgainst": "223",
-       "pointsagainst": "223",
-       "pointsFor": "182",
-       "pointsfor": "182",
-       "streak": "L4",
+       "differential": "-60",
+       "gamesBehind": "6.5",
+       "gamesbehind": "6.5",
+       "losses": "8",
+       "playoffSeed": "13",
+       "playoffseed": "13",
+       "pointDifferential": "-60",
+       "pointdifferential": "-60",
+       "pointsAgainst": "254",
+       "pointsagainst": "254",
+       "pointsFor": "194",
+       "pointsfor": "194",
+       "streak": "L5",
        "ties": "0",
-       "winPercent": ".222",
-       "winpercent": ".222",
+       "winPercent": ".200",
+       "winpercent": ".200",
        "wins": "2",
-       "divisionLosses": "2",
-       "divisionlosses": "2",
-       "divisionRecord": "0-2",
-       "divisionrecord": "0-2",
+       "divisionLosses": "3",
+       "divisionlosses": "3",
+       "divisionRecord": "0-3",
+       "divisionrecord": "0-3",
        "divisionTies": "0.000",
        "divisionties": "0.000",
        "divisionWins": "0.000",
        "divisionwins": "0.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "2-7",
-       "total": "2-7",
-       "Home": "1-3",
-       "home": "1-3",
+       "overall": "2-8",
+       "total": "2-8",
+       "Home": "1-4",
+       "home": "1-4",
        "Road": "1-4",
        "road": "1-4",
-       "vs. Div.": "0-2",
-       "vsdiv": "0-2",
-       "vs. Conf.": "2-4",
-       "vsconf": "2-4"
+       "vs. Div.": "0-3",
+       "vsdiv": "0-3",
+       "vs. Conf.": "2-5",
+       "vsconf": "2-5"
       }
      },
      {
@@ -1342,22 +1342,22 @@
       "abbr": "MIA",
       "name": "Miami Dolphins",
       "stats": {
-       "differential": "-74",
-       "gamesBehind": "6",
-       "gamesbehind": "6",
-       "losses": "7",
+       "differential": "-76",
+       "gamesBehind": "7",
+       "gamesbehind": "7",
+       "losses": "8",
        "playoffSeed": "14",
        "playoffseed": "14",
-       "pointDifferential": "-74",
-       "pointdifferential": "-74",
-       "pointsAgainst": "200",
-       "pointsagainst": "200",
-       "pointsFor": "126",
-       "pointsfor": "126",
-       "streak": "L2",
+       "pointDifferential": "-76",
+       "pointdifferential": "-76",
+       "pointsAgainst": "224",
+       "pointsagainst": "224",
+       "pointsFor": "148",
+       "pointsfor": "148",
+       "streak": "L3",
        "ties": "0",
-       "winPercent": ".125",
-       "winpercent": ".125",
+       "winPercent": ".111",
+       "winpercent": ".111",
        "wins": "1",
        "divisionLosses": "1",
        "divisionlosses": "1",
@@ -1369,42 +1369,42 @@
        "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "1-7",
-       "total": "1-7",
+       "overall": "1-8",
+       "total": "1-8",
        "Home": "0-4",
        "home": "0-4",
-       "Road": "1-3",
-       "road": "1-3",
+       "Road": "1-4",
+       "road": "1-4",
        "vs. Div.": "1-1",
        "vsdiv": "1-1",
-       "vs. Conf.": "1-4",
-       "vsconf": "1-4"
+       "vs. Conf.": "1-5",
+       "vsconf": "1-5"
       }
      }
     ],
     "North": [
      {
-      "id": "23",
-      "abbr": "PIT",
-      "name": "Pittsburgh Steelers",
+      "id": "4",
+      "abbr": "CIN",
+      "name": "Cincinnati Bengals",
       "stats": {
-       "differential": "+36",
+       "differential": "+85",
        "gamesBehind": "-",
        "gamesbehind": "-",
        "losses": "2",
        "playoffSeed": "4",
        "playoffseed": "4",
-       "pointDifferential": "+36",
-       "pointdifferential": "+36",
-       "pointsAgainst": "144",
-       "pointsagainst": "144",
-       "pointsFor": "180",
-       "pointsfor": "180",
-       "streak": "W4",
+       "pointDifferential": "+85",
+       "pointdifferential": "+85",
+       "pointsAgainst": "193",
+       "pointsagainst": "193",
+       "pointsFor": "278",
+       "pointsfor": "278",
+       "streak": "W5",
        "ties": "0",
-       "winPercent": ".750",
-       "winpercent": ".750",
-       "wins": "6",
+       "winPercent": ".778",
+       "winpercent": ".778",
+       "wins": "7",
        "divisionLosses": "1",
        "divisionlosses": "1",
        "divisionRecord": "2-1",
@@ -1415,60 +1415,60 @@
        "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "6-2",
-       "total": "6-2",
-       "Home": "4-0",
-       "home": "4-0",
-       "Road": "2-2",
-       "road": "2-2",
+       "overall": "7-2",
+       "total": "7-2",
+       "Home": "3-1",
+       "home": "3-1",
+       "Road": "4-1",
+       "road": "4-1",
        "vs. Div.": "2-1",
        "vsdiv": "2-1",
-       "vs. Conf.": "3-2",
-       "vsconf": "3-2"
+       "vs. Conf.": "5-2",
+       "vsconf": "5-2"
       }
      },
      {
-      "id": "4",
-      "abbr": "CIN",
-      "name": "Cincinnati Bengals",
+      "id": "23",
+      "abbr": "PIT",
+      "name": "Pittsburgh Steelers",
       "stats": {
-       "differential": "+65",
-       "gamesBehind": "-",
-       "gamesbehind": "-",
-       "losses": "2",
+       "differential": "+16",
+       "gamesBehind": "1",
+       "gamesbehind": "1",
+       "losses": "3",
        "playoffSeed": "6",
        "playoffseed": "6",
-       "pointDifferential": "+65",
-       "pointdifferential": "+65",
-       "pointsAgainst": "175",
-       "pointsagainst": "175",
-       "pointsFor": "240",
-       "pointsfor": "240",
-       "streak": "W4",
+       "pointDifferential": "+16",
+       "pointdifferential": "+16",
+       "pointsAgainst": "182",
+       "pointsagainst": "182",
+       "pointsFor": "198",
+       "pointsfor": "198",
+       "streak": "L1",
        "ties": "0",
-       "winPercent": ".750",
-       "winpercent": ".750",
+       "winPercent": ".667",
+       "winpercent": ".667",
        "wins": "6",
-       "divisionLosses": "1",
-       "divisionlosses": "1",
-       "divisionRecord": "1-1",
-       "divisionrecord": "1-1",
+       "divisionLosses": "2",
+       "divisionlosses": "2",
+       "divisionRecord": "2-2",
+       "divisionrecord": "2-2",
        "divisionTies": "0.000",
        "divisionties": "0.000",
-       "divisionWins": "1.000",
-       "divisionwins": "1.000",
+       "divisionWins": "2.000",
+       "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "6-2",
-       "total": "6-2",
-       "Home": "2-1",
-       "home": "2-1",
-       "Road": "4-1",
-       "road": "4-1",
-       "vs. Div.": "1-1",
-       "vsdiv": "1-1",
-       "vs. Conf.": "4-2",
-       "vsconf": "4-2"
+       "overall": "6-3",
+       "total": "6-3",
+       "Home": "4-0",
+       "home": "4-0",
+       "Road": "2-3",
+       "road": "2-3",
+       "vs. Div.": "2-2",
+       "vsdiv": "2-2",
+       "vs. Conf.": "3-3",
+       "vsconf": "3-3"
       }
      },
      {
@@ -1476,23 +1476,23 @@
       "abbr": "CLE",
       "name": "Cleveland Browns",
       "stats": {
-       "differential": "-35",
+       "differential": "-32",
        "gamesBehind": "1.5",
        "gamesbehind": "1.5",
        "losses": "4",
-       "playoffSeed": "8",
-       "playoffseed": "8",
-       "pointDifferential": "-35",
-       "pointdifferential": "-35",
-       "pointsAgainst": "196",
-       "pointsagainst": "196",
-       "pointsFor": "161",
-       "pointsfor": "161",
-       "streak": "L2",
+       "playoffSeed": "7",
+       "playoffseed": "7",
+       "pointDifferential": "-32",
+       "pointdifferential": "-32",
+       "pointsAgainst": "220",
+       "pointsagainst": "220",
+       "pointsFor": "188",
+       "pointsfor": "188",
+       "streak": "W1",
        "ties": "0",
-       "winPercent": ".556",
-       "winpercent": ".556",
-       "wins": "5",
+       "winPercent": ".600",
+       "winpercent": ".600",
+       "wins": "6",
        "divisionLosses": "1",
        "divisionlosses": "1",
        "divisionRecord": "2-1",
@@ -1503,16 +1503,16 @@
        "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "5-4",
-       "total": "5-4",
-       "Home": "3-0",
-       "home": "3-0",
+       "overall": "6-4",
+       "total": "6-4",
+       "Home": "4-0",
+       "home": "4-0",
        "Road": "2-4",
        "road": "2-4",
        "vs. Div.": "2-1",
        "vsdiv": "2-1",
-       "vs. Conf.": "3-3",
-       "vsconf": "3-3"
+       "vs. Conf.": "4-3",
+       "vsconf": "4-3"
       }
      },
      {
@@ -1521,11 +1521,11 @@
       "name": "Baltimore Ravens",
       "stats": {
        "differential": "-47",
-       "gamesBehind": "2.5",
-       "gamesbehind": "2.5",
+       "gamesBehind": "3",
+       "gamesbehind": "3",
        "losses": "5",
-       "playoffSeed": "10",
-       "playoffseed": "10",
+       "playoffSeed": "9",
+       "playoffseed": "9",
        "pointDifferential": "-47",
        "pointdifferential": "-47",
        "pointsAgainst": "236",
@@ -1566,43 +1566,43 @@
       "abbr": "JAX",
       "name": "Jacksonville Jaguars",
       "stats": {
-       "differential": "+108",
+       "differential": "+125",
        "gamesBehind": "-",
        "gamesbehind": "-",
        "losses": "2",
        "playoffSeed": "3",
        "playoffseed": "3",
-       "pointDifferential": "+108",
-       "pointdifferential": "+108",
-       "pointsAgainst": "121",
-       "pointsagainst": "121",
-       "pointsFor": "229",
-       "pointsfor": "229",
-       "streak": "W2",
+       "pointDifferential": "+125",
+       "pointdifferential": "+125",
+       "pointsAgainst": "144",
+       "pointsagainst": "144",
+       "pointsFor": "269",
+       "pointsfor": "269",
+       "streak": "W3",
        "ties": "0",
-       "winPercent": ".750",
-       "winpercent": ".750",
-       "wins": "6",
+       "winPercent": ".778",
+       "winpercent": ".778",
+       "wins": "7",
        "divisionLosses": "1",
        "divisionlosses": "1",
-       "divisionRecord": "1-1",
-       "divisionrecord": "1-1",
+       "divisionRecord": "2-1",
+       "divisionrecord": "2-1",
        "divisionTies": "0.000",
        "divisionties": "0.000",
-       "divisionWins": "1.000",
-       "divisionwins": "1.000",
+       "divisionWins": "2.000",
+       "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "6-2",
-       "total": "6-2",
+       "overall": "7-2",
+       "total": "7-2",
        "Home": "4-1",
        "home": "4-1",
-       "Road": "2-1",
-       "road": "2-1",
-       "vs. Div.": "1-1",
-       "vsdiv": "1-1",
-       "vs. Conf.": "5-2",
-       "vsconf": "5-2"
+       "Road": "3-1",
+       "road": "3-1",
+       "vs. Div.": "2-1",
+       "vsdiv": "2-1",
+       "vs. Conf.": "6-2",
+       "vsconf": "6-2"
       }
      },
      {
@@ -1610,22 +1610,22 @@
       "abbr": "HOU",
       "name": "Houston Texans",
       "stats": {
-       "differential": "+17",
-       "gamesBehind": "3",
-       "gamesbehind": "3",
-       "losses": "5",
+       "differential": "+14",
+       "gamesBehind": "4",
+       "gamesbehind": "4",
+       "losses": "6",
        "playoffSeed": "11",
        "playoffseed": "11",
-       "pointDifferential": "+17",
-       "pointdifferential": "+17",
-       "pointsAgainst": "192",
-       "pointsagainst": "192",
-       "pointsFor": "209",
-       "pointsfor": "209",
-       "streak": "W1",
+       "pointDifferential": "+14",
+       "pointdifferential": "+14",
+       "pointsAgainst": "219",
+       "pointsagainst": "219",
+       "pointsFor": "233",
+       "pointsfor": "233",
+       "streak": "L1",
        "ties": "0",
-       "winPercent": ".375",
-       "winpercent": ".375",
+       "winPercent": ".333",
+       "winpercent": ".333",
        "wins": "3",
        "divisionLosses": "1",
        "divisionlosses": "1",
@@ -1637,16 +1637,16 @@
        "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "3-5",
-       "total": "3-5",
+       "overall": "3-6",
+       "total": "3-6",
        "Home": "0-4",
        "home": "0-4",
-       "Road": "3-1",
-       "road": "3-1",
+       "Road": "3-2",
+       "road": "3-2",
        "vs. Div.": "2-1",
        "vsdiv": "2-1",
-       "vs. Conf.": "3-3",
-       "vsconf": "3-3"
+       "vs. Conf.": "3-4",
+       "vsconf": "3-4"
       }
      },
      {
@@ -1654,23 +1654,23 @@
       "abbr": "IND",
       "name": "Indianapolis Colts",
       "stats": {
-       "differential": "-65",
+       "differential": "-63",
        "gamesBehind": "4.5",
        "gamesbehind": "4.5",
        "losses": "7",
-       "playoffSeed": "13",
-       "playoffseed": "13",
-       "pointDifferential": "-65",
-       "pointdifferential": "-65",
-       "pointsAgainst": "249",
-       "pointsagainst": "249",
-       "pointsFor": "184",
-       "pointsfor": "184",
-       "streak": "L5",
+       "playoffSeed": "12",
+       "playoffseed": "12",
+       "pointDifferential": "-63",
+       "pointdifferential": "-63",
+       "pointsAgainst": "271",
+       "pointsagainst": "271",
+       "pointsFor": "208",
+       "pointsfor": "208",
+       "streak": "W1",
        "ties": "0",
-       "winPercent": ".222",
-       "winpercent": ".222",
-       "wins": "2",
+       "winPercent": ".300",
+       "winpercent": ".300",
+       "wins": "3",
        "divisionLosses": "2",
        "divisionlosses": "2",
        "divisionRecord": "1-2",
@@ -1681,16 +1681,16 @@
        "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "2-7",
-       "total": "2-7",
-       "Home": "1-3",
-       "home": "1-3",
+       "overall": "3-7",
+       "total": "3-7",
+       "Home": "2-3",
+       "home": "2-3",
        "Road": "1-4",
        "road": "1-4",
        "vs. Div.": "1-2",
        "vsdiv": "1-2",
-       "vs. Conf.": "1-5",
-       "vsconf": "1-5"
+       "vs. Conf.": "2-5",
+       "vsconf": "2-5"
       }
      },
      {
@@ -1698,47 +1698,91 @@
       "abbr": "TEN",
       "name": "Tennessee Titans",
       "stats": {
-       "differential": "-55",
-       "gamesBehind": "5",
-       "gamesbehind": "5",
-       "losses": "7",
+       "differential": "-72",
+       "gamesBehind": "6",
+       "gamesbehind": "6",
+       "losses": "8",
        "playoffSeed": "15",
        "playoffseed": "15",
-       "pointDifferential": "-55",
-       "pointdifferential": "-55",
-       "pointsAgainst": "199",
-       "pointsagainst": "199",
-       "pointsFor": "144",
-       "pointsfor": "144",
-       "streak": "L2",
+       "pointDifferential": "-72",
+       "pointdifferential": "-72",
+       "pointsAgainst": "239",
+       "pointsagainst": "239",
+       "pointsFor": "167",
+       "pointsfor": "167",
+       "streak": "L3",
        "ties": "0",
-       "winPercent": ".125",
-       "winpercent": ".125",
+       "winPercent": ".111",
+       "winpercent": ".111",
        "wins": "1",
-       "divisionLosses": "1",
-       "divisionlosses": "1",
-       "divisionRecord": "1-1",
-       "divisionrecord": "1-1",
+       "divisionLosses": "2",
+       "divisionlosses": "2",
+       "divisionRecord": "1-2",
+       "divisionrecord": "1-2",
        "divisionTies": "0.000",
        "divisionties": "0.000",
        "divisionWins": "1.000",
        "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "1-7",
-       "total": "1-7",
-       "Home": "0-4",
-       "home": "0-4",
+       "overall": "1-8",
+       "total": "1-8",
+       "Home": "0-5",
+       "home": "0-5",
        "Road": "1-3",
        "road": "1-3",
-       "vs. Div.": "1-1",
-       "vsdiv": "1-1",
-       "vs. Conf.": "1-5",
-       "vsconf": "1-5"
+       "vs. Div.": "1-2",
+       "vsdiv": "1-2",
+       "vs. Conf.": "1-6",
+       "vsconf": "1-6"
       }
      }
     ],
     "West": [
+     {
+      "id": "12",
+      "abbr": "KC",
+      "name": "Kansas City Chiefs",
+      "stats": {
+       "differential": "+81",
+       "gamesBehind": "-",
+       "gamesbehind": "-",
+       "losses": "2",
+       "playoffSeed": "2",
+       "playoffseed": "2",
+       "pointDifferential": "+81",
+       "pointdifferential": "+81",
+       "pointsAgainst": "156",
+       "pointsagainst": "156",
+       "pointsFor": "237",
+       "pointsfor": "237",
+       "streak": "W2",
+       "ties": "0",
+       "winPercent": ".778",
+       "winpercent": ".778",
+       "wins": "7",
+       "divisionLosses": "1",
+       "divisionlosses": "1",
+       "divisionRecord": "3-1",
+       "divisionrecord": "3-1",
+       "divisionTies": "0.000",
+       "divisionties": "0.000",
+       "divisionWins": "3.000",
+       "divisionwins": "3.000",
+       "lockedDivRank": "0",
+       "lockeddivrank": "0",
+       "overall": "7-2",
+       "total": "7-2",
+       "Home": "4-0",
+       "home": "4-0",
+       "Road": "3-2",
+       "road": "3-2",
+       "vs. Div.": "3-1",
+       "vsdiv": "3-1",
+       "vs. Conf.": "6-1",
+       "vsconf": "6-1"
+      }
+     },
      {
       "id": "7",
       "abbr": "DEN",
@@ -1748,8 +1792,8 @@
        "gamesBehind": "-",
        "gamesbehind": "-",
        "losses": "2",
-       "playoffSeed": "2",
-       "playoffseed": "2",
+       "playoffSeed": "5",
+       "playoffseed": "5",
        "pointDifferential": "+12",
        "pointdifferential": "+12",
        "pointsAgainst": "186",
@@ -1784,70 +1828,26 @@
       }
      },
      {
-      "id": "12",
-      "abbr": "KC",
-      "name": "Kansas City Chiefs",
-      "stats": {
-       "differential": "+59",
-       "gamesBehind": "0.5",
-       "gamesbehind": "0.5",
-       "losses": "2",
-       "playoffSeed": "5",
-       "playoffseed": "5",
-       "pointDifferential": "+59",
-       "pointdifferential": "+59",
-       "pointsAgainst": "143",
-       "pointsagainst": "143",
-       "pointsFor": "202",
-       "pointsfor": "202",
-       "streak": "W1",
-       "ties": "0",
-       "winPercent": ".750",
-       "winpercent": ".750",
-       "wins": "6",
-       "divisionLosses": "1",
-       "divisionlosses": "1",
-       "divisionRecord": "3-1",
-       "divisionrecord": "3-1",
-       "divisionTies": "0.000",
-       "divisionties": "0.000",
-       "divisionWins": "3.000",
-       "divisionwins": "3.000",
-       "lockedDivRank": "0",
-       "lockeddivrank": "0",
-       "overall": "6-2",
-       "total": "6-2",
-       "Home": "4-0",
-       "home": "4-0",
-       "Road": "2-2",
-       "road": "2-2",
-       "vs. Div.": "3-1",
-       "vsdiv": "3-1",
-       "vs. Conf.": "6-1",
-       "vsconf": "6-1"
-      }
-     },
-     {
       "id": "13",
       "abbr": "LV",
       "name": "Las Vegas Raiders",
       "stats": {
-       "differential": "-30",
-       "gamesBehind": "3",
-       "gamesbehind": "3",
-       "losses": "5",
-       "playoffSeed": "9",
-       "playoffseed": "9",
-       "pointDifferential": "-30",
-       "pointdifferential": "-30",
-       "pointsAgainst": "268",
-       "pointsagainst": "268",
-       "pointsFor": "238",
-       "pointsfor": "238",
-       "streak": "L1",
+       "differential": "-38",
+       "gamesBehind": "3.5",
+       "gamesbehind": "3.5",
+       "losses": "6",
+       "playoffSeed": "10",
+       "playoffseed": "10",
+       "pointDifferential": "-38",
+       "pointdifferential": "-38",
+       "pointsAgainst": "289",
+       "pointsagainst": "289",
+       "pointsFor": "251",
+       "pointsfor": "251",
+       "streak": "L2",
        "ties": "0",
-       "winPercent": ".444",
-       "winpercent": ".444",
+       "winPercent": ".400",
+       "winpercent": ".400",
        "wins": "4",
        "divisionLosses": "1",
        "divisionlosses": "1",
@@ -1859,10 +1859,10 @@
        "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "4-5",
-       "total": "4-5",
-       "Home": "1-3",
-       "home": "1-3",
+       "overall": "4-6",
+       "total": "4-6",
+       "Home": "1-4",
+       "home": "1-4",
        "Road": "3-2",
        "road": "3-2",
        "vs. Div.": "1-1",
@@ -1968,22 +1968,22 @@
       "abbr": "DAL",
       "name": "Dallas Cowboys",
       "stats": {
-       "differential": "+10",
-       "gamesBehind": "1.5",
-       "gamesbehind": "1.5",
-       "losses": "5",
+       "differential": "+4",
+       "gamesBehind": "2",
+       "gamesbehind": "2",
+       "losses": "6",
        "playoffSeed": "10",
        "playoffseed": "10",
-       "pointDifferential": "+10",
-       "pointdifferential": "+10",
-       "pointsAgainst": "236",
-       "pointsagainst": "236",
-       "pointsFor": "246",
-       "pointsfor": "246",
-       "streak": "W1",
+       "pointDifferential": "+4",
+       "pointdifferential": "+4",
+       "pointsAgainst": "282",
+       "pointsagainst": "282",
+       "pointsFor": "286",
+       "pointsfor": "286",
+       "streak": "L1",
        "ties": "0",
-       "winPercent": ".444",
-       "winpercent": ".444",
+       "winPercent": ".400",
+       "winpercent": ".400",
        "wins": "4",
        "divisionLosses": "1",
        "divisionlosses": "1",
@@ -1995,16 +1995,16 @@
        "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "4-5",
-       "total": "4-5",
-       "Home": "1-3",
-       "home": "1-3",
+       "overall": "4-6",
+       "total": "4-6",
+       "Home": "1-4",
+       "home": "1-4",
        "Road": "3-2",
        "road": "3-2",
        "vs. Div.": "2-1",
        "vsdiv": "2-1",
-       "vs. Conf.": "2-4",
-       "vsconf": "2-4"
+       "vs. Conf.": "2-5",
+       "vsconf": "2-5"
       }
      },
      {
@@ -2098,6 +2098,94 @@
     ],
     "North": [
      {
+      "id": "8",
+      "abbr": "DET",
+      "name": "Detroit Lions",
+      "stats": {
+       "differential": "+58",
+       "gamesBehind": "-",
+       "gamesbehind": "-",
+       "losses": "2",
+       "playoffSeed": "2",
+       "playoffseed": "2",
+       "pointDifferential": "+58",
+       "pointdifferential": "+58",
+       "pointsAgainst": "199",
+       "pointsagainst": "199",
+       "pointsFor": "257",
+       "pointsfor": "257",
+       "streak": "W5",
+       "ties": "0",
+       "winPercent": ".778",
+       "winpercent": ".778",
+       "wins": "7",
+       "divisionLosses": "0",
+       "divisionlosses": "0",
+       "divisionRecord": "2-0",
+       "divisionrecord": "2-0",
+       "divisionTies": "0.000",
+       "divisionties": "0.000",
+       "divisionWins": "2.000",
+       "divisionwins": "2.000",
+       "lockedDivRank": "0",
+       "lockeddivrank": "0",
+       "overall": "7-2",
+       "total": "7-2",
+       "Home": "5-0",
+       "home": "5-0",
+       "Road": "2-2",
+       "road": "2-2",
+       "vs. Div.": "2-0",
+       "vsdiv": "2-0",
+       "vs. Conf.": "4-1",
+       "vsconf": "4-1"
+      }
+     },
+     {
+      "id": "16",
+      "abbr": "MIN",
+      "name": "Minnesota Vikings",
+      "stats": {
+       "differential": "+50",
+       "gamesBehind": "-",
+       "gamesbehind": "-",
+       "losses": "2",
+       "playoffSeed": "5",
+       "playoffseed": "5",
+       "pointDifferential": "+50",
+       "pointdifferential": "+50",
+       "pointsAgainst": "126",
+       "pointsagainst": "126",
+       "pointsFor": "176",
+       "pointsfor": "176",
+       "streak": "W1",
+       "ties": "0",
+       "winPercent": ".778",
+       "winpercent": ".778",
+       "wins": "7",
+       "divisionLosses": "1",
+       "divisionlosses": "1",
+       "divisionRecord": "3-1",
+       "divisionrecord": "3-1",
+       "divisionTies": "0.000",
+       "divisionties": "0.000",
+       "divisionWins": "3.000",
+       "divisionwins": "3.000",
+       "lockedDivRank": "0",
+       "lockeddivrank": "0",
+       "overall": "7-2",
+       "total": "7-2",
+       "Home": "3-1",
+       "home": "3-1",
+       "Road": "4-1",
+       "road": "4-1",
+       "vs. Div.": "3-1",
+       "vsdiv": "3-1",
+       "vs. Conf.": "5-1",
+       "vsconf": "5-1"
+      }
+     },
+     {
       "id": "3",
       "abbr": "CHI",
       "name": "Chicago Bears",
@@ -2106,8 +2194,8 @@
        "gamesBehind": "-",
        "gamesbehind": "-",
        "losses": "2",
-       "playoffSeed": "2",
-       "playoffseed": "2",
+       "playoffSeed": "6",
+       "playoffseed": "6",
        "pointDifferential": "+57",
        "pointdifferential": "+57",
        "pointsAgainst": "184",
@@ -2142,71 +2230,73 @@
       }
      },
      {
-      "id": "8",
-      "abbr": "DET",
-      "name": "Detroit Lions",
+      "id": "9",
+      "abbr": "GB",
+      "name": "Green Bay Packers",
       "stats": {
-       "differential": "+33",
-       "gamesBehind": "0.5",
-       "gamesbehind": "0.5",
-       "losses": "2",
-       "playoffSeed": "5",
-       "playoffseed": "5",
-       "pointDifferential": "+33",
-       "pointdifferential": "+33",
-       "pointsAgainst": "189",
-       "pointsagainst": "189",
-       "pointsFor": "222",
-       "pointsfor": "222",
-       "streak": "W4",
+       "differential": "+5",
+       "gamesBehind": "1.5",
+       "gamesbehind": "1.5",
+       "losses": "4",
+       "playoffSeed": "7",
+       "playoffseed": "7",
+       "pointDifferential": "+5",
+       "pointdifferential": "+5",
+       "pointsAgainst": "221",
+       "pointsagainst": "221",
+       "pointsFor": "226",
+       "pointsfor": "226",
+       "streak": "L1",
        "ties": "0",
-       "winPercent": ".750",
-       "winpercent": ".750",
+       "winPercent": ".600",
+       "winpercent": ".600",
        "wins": "6",
-       "divisionLosses": "0",
-       "divisionlosses": "0",
-       "divisionRecord": "2-0",
-       "divisionrecord": "2-0",
+       "divisionLosses": "3",
+       "divisionlosses": "3",
+       "divisionRecord": "1-3",
+       "divisionrecord": "1-3",
        "divisionTies": "0.000",
        "divisionties": "0.000",
-       "divisionWins": "2.000",
-       "divisionwins": "2.000",
+       "divisionWins": "1.000",
+       "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "6-2",
-       "total": "6-2",
-       "Home": "4-0",
-       "home": "4-0",
-       "Road": "2-2",
-       "road": "2-2",
-       "vs. Div.": "2-0",
-       "vsdiv": "2-0",
-       "vs. Conf.": "4-1",
-       "vsconf": "4-1"
+       "overall": "6-4",
+       "total": "6-4",
+       "Home": "3-2",
+       "home": "3-2",
+       "Road": "3-2",
+       "road": "3-2",
+       "vs. Div.": "1-3",
+       "vsdiv": "1-3",
+       "vs. Conf.": "4-4",
+       "vsconf": "4-4"
       }
-     },
+     }
+    ],
+    "South": [
      {
-      "id": "16",
-      "abbr": "MIN",
-      "name": "Minnesota Vikings",
+      "id": "29",
+      "abbr": "CAR",
+      "name": "Carolina Panthers",
       "stats": {
-       "differential": "+30",
-       "gamesBehind": "0.5",
-       "gamesbehind": "0.5",
-       "losses": "2",
-       "playoffSeed": "6",
-       "playoffseed": "6",
-       "pointDifferential": "+30",
-       "pointdifferential": "+30",
-       "pointsAgainst": "116",
-       "pointsagainst": "116",
-       "pointsFor": "146",
-       "pointsfor": "146",
-       "streak": "L2",
+       "differential": "-17",
+       "gamesBehind": "-",
+       "gamesbehind": "-",
+       "losses": "5",
+       "playoffSeed": "4",
+       "playoffseed": "4",
+       "pointDifferential": "-17",
+       "pointdifferential": "-17",
+       "pointsAgainst": "236",
+       "pointsagainst": "236",
+       "pointsFor": "219",
+       "pointsfor": "219",
+       "streak": "W1",
        "ties": "0",
-       "winPercent": ".750",
-       "winpercent": ".750",
-       "wins": "6",
+       "winPercent": ".444",
+       "winpercent": ".444",
+       "wins": "4",
        "divisionLosses": "1",
        "divisionlosses": "1",
        "divisionRecord": "2-1",
@@ -2217,150 +2307,16 @@
        "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "6-2",
-       "total": "6-2",
-       "Home": "3-1",
-       "home": "3-1",
-       "Road": "3-1",
-       "road": "3-1",
-       "vs. Div.": "2-1",
-       "vsdiv": "2-1",
-       "vs. Conf.": "4-1",
-       "vsconf": "4-1"
-      }
-     },
-     {
-      "id": "9",
-      "abbr": "GB",
-      "name": "Green Bay Packers",
-      "stats": {
-       "differential": "+25",
-       "gamesBehind": "1",
-       "gamesbehind": "1",
-       "losses": "3",
-       "playoffSeed": "7",
-       "playoffseed": "7",
-       "pointDifferential": "+25",
-       "pointdifferential": "+25",
-       "pointsAgainst": "191",
-       "pointsagainst": "191",
-       "pointsFor": "216",
-       "pointsfor": "216",
-       "streak": "W2",
-       "ties": "0",
-       "winPercent": ".667",
-       "winpercent": ".667",
-       "wins": "6",
-       "divisionLosses": "2",
-       "divisionlosses": "2",
-       "divisionRecord": "1-2",
-       "divisionrecord": "1-2",
-       "divisionTies": "0.000",
-       "divisionties": "0.000",
-       "divisionWins": "1.000",
-       "divisionwins": "1.000",
-       "lockedDivRank": "0",
-       "lockeddivrank": "0",
-       "overall": "6-3",
-       "total": "6-3",
-       "Home": "3-1",
-       "home": "3-1",
-       "Road": "3-2",
-       "road": "3-2",
-       "vs. Div.": "1-2",
-       "vsdiv": "1-2",
-       "vs. Conf.": "4-3",
-       "vsconf": "4-3"
-      }
-     }
-    ],
-    "South": [
-     {
-      "id": "29",
-      "abbr": "CAR",
-      "name": "Carolina Panthers",
-      "stats": {
-       "differential": "-20",
-       "gamesBehind": "-",
-       "gamesbehind": "-",
-       "losses": "5",
-       "playoffSeed": "4",
-       "playoffseed": "4",
-       "pointDifferential": "-20",
-       "pointdifferential": "-20",
-       "pointsAgainst": "219",
-       "pointsagainst": "219",
-       "pointsFor": "199",
-       "pointsfor": "199",
-       "streak": "L3",
-       "ties": "0",
-       "winPercent": ".375",
-       "winpercent": ".375",
-       "wins": "3",
-       "divisionLosses": "1",
-       "divisionlosses": "1",
-       "divisionRecord": "1-1",
-       "divisionrecord": "1-1",
-       "divisionTies": "0.000",
-       "divisionties": "0.000",
-       "divisionWins": "1.000",
-       "divisionwins": "1.000",
-       "lockedDivRank": "0",
-       "lockeddivrank": "0",
-       "overall": "3-5",
-       "total": "3-5",
+       "overall": "4-5",
+       "total": "4-5",
        "Home": "1-3",
        "home": "1-3",
-       "Road": "2-2",
-       "road": "2-2",
-       "vs. Div.": "1-1",
-       "vsdiv": "1-1",
-       "vs. Conf.": "3-3",
-       "vsconf": "3-3"
-      }
-     },
-     {
-      "id": "18",
-      "abbr": "NO",
-      "name": "New Orleans Saints",
-      "stats": {
-       "differential": "-31",
-       "gamesBehind": "-",
-       "gamesbehind": "-",
-       "losses": "5",
-       "playoffSeed": "12",
-       "playoffseed": "12",
-       "pointDifferential": "-31",
-       "pointdifferential": "-31",
-       "pointsAgainst": "216",
-       "pointsagainst": "216",
-       "pointsFor": "185",
-       "pointsfor": "185",
-       "streak": "W1",
-       "ties": "0",
-       "winPercent": ".375",
-       "winpercent": ".375",
-       "wins": "3",
-       "divisionLosses": "1",
-       "divisionlosses": "1",
-       "divisionRecord": "0-1",
-       "divisionrecord": "0-1",
-       "divisionTies": "0.000",
-       "divisionties": "0.000",
-       "divisionWins": "0.000",
-       "divisionwins": "0.000",
-       "lockedDivRank": "0",
-       "lockeddivrank": "0",
-       "overall": "3-5",
-       "total": "3-5",
-       "Home": "1-4",
-       "home": "1-4",
-       "Road": "2-1",
-       "road": "2-1",
-       "vs. Div.": "0-1",
-       "vsdiv": "0-1",
-       "vs. Conf.": "1-3",
-       "vsconf": "1-3"
+       "Road": "3-2",
+       "road": "3-2",
+       "vs. Div.": "2-1",
+       "vsdiv": "2-1",
+       "vs. Conf.": "4-3",
+       "vsconf": "4-3"
       }
      },
      {
@@ -2369,11 +2325,11 @@
       "name": "Tampa Bay Buccaneers",
       "stats": {
        "differential": "+24",
-       "gamesBehind": "0.5",
-       "gamesbehind": "0.5",
+       "gamesBehind": "1",
+       "gamesbehind": "1",
        "losses": "6",
-       "playoffSeed": "13",
-       "playoffseed": "13",
+       "playoffSeed": "12",
+       "playoffseed": "12",
        "pointDifferential": "+24",
        "pointdifferential": "+24",
        "pointsAgainst": "178",
@@ -2408,26 +2364,70 @@
       }
      },
      {
+      "id": "18",
+      "abbr": "NO",
+      "name": "New Orleans Saints",
+      "stats": {
+       "differential": "-34",
+       "gamesBehind": "1",
+       "gamesbehind": "1",
+       "losses": "6",
+       "playoffSeed": "13",
+       "playoffseed": "13",
+       "pointDifferential": "-34",
+       "pointdifferential": "-34",
+       "pointsAgainst": "236",
+       "pointsagainst": "236",
+       "pointsFor": "202",
+       "pointsfor": "202",
+       "streak": "L1",
+       "ties": "0",
+       "winPercent": ".333",
+       "winpercent": ".333",
+       "wins": "3",
+       "divisionLosses": "2",
+       "divisionlosses": "2",
+       "divisionRecord": "0-2",
+       "divisionrecord": "0-2",
+       "divisionTies": "0.000",
+       "divisionties": "0.000",
+       "divisionWins": "0.000",
+       "divisionwins": "0.000",
+       "lockedDivRank": "0",
+       "lockeddivrank": "0",
+       "overall": "3-6",
+       "total": "3-6",
+       "Home": "1-5",
+       "home": "1-5",
+       "Road": "2-1",
+       "road": "2-1",
+       "vs. Div.": "0-2",
+       "vsdiv": "0-2",
+       "vs. Conf.": "1-4",
+       "vsconf": "1-4"
+      }
+     },
+     {
       "id": "1",
       "abbr": "ATL",
       "name": "Atlanta Falcons",
       "stats": {
-       "differential": "-35",
-       "gamesBehind": "0.5",
-       "gamesbehind": "0.5",
-       "losses": "6",
+       "differential": "-57",
+       "gamesBehind": "1.5",
+       "gamesbehind": "1.5",
+       "losses": "7",
        "playoffSeed": "14",
        "playoffseed": "14",
-       "pointDifferential": "-35",
-       "pointdifferential": "-35",
-       "pointsAgainst": "223",
-       "pointsagainst": "223",
-       "pointsFor": "188",
-       "pointsfor": "188",
-       "streak": "L2",
+       "pointDifferential": "-57",
+       "pointdifferential": "-57",
+       "pointsAgainst": "258",
+       "pointsagainst": "258",
+       "pointsFor": "201",
+       "pointsfor": "201",
+       "streak": "L3",
        "ties": "0",
-       "winPercent": ".333",
-       "winpercent": ".333",
+       "winPercent": ".300",
+       "winpercent": ".300",
        "wins": "3",
        "divisionLosses": "2",
        "divisionlosses": "2",
@@ -2439,10 +2439,10 @@
        "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "3-6",
-       "total": "3-6",
-       "Home": "1-4",
-       "home": "1-4",
+       "overall": "3-7",
+       "total": "3-7",
+       "Home": "1-5",
+       "home": "1-5",
        "Road": "2-2",
        "road": "2-2",
        "vs. Div.": "1-2",
@@ -2458,23 +2458,23 @@
       "abbr": "SF",
       "name": "San Francisco 49ers",
       "stats": {
-       "differential": "+79",
+       "differential": "+85",
        "gamesBehind": "-",
        "gamesbehind": "-",
        "losses": "1",
        "playoffSeed": "1",
        "playoffseed": "1",
-       "pointDifferential": "+79",
-       "pointdifferential": "+79",
-       "pointsAgainst": "156",
-       "pointsagainst": "156",
-       "pointsFor": "235",
-       "pointsfor": "235",
-       "streak": "W1",
+       "pointDifferential": "+85",
+       "pointdifferential": "+85",
+       "pointsAgainst": "196",
+       "pointsagainst": "196",
+       "pointsFor": "281",
+       "pointsfor": "281",
+       "streak": "W2",
        "ties": "0",
-       "winPercent": ".875",
-       "winpercent": ".875",
-       "wins": "7",
+       "winPercent": ".889",
+       "winpercent": ".889",
+       "wins": "8",
        "divisionLosses": "0",
        "divisionlosses": "0",
        "divisionRecord": "3-0",
@@ -2485,16 +2485,16 @@
        "divisionwins": "3.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "7-1",
-       "total": "7-1",
+       "overall": "8-1",
+       "total": "8-1",
        "Home": "5-0",
        "home": "5-0",
-       "Road": "2-1",
-       "road": "2-1",
+       "Road": "3-1",
+       "road": "3-1",
        "vs. Div.": "3-0",
        "vsdiv": "3-0",
-       "vs. Conf.": "4-1",
-       "vsconf": "4-1"
+       "vs. Conf.": "5-1",
+       "vsconf": "5-1"
       }
      },
      {
@@ -2502,23 +2502,23 @@
       "abbr": "SEA",
       "name": "Seattle Seahawks",
       "stats": {
-       "differential": "+40",
+       "differential": "+48",
        "gamesBehind": "2.5",
        "gamesbehind": "2.5",
        "losses": "4",
        "playoffSeed": "8",
        "playoffseed": "8",
-       "pointDifferential": "+40",
-       "pointdifferential": "+40",
-       "pointsAgainst": "162",
-       "pointsagainst": "162",
-       "pointsFor": "202",
-       "pointsfor": "202",
-       "streak": "W1",
+       "pointDifferential": "+48",
+       "pointdifferential": "+48",
+       "pointsAgainst": "175",
+       "pointsagainst": "175",
+       "pointsFor": "223",
+       "pointsfor": "223",
+       "streak": "W2",
        "ties": "0",
-       "winPercent": ".556",
-       "winpercent": ".556",
-       "wins": "5",
+       "winPercent": ".600",
+       "winpercent": ".600",
+       "wins": "6",
        "divisionLosses": "1",
        "divisionlosses": "1",
        "divisionRecord": "2-1",
@@ -2529,12 +2529,12 @@
        "divisionwins": "2.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "5-4",
-       "total": "5-4",
+       "overall": "6-4",
+       "total": "6-4",
        "Home": "4-2",
        "home": "4-2",
-       "Road": "1-2",
-       "road": "1-2",
+       "Road": "2-2",
+       "road": "2-2",
        "vs. Div.": "2-1",
        "vsdiv": "2-1",
        "vs. Conf.": "2-3",
@@ -2546,43 +2546,43 @@
       "abbr": "LAR",
       "name": "Los Angeles Rams",
       "stats": {
-       "differential": "+33",
+       "differential": "+61",
        "gamesBehind": "2.5",
        "gamesbehind": "2.5",
        "losses": "4",
        "playoffSeed": "9",
        "playoffseed": "9",
-       "pointDifferential": "+33",
-       "pointdifferential": "+33",
-       "pointsAgainst": "181",
-       "pointsagainst": "181",
-       "pointsFor": "214",
-       "pointsfor": "214",
-       "streak": "W3",
+       "pointDifferential": "+61",
+       "pointdifferential": "+61",
+       "pointsAgainst": "187",
+       "pointsagainst": "187",
+       "pointsFor": "248",
+       "pointsfor": "248",
+       "streak": "W4",
        "ties": "0",
-       "winPercent": ".556",
-       "winpercent": ".556",
-       "wins": "5",
+       "winPercent": ".600",
+       "winpercent": ".600",
+       "wins": "6",
        "divisionLosses": "2",
        "divisionlosses": "2",
-       "divisionRecord": "0-2",
-       "divisionrecord": "0-2",
+       "divisionRecord": "1-2",
+       "divisionrecord": "1-2",
        "divisionTies": "0.000",
        "divisionties": "0.000",
-       "divisionWins": "0.000",
-       "divisionwins": "0.000",
+       "divisionWins": "1.000",
+       "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "5-4",
-       "total": "5-4",
+       "overall": "6-4",
+       "total": "6-4",
        "Home": "2-3",
        "home": "2-3",
-       "Road": "3-1",
-       "road": "3-1",
-       "vs. Div.": "0-2",
-       "vsdiv": "0-2",
-       "vs. Conf.": "3-2",
-       "vsconf": "3-2"
+       "Road": "4-1",
+       "road": "4-1",
+       "vs. Div.": "1-2",
+       "vsdiv": "1-2",
+       "vs. Conf.": "4-2",
+       "vsconf": "4-2"
       }
      },
      {
@@ -2590,43 +2590,43 @@
       "abbr": "ARI",
       "name": "Arizona Cardinals",
       "stats": {
-       "differential": "-77",
-       "gamesBehind": "4.5",
-       "gamesbehind": "4.5",
-       "losses": "6",
+       "differential": "-105",
+       "gamesBehind": "5.5",
+       "gamesbehind": "5.5",
+       "losses": "7",
        "playoffSeed": "15",
        "playoffseed": "15",
-       "pointDifferential": "-77",
-       "pointdifferential": "-77",
-       "pointsAgainst": "255",
-       "pointsagainst": "255",
-       "pointsFor": "178",
-       "pointsfor": "178",
-       "streak": "L1",
+       "pointDifferential": "-105",
+       "pointdifferential": "-105",
+       "pointsAgainst": "289",
+       "pointsagainst": "289",
+       "pointsFor": "184",
+       "pointsfor": "184",
+       "streak": "L2",
        "ties": "0",
-       "winPercent": ".333",
-       "winpercent": ".333",
+       "winPercent": ".300",
+       "winpercent": ".300",
        "wins": "3",
-       "divisionLosses": "3",
-       "divisionlosses": "3",
-       "divisionRecord": "1-3",
-       "divisionrecord": "1-3",
+       "divisionLosses": "4",
+       "divisionlosses": "4",
+       "divisionRecord": "1-4",
+       "divisionrecord": "1-4",
        "divisionTies": "0.000",
        "divisionties": "0.000",
        "divisionWins": "1.000",
        "divisionwins": "1.000",
        "lockedDivRank": "0",
        "lockeddivrank": "0",
-       "overall": "3-6",
-       "total": "3-6",
-       "Home": "0-3",
-       "home": "0-3",
+       "overall": "3-7",
+       "total": "3-7",
+       "Home": "0-4",
+       "home": "0-4",
        "Road": "3-3",
        "road": "3-3",
-       "vs. Div.": "1-3",
-       "vsdiv": "1-3",
-       "vs. Conf.": "2-5",
-       "vsconf": "2-5"
+       "vs. Div.": "1-4",
+       "vsdiv": "1-4",
+       "vs. Conf.": "2-6",
+       "vsconf": "2-6"
       }
      }
     ]
@@ -2644,12 +2644,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png",
     "standing": "4th in NFC West",
     "record": {
-     "total": "3-6",
-     "home": "0-3",
+     "total": "3-7",
+     "home": "0-4",
      "road": "3-3"
     },
     "venue": "State Farm Stadium, Glendale, AZ",
     "last10": [
+     {
+      "id": "401873061",
+      "date": "2026-11-15T21:05Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "22",
+       "abbr": "ARI",
+       "name": "Arizona Cardinals",
+       "score": "6",
+       "winner": false,
+       "q": [
+        "6",
+        "0",
+        "0",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "34",
+       "winner": true,
+       "q": [
+        "3",
+        "14",
+        "14",
+        "3"
+       ]
+      },
+      "venue": "State Farm Stadium, Glendale"
+     },
      {
       "id": "401873048",
       "date": "2026-11-08T21:25Z",
@@ -2984,55 +3021,26 @@
        ]
       },
       "venue": "SoFi Stadium, Inglewood"
-     },
-     {
-      "id": "401772955",
-      "date": "2026-01-04T21:25Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "37",
-       "winner": true,
-       "q": [
-        "3",
-        "13",
-        "7",
-        "14"
-       ]
-      },
-      "away": {
-       "id": "22",
-       "abbr": "ARI",
-       "name": "Arizona Cardinals",
-       "score": "20",
-       "winner": false,
-       "q": [
-        "3",
-        "3",
-        "14",
-        "0"
-       ]
-      },
-      "venue": "SoFi Stadium, Inglewood"
      }
     ],
     "next": {
-     "id": "401873061",
-     "date": "2026-11-15T21:05Z",
-     "week": 10,
+     "id": "401873067",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
+      "id": "12",
+      "abbr": "KC",
+      "name": "Kansas City Chiefs",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
       "id": "22",
       "abbr": "ARI",
       "name": "Arizona Cardinals",
@@ -3040,15 +3048,7 @@
       "winner": false,
       "q": null
      },
-     "away": {
-      "id": "14",
-      "abbr": "LAR",
-      "name": "Los Angeles Rams",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "State Farm Stadium, Glendale"
+     "venue": "Arrowhead Stadium, Kansas City"
     }
    },
    "BAL": {
@@ -3469,6 +3469,424 @@
      "venue": "M&T Bank Stadium, Baltimore"
     }
    },
+   "ATL": {
+    "id": "1",
+    "abbr": "ATL",
+    "name": "Atlanta Falcons",
+    "short": "Falcons",
+    "location": "Atlanta",
+    "color": "a71930",
+    "alt": "000000",
+    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+    "standing": "14th in National Football Conference",
+    "record": {
+     "total": "3-7",
+     "home": "1-5",
+     "road": "2-2"
+    },
+    "venue": "Mercedes-Benz Stadium, Atlanta, GA",
+    "last10": [
+     {
+      "id": "401873058",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "13",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "0",
+        "10"
+       ]
+      },
+      "away": {
+       "id": "12",
+       "abbr": "KC",
+       "name": "Kansas City Chiefs",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "7",
+        "7",
+        "7",
+        "14"
+       ]
+      },
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+     },
+     {
+      "id": "401873038",
+      "date": "2026-11-08T14:30Z",
+      "week": 9,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "17",
+       "winner": false,
+       "q": [
+        "10",
+        "0",
+        "7",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "34",
+       "winner": true,
+       "q": [
+        "7",
+        "17",
+        "7",
+        "3"
+       ]
+      },
+      "venue": "Santiago Bernabéu, Madrid"
+     },
+     {
+      "id": "401873025",
+      "date": "2026-11-01T18:00Z",
+      "week": 8,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "27",
+       "abbr": "TB",
+       "name": "Tampa Bay Buccaneers",
+       "score": "16",
+       "winner": true,
+       "q": [
+        "6",
+        "3",
+        "7",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "0",
+       "winner": false,
+       "q": [
+        "0",
+        "0",
+        "0",
+        "0"
+       ]
+      },
+      "venue": "Raymond James Stadium, Tampa"
+     },
+     {
+      "id": "401873017",
+      "date": "2026-10-25T17:00Z",
+      "week": 7,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "29",
+       "winner": true,
+       "q": [
+        "3",
+        "9",
+        "7",
+        "10"
+       ]
+      },
+      "away": {
+       "id": "25",
+       "abbr": "SF",
+       "name": "San Francisco 49ers",
+       "score": "20",
+       "winner": false,
+       "q": [
+        "7",
+        "7",
+        "0",
+        "6"
+       ]
+      },
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+     },
+     {
+      "id": "401872999",
+      "date": "2026-10-18T17:00Z",
+      "week": 6,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "23",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "0",
+        "16"
+       ]
+      },
+      "away": {
+       "id": "3",
+       "abbr": "CHI",
+       "name": "Chicago Bears",
+       "score": "31",
+       "winner": true,
+       "q": [
+        "14",
+        "7",
+        "7",
+        "3"
+       ]
+      },
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+     },
+     {
+      "id": "401872993",
+      "date": "2026-10-12T00:20Z",
+      "week": 5,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "23",
+       "winner": false,
+       "q": [
+        "7",
+        "7",
+        "3",
+        "6",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "33",
+       "abbr": "BAL",
+       "name": "Baltimore Ravens",
+       "score": "30",
+       "winner": true,
+       "q": [
+        "3",
+        "6",
+        "6",
+        "8",
+        "7"
+       ]
+      },
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+     },
+     {
+      "id": "401872979",
+      "date": "2026-10-06T00:15Z",
+      "week": 4,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "18",
+       "abbr": "NO",
+       "name": "New Orleans Saints",
+       "score": "24",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "3",
+        "14"
+       ]
+      },
+      "away": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "45",
+       "winner": true,
+       "q": [
+        "14",
+        "10",
+        "7",
+        "14"
+       ]
+      },
+      "venue": "Caesars Superdome, New Orleans"
+     },
+     {
+      "id": "401872948",
+      "date": "2026-09-25T00:15Z",
+      "week": 3,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "9",
+       "abbr": "GB",
+       "name": "Green Bay Packers",
+       "score": "14",
+       "winner": false,
+       "q": [
+        "7",
+        "0",
+        "0",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "7",
+        "10",
+        "7",
+        "11"
+       ]
+      },
+      "venue": "Lambeau Field, Green Bay"
+     },
+     {
+      "id": "401872933",
+      "date": "2026-09-20T17:00Z",
+      "week": 2,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "3",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "0",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "34",
+       "winner": true,
+       "q": [
+        "10",
+        "10",
+        "14",
+        "0"
+       ]
+      },
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+     },
+     {
+      "id": "401872658",
+      "date": "2026-09-13T17:00Z",
+      "week": 1,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "23",
+       "abbr": "PIT",
+       "name": "Pittsburgh Steelers",
+       "score": "20",
+       "winner": true,
+       "q": [
+        "3",
+        "10",
+        "0",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "13",
+       "winner": false,
+       "q": [
+        "7",
+        "0",
+        "3",
+        "3"
+       ]
+      },
+      "venue": "Acrisure Stadium, Pittsburgh"
+     }
+    ],
+    "next": {
+     "id": "401873084",
+     "date": "2026-11-29T18:00Z",
+     "week": 12,
+     "season": "2026",
+     "type": "reg",
+     "stype": 2,
+     "completed": false,
+     "timeValid": true,
+     "home": {
+      "id": "16",
+      "abbr": "MIN",
+      "name": "Minnesota Vikings",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
+      "id": "1",
+      "abbr": "ATL",
+      "name": "Atlanta Falcons",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "U.S. Bank Stadium, Minneapolis"
+    }
+   },
    "BUF": {
     "id": "2",
     "abbr": "BUF",
@@ -3480,12 +3898,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
     "standing": "1st in AFC East",
     "record": {
-     "total": "7-1",
+     "total": "8-1",
      "home": "3-1",
-     "road": "4-0"
+     "road": "5-0"
     },
     "venue": "Highmark Stadium (Old), Orchard Park, NY",
     "last10": [
+     {
+      "id": "401873054",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "20",
+       "abbr": "NYJ",
+       "name": "New York Jets",
+       "score": "12",
+       "winner": false,
+       "q": [
+        "0",
+        "6",
+        "6",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "2",
+       "abbr": "BUF",
+       "name": "Buffalo Bills",
+       "score": "31",
+       "winner": true,
+       "q": [
+        "7",
+        "3",
+        "14",
+        "7"
+       ]
+      },
+      "venue": "MetLife Stadium, East Rutherford"
+     },
      {
       "id": "401873051",
       "date": "2026-11-10T01:15Z",
@@ -3822,63 +4277,18 @@
        ]
       },
       "venue": "Empower Field at Mile High, Denver"
-     },
-     {
-      "id": "401772977",
-      "date": "2026-01-11T18:00Z",
-      "week": 1,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "30",
-       "abbr": "JAX",
-       "name": "Jacksonville Jaguars",
-       "score": "24",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "3",
-        "14"
-       ]
-      },
-      "away": {
-       "id": "2",
-       "abbr": "BUF",
-       "name": "Buffalo Bills",
-       "score": "27",
-       "winner": true,
-       "q": [
-        "3",
-        "7",
-        "3",
-        "14"
-       ]
-      },
-      "venue": "EverBank Stadium, Jacksonville"
      }
     ],
     "next": {
-     "id": "401873054",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873070",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "20",
-      "abbr": "NYJ",
-      "name": "New York Jets",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
       "id": "2",
       "abbr": "BUF",
       "name": "Buffalo Bills",
@@ -3886,217 +4296,38 @@
       "winner": false,
       "q": null
      },
-     "venue": "MetLife Stadium, East Rutherford"
+     "away": {
+      "id": "15",
+      "abbr": "MIA",
+      "name": "Miami Dolphins",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "Highmark Stadium, Orchard Park"
     }
    },
-   "ATL": {
-    "id": "1",
-    "abbr": "ATL",
-    "name": "Atlanta Falcons",
-    "short": "Falcons",
-    "location": "Atlanta",
-    "color": "a71930",
+   "CAR": {
+    "id": "29",
+    "abbr": "CAR",
+    "name": "Carolina Panthers",
+    "short": "Panthers",
+    "location": "Carolina",
+    "color": "0085ca",
     "alt": "000000",
-    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
-    "standing": "13th in National Football Conference",
+    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png",
+    "standing": "4th in National Football Conference",
     "record": {
-     "total": "3-6",
-     "home": "1-4",
-     "road": "2-2"
+     "total": "4-5",
+     "home": "1-3",
+     "road": "3-2"
     },
-    "venue": "Mercedes-Benz Stadium, Atlanta, GA",
+    "venue": "Bank of America Stadium, Charlotte, NC",
     "last10": [
      {
-      "id": "401873038",
-      "date": "2026-11-08T14:30Z",
-      "week": 9,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "17",
-       "winner": false,
-       "q": [
-        "10",
-        "0",
-        "7",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "34",
-       "winner": true,
-       "q": [
-        "7",
-        "17",
-        "7",
-        "3"
-       ]
-      },
-      "venue": "Santiago Bernabéu, Madrid"
-     },
-     {
-      "id": "401873025",
-      "date": "2026-11-01T18:00Z",
-      "week": 8,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "27",
-       "abbr": "TB",
-       "name": "Tampa Bay Buccaneers",
-       "score": "16",
-       "winner": true,
-       "q": [
-        "6",
-        "3",
-        "7",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "0",
-       "winner": false,
-       "q": [
-        "0",
-        "0",
-        "0",
-        "0"
-       ]
-      },
-      "venue": "Raymond James Stadium, Tampa"
-     },
-     {
-      "id": "401873017",
-      "date": "2026-10-25T17:00Z",
-      "week": 7,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "29",
-       "winner": true,
-       "q": [
-        "3",
-        "9",
-        "7",
-        "10"
-       ]
-      },
-      "away": {
-       "id": "25",
-       "abbr": "SF",
-       "name": "San Francisco 49ers",
-       "score": "20",
-       "winner": false,
-       "q": [
-        "7",
-        "7",
-        "0",
-        "6"
-       ]
-      },
-      "venue": "Mercedes-Benz Stadium, Atlanta"
-     },
-     {
-      "id": "401872999",
-      "date": "2026-10-18T17:00Z",
-      "week": 6,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "23",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "16"
-       ]
-      },
-      "away": {
-       "id": "3",
-       "abbr": "CHI",
-       "name": "Chicago Bears",
-       "score": "31",
-       "winner": true,
-       "q": [
-        "14",
-        "7",
-        "7",
-        "3"
-       ]
-      },
-      "venue": "Mercedes-Benz Stadium, Atlanta"
-     },
-     {
-      "id": "401872993",
-      "date": "2026-10-12T00:20Z",
-      "week": 5,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "23",
-       "winner": false,
-       "q": [
-        "7",
-        "7",
-        "3",
-        "6",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "33",
-       "abbr": "BAL",
-       "name": "Baltimore Ravens",
-       "score": "30",
-       "winner": true,
-       "q": [
-        "3",
-        "6",
-        "6",
-        "8",
-        "7"
-       ]
-      },
-      "venue": "Mercedes-Benz Stadium, Atlanta"
-     },
-     {
-      "id": "401872979",
-      "date": "2026-10-06T00:15Z",
-      "week": 4,
+      "id": "401873055",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
       "season": "2026",
       "type": "reg",
       "stype": 2,
@@ -4106,34 +4337,71 @@
        "id": "18",
        "abbr": "NO",
        "name": "New Orleans Saints",
-       "score": "24",
+       "score": "17",
        "winner": false,
+       "q": [
+        "0",
+        "0",
+        "7",
+        "10"
+       ]
+      },
+      "away": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "20",
+       "winner": true,
        "q": [
         "0",
         "7",
         "3",
-        "14"
-       ]
-      },
-      "away": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "45",
-       "winner": true,
-       "q": [
-        "14",
-        "10",
-        "7",
-        "14"
+        "10"
        ]
       },
       "venue": "Caesars Superdome, New Orleans"
      },
      {
-      "id": "401872948",
-      "date": "2026-09-25T00:15Z",
-      "week": 3,
+      "id": "401873041",
+      "date": "2026-11-08T18:00Z",
+      "week": 9,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "21",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "7",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "7",
+       "abbr": "DEN",
+       "name": "Denver Broncos",
+       "score": "26",
+       "winner": true,
+       "q": [
+        "10",
+        "3",
+        "0",
+        "13"
+       ]
+      },
+      "venue": "Bank of America Stadium, Charlotte"
+     },
+     {
+      "id": "401873023",
+      "date": "2026-10-30T00:15Z",
+      "week": 8,
       "season": "2026",
       "type": "reg",
       "stype": 2,
@@ -4143,29 +4411,177 @@
        "id": "9",
        "abbr": "GB",
        "name": "Green Bay Packers",
-       "score": "14",
+       "score": "27",
+       "winner": true,
+       "q": [
+        "6",
+        "14",
+        "7",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "19",
        "winner": false,
        "q": [
+        "3",
         "7",
+        "3",
+        "6"
+       ]
+      },
+      "venue": "Lambeau Field, Green Bay"
+     },
+     {
+      "id": "401873018",
+      "date": "2026-10-25T17:00Z",
+      "week": 7,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "13",
+       "winner": false,
+       "q": [
         "0",
+        "6",
         "0",
         "7"
        ]
       },
       "away": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "35",
+       "id": "27",
+       "abbr": "TB",
+       "name": "Tampa Bay Buccaneers",
+       "score": "43",
        "winner": true,
        "q": [
         "7",
-        "10",
+        "26",
+        "3",
+        "7"
+       ]
+      },
+      "venue": "Bank of America Stadium, Charlotte"
+     },
+     {
+      "id": "401872998",
+      "date": "2026-10-18T17:00Z",
+      "week": 6,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "21",
+       "abbr": "PHI",
+       "name": "Philadelphia Eagles",
+       "score": "14",
+       "winner": false,
+       "q": [
+        "0",
         "7",
+        "0",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "25",
+       "winner": true,
+       "q": [
+        "3",
+        "7",
+        "3",
+        "12"
+       ]
+      },
+      "venue": "Lincoln Financial Field, Philadelphia"
+     },
+     {
+      "id": "401872978",
+      "date": "2026-10-05T00:20Z",
+      "week": 4,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "32",
+       "winner": true,
+       "q": [
+        "7",
+        "9",
+        "13",
+        "3"
+       ]
+      },
+      "away": {
+       "id": "8",
+       "abbr": "DET",
+       "name": "Detroit Lions",
+       "score": "26",
+       "winner": false,
+       "q": [
+        "3",
+        "13",
+        "3",
+        "7"
+       ]
+      },
+      "venue": "Bank of America Stadium, Charlotte"
+     },
+     {
+      "id": "401872949",
+      "date": "2026-09-27T17:00Z",
+      "week": 3,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "5",
+       "abbr": "CLE",
+       "name": "Cleveland Browns",
+       "score": "21",
+       "winner": true,
+       "q": [
+        "0",
+        "10",
+        "0",
         "11"
        ]
       },
-      "venue": "Lambeau Field, Green Bay"
+      "away": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "18",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "6",
+        "9"
+       ]
+      },
+      "venue": "Huntington Bank Field, Cleveland"
      },
      {
       "id": "401872933",
@@ -4205,9 +4621,353 @@
       "venue": "Mercedes-Benz Stadium, Atlanta"
      },
      {
-      "id": "401872658",
+      "id": "401872661",
       "date": "2026-09-13T17:00Z",
       "week": 1,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "37",
+       "winner": false,
+       "q": [
+        "7",
+        "17",
+        "7",
+        "6"
+       ]
+      },
+      "away": {
+       "id": "3",
+       "abbr": "CHI",
+       "name": "Chicago Bears",
+       "score": "59",
+       "winner": true,
+       "q": [
+        "14",
+        "17",
+        "14",
+        "14"
+       ]
+      },
+      "venue": "Bank of America Stadium, Charlotte"
+     },
+     {
+      "id": "401772979",
+      "date": "2026-01-10T21:30Z",
+      "week": 1,
+      "season": "2025 Playoffs",
+      "type": "post",
+      "stype": 3,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "31",
+       "winner": false,
+       "q": [
+        "0",
+        "14",
+        "3",
+        "14"
+       ]
+      },
+      "away": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "34",
+       "winner": true,
+       "q": [
+        "7",
+        "10",
+        "3",
+        "14"
+       ]
+      },
+      "venue": "Bank of America Stadium, Charlotte"
+     }
+    ],
+    "next": {
+     "id": "401873068",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
+     "season": "2026",
+     "type": "reg",
+     "stype": 2,
+     "completed": false,
+     "timeValid": true,
+     "home": {
+      "id": "29",
+      "abbr": "CAR",
+      "name": "Carolina Panthers",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
+      "id": "33",
+      "abbr": "BAL",
+      "name": "Baltimore Ravens",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "Bank of America Stadium, Charlotte"
+    }
+   },
+   "CIN": {
+    "id": "4",
+    "abbr": "CIN",
+    "name": "Cincinnati Bengals",
+    "short": "Bengals",
+    "location": "Cincinnati",
+    "color": "fb4f14",
+    "alt": "000000",
+    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+    "standing": "2nd in American Football Conference",
+    "record": {
+     "total": "7-2",
+     "home": "3-1",
+     "road": "4-1"
+    },
+    "venue": "Paycor Stadium, Cincinnati, OH",
+    "last10": [
+     {
+      "id": "401873064",
+      "date": "2026-11-16T01:20Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "38",
+       "winner": true,
+       "q": [
+        "3",
+        "21",
+        "7",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "23",
+       "abbr": "PIT",
+       "name": "Pittsburgh Steelers",
+       "score": "18",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "0",
+        "15"
+       ]
+      },
+      "venue": "Paycor Stadium, Cincinnati"
+     },
+     {
+      "id": "401873038",
+      "date": "2026-11-08T14:30Z",
+      "week": 9,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "17",
+       "winner": false,
+       "q": [
+        "10",
+        "0",
+        "7",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "34",
+       "winner": true,
+       "q": [
+        "7",
+        "17",
+        "7",
+        "3"
+       ]
+      },
+      "venue": "Santiago Bernabéu, Madrid"
+     },
+     {
+      "id": "401873031",
+      "date": "2026-11-01T18:00Z",
+      "week": 8,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "43",
+       "winner": true,
+       "q": [
+        "0",
+        "14",
+        "9",
+        "13",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "10",
+       "abbr": "TEN",
+       "name": "Tennessee Titans",
+       "score": "36",
+       "winner": false,
+       "q": [
+        "13",
+        "0",
+        "8",
+        "15",
+        "0"
+       ]
+      },
+      "venue": "Paycor Stadium, Cincinnati"
+     },
+     {
+      "id": "401873012",
+      "date": "2026-10-25T17:00Z",
+      "week": 7,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "33",
+       "abbr": "BAL",
+       "name": "Baltimore Ravens",
+       "score": "13",
+       "winner": false,
+       "q": [
+        "7",
+        "6",
+        "0",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "0",
+        "0",
+        "14",
+        "21"
+       ]
+      },
+      "venue": "M&T Bank Stadium, Baltimore"
+     },
+     {
+      "id": "401872982",
+      "date": "2026-10-11T17:00Z",
+      "week": 5,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "15",
+       "abbr": "MIA",
+       "name": "Miami Dolphins",
+       "score": "24",
+       "winner": false,
+       "q": [
+        "7",
+        "0",
+        "3",
+        "14"
+       ]
+      },
+      "away": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "31",
+       "winner": true,
+       "q": [
+        "7",
+        "14",
+        "7",
+        "3"
+       ]
+      },
+      "venue": "Hard Rock Stadium, Miami Gardens"
+     },
+     {
+      "id": "401872969",
+      "date": "2026-10-04T17:00Z",
+      "week": 4,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "17",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "7",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "30",
+       "abbr": "JAX",
+       "name": "Jacksonville Jaguars",
+       "score": "22",
+       "winner": true,
+       "q": [
+        "3",
+        "10",
+        "3",
+        "6"
+       ]
+      },
+      "venue": "Paycor Stadium, Cincinnati"
+     },
+     {
+      "id": "401872950",
+      "date": "2026-09-27T17:00Z",
+      "week": 3,
       "season": "2026",
       "type": "reg",
       "stype": 2,
@@ -4217,32 +4977,106 @@
        "id": "23",
        "abbr": "PIT",
        "name": "Pittsburgh Steelers",
-       "score": "20",
+       "score": "30",
        "winner": true,
        "q": [
+        "14",
         "3",
-        "10",
-        "0",
-        "7"
+        "7",
+        "6"
        ]
       },
       "away": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "13",
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "27",
        "winner": false,
        "q": [
         "7",
-        "0",
+        "10",
         "3",
-        "3"
+        "7"
        ]
       },
       "venue": "Acrisure Stadium, Pittsburgh"
      },
      {
-      "id": "401772966",
+      "id": "401872934",
+      "date": "2026-09-20T17:00Z",
+      "week": 2,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "34",
+       "abbr": "HOU",
+       "name": "Houston Texans",
+       "score": "6",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "3",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "20",
+       "winner": true,
+       "q": [
+        "0",
+        "7",
+        "10",
+        "3"
+       ]
+      },
+      "venue": "Reliant Stadium, Houston"
+     },
+     {
+      "id": "401872925",
+      "date": "2026-09-13T17:00Z",
+      "week": 1,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "33",
+       "winner": true,
+       "q": [
+        "14",
+        "10",
+        "3",
+        "6"
+       ]
+      },
+      "away": {
+       "id": "27",
+       "abbr": "TB",
+       "name": "Tampa Bay Buccaneers",
+       "score": "27",
+       "winner": false,
+       "q": [
+        "3",
+        "7",
+        "10",
+        "7"
+       ]
+      },
+      "venue": "Paycor Stadium, Cincinnati"
+     },
+     {
+      "id": "401772964",
       "date": "2026-01-04T18:00Z",
       "week": 18,
       "season": "2025",
@@ -4251,60 +5085,60 @@
       "completed": true,
       "timeValid": true,
       "home": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "19",
-       "winner": true,
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "18",
+       "winner": false,
        "q": [
-        "7",
-        "3",
-        "3",
+        "6",
+        "6",
+        "0",
         "6"
        ]
       },
       "away": {
-       "id": "18",
-       "abbr": "NO",
-       "name": "New Orleans Saints",
-       "score": "17",
-       "winner": false,
+       "id": "5",
+       "abbr": "CLE",
+       "name": "Cleveland Browns",
+       "score": "20",
+       "winner": true,
        "q": [
-        "0",
+        "7",
         "7",
         "3",
-        "7"
+        "3"
        ]
       },
-      "venue": "Mercedes-Benz Stadium, Atlanta"
+      "venue": "Paycor Stadium, Cincinnati"
      }
     ],
     "next": {
-     "id": "401873058",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873078",
+     "date": "2026-11-24T01:15Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "1",
-      "abbr": "ATL",
-      "name": "Atlanta Falcons",
+      "id": "28",
+      "abbr": "WSH",
+      "name": "Washington Commanders",
       "score": null,
       "winner": false,
       "q": null
      },
      "away": {
-      "id": "12",
-      "abbr": "KC",
-      "name": "Kansas City Chiefs",
+      "id": "4",
+      "abbr": "CIN",
+      "name": "Cincinnati Bengals",
       "score": null,
       "winner": false,
       "q": null
      },
-     "venue": "Mercedes-Benz Stadium, Atlanta"
+     "venue": "Northwest Stadium, Landover"
     }
    },
    "CHI": {
@@ -4316,7 +5150,7 @@
     "color": "0b1c3a",
     "alt": "e64100",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
-    "standing": "2nd in National Football Conference",
+    "standing": "5th in National Football Conference",
     "record": {
      "total": "7-2",
      "home": "4-1",
@@ -4725,840 +5559,6 @@
      "venue": "Soldier Field, Chicago"
     }
    },
-   "CAR": {
-    "id": "29",
-    "abbr": "CAR",
-    "name": "Carolina Panthers",
-    "short": "Panthers",
-    "location": "Carolina",
-    "color": "0085ca",
-    "alt": "000000",
-    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png",
-    "standing": "4th in National Football Conference",
-    "record": {
-     "total": "3-5",
-     "home": "1-3",
-     "road": "2-2"
-    },
-    "venue": "Bank of America Stadium, Charlotte, NC",
-    "last10": [
-     {
-      "id": "401873041",
-      "date": "2026-11-08T18:00Z",
-      "week": 9,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "21",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "7",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "7",
-       "abbr": "DEN",
-       "name": "Denver Broncos",
-       "score": "26",
-       "winner": true,
-       "q": [
-        "10",
-        "3",
-        "0",
-        "13"
-       ]
-      },
-      "venue": "Bank of America Stadium, Charlotte"
-     },
-     {
-      "id": "401873023",
-      "date": "2026-10-30T00:15Z",
-      "week": 8,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "9",
-       "abbr": "GB",
-       "name": "Green Bay Packers",
-       "score": "27",
-       "winner": true,
-       "q": [
-        "6",
-        "14",
-        "7",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "19",
-       "winner": false,
-       "q": [
-        "3",
-        "7",
-        "3",
-        "6"
-       ]
-      },
-      "venue": "Lambeau Field, Green Bay"
-     },
-     {
-      "id": "401873018",
-      "date": "2026-10-25T17:00Z",
-      "week": 7,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "13",
-       "winner": false,
-       "q": [
-        "0",
-        "6",
-        "0",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "27",
-       "abbr": "TB",
-       "name": "Tampa Bay Buccaneers",
-       "score": "43",
-       "winner": true,
-       "q": [
-        "7",
-        "26",
-        "3",
-        "7"
-       ]
-      },
-      "venue": "Bank of America Stadium, Charlotte"
-     },
-     {
-      "id": "401872998",
-      "date": "2026-10-18T17:00Z",
-      "week": 6,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "21",
-       "abbr": "PHI",
-       "name": "Philadelphia Eagles",
-       "score": "14",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "25",
-       "winner": true,
-       "q": [
-        "3",
-        "7",
-        "3",
-        "12"
-       ]
-      },
-      "venue": "Lincoln Financial Field, Philadelphia"
-     },
-     {
-      "id": "401872978",
-      "date": "2026-10-05T00:20Z",
-      "week": 4,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "32",
-       "winner": true,
-       "q": [
-        "7",
-        "9",
-        "13",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "8",
-       "abbr": "DET",
-       "name": "Detroit Lions",
-       "score": "26",
-       "winner": false,
-       "q": [
-        "3",
-        "13",
-        "3",
-        "7"
-       ]
-      },
-      "venue": "Bank of America Stadium, Charlotte"
-     },
-     {
-      "id": "401872949",
-      "date": "2026-09-27T17:00Z",
-      "week": 3,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "5",
-       "abbr": "CLE",
-       "name": "Cleveland Browns",
-       "score": "21",
-       "winner": true,
-       "q": [
-        "0",
-        "10",
-        "0",
-        "11"
-       ]
-      },
-      "away": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "18",
-       "winner": false,
-       "q": [
-        "0",
-        "3",
-        "6",
-        "9"
-       ]
-      },
-      "venue": "Huntington Bank Field, Cleveland"
-     },
-     {
-      "id": "401872933",
-      "date": "2026-09-20T17:00Z",
-      "week": 2,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "3",
-       "winner": false,
-       "q": [
-        "0",
-        "3",
-        "0",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "34",
-       "winner": true,
-       "q": [
-        "10",
-        "10",
-        "14",
-        "0"
-       ]
-      },
-      "venue": "Mercedes-Benz Stadium, Atlanta"
-     },
-     {
-      "id": "401872661",
-      "date": "2026-09-13T17:00Z",
-      "week": 1,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "37",
-       "winner": false,
-       "q": [
-        "7",
-        "17",
-        "7",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "3",
-       "abbr": "CHI",
-       "name": "Chicago Bears",
-       "score": "59",
-       "winner": true,
-       "q": [
-        "14",
-        "17",
-        "14",
-        "14"
-       ]
-      },
-      "venue": "Bank of America Stadium, Charlotte"
-     },
-     {
-      "id": "401772979",
-      "date": "2026-01-10T21:30Z",
-      "week": 1,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "31",
-       "winner": false,
-       "q": [
-        "0",
-        "14",
-        "3",
-        "14"
-       ]
-      },
-      "away": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "34",
-       "winner": true,
-       "q": [
-        "7",
-        "10",
-        "3",
-        "14"
-       ]
-      },
-      "venue": "Bank of America Stadium, Charlotte"
-     },
-     {
-      "id": "401772969",
-      "date": "2026-01-03T21:30Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "27",
-       "abbr": "TB",
-       "name": "Tampa Bay Buccaneers",
-       "score": "16",
-       "winner": true,
-       "q": [
-        "10",
-        "3",
-        "0",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "29",
-       "abbr": "CAR",
-       "name": "Carolina Panthers",
-       "score": "14",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "7"
-       ]
-      },
-      "venue": "Raymond James Stadium, Tampa"
-     }
-    ],
-    "next": {
-     "id": "401873055",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
-     "season": "2026",
-     "type": "reg",
-     "stype": 2,
-     "completed": false,
-     "timeValid": true,
-     "home": {
-      "id": "18",
-      "abbr": "NO",
-      "name": "New Orleans Saints",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
-      "id": "29",
-      "abbr": "CAR",
-      "name": "Carolina Panthers",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "Caesars Superdome, New Orleans"
-    }
-   },
-   "CIN": {
-    "id": "4",
-    "abbr": "CIN",
-    "name": "Cincinnati Bengals",
-    "short": "Bengals",
-    "location": "Cincinnati",
-    "color": "fb4f14",
-    "alt": "000000",
-    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
-    "standing": "3rd in American Football Conference",
-    "record": {
-     "total": "6-2",
-     "home": "2-1",
-     "road": "4-1"
-    },
-    "venue": "Paycor Stadium, Cincinnati, OH",
-    "last10": [
-     {
-      "id": "401873038",
-      "date": "2026-11-08T14:30Z",
-      "week": 9,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "1",
-       "abbr": "ATL",
-       "name": "Atlanta Falcons",
-       "score": "17",
-       "winner": false,
-       "q": [
-        "10",
-        "0",
-        "7",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "34",
-       "winner": true,
-       "q": [
-        "7",
-        "17",
-        "7",
-        "3"
-       ]
-      },
-      "venue": "Santiago Bernabéu, Madrid"
-     },
-     {
-      "id": "401873031",
-      "date": "2026-11-01T18:00Z",
-      "week": 8,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "43",
-       "winner": true,
-       "q": [
-        "0",
-        "14",
-        "9",
-        "13",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "10",
-       "abbr": "TEN",
-       "name": "Tennessee Titans",
-       "score": "36",
-       "winner": false,
-       "q": [
-        "13",
-        "0",
-        "8",
-        "15",
-        "0"
-       ]
-      },
-      "venue": "Paycor Stadium, Cincinnati"
-     },
-     {
-      "id": "401873012",
-      "date": "2026-10-25T17:00Z",
-      "week": 7,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "33",
-       "abbr": "BAL",
-       "name": "Baltimore Ravens",
-       "score": "13",
-       "winner": false,
-       "q": [
-        "7",
-        "6",
-        "0",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "35",
-       "winner": true,
-       "q": [
-        "0",
-        "0",
-        "14",
-        "21"
-       ]
-      },
-      "venue": "M&T Bank Stadium, Baltimore"
-     },
-     {
-      "id": "401872982",
-      "date": "2026-10-11T17:00Z",
-      "week": 5,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "15",
-       "abbr": "MIA",
-       "name": "Miami Dolphins",
-       "score": "24",
-       "winner": false,
-       "q": [
-        "7",
-        "0",
-        "3",
-        "14"
-       ]
-      },
-      "away": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "31",
-       "winner": true,
-       "q": [
-        "7",
-        "14",
-        "7",
-        "3"
-       ]
-      },
-      "venue": "Hard Rock Stadium, Miami Gardens"
-     },
-     {
-      "id": "401872969",
-      "date": "2026-10-04T17:00Z",
-      "week": 4,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "17",
-       "winner": false,
-       "q": [
-        "0",
-        "3",
-        "7",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "30",
-       "abbr": "JAX",
-       "name": "Jacksonville Jaguars",
-       "score": "22",
-       "winner": true,
-       "q": [
-        "3",
-        "10",
-        "3",
-        "6"
-       ]
-      },
-      "venue": "Paycor Stadium, Cincinnati"
-     },
-     {
-      "id": "401872950",
-      "date": "2026-09-27T17:00Z",
-      "week": 3,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "23",
-       "abbr": "PIT",
-       "name": "Pittsburgh Steelers",
-       "score": "30",
-       "winner": true,
-       "q": [
-        "14",
-        "3",
-        "7",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "27",
-       "winner": false,
-       "q": [
-        "7",
-        "10",
-        "3",
-        "7"
-       ]
-      },
-      "venue": "Acrisure Stadium, Pittsburgh"
-     },
-     {
-      "id": "401872934",
-      "date": "2026-09-20T17:00Z",
-      "week": 2,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "34",
-       "abbr": "HOU",
-       "name": "Houston Texans",
-       "score": "6",
-       "winner": false,
-       "q": [
-        "0",
-        "3",
-        "3",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "20",
-       "winner": true,
-       "q": [
-        "0",
-        "7",
-        "10",
-        "3"
-       ]
-      },
-      "venue": "Reliant Stadium, Houston"
-     },
-     {
-      "id": "401872925",
-      "date": "2026-09-13T17:00Z",
-      "week": 1,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "33",
-       "winner": true,
-       "q": [
-        "14",
-        "10",
-        "3",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "27",
-       "abbr": "TB",
-       "name": "Tampa Bay Buccaneers",
-       "score": "27",
-       "winner": false,
-       "q": [
-        "3",
-        "7",
-        "10",
-        "7"
-       ]
-      },
-      "venue": "Paycor Stadium, Cincinnati"
-     },
-     {
-      "id": "401772964",
-      "date": "2026-01-04T18:00Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "18",
-       "winner": false,
-       "q": [
-        "6",
-        "6",
-        "0",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "5",
-       "abbr": "CLE",
-       "name": "Cleveland Browns",
-       "score": "20",
-       "winner": true,
-       "q": [
-        "7",
-        "7",
-        "3",
-        "3"
-       ]
-      },
-      "venue": "Paycor Stadium, Cincinnati"
-     },
-     {
-      "id": "401772954",
-      "date": "2025-12-28T18:00Z",
-      "week": 17,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "37",
-       "winner": true,
-       "q": [
-        "7",
-        "16",
-        "14",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "22",
-       "abbr": "ARI",
-       "name": "Arizona Cardinals",
-       "score": "14",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "7"
-       ]
-      },
-      "venue": "Paycor Stadium, Cincinnati"
-     }
-    ],
-    "next": {
-     "id": "401873064",
-     "date": "2026-11-16T01:20Z",
-     "week": 10,
-     "season": "2026",
-     "type": "reg",
-     "stype": 2,
-     "completed": false,
-     "timeValid": true,
-     "home": {
-      "id": "4",
-      "abbr": "CIN",
-      "name": "Cincinnati Bengals",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
-      "id": "23",
-      "abbr": "PIT",
-      "name": "Pittsburgh Steelers",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "Paycor Stadium, Cincinnati"
-    }
-   },
    "CLE": {
     "id": "5",
     "abbr": "CLE",
@@ -5570,12 +5570,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png",
     "standing": "7th in American Football Conference",
     "record": {
-     "total": "5-4",
-     "home": "3-0",
+     "total": "6-4",
+     "home": "4-0",
      "road": "2-4"
     },
     "venue": "Huntington Bank Field, Cleveland, OH",
     "last10": [
+     {
+      "id": "401873056",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "5",
+       "abbr": "CLE",
+       "name": "Cleveland Browns",
+       "score": "27",
+       "winner": true,
+       "q": [
+        "0",
+        "10",
+        "10",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "34",
+       "abbr": "HOU",
+       "name": "Houston Texans",
+       "score": "24",
+       "winner": false,
+       "q": [
+        "10",
+        "7",
+        "0",
+        "7"
+       ]
+      },
+      "venue": "Huntington Bank Field, Cleveland"
+     },
      {
       "id": "401873039",
       "date": "2026-11-08T18:00Z",
@@ -5910,49 +5947,12 @@
        ]
       },
       "venue": "EverBank Stadium, Jacksonville"
-     },
-     {
-      "id": "401772964",
-      "date": "2026-01-04T18:00Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "4",
-       "abbr": "CIN",
-       "name": "Cincinnati Bengals",
-       "score": "18",
-       "winner": false,
-       "q": [
-        "6",
-        "6",
-        "0",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "5",
-       "abbr": "CLE",
-       "name": "Cleveland Browns",
-       "score": "20",
-       "winner": true,
-       "q": [
-        "7",
-        "7",
-        "3",
-        "3"
-       ]
-      },
-      "venue": "Paycor Stadium, Cincinnati"
      }
     ],
     "next": {
-     "id": "401873056",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873086",
+     "date": "2026-11-29T18:00Z",
+     "week": 12,
      "season": "2026",
      "type": "reg",
      "stype": 2,
@@ -5967,9 +5967,9 @@
       "q": null
      },
      "away": {
-      "id": "34",
-      "abbr": "HOU",
-      "name": "Houston Texans",
+      "id": "13",
+      "abbr": "LV",
+      "name": "Las Vegas Raiders",
       "score": null,
       "winner": false,
       "q": null
@@ -5988,12 +5988,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
     "standing": "2nd in NFC East",
     "record": {
-     "total": "4-5",
-     "home": "1-3",
+     "total": "4-6",
+     "home": "1-4",
      "road": "3-2"
     },
     "venue": "AT&T Stadium, Arlington, TX",
     "last10": [
+     {
+      "id": "401873063",
+      "date": "2026-11-15T21:25Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "6",
+       "abbr": "DAL",
+       "name": "Dallas Cowboys",
+       "score": "40",
+       "winner": false,
+       "q": [
+        "10",
+        "6",
+        "3",
+        "21"
+       ]
+      },
+      "away": {
+       "id": "25",
+       "abbr": "SF",
+       "name": "San Francisco 49ers",
+       "score": "46",
+       "winner": true,
+       "q": [
+        "7",
+        "10",
+        "14",
+        "15"
+       ]
+      },
+      "venue": "AT&T Stadium, Arlington"
+     },
      {
       "id": "401873040",
       "date": "2026-11-08T18:00Z",
@@ -6328,49 +6365,12 @@
        ]
       },
       "venue": "MetLife Stadium, East Rutherford"
-     },
-     {
-      "id": "401772963",
-      "date": "2026-01-04T18:00Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "19",
-       "abbr": "NYG",
-       "name": "New York Giants",
-       "score": "34",
-       "winner": true,
-       "q": [
-        "6",
-        "10",
-        "8",
-        "10"
-       ]
-      },
-      "away": {
-       "id": "6",
-       "abbr": "DAL",
-       "name": "Dallas Cowboys",
-       "score": "17",
-       "winner": false,
-       "q": [
-        "10",
-        "0",
-        "0",
-        "7"
-       ]
-      },
-      "venue": "MetLife Stadium, East Rutherford"
      }
     ],
     "next": {
-     "id": "401873063",
-     "date": "2026-11-15T21:25Z",
-     "week": 10,
+     "id": "401873073",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
@@ -6385,9 +6385,9 @@
       "q": null
      },
      "away": {
-      "id": "25",
-      "abbr": "SF",
-      "name": "San Francisco 49ers",
+      "id": "10",
+      "abbr": "TEN",
+      "name": "Tennessee Titans",
       "score": null,
       "winner": false,
       "q": null
@@ -6822,14 +6822,51 @@
     "color": "0076b6",
     "alt": "bbbbbb",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
-    "standing": "5th in National Football Conference",
+    "standing": "2nd in National Football Conference",
     "record": {
-     "total": "6-2",
-     "home": "4-0",
+     "total": "7-2",
+     "home": "5-0",
      "road": "2-2"
     },
     "venue": "Ford Field, Detroit, MI",
     "last10": [
+     {
+      "id": "401873053",
+      "date": "2026-11-15T14:30Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "8",
+       "abbr": "DET",
+       "name": "Detroit Lions",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "7",
+        "14",
+        "7",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "10",
+       "winner": false,
+       "q": [
+        "3",
+        "0",
+        "0",
+        "7"
+       ]
+      },
+      "venue": "FC Bayern Munich Stadium, Munich"
+     },
      {
       "id": "401873042",
       "date": "2026-11-08T18:00Z",
@@ -7164,49 +7201,12 @@
        ]
       },
       "venue": "Soldier Field, Chicago"
-     },
-     {
-      "id": "401772711",
-      "date": "2025-12-25T21:30Z",
-      "week": 17,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "16",
-       "abbr": "MIN",
-       "name": "Minnesota Vikings",
-       "score": "23",
-       "winner": true,
-       "q": [
-        "7",
-        "0",
-        "6",
-        "10"
-       ]
-      },
-      "away": {
-       "id": "8",
-       "abbr": "DET",
-       "name": "Detroit Lions",
-       "score": "10",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "3"
-       ]
-      },
-      "venue": "U.S. Bank Stadium, Minneapolis"
      }
     ],
     "next": {
-     "id": "401873053",
-     "date": "2026-11-15T14:30Z",
-     "week": 10,
+     "id": "401873072",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
@@ -7221,14 +7221,14 @@
       "q": null
      },
      "away": {
-      "id": "17",
-      "abbr": "NE",
-      "name": "New England Patriots",
+      "id": "27",
+      "abbr": "TB",
+      "name": "Tampa Bay Buccaneers",
       "score": null,
       "winner": false,
       "q": null
      },
-     "venue": "FC Bayern Munich Stadium, Munich"
+     "venue": "Ford Field, Detroit"
     }
    },
    "GB": {
@@ -7242,12 +7242,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
     "standing": "7th in National Football Conference",
     "record": {
-     "total": "6-3",
-     "home": "3-1",
+     "total": "6-4",
+     "home": "3-2",
      "road": "3-2"
     },
     "venue": "Lambeau Field, Green Bay, WI",
     "last10": [
+     {
+      "id": "401873060",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "9",
+       "abbr": "GB",
+       "name": "Green Bay Packers",
+       "score": "10",
+       "winner": false,
+       "q": [
+        "0",
+        "0",
+        "10",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "16",
+       "abbr": "MIN",
+       "name": "Minnesota Vikings",
+       "score": "30",
+       "winner": true,
+       "q": [
+        "10",
+        "7",
+        "3",
+        "10"
+       ]
+      },
+      "venue": "Lambeau Field, Green Bay"
+     },
      {
       "id": "401873049",
       "date": "2026-11-08T21:25Z",
@@ -7582,55 +7619,26 @@
        ]
       },
       "venue": "U.S. Bank Stadium, Minneapolis"
-     },
-     {
-      "id": "401772981",
-      "date": "2026-01-11T01:00Z",
-      "week": 1,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "3",
-       "abbr": "CHI",
-       "name": "Chicago Bears",
-       "score": "31",
-       "winner": true,
-       "q": [
-        "3",
-        "0",
-        "3",
-        "25"
-       ]
-      },
-      "away": {
-       "id": "9",
-       "abbr": "GB",
-       "name": "Green Bay Packers",
-       "score": "27",
-       "winner": false,
-       "q": [
-        "7",
-        "14",
-        "0",
-        "6"
-       ]
-      },
-      "venue": "Soldier Field, Chicago"
      }
     ],
     "next": {
-     "id": "401873060",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873079",
+     "date": "2026-11-26T01:00Z",
+     "week": 12,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
+      "id": "14",
+      "abbr": "LAR",
+      "name": "Los Angeles Rams",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
       "id": "9",
       "abbr": "GB",
       "name": "Green Bay Packers",
@@ -7638,15 +7646,7 @@
       "winner": false,
       "q": null
      },
-     "away": {
-      "id": "16",
-      "abbr": "MIN",
-      "name": "Minnesota Vikings",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "Lambeau Field, Green Bay"
+     "venue": "SoFi Stadium, Inglewood"
     }
    },
    "HOU": {
@@ -7660,12 +7660,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
     "standing": "11th in American Football Conference",
     "record": {
-     "total": "3-5",
+     "total": "3-6",
      "home": "0-4",
-     "road": "3-1"
+     "road": "3-2"
     },
     "venue": "Reliant Stadium, Houston, TX",
     "last10": [
+     {
+      "id": "401873056",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "5",
+       "abbr": "CLE",
+       "name": "Cleveland Browns",
+       "score": "27",
+       "winner": true,
+       "q": [
+        "0",
+        "10",
+        "10",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "34",
+       "abbr": "HOU",
+       "name": "Houston Texans",
+       "score": "24",
+       "winner": false,
+       "q": [
+        "10",
+        "7",
+        "0",
+        "7"
+       ]
+      },
+      "venue": "Huntington Bank Field, Cleveland"
+     },
      {
       "id": "401873046",
       "date": "2026-11-08T21:05Z",
@@ -8000,63 +8037,18 @@
        ]
       },
       "venue": "Gillette Stadium, Foxborough"
-     },
-     {
-      "id": "401772976",
-      "date": "2026-01-13T01:15Z",
-      "week": 1,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "23",
-       "abbr": "PIT",
-       "name": "Pittsburgh Steelers",
-       "score": "6",
-       "winner": false,
-       "q": [
-        "3",
-        "3",
-        "0",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "34",
-       "abbr": "HOU",
-       "name": "Houston Texans",
-       "score": "30",
-       "winner": true,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "23"
-       ]
-      },
-      "venue": "Acrisure Stadium, Pittsburgh"
      }
     ],
     "next": {
-     "id": "401873056",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873066",
+     "date": "2026-11-20T01:15Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "5",
-      "abbr": "CLE",
-      "name": "Cleveland Browns",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
       "id": "34",
       "abbr": "HOU",
       "name": "Houston Texans",
@@ -8064,7 +8056,15 @@
       "winner": false,
       "q": null
      },
-     "venue": "Huntington Bank Field, Cleveland"
+     "away": {
+      "id": "11",
+      "abbr": "IND",
+      "name": "Indianapolis Colts",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "Reliant Stadium, Houston"
     }
    },
    "IND": {
@@ -8078,12 +8078,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
     "standing": "12th in American Football Conference",
     "record": {
-     "total": "2-7",
-     "home": "1-3",
+     "total": "3-7",
+     "home": "2-3",
      "road": "1-4"
     },
     "venue": "Lucas Oil Stadium, Indianapolis, IN",
     "last10": [
+     {
+      "id": "401873059",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "11",
+       "abbr": "IND",
+       "name": "Indianapolis Colts",
+       "score": "24",
+       "winner": true,
+       "q": [
+        "0",
+        "14",
+        "10",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "15",
+       "abbr": "MIA",
+       "name": "Miami Dolphins",
+       "score": "22",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "9",
+        "6"
+       ]
+      },
+      "venue": "Lucas Oil Stadium, Indianapolis"
+     },
      {
       "id": "401873040",
       "date": "2026-11-08T18:00Z",
@@ -8418,55 +8455,26 @@
        ]
       },
       "venue": "Lucas Oil Stadium, Indianapolis"
-     },
-     {
-      "id": "401772962",
-      "date": "2026-01-04T18:00Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "34",
-       "abbr": "HOU",
-       "name": "Houston Texans",
-       "score": "38",
-       "winner": true,
-       "q": [
-        "6",
-        "17",
-        "3",
-        "12"
-       ]
-      },
-      "away": {
-       "id": "11",
-       "abbr": "IND",
-       "name": "Indianapolis Colts",
-       "score": "30",
-       "winner": false,
-       "q": [
-        "10",
-        "7",
-        "10",
-        "3"
-       ]
-      },
-      "venue": "Reliant Stadium, Houston"
      }
     ],
     "next": {
-     "id": "401873059",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873066",
+     "date": "2026-11-20T01:15Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
+      "id": "34",
+      "abbr": "HOU",
+      "name": "Houston Texans",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
       "id": "11",
       "abbr": "IND",
       "name": "Indianapolis Colts",
@@ -8474,15 +8482,7 @@
       "winner": false,
       "q": null
      },
-     "away": {
-      "id": "15",
-      "abbr": "MIA",
-      "name": "Miami Dolphins",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "Lucas Oil Stadium, Indianapolis"
+     "venue": "Reliant Stadium, Houston"
     }
    },
    "JAX": {
@@ -8494,14 +8494,51 @@
     "color": "007487",
     "alt": "d7a22a",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
-    "standing": "3rd in American Football Conference",
+    "standing": "2nd in American Football Conference",
     "record": {
-     "total": "6-2",
+     "total": "7-2",
      "home": "4-1",
-     "road": "2-1"
+     "road": "3-1"
     },
     "venue": "EverBank Stadium, Jacksonville, FL",
     "last10": [
+     {
+      "id": "401873057",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "10",
+       "abbr": "TEN",
+       "name": "Tennessee Titans",
+       "score": "23",
+       "winner": false,
+       "q": [
+        "3",
+        "7",
+        "6",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "30",
+       "abbr": "JAX",
+       "name": "Jacksonville Jaguars",
+       "score": "40",
+       "winner": true,
+       "q": [
+        "7",
+        "9",
+        "7",
+        "17"
+       ]
+      },
+      "venue": "Nissan Stadium, Nashville"
+     },
      {
       "id": "401873037",
       "date": "2026-11-06T01:15Z",
@@ -8834,58 +8871,21 @@
        ]
       },
       "venue": "EverBank Stadium, Jacksonville"
-     },
-     {
-      "id": "401772970",
-      "date": "2026-01-04T18:00Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "30",
-       "abbr": "JAX",
-       "name": "Jacksonville Jaguars",
-       "score": "41",
-       "winner": true,
-       "q": [
-        "7",
-        "24",
-        "3",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "10",
-       "abbr": "TEN",
-       "name": "Tennessee Titans",
-       "score": "7",
-       "winner": false,
-       "q": [
-        "7",
-        "0",
-        "0",
-        "0"
-       ]
-      },
-      "venue": "EverBank Stadium, Jacksonville"
      }
     ],
     "next": {
-     "id": "401873057",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873069",
+     "date": "2026-11-22T21:25Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "10",
-      "abbr": "TEN",
-      "name": "Tennessee Titans",
+      "id": "19",
+      "abbr": "NYG",
+      "name": "New York Giants",
       "score": null,
       "winner": false,
       "q": null
@@ -8898,7 +8898,7 @@
       "winner": false,
       "q": null
      },
-     "venue": "Nissan Stadium, Nashville"
+     "venue": "MetLife Stadium, East Rutherford"
     }
    },
    "KC": {
@@ -8910,14 +8910,51 @@
     "color": "e31837",
     "alt": "ffb612",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
-    "standing": "2nd in AFC West",
+    "standing": "1st in AFC West",
     "record": {
-     "total": "6-2",
+     "total": "7-2",
      "home": "4-0",
-     "road": "2-2"
+     "road": "3-2"
     },
     "venue": "Arrowhead Stadium, Kansas City, MO",
     "last10": [
+     {
+      "id": "401873058",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "1",
+       "abbr": "ATL",
+       "name": "Atlanta Falcons",
+       "score": "13",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "0",
+        "10"
+       ]
+      },
+      "away": {
+       "id": "12",
+       "abbr": "KC",
+       "name": "Kansas City Chiefs",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "7",
+        "7",
+        "7",
+        "14"
+       ]
+      },
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+     },
      {
       "id": "401873045",
       "date": "2026-11-08T18:00Z",
@@ -9252,63 +9289,18 @@
        ]
       },
       "venue": "Allegiant Stadium, Las Vegas"
-     },
-     {
-      "id": "401772622",
-      "date": "2025-12-26T01:15Z",
-      "week": 17,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "12",
-       "abbr": "KC",
-       "name": "Kansas City Chiefs",
-       "score": "13",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "3",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "7",
-       "abbr": "DEN",
-       "name": "Denver Broncos",
-       "score": "20",
-       "winner": true,
-       "q": [
-        "3",
-        "3",
-        "7",
-        "7"
-       ]
-      },
-      "venue": "Arrowhead Stadium, Kansas City"
      }
     ],
     "next": {
-     "id": "401873058",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873067",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "1",
-      "abbr": "ATL",
-      "name": "Atlanta Falcons",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
       "id": "12",
       "abbr": "KC",
       "name": "Kansas City Chiefs",
@@ -9316,7 +9308,15 @@
       "winner": false,
       "q": null
      },
-     "venue": "Mercedes-Benz Stadium, Atlanta"
+     "away": {
+      "id": "22",
+      "abbr": "ARI",
+      "name": "Arizona Cardinals",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "Arrowhead Stadium, Kansas City"
     }
    },
    "LV": {
@@ -9330,12 +9330,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
     "standing": "3rd in AFC West",
     "record": {
-     "total": "4-5",
-     "home": "1-3",
+     "total": "4-6",
+     "home": "1-4",
      "road": "3-2"
     },
     "venue": "Allegiant Stadium, Las Vegas, NV",
     "last10": [
+     {
+      "id": "401873062",
+      "date": "2026-11-15T21:05Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "13",
+       "abbr": "LV",
+       "name": "Las Vegas Raiders",
+       "score": "13",
+       "winner": false,
+       "q": [
+        "7",
+        "3",
+        "0",
+        "3"
+       ]
+      },
+      "away": {
+       "id": "26",
+       "abbr": "SEA",
+       "name": "Seattle Seahawks",
+       "score": "21",
+       "winner": true,
+       "q": [
+        "7",
+        "0",
+        "14",
+        "0"
+       ]
+      },
+      "venue": "Allegiant Stadium, Las Vegas"
+     },
      {
       "id": "401873047",
       "date": "2026-11-08T21:25Z",
@@ -9668,55 +9705,26 @@
        ]
       },
       "venue": "Allegiant Stadium, Las Vegas"
-     },
-     {
-      "id": "401772957",
-      "date": "2026-01-04T21:25Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "13",
-       "abbr": "LV",
-       "name": "Las Vegas Raiders",
-       "score": "14",
-       "winner": true,
-       "q": [
-        "0",
-        "6",
-        "0",
-        "8"
-       ]
-      },
-      "away": {
-       "id": "12",
-       "abbr": "KC",
-       "name": "Kansas City Chiefs",
-       "score": "12",
-       "winner": false,
-       "q": [
-        "3",
-        "0",
-        "3",
-        "6"
-       ]
-      },
-      "venue": "Allegiant Stadium, Las Vegas"
      }
     ],
     "next": {
-     "id": "401873062",
-     "date": "2026-11-15T21:05Z",
-     "week": 10,
+     "id": "401873075",
+     "date": "2026-11-22T21:25Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
+      "id": "7",
+      "abbr": "DEN",
+      "name": "Denver Broncos",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
       "id": "13",
       "abbr": "LV",
       "name": "Las Vegas Raiders",
@@ -9724,433 +9732,7 @@
       "winner": false,
       "q": null
      },
-     "away": {
-      "id": "26",
-      "abbr": "SEA",
-      "name": "Seattle Seahawks",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "Allegiant Stadium, Las Vegas"
-    }
-   },
-   "LAR": {
-    "id": "14",
-    "abbr": "LAR",
-    "name": "Los Angeles Rams",
-    "short": "Rams",
-    "location": "Los Angeles",
-    "color": "003594",
-    "alt": "ffd100",
-    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
-    "standing": "2nd in NFC West",
-    "record": {
-     "total": "5-4",
-     "home": "2-3",
-     "road": "3-1"
-    },
-    "venue": "Los Angeles Memorial Coliseum, Los Angeles, CA",
-    "last10": [
-     {
-      "id": "401873043",
-      "date": "2026-11-08T18:00Z",
-      "week": 9,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "28",
-       "abbr": "WSH",
-       "name": "Washington Commanders",
-       "score": "13",
-       "winner": false,
-       "q": [
-        "3",
-        "7",
-        "3",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "20",
-       "winner": true,
-       "q": [
-        "3",
-        "3",
-        "7",
-        "7"
-       ]
-      },
-      "venue": "Northwest Stadium, Landover"
-     },
-     {
-      "id": "401873032",
-      "date": "2026-11-01T21:05Z",
-      "week": 8,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "24",
-       "winner": true,
-       "q": [
-        "3",
-        "7",
-        "14",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "24",
-       "abbr": "LAC",
-       "name": "Los Angeles Chargers",
-       "score": "9",
-       "winner": false,
-       "q": [
-        "3",
-        "6",
-        "0",
-        "0"
-       ]
-      },
-      "venue": "SoFi Stadium, Inglewood"
-     },
-     {
-      "id": "401873021",
-      "date": "2026-10-25T20:25Z",
-      "week": 7,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "13",
-       "abbr": "LV",
-       "name": "Las Vegas Raiders",
-       "score": "21",
-       "winner": false,
-       "q": [
-        "3",
-        "3",
-        "0",
-        "15"
-       ]
-      },
-      "away": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "35",
-       "winner": true,
-       "q": [
-        "7",
-        "21",
-        "0",
-        "7"
-       ]
-      },
-      "venue": "Allegiant Stadium, Las Vegas"
-     },
-     {
-      "id": "401873004",
-      "date": "2026-10-18T20:05Z",
-      "week": 6,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "16",
-       "winner": false,
-       "q": [
-        "3",
-        "6",
-        "0",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "22",
-       "abbr": "ARI",
-       "name": "Arizona Cardinals",
-       "score": "18",
-       "winner": true,
-       "q": [
-        "3",
-        "6",
-        "3",
-        "6"
-       ]
-      },
-      "venue": "SoFi Stadium, Inglewood"
-     },
-     {
-      "id": "401872994",
-      "date": "2026-10-13T00:15Z",
-      "week": 5,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "34",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "7",
-        "20",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "2",
-       "abbr": "BUF",
-       "name": "Buffalo Bills",
-       "score": "37",
-       "winner": true,
-       "q": [
-        "6",
-        "7",
-        "6",
-        "15",
-        "3"
-       ]
-      },
-      "venue": "SoFi Stadium, Inglewood"
-     },
-     {
-      "id": "401872970",
-      "date": "2026-10-04T17:00Z",
-      "week": 4,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "21",
-       "abbr": "PHI",
-       "name": "Philadelphia Eagles",
-       "score": "20",
-       "winner": false,
-       "q": [
-        "3",
-        "17",
-        "0",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "24",
-       "winner": true,
-       "q": [
-        "3",
-        "7",
-        "0",
-        "14"
-       ]
-      },
-      "venue": "Lincoln Financial Field, Philadelphia"
-     },
-     {
-      "id": "401872962",
-      "date": "2026-09-28T00:20Z",
-      "week": 3,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "7",
-       "abbr": "DEN",
-       "name": "Denver Broncos",
-       "score": "30",
-       "winner": true,
-       "q": [
-        "0",
-        "0",
-        "16",
-        "14"
-       ]
-      },
-      "away": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "26",
-       "winner": false,
-       "q": [
-        "7",
-        "9",
-        "0",
-        "10"
-       ]
-      },
-      "venue": "Empower Field at Mile High, Denver"
-     },
-     {
-      "id": "401872947",
-      "date": "2026-09-22T00:15Z",
-      "week": 2,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "28",
-       "winner": true,
-       "q": [
-        "7",
-        "7",
-        "7",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "19",
-       "abbr": "NYG",
-       "name": "New York Giants",
-       "score": "6",
-       "winner": false,
-       "q": [
-        "0",
-        "3",
-        "3",
-        "0"
-       ]
-      },
-      "venue": "SoFi Stadium, Inglewood"
-     },
-     {
-      "id": "401872657",
-      "date": "2026-09-11T00:35Z",
-      "week": 1,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "7",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "25",
-       "abbr": "SF",
-       "name": "San Francisco 49ers",
-       "score": "27",
-       "winner": true,
-       "q": [
-        "3",
-        "7",
-        "7",
-        "10"
-       ]
-      },
-      "venue": "Melbourne Cricket Ground, Melbourne"
-     },
-     {
-      "id": "401772987",
-      "date": "2026-01-25T23:30Z",
-      "week": 3,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "26",
-       "abbr": "SEA",
-       "name": "Seattle Seahawks",
-       "score": "31",
-       "winner": true,
-       "q": [
-        "10",
-        "7",
-        "14",
-        "0"
-       ]
-      },
-      "away": {
-       "id": "14",
-       "abbr": "LAR",
-       "name": "Los Angeles Rams",
-       "score": "27",
-       "winner": false,
-       "q": [
-        "3",
-        "10",
-        "14",
-        "0"
-       ]
-      },
-      "venue": "Lumen Field, Seattle"
-     }
-    ],
-    "next": {
-     "id": "401873061",
-     "date": "2026-11-15T21:05Z",
-     "week": 10,
-     "season": "2026",
-     "type": "reg",
-     "stype": 2,
-     "completed": false,
-     "timeValid": true,
-     "home": {
-      "id": "22",
-      "abbr": "ARI",
-      "name": "Arizona Cardinals",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
-      "id": "14",
-      "abbr": "LAR",
-      "name": "Los Angeles Rams",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "State Farm Stadium, Glendale"
+     "venue": "Empower Field at Mile High, Denver"
     }
    },
    "LAC": {
@@ -10569,6 +10151,424 @@
      "venue": "M&T Bank Stadium, Baltimore"
     }
    },
+   "LAR": {
+    "id": "14",
+    "abbr": "LAR",
+    "name": "Los Angeles Rams",
+    "short": "Rams",
+    "location": "Los Angeles",
+    "color": "003594",
+    "alt": "ffd100",
+    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+    "standing": "2nd in NFC West",
+    "record": {
+     "total": "6-4",
+     "home": "2-3",
+     "road": "4-1"
+    },
+    "venue": "Los Angeles Memorial Coliseum, Los Angeles, CA",
+    "last10": [
+     {
+      "id": "401873061",
+      "date": "2026-11-15T21:05Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "22",
+       "abbr": "ARI",
+       "name": "Arizona Cardinals",
+       "score": "6",
+       "winner": false,
+       "q": [
+        "6",
+        "0",
+        "0",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "34",
+       "winner": true,
+       "q": [
+        "3",
+        "14",
+        "14",
+        "3"
+       ]
+      },
+      "venue": "State Farm Stadium, Glendale"
+     },
+     {
+      "id": "401873043",
+      "date": "2026-11-08T18:00Z",
+      "week": 9,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "28",
+       "abbr": "WSH",
+       "name": "Washington Commanders",
+       "score": "13",
+       "winner": false,
+       "q": [
+        "3",
+        "7",
+        "3",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "20",
+       "winner": true,
+       "q": [
+        "3",
+        "3",
+        "7",
+        "7"
+       ]
+      },
+      "venue": "Northwest Stadium, Landover"
+     },
+     {
+      "id": "401873032",
+      "date": "2026-11-01T21:05Z",
+      "week": 8,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "24",
+       "winner": true,
+       "q": [
+        "3",
+        "7",
+        "14",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "24",
+       "abbr": "LAC",
+       "name": "Los Angeles Chargers",
+       "score": "9",
+       "winner": false,
+       "q": [
+        "3",
+        "6",
+        "0",
+        "0"
+       ]
+      },
+      "venue": "SoFi Stadium, Inglewood"
+     },
+     {
+      "id": "401873021",
+      "date": "2026-10-25T20:25Z",
+      "week": 7,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "13",
+       "abbr": "LV",
+       "name": "Las Vegas Raiders",
+       "score": "21",
+       "winner": false,
+       "q": [
+        "3",
+        "3",
+        "0",
+        "15"
+       ]
+      },
+      "away": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "7",
+        "21",
+        "0",
+        "7"
+       ]
+      },
+      "venue": "Allegiant Stadium, Las Vegas"
+     },
+     {
+      "id": "401873004",
+      "date": "2026-10-18T20:05Z",
+      "week": 6,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "16",
+       "winner": false,
+       "q": [
+        "3",
+        "6",
+        "0",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "22",
+       "abbr": "ARI",
+       "name": "Arizona Cardinals",
+       "score": "18",
+       "winner": true,
+       "q": [
+        "3",
+        "6",
+        "3",
+        "6"
+       ]
+      },
+      "venue": "SoFi Stadium, Inglewood"
+     },
+     {
+      "id": "401872994",
+      "date": "2026-10-13T00:15Z",
+      "week": 5,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "34",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "7",
+        "20",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "2",
+       "abbr": "BUF",
+       "name": "Buffalo Bills",
+       "score": "37",
+       "winner": true,
+       "q": [
+        "6",
+        "7",
+        "6",
+        "15",
+        "3"
+       ]
+      },
+      "venue": "SoFi Stadium, Inglewood"
+     },
+     {
+      "id": "401872970",
+      "date": "2026-10-04T17:00Z",
+      "week": 4,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "21",
+       "abbr": "PHI",
+       "name": "Philadelphia Eagles",
+       "score": "20",
+       "winner": false,
+       "q": [
+        "3",
+        "17",
+        "0",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "24",
+       "winner": true,
+       "q": [
+        "3",
+        "7",
+        "0",
+        "14"
+       ]
+      },
+      "venue": "Lincoln Financial Field, Philadelphia"
+     },
+     {
+      "id": "401872962",
+      "date": "2026-09-28T00:20Z",
+      "week": 3,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "7",
+       "abbr": "DEN",
+       "name": "Denver Broncos",
+       "score": "30",
+       "winner": true,
+       "q": [
+        "0",
+        "0",
+        "16",
+        "14"
+       ]
+      },
+      "away": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "26",
+       "winner": false,
+       "q": [
+        "7",
+        "9",
+        "0",
+        "10"
+       ]
+      },
+      "venue": "Empower Field at Mile High, Denver"
+     },
+     {
+      "id": "401872947",
+      "date": "2026-09-22T00:15Z",
+      "week": 2,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "28",
+       "winner": true,
+       "q": [
+        "7",
+        "7",
+        "7",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "19",
+       "abbr": "NYG",
+       "name": "New York Giants",
+       "score": "6",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "3",
+        "0"
+       ]
+      },
+      "venue": "SoFi Stadium, Inglewood"
+     },
+     {
+      "id": "401872657",
+      "date": "2026-09-11T00:35Z",
+      "week": 1,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "14",
+       "abbr": "LAR",
+       "name": "Los Angeles Rams",
+       "score": "7",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "0",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "25",
+       "abbr": "SF",
+       "name": "San Francisco 49ers",
+       "score": "27",
+       "winner": true,
+       "q": [
+        "3",
+        "7",
+        "7",
+        "10"
+       ]
+      },
+      "venue": "Melbourne Cricket Ground, Melbourne"
+     }
+    ],
+    "next": {
+     "id": "401873079",
+     "date": "2026-11-26T01:00Z",
+     "week": 12,
+     "season": "2026",
+     "type": "reg",
+     "stype": 2,
+     "completed": false,
+     "timeValid": true,
+     "home": {
+      "id": "14",
+      "abbr": "LAR",
+      "name": "Los Angeles Rams",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
+      "id": "9",
+      "abbr": "GB",
+      "name": "Green Bay Packers",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "SoFi Stadium, Inglewood"
+    }
+   },
    "MIA": {
     "id": "15",
     "abbr": "MIA",
@@ -10580,12 +10580,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
     "standing": "4th in AFC East",
     "record": {
-     "total": "1-7",
+     "total": "1-8",
      "home": "0-4",
-     "road": "1-3"
+     "road": "1-4"
     },
     "venue": "Hard Rock Stadium, Miami Gardens, FL",
     "last10": [
+     {
+      "id": "401873059",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "11",
+       "abbr": "IND",
+       "name": "Indianapolis Colts",
+       "score": "24",
+       "winner": true,
+       "q": [
+        "0",
+        "14",
+        "10",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "15",
+       "abbr": "MIA",
+       "name": "Miami Dolphins",
+       "score": "22",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "9",
+        "6"
+       ]
+      },
+      "venue": "Lucas Oil Stadium, Indianapolis"
+     },
      {
       "id": "401873042",
       "date": "2026-11-08T18:00Z",
@@ -10918,58 +10955,21 @@
        ]
       },
       "venue": "Gillette Stadium, Foxborough"
-     },
-     {
-      "id": "401772916",
-      "date": "2025-12-28T18:00Z",
-      "week": 17,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "15",
-       "abbr": "MIA",
-       "name": "Miami Dolphins",
-       "score": "20",
-       "winner": true,
-       "q": [
-        "7",
-        "10",
-        "0",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "27",
-       "abbr": "TB",
-       "name": "Tampa Bay Buccaneers",
-       "score": "17",
-       "winner": false,
-       "q": [
-        "7",
-        "0",
-        "3",
-        "7"
-       ]
-      },
-      "venue": "Hard Rock Stadium, Miami Gardens"
      }
     ],
     "next": {
-     "id": "401873059",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873070",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "11",
-      "abbr": "IND",
-      "name": "Indianapolis Colts",
+      "id": "2",
+      "abbr": "BUF",
+      "name": "Buffalo Bills",
       "score": null,
       "winner": false,
       "q": null
@@ -10982,7 +10982,7 @@
       "winner": false,
       "q": null
      },
-     "venue": "Lucas Oil Stadium, Indianapolis"
+     "venue": "Highmark Stadium, Orchard Park"
     }
    },
    "MIN": {
@@ -10996,12 +10996,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
     "standing": "5th in National Football Conference",
     "record": {
-     "total": "6-2",
+     "total": "7-2",
      "home": "3-1",
-     "road": "3-1"
+     "road": "4-1"
     },
     "venue": "U.S. Bank Stadium, Minneapolis, MN",
     "last10": [
+     {
+      "id": "401873060",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "9",
+       "abbr": "GB",
+       "name": "Green Bay Packers",
+       "score": "10",
+       "winner": false,
+       "q": [
+        "0",
+        "0",
+        "10",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "16",
+       "abbr": "MIN",
+       "name": "Minnesota Vikings",
+       "score": "30",
+       "winner": true,
+       "q": [
+        "10",
+        "7",
+        "3",
+        "10"
+       ]
+      },
+      "venue": "Lambeau Field, Green Bay"
+     },
      {
       "id": "401873051",
       "date": "2026-11-10T01:15Z",
@@ -11334,58 +11371,21 @@
        ]
       },
       "venue": "U.S. Bank Stadium, Minneapolis"
-     },
-     {
-      "id": "401772711",
-      "date": "2025-12-25T21:30Z",
-      "week": 17,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "16",
-       "abbr": "MIN",
-       "name": "Minnesota Vikings",
-       "score": "23",
-       "winner": true,
-       "q": [
-        "7",
-        "0",
-        "6",
-        "10"
-       ]
-      },
-      "away": {
-       "id": "8",
-       "abbr": "DET",
-       "name": "Detroit Lions",
-       "score": "10",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "0",
-        "3"
-       ]
-      },
-      "venue": "U.S. Bank Stadium, Minneapolis"
      }
     ],
     "next": {
-     "id": "401873060",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873077",
+     "date": "2026-11-23T01:20Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "9",
-      "abbr": "GB",
-      "name": "Green Bay Packers",
+      "id": "25",
+      "abbr": "SF",
+      "name": "San Francisco 49ers",
       "score": null,
       "winner": false,
       "q": null
@@ -11398,7 +11398,423 @@
       "winner": false,
       "q": null
      },
-     "venue": "Lambeau Field, Green Bay"
+     "venue": "Estadio Banorte, Mexico City"
+    }
+   },
+   "NE": {
+    "id": "17",
+    "abbr": "NE",
+    "name": "New England Patriots",
+    "short": "Patriots",
+    "location": "New England",
+    "color": "002a5c",
+    "alt": "c60c30",
+    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+    "standing": "2nd in AFC East",
+    "record": {
+     "total": "5-5",
+     "home": "3-1",
+     "road": "2-4"
+    },
+    "venue": "Gillette Stadium, Foxborough, MA",
+    "last10": [
+     {
+      "id": "401873053",
+      "date": "2026-11-15T14:30Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "8",
+       "abbr": "DET",
+       "name": "Detroit Lions",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "7",
+        "14",
+        "7",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "10",
+       "winner": false,
+       "q": [
+        "3",
+        "0",
+        "0",
+        "7"
+       ]
+      },
+      "venue": "FC Bayern Munich Stadium, Munich"
+     },
+     {
+      "id": "401873049",
+      "date": "2026-11-08T21:25Z",
+      "week": 9,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "27",
+       "winner": false,
+       "q": [
+        "0",
+        "14",
+        "7",
+        "6"
+       ]
+      },
+      "away": {
+       "id": "9",
+       "abbr": "GB",
+       "name": "Green Bay Packers",
+       "score": "45",
+       "winner": true,
+       "q": [
+        "14",
+        "10",
+        "18",
+        "3"
+       ]
+      },
+      "venue": "Gillette Stadium, Foxborough"
+     },
+     {
+      "id": "401873034",
+      "date": "2026-11-01T21:25Z",
+      "week": 8,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "15",
+       "abbr": "MIA",
+       "name": "Miami Dolphins",
+       "score": "19",
+       "winner": false,
+       "q": [
+        "3",
+        "10",
+        "0",
+        "6"
+       ]
+      },
+      "away": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "24",
+       "winner": true,
+       "q": [
+        "3",
+        "0",
+        "14",
+        "7"
+       ]
+      },
+      "venue": "Hard Rock Stadium, Miami Gardens"
+     },
+     {
+      "id": "401873010",
+      "date": "2026-10-23T00:15Z",
+      "week": 7,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "3",
+       "abbr": "CHI",
+       "name": "Chicago Bears",
+       "score": "30",
+       "winner": true,
+       "q": [
+        "10",
+        "10",
+        "7",
+        "3"
+       ]
+      },
+      "away": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "24",
+       "winner": false,
+       "q": [
+        "0",
+        "14",
+        "7",
+        "3"
+       ]
+      },
+      "venue": "Soldier Field, Chicago"
+     },
+     {
+      "id": "401873001",
+      "date": "2026-10-18T17:00Z",
+      "week": 6,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "26",
+       "winner": true,
+       "q": [
+        "7",
+        "10",
+        "0",
+        "9"
+       ]
+      },
+      "away": {
+       "id": "20",
+       "abbr": "NYJ",
+       "name": "New York Jets",
+       "score": "19",
+       "winner": false,
+       "q": [
+        "3",
+        "0",
+        "10",
+        "6"
+       ]
+      },
+      "venue": "Gillette Stadium, Foxborough"
+     },
+     {
+      "id": "401872986",
+      "date": "2026-10-11T17:00Z",
+      "week": 5,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "45",
+       "winner": true,
+       "q": [
+        "14",
+        "7",
+        "14",
+        "10"
+       ]
+      },
+      "away": {
+       "id": "13",
+       "abbr": "LV",
+       "name": "Las Vegas Raiders",
+       "score": "17",
+       "winner": false,
+       "q": [
+        "7",
+        "0",
+        "3",
+        "7"
+       ]
+      },
+      "venue": "Gillette Stadium, Foxborough"
+     },
+     {
+      "id": "401872971",
+      "date": "2026-10-04T17:00Z",
+      "week": 4,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "2",
+       "abbr": "BUF",
+       "name": "Buffalo Bills",
+       "score": "26",
+       "winner": false,
+       "q": [
+        "0",
+        "17",
+        "0",
+        "9"
+       ]
+      },
+      "away": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "29",
+       "winner": true,
+       "q": [
+        "7",
+        "7",
+        "7",
+        "8"
+       ]
+      },
+      "venue": "Highmark Stadium, Orchard Park"
+     },
+     {
+      "id": "401872957",
+      "date": "2026-09-27T17:00Z",
+      "week": 3,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "30",
+       "abbr": "JAX",
+       "name": "Jacksonville Jaguars",
+       "score": "35",
+       "winner": true,
+       "q": [
+        "0",
+        "14",
+        "14",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "6",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "0",
+        "3"
+       ]
+      },
+      "venue": "EverBank Stadium, Jacksonville"
+     },
+     {
+      "id": "401872946",
+      "date": "2026-09-20T17:00Z",
+      "week": 2,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "20",
+       "winner": true,
+       "q": [
+        "7",
+        "3",
+        "3",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "23",
+       "abbr": "PIT",
+       "name": "Pittsburgh Steelers",
+       "score": "3",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "0",
+        "0"
+       ]
+      },
+      "venue": "Gillette Stadium, Foxborough"
+     },
+     {
+      "id": "401872656",
+      "date": "2026-09-10T00:20Z",
+      "week": 1,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "26",
+       "abbr": "SEA",
+       "name": "Seattle Seahawks",
+       "score": "13",
+       "winner": true,
+       "q": [
+        "0",
+        "0",
+        "3",
+        "10"
+       ]
+      },
+      "away": {
+       "id": "17",
+       "abbr": "NE",
+       "name": "New England Patriots",
+       "score": "10",
+       "winner": false,
+       "q": [
+        "0",
+        "7",
+        "3",
+        "0"
+       ]
+      },
+      "venue": "Lumen Field, Seattle"
+     }
+    ],
+    "next": {
+     "id": "401873093",
+     "date": "2026-11-30T01:20Z",
+     "week": 12,
+     "season": "2026",
+     "type": "reg",
+     "stype": 2,
+     "completed": false,
+     "timeValid": true,
+     "home": {
+      "id": "24",
+      "abbr": "LAC",
+      "name": "Los Angeles Chargers",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
+      "id": "17",
+      "abbr": "NE",
+      "name": "New England Patriots",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "SoFi Stadium, Inglewood"
     }
    },
    "NO": {
@@ -11410,14 +11826,51 @@
     "color": "d3bc8d",
     "alt": "000000",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png",
-    "standing": "11th in National Football Conference",
+    "standing": "12th in National Football Conference",
     "record": {
-     "total": "3-5",
-     "home": "1-4",
+     "total": "3-6",
+     "home": "1-5",
      "road": "2-1"
     },
     "venue": "Caesars Superdome, New Orleans, LA",
     "last10": [
+     {
+      "id": "401873055",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "18",
+       "abbr": "NO",
+       "name": "New Orleans Saints",
+       "score": "17",
+       "winner": false,
+       "q": [
+        "0",
+        "0",
+        "7",
+        "10"
+       ]
+      },
+      "away": {
+       "id": "29",
+       "abbr": "CAR",
+       "name": "Carolina Panthers",
+       "score": "20",
+       "winner": true,
+       "q": [
+        "0",
+        "7",
+        "3",
+        "10"
+       ]
+      },
+      "venue": "Caesars Superdome, New Orleans"
+     },
      {
       "id": "401873039",
       "date": "2026-11-08T18:00Z",
@@ -11754,55 +12207,26 @@
        ]
       },
       "venue": "Mercedes-Benz Stadium, Atlanta"
-     },
-     {
-      "id": "401772809",
-      "date": "2025-12-28T18:00Z",
-      "week": 17,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "10",
-       "abbr": "TEN",
-       "name": "Tennessee Titans",
-       "score": "26",
-       "winner": false,
-       "q": [
-        "6",
-        "14",
-        "3",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "18",
-       "abbr": "NO",
-       "name": "New Orleans Saints",
-       "score": "34",
-       "winner": true,
-       "q": [
-        "0",
-        "10",
-        "10",
-        "14"
-       ]
-      },
-      "venue": "Nissan Stadium, Nashville"
      }
     ],
     "next": {
-     "id": "401873055",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873071",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
+      "id": "3",
+      "abbr": "CHI",
+      "name": "Chicago Bears",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
       "id": "18",
       "abbr": "NO",
       "name": "New Orleans Saints",
@@ -11810,431 +12234,7 @@
       "winner": false,
       "q": null
      },
-     "away": {
-      "id": "29",
-      "abbr": "CAR",
-      "name": "Carolina Panthers",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "Caesars Superdome, New Orleans"
-    }
-   },
-   "NE": {
-    "id": "17",
-    "abbr": "NE",
-    "name": "New England Patriots",
-    "short": "Patriots",
-    "location": "New England",
-    "color": "002a5c",
-    "alt": "c60c30",
-    "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
-    "standing": "2nd in AFC East",
-    "record": {
-     "total": "5-4",
-     "home": "3-1",
-     "road": "2-3"
-    },
-    "venue": "Gillette Stadium, Foxborough, MA",
-    "last10": [
-     {
-      "id": "401873049",
-      "date": "2026-11-08T21:25Z",
-      "week": 9,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "27",
-       "winner": false,
-       "q": [
-        "0",
-        "14",
-        "7",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "9",
-       "abbr": "GB",
-       "name": "Green Bay Packers",
-       "score": "45",
-       "winner": true,
-       "q": [
-        "14",
-        "10",
-        "18",
-        "3"
-       ]
-      },
-      "venue": "Gillette Stadium, Foxborough"
-     },
-     {
-      "id": "401873034",
-      "date": "2026-11-01T21:25Z",
-      "week": 8,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "15",
-       "abbr": "MIA",
-       "name": "Miami Dolphins",
-       "score": "19",
-       "winner": false,
-       "q": [
-        "3",
-        "10",
-        "0",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "24",
-       "winner": true,
-       "q": [
-        "3",
-        "0",
-        "14",
-        "7"
-       ]
-      },
-      "venue": "Hard Rock Stadium, Miami Gardens"
-     },
-     {
-      "id": "401873010",
-      "date": "2026-10-23T00:15Z",
-      "week": 7,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "3",
-       "abbr": "CHI",
-       "name": "Chicago Bears",
-       "score": "30",
-       "winner": true,
-       "q": [
-        "10",
-        "10",
-        "7",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "24",
-       "winner": false,
-       "q": [
-        "0",
-        "14",
-        "7",
-        "3"
-       ]
-      },
-      "venue": "Soldier Field, Chicago"
-     },
-     {
-      "id": "401873001",
-      "date": "2026-10-18T17:00Z",
-      "week": 6,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "26",
-       "winner": true,
-       "q": [
-        "7",
-        "10",
-        "0",
-        "9"
-       ]
-      },
-      "away": {
-       "id": "20",
-       "abbr": "NYJ",
-       "name": "New York Jets",
-       "score": "19",
-       "winner": false,
-       "q": [
-        "3",
-        "0",
-        "10",
-        "6"
-       ]
-      },
-      "venue": "Gillette Stadium, Foxborough"
-     },
-     {
-      "id": "401872986",
-      "date": "2026-10-11T17:00Z",
-      "week": 5,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "45",
-       "winner": true,
-       "q": [
-        "14",
-        "7",
-        "14",
-        "10"
-       ]
-      },
-      "away": {
-       "id": "13",
-       "abbr": "LV",
-       "name": "Las Vegas Raiders",
-       "score": "17",
-       "winner": false,
-       "q": [
-        "7",
-        "0",
-        "3",
-        "7"
-       ]
-      },
-      "venue": "Gillette Stadium, Foxborough"
-     },
-     {
-      "id": "401872971",
-      "date": "2026-10-04T17:00Z",
-      "week": 4,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "2",
-       "abbr": "BUF",
-       "name": "Buffalo Bills",
-       "score": "26",
-       "winner": false,
-       "q": [
-        "0",
-        "17",
-        "0",
-        "9"
-       ]
-      },
-      "away": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "29",
-       "winner": true,
-       "q": [
-        "7",
-        "7",
-        "7",
-        "8"
-       ]
-      },
-      "venue": "Highmark Stadium, Orchard Park"
-     },
-     {
-      "id": "401872957",
-      "date": "2026-09-27T17:00Z",
-      "week": 3,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "30",
-       "abbr": "JAX",
-       "name": "Jacksonville Jaguars",
-       "score": "35",
-       "winner": true,
-       "q": [
-        "0",
-        "14",
-        "14",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "6",
-       "winner": false,
-       "q": [
-        "0",
-        "3",
-        "0",
-        "3"
-       ]
-      },
-      "venue": "EverBank Stadium, Jacksonville"
-     },
-     {
-      "id": "401872946",
-      "date": "2026-09-20T17:00Z",
-      "week": 2,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "20",
-       "winner": true,
-       "q": [
-        "7",
-        "3",
-        "3",
-        "7"
-       ]
-      },
-      "away": {
-       "id": "23",
-       "abbr": "PIT",
-       "name": "Pittsburgh Steelers",
-       "score": "3",
-       "winner": false,
-       "q": [
-        "0",
-        "3",
-        "0",
-        "0"
-       ]
-      },
-      "venue": "Gillette Stadium, Foxborough"
-     },
-     {
-      "id": "401872656",
-      "date": "2026-09-10T00:20Z",
-      "week": 1,
-      "season": "2026",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "26",
-       "abbr": "SEA",
-       "name": "Seattle Seahawks",
-       "score": "13",
-       "winner": true,
-       "q": [
-        "0",
-        "0",
-        "3",
-        "10"
-       ]
-      },
-      "away": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "10",
-       "winner": false,
-       "q": [
-        "0",
-        "7",
-        "3",
-        "0"
-       ]
-      },
-      "venue": "Lumen Field, Seattle"
-     },
-     {
-      "id": "401772988",
-      "date": "2026-02-08T23:30Z",
-      "week": 5,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "13",
-       "winner": false,
-       "q": [
-        "0",
-        "0",
-        "0",
-        "13"
-       ]
-      },
-      "away": {
-       "id": "26",
-       "abbr": "SEA",
-       "name": "Seattle Seahawks",
-       "score": "29",
-       "winner": true,
-       "q": [
-        "3",
-        "6",
-        "3",
-        "17"
-       ]
-      },
-      "venue": "Levi's Stadium, Santa Clara"
-     }
-    ],
-    "next": {
-     "id": "401873053",
-     "date": "2026-11-15T14:30Z",
-     "week": 10,
-     "season": "2026",
-     "type": "reg",
-     "stype": 2,
-     "completed": false,
-     "timeValid": true,
-     "home": {
-      "id": "8",
-      "abbr": "DET",
-      "name": "Detroit Lions",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
-      "id": "17",
-      "abbr": "NE",
-      "name": "New England Patriots",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "FC Bayern Munich Stadium, Munich"
+     "venue": "Soldier Field, Chicago"
     }
    },
    "NYG": {
@@ -12668,12 +12668,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
     "standing": "3rd in AFC East",
     "record": {
-     "total": "2-7",
-     "home": "1-3",
+     "total": "2-8",
+     "home": "1-4",
      "road": "1-4"
     },
     "venue": "MetLife Stadium, East Rutherford, NJ",
     "last10": [
+     {
+      "id": "401873054",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "20",
+       "abbr": "NYJ",
+       "name": "New York Jets",
+       "score": "12",
+       "winner": false,
+       "q": [
+        "0",
+        "6",
+        "6",
+        "0"
+       ]
+      },
+      "away": {
+       "id": "2",
+       "abbr": "BUF",
+       "name": "Buffalo Bills",
+       "score": "31",
+       "winner": true,
+       "q": [
+        "7",
+        "3",
+        "14",
+        "7"
+       ]
+      },
+      "venue": "MetLife Stadium, East Rutherford"
+     },
      {
       "id": "401873045",
       "date": "2026-11-08T18:00Z",
@@ -13008,55 +13045,26 @@
        ]
       },
       "venue": "Nissan Stadium, Nashville"
-     },
-     {
-      "id": "401772967",
-      "date": "2026-01-04T21:25Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "2",
-       "abbr": "BUF",
-       "name": "Buffalo Bills",
-       "score": "35",
-       "winner": true,
-       "q": [
-        "7",
-        "14",
-        "8",
-        "6"
-       ]
-      },
-      "away": {
-       "id": "20",
-       "abbr": "NYJ",
-       "name": "New York Jets",
-       "score": "8",
-       "winner": false,
-       "q": [
-        "0",
-        "0",
-        "0",
-        "8"
-       ]
-      },
-      "venue": "Highmark Stadium (Old), Orchard Park"
      }
     ],
     "next": {
-     "id": "401873054",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873074",
+     "date": "2026-11-22T21:05Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
+      "id": "24",
+      "abbr": "LAC",
+      "name": "Los Angeles Chargers",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
       "id": "20",
       "abbr": "NYJ",
       "name": "New York Jets",
@@ -13064,15 +13072,7 @@
       "winner": false,
       "q": null
      },
-     "away": {
-      "id": "2",
-      "abbr": "BUF",
-      "name": "Buffalo Bills",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "MetLife Stadium, East Rutherford"
+     "venue": "SoFi Stadium, Inglewood"
     }
    },
    "PHI": {
@@ -13500,14 +13500,51 @@
     "color": "000000",
     "alt": "ffb612",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
-    "standing": "3rd in American Football Conference",
+    "standing": "6th in American Football Conference",
     "record": {
-     "total": "6-2",
+     "total": "6-3",
      "home": "4-0",
-     "road": "2-2"
+     "road": "2-3"
     },
     "venue": "Acrisure Stadium, Pittsburgh, PA",
     "last10": [
+     {
+      "id": "401873064",
+      "date": "2026-11-16T01:20Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "4",
+       "abbr": "CIN",
+       "name": "Cincinnati Bengals",
+       "score": "38",
+       "winner": true,
+       "q": [
+        "3",
+        "21",
+        "7",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "23",
+       "abbr": "PIT",
+       "name": "Pittsburgh Steelers",
+       "score": "18",
+       "winner": false,
+       "q": [
+        "0",
+        "3",
+        "0",
+        "15"
+       ]
+      },
+      "venue": "Paycor Stadium, Cincinnati"
+     },
      {
       "id": "401873027",
       "date": "2026-11-01T18:00Z",
@@ -13842,58 +13879,21 @@
        ]
       },
       "venue": "Acrisure Stadium, Pittsburgh"
-     },
-     {
-      "id": "401772960",
-      "date": "2026-01-05T01:20Z",
-      "week": 18,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "23",
-       "abbr": "PIT",
-       "name": "Pittsburgh Steelers",
-       "score": "26",
-       "winner": true,
-       "q": [
-        "0",
-        "3",
-        "10",
-        "13"
-       ]
-      },
-      "away": {
-       "id": "33",
-       "abbr": "BAL",
-       "name": "Baltimore Ravens",
-       "score": "24",
-       "winner": false,
-       "q": [
-        "7",
-        "3",
-        "0",
-        "14"
-       ]
-      },
-      "venue": "Acrisure Stadium, Pittsburgh"
      }
     ],
     "next": {
-     "id": "401873064",
-     "date": "2026-11-16T01:20Z",
-     "week": 10,
+     "id": "401873076",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "4",
-      "abbr": "CIN",
-      "name": "Cincinnati Bengals",
+      "id": "21",
+      "abbr": "PHI",
+      "name": "Philadelphia Eagles",
       "score": null,
       "winner": false,
       "q": null
@@ -13906,7 +13906,7 @@
       "winner": false,
       "q": null
      },
-     "venue": "Paycor Stadium, Cincinnati"
+     "venue": "Lincoln Financial Field, Philadelphia"
     }
    },
    "SF": {
@@ -13920,12 +13920,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
     "standing": "1st in NFC West",
     "record": {
-     "total": "7-1",
+     "total": "8-1",
      "home": "5-0",
-     "road": "2-1"
+     "road": "3-1"
     },
     "venue": "Levi's Stadium, Santa Clara, CA",
     "last10": [
+     {
+      "id": "401873063",
+      "date": "2026-11-15T21:25Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "6",
+       "abbr": "DAL",
+       "name": "Dallas Cowboys",
+       "score": "40",
+       "winner": false,
+       "q": [
+        "10",
+        "6",
+        "3",
+        "21"
+       ]
+      },
+      "away": {
+       "id": "25",
+       "abbr": "SF",
+       "name": "San Francisco 49ers",
+       "score": "46",
+       "winner": true,
+       "q": [
+        "7",
+        "10",
+        "14",
+        "15"
+       ]
+      },
+      "venue": "AT&T Stadium, Arlington"
+     },
      {
       "id": "401873047",
       "date": "2026-11-08T21:25Z",
@@ -14258,63 +14295,18 @@
        ]
       },
       "venue": "Lumen Field, Seattle"
-     },
-     {
-      "id": "401772980",
-      "date": "2026-01-11T21:30Z",
-      "week": 1,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "21",
-       "abbr": "PHI",
-       "name": "Philadelphia Eagles",
-       "score": "19",
-       "winner": false,
-       "q": [
-        "6",
-        "7",
-        "3",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "25",
-       "abbr": "SF",
-       "name": "San Francisco 49ers",
-       "score": "23",
-       "winner": true,
-       "q": [
-        "7",
-        "3",
-        "0",
-        "13"
-       ]
-      },
-      "venue": "Lincoln Financial Field, Philadelphia"
      }
     ],
     "next": {
-     "id": "401873063",
-     "date": "2026-11-15T21:25Z",
-     "week": 10,
+     "id": "401873077",
+     "date": "2026-11-23T01:20Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "6",
-      "abbr": "DAL",
-      "name": "Dallas Cowboys",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "away": {
       "id": "25",
       "abbr": "SF",
       "name": "San Francisco 49ers",
@@ -14322,7 +14314,15 @@
       "winner": false,
       "q": null
      },
-     "venue": "AT&T Stadium, Arlington"
+     "away": {
+      "id": "16",
+      "abbr": "MIN",
+      "name": "Minnesota Vikings",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "venue": "Estadio Banorte, Mexico City"
     }
    },
    "SEA": {
@@ -14336,12 +14336,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
     "standing": "2nd in NFC West",
     "record": {
-     "total": "5-4",
+     "total": "6-4",
      "home": "4-2",
-     "road": "1-2"
+     "road": "2-2"
     },
     "venue": "Lumen Field, Seattle, WA",
     "last10": [
+     {
+      "id": "401873062",
+      "date": "2026-11-15T21:05Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "13",
+       "abbr": "LV",
+       "name": "Las Vegas Raiders",
+       "score": "13",
+       "winner": false,
+       "q": [
+        "7",
+        "3",
+        "0",
+        "3"
+       ]
+      },
+      "away": {
+       "id": "26",
+       "abbr": "SEA",
+       "name": "Seattle Seahawks",
+       "score": "21",
+       "winner": true,
+       "q": [
+        "7",
+        "0",
+        "14",
+        "0"
+       ]
+      },
+      "venue": "Allegiant Stadium, Las Vegas"
+     },
      {
       "id": "401873048",
       "date": "2026-11-08T21:25Z",
@@ -14676,58 +14713,21 @@
        ]
       },
       "venue": "Lumen Field, Seattle"
-     },
-     {
-      "id": "401772988",
-      "date": "2026-02-08T23:30Z",
-      "week": 5,
-      "season": "2025 Playoffs",
-      "type": "post",
-      "stype": 3,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "17",
-       "abbr": "NE",
-       "name": "New England Patriots",
-       "score": "13",
-       "winner": false,
-       "q": [
-        "0",
-        "0",
-        "0",
-        "13"
-       ]
-      },
-      "away": {
-       "id": "26",
-       "abbr": "SEA",
-       "name": "Seattle Seahawks",
-       "score": "29",
-       "winner": true,
-       "q": [
-        "3",
-        "6",
-        "3",
-        "17"
-       ]
-      },
-      "venue": "Levi's Stadium, Santa Clara"
      }
     ],
     "next": {
-     "id": "401873062",
-     "date": "2026-11-15T21:05Z",
-     "week": 10,
+     "id": "401873091",
+     "date": "2026-11-29T21:25Z",
+     "week": 12,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
-      "id": "13",
-      "abbr": "LV",
-      "name": "Las Vegas Raiders",
+      "id": "25",
+      "abbr": "SF",
+      "name": "San Francisco 49ers",
       "score": null,
       "winner": false,
       "q": null
@@ -14740,7 +14740,7 @@
       "winner": false,
       "q": null
      },
-     "venue": "Allegiant Stadium, Las Vegas"
+     "venue": "Levi's Stadium, Santa Clara"
     }
    },
    "TB": {
@@ -14752,7 +14752,7 @@
     "color": "bd1c36",
     "alt": "3e3a35",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
-    "standing": "13th in National Football Conference",
+    "standing": "12th in National Football Conference",
     "record": {
      "total": "3-6",
      "home": "1-4",
@@ -15172,12 +15172,49 @@
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png",
     "standing": "14th in American Football Conference",
     "record": {
-     "total": "1-7",
-     "home": "0-4",
+     "total": "1-8",
+     "home": "0-5",
      "road": "1-3"
     },
     "venue": "Nissan Stadium, Nashville, TN",
     "last10": [
+     {
+      "id": "401873057",
+      "date": "2026-11-15T18:00Z",
+      "week": 10,
+      "season": "2026",
+      "type": "reg",
+      "stype": 2,
+      "completed": true,
+      "timeValid": true,
+      "home": {
+       "id": "10",
+       "abbr": "TEN",
+       "name": "Tennessee Titans",
+       "score": "23",
+       "winner": false,
+       "q": [
+        "3",
+        "7",
+        "6",
+        "7"
+       ]
+      },
+      "away": {
+       "id": "30",
+       "abbr": "JAX",
+       "name": "Jacksonville Jaguars",
+       "score": "40",
+       "winner": true,
+       "q": [
+        "7",
+        "9",
+        "7",
+        "17"
+       ]
+      },
+      "venue": "Nissan Stadium, Nashville"
+     },
      {
       "id": "401873031",
       "date": "2026-11-01T18:00Z",
@@ -15512,55 +15549,26 @@
        ]
       },
       "venue": "EverBank Stadium, Jacksonville"
-     },
-     {
-      "id": "401772809",
-      "date": "2025-12-28T18:00Z",
-      "week": 17,
-      "season": "2025",
-      "type": "reg",
-      "stype": 2,
-      "completed": true,
-      "timeValid": true,
-      "home": {
-       "id": "10",
-       "abbr": "TEN",
-       "name": "Tennessee Titans",
-       "score": "26",
-       "winner": false,
-       "q": [
-        "6",
-        "14",
-        "3",
-        "3"
-       ]
-      },
-      "away": {
-       "id": "18",
-       "abbr": "NO",
-       "name": "New Orleans Saints",
-       "score": "34",
-       "winner": true,
-       "q": [
-        "0",
-        "10",
-        "10",
-        "14"
-       ]
-      },
-      "venue": "Nissan Stadium, Nashville"
      }
     ],
     "next": {
-     "id": "401873057",
-     "date": "2026-11-15T18:00Z",
-     "week": 10,
+     "id": "401873073",
+     "date": "2026-11-22T18:00Z",
+     "week": 11,
      "season": "2026",
      "type": "reg",
      "stype": 2,
      "completed": false,
      "timeValid": true,
      "home": {
+      "id": "6",
+      "abbr": "DAL",
+      "name": "Dallas Cowboys",
+      "score": null,
+      "winner": false,
+      "q": null
+     },
+     "away": {
       "id": "10",
       "abbr": "TEN",
       "name": "Tennessee Titans",
@@ -15568,15 +15576,7 @@
       "winner": false,
       "q": null
      },
-     "away": {
-      "id": "30",
-      "abbr": "JAX",
-      "name": "Jacksonville Jaguars",
-      "score": null,
-      "winner": false,
-      "q": null
-     },
-     "venue": "Nissan Stadium, Nashville"
+     "venue": "AT&T Stadium, Arlington"
     }
    },
    "WSH": {
@@ -15588,7 +15588,7 @@
     "color": "5a1414",
     "alt": "ffb612",
     "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png",
-    "standing": "3rd in NFC East",
+    "standing": "2nd in NFC East",
     "record": {
      "total": "3-5-1",
      "home": "2-2-1",
@@ -21099,23 +21099,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "8",
      "abbr": "DET",
      "name": "Detroit Lions",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "35",
+     "winner": true,
+     "q": [
+      "7",
+      "14",
+      "7",
+      "7"
+     ]
     },
     "away": {
      "id": "17",
      "abbr": "NE",
      "name": "New England Patriots",
-     "score": null,
+     "score": "10",
      "winner": false,
-     "q": null
+     "q": [
+      "3",
+      "0",
+      "0",
+      "7"
+     ]
     },
     "venue": "FC Bayern Munich Stadium, Munich"
    },
@@ -21126,23 +21136,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "20",
      "abbr": "NYJ",
      "name": "New York Jets",
-     "score": null,
+     "score": "12",
      "winner": false,
-     "q": null
+     "q": [
+      "0",
+      "6",
+      "6",
+      "0"
+     ]
     },
     "away": {
      "id": "2",
      "abbr": "BUF",
      "name": "Buffalo Bills",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "31",
+     "winner": true,
+     "q": [
+      "7",
+      "3",
+      "14",
+      "7"
+     ]
     },
     "venue": "MetLife Stadium, East Rutherford"
    },
@@ -21153,23 +21173,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "18",
      "abbr": "NO",
      "name": "New Orleans Saints",
-     "score": null,
+     "score": "17",
      "winner": false,
-     "q": null
+     "q": [
+      "0",
+      "0",
+      "7",
+      "10"
+     ]
     },
     "away": {
      "id": "29",
      "abbr": "CAR",
      "name": "Carolina Panthers",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "20",
+     "winner": true,
+     "q": [
+      "0",
+      "7",
+      "3",
+      "10"
+     ]
     },
     "venue": "Caesars Superdome, New Orleans"
    },
@@ -21180,23 +21210,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "5",
      "abbr": "CLE",
      "name": "Cleveland Browns",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "27",
+     "winner": true,
+     "q": [
+      "0",
+      "10",
+      "10",
+      "7"
+     ]
     },
     "away": {
      "id": "34",
      "abbr": "HOU",
      "name": "Houston Texans",
-     "score": null,
+     "score": "24",
      "winner": false,
-     "q": null
+     "q": [
+      "10",
+      "7",
+      "0",
+      "7"
+     ]
     },
     "venue": "Huntington Bank Field, Cleveland"
    },
@@ -21207,23 +21247,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "10",
      "abbr": "TEN",
      "name": "Tennessee Titans",
-     "score": null,
+     "score": "23",
      "winner": false,
-     "q": null
+     "q": [
+      "3",
+      "7",
+      "6",
+      "7"
+     ]
     },
     "away": {
      "id": "30",
      "abbr": "JAX",
      "name": "Jacksonville Jaguars",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "40",
+     "winner": true,
+     "q": [
+      "7",
+      "9",
+      "7",
+      "17"
+     ]
     },
     "venue": "Nissan Stadium, Nashville"
    },
@@ -21234,23 +21284,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "1",
      "abbr": "ATL",
      "name": "Atlanta Falcons",
-     "score": null,
+     "score": "13",
      "winner": false,
-     "q": null
+     "q": [
+      "0",
+      "3",
+      "0",
+      "10"
+     ]
     },
     "away": {
      "id": "12",
      "abbr": "KC",
      "name": "Kansas City Chiefs",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "35",
+     "winner": true,
+     "q": [
+      "7",
+      "7",
+      "7",
+      "14"
+     ]
     },
     "venue": "Mercedes-Benz Stadium, Atlanta"
    },
@@ -21261,23 +21321,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "11",
      "abbr": "IND",
      "name": "Indianapolis Colts",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "24",
+     "winner": true,
+     "q": [
+      "0",
+      "14",
+      "10",
+      "0"
+     ]
     },
     "away": {
      "id": "15",
      "abbr": "MIA",
      "name": "Miami Dolphins",
-     "score": null,
+     "score": "22",
      "winner": false,
-     "q": null
+     "q": [
+      "0",
+      "7",
+      "9",
+      "6"
+     ]
     },
     "venue": "Lucas Oil Stadium, Indianapolis"
    },
@@ -21288,23 +21358,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "9",
      "abbr": "GB",
      "name": "Green Bay Packers",
-     "score": null,
+     "score": "10",
      "winner": false,
-     "q": null
+     "q": [
+      "0",
+      "0",
+      "10",
+      "0"
+     ]
     },
     "away": {
      "id": "16",
      "abbr": "MIN",
      "name": "Minnesota Vikings",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "30",
+     "winner": true,
+     "q": [
+      "10",
+      "7",
+      "3",
+      "10"
+     ]
     },
     "venue": "Lambeau Field, Green Bay"
    },
@@ -21315,23 +21395,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "22",
      "abbr": "ARI",
      "name": "Arizona Cardinals",
-     "score": null,
+     "score": "6",
      "winner": false,
-     "q": null
+     "q": [
+      "6",
+      "0",
+      "0",
+      "0"
+     ]
     },
     "away": {
      "id": "14",
      "abbr": "LAR",
      "name": "Los Angeles Rams",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "34",
+     "winner": true,
+     "q": [
+      "3",
+      "14",
+      "14",
+      "3"
+     ]
     },
     "venue": "State Farm Stadium, Glendale"
    },
@@ -21342,23 +21432,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "13",
      "abbr": "LV",
      "name": "Las Vegas Raiders",
-     "score": null,
+     "score": "13",
      "winner": false,
-     "q": null
+     "q": [
+      "7",
+      "3",
+      "0",
+      "3"
+     ]
     },
     "away": {
      "id": "26",
      "abbr": "SEA",
      "name": "Seattle Seahawks",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "21",
+     "winner": true,
+     "q": [
+      "7",
+      "0",
+      "14",
+      "0"
+     ]
     },
     "venue": "Allegiant Stadium, Las Vegas"
    },
@@ -21369,23 +21469,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "6",
      "abbr": "DAL",
      "name": "Dallas Cowboys",
-     "score": null,
+     "score": "40",
      "winner": false,
-     "q": null
+     "q": [
+      "10",
+      "6",
+      "3",
+      "21"
+     ]
     },
     "away": {
      "id": "25",
      "abbr": "SF",
      "name": "San Francisco 49ers",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "46",
+     "winner": true,
+     "q": [
+      "7",
+      "10",
+      "14",
+      "15"
+     ]
     },
     "venue": "AT&T Stadium, Arlington"
    },
@@ -21396,23 +21506,33 @@
     "season": "2026",
     "type": "reg",
     "stype": 2,
-    "completed": false,
+    "completed": true,
     "timeValid": true,
     "home": {
      "id": "4",
      "abbr": "CIN",
      "name": "Cincinnati Bengals",
-     "score": null,
-     "winner": false,
-     "q": null
+     "score": "38",
+     "winner": true,
+     "q": [
+      "3",
+      "21",
+      "7",
+      "7"
+     ]
     },
     "away": {
      "id": "23",
      "abbr": "PIT",
      "name": "Pittsburgh Steelers",
-     "score": null,
+     "score": "18",
      "winner": false,
-     "q": null
+     "q": [
+      "0",
+      "3",
+      "0",
+      "15"
+     ]
     },
     "venue": "Paycor Stadium, Cincinnati"
    },
