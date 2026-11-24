@@ -17,9 +17,10 @@ Stand: 4. November 2026. Umgesetzt wird jeweils erst nach Freigabe.
 - Kein Mitlesen von FIAWEC+ oder Al Kamel (Nutzungsbedingungen, Kontosperre, Sicherheit).
 - Umsetzung: Knopf im Zeitmonitor, im WEC-Tab, auf der Toyota-Seite und an der WEC-Karte im Kalender; Ziel `https://plus.fiawec.com/en/fia-wec`. Bei Terminen ohne Uhrzeit (WEC 2027) gilt der ganze Renntag, bei 24-Stunden-Rennen auch der Folgetag.
 
-## 3. WEC: Ergebnisse kurz nach jeder Session (nach Punkt 2, Ziel: Saison 2027)
+## 3. WEC: Ergebnisse kurz nach jeder Session (Vorab-Test am 24.11.2026: nicht automatisch möglich)
 
 - **Quelle:** öffentlich veröffentlichte offizielle Ergebnisse und Wertungen der FIA WEC (Dokumente auf `fiawec.alkamelsystems.com`).
 - **Vorab-Test:** mit einem kurzen Prüf-Workflow klären, ob die Dateien automatisch abrufbar und auslesbar sind (PDF oder ggf. CSV/JSON) und wie schnell sie nach einer Session erscheinen.
 - **Wenn ja:** Ein Workflow holt an Rennwochenenden nach jeder Session (Trainings, Qualifying, Hyperpole, Rennen) die Ergebnisse, schreibt sie in `data/live.json` und veröffentlicht die Seite neu. Angezeigt werden Hypercar-Reihenfolge, Abstände, Runden und beste Rundenzeit mit hervorgehobenem Toyota #7 und #8; danach werden die WEC-Wertungen aktualisiert.
 - **Wenn nein:** Ergebnisse trägt weiterhin die wöchentliche Claude-Aufgabe nach.
+- **Ergebnis des Vorab-Tests (24.11.2026):** `fiawec.alkamelsystems.com` liefert nur noch das leere Gerüst einer Single-Page-App (Angular, Stand 23.11.2026). Die Seite enthält keine Links auf PDF- oder CSV-Dokumente, auch nicht mit `?season=26_2026&evvent=08_MONZA`, und sie bindet eine Cloudflare-Bot-Prüfung (Turnstile) für Anmeldeformulare ein. Ein automatischer Abruf ginge nur, wenn man die App bzw. ihre Bot-Prüfung umgeht. Das ist ausgeschlossen (siehe Punkt 2). Ergebnisse trägt deshalb weiter die wöchentliche Claude-Aufgabe nach (montags, also am Tag nach einem Rennwochenende). Neu prüfen, falls die FIA WEC wieder frei abrufbare Dokumente oder eine offene Schnittstelle anbietet.
