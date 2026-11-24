@@ -2,7 +2,7 @@
 
 Stand: 4. November 2026. Umgesetzt wird jeweils erst nach Freigabe.
 
-## 1. NFL: Live-Karte für Broncos-Spiele (umgesetzt am 6.11.2026, Live-Test am 8.11.2026)
+## 1. NFL: Live-Karte für Broncos-Spiele (umgesetzt am 6.11.2026, im Live-Einsatz bestätigt beim Spiel gegen die Raiders am 22.11.2026) ✅
 
 - **Quelle:** ESPN-Scoreboard `site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=JJJJMMTT`, direkt aus dem Browser (CORS erlaubt, geprüft am 4.11.2026).
 - **Felder:** Status (`status.type.state`), Viertel und Uhr (`status.period`, `status.displayClock`), Spielstand (`competitors[].score`), Punkte pro Viertel (`linescores`), Ballbesitz, Down & Distance, Red Zone, Timeouts und letzter Spielzug (`competitions[0].situation`). Die `situation`-Felder wurden beim Spiel Jaguars @ Ravens am 6.11.2026 bestätigt. Während des Spiels liefert die Core-API (`/status`, `/situation`) aktuellere Daten als das Scoreboard. Der Datumsfilter des Scoreboards erwartet das US-Datum (Eastern Time).
