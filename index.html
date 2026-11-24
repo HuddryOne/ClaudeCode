@@ -73,6 +73,15 @@ h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-he
 .brand .b1 { color: #ff6a33; } .brand .b2 { color: #6d8cff; } .brand .b3 { color: #ff4a55; }
 .brand .sep { color: var(--board-muted); font-weight: 500; padding: 0 .15em; }
 .clock { font-family: var(--mono); font-size: 13px; color: var(--board-muted); }
+.brand-side { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.theme-sw { display: inline-flex; align-items: center; gap: 7px; background: transparent; border: 0; padding: 4px 2px; cursor: pointer; color: var(--board-muted); font-size: 15px; line-height: 1; }
+.theme-sw .ts-track { position: relative; width: 40px; height: 22px; border-radius: 999px; background: #2a3142; border: 1px solid #3a4256; transition: background .2s ease; }
+.theme-sw .ts-knob { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #f2f4f8; transition: transform .2s ease; }
+.theme-sw[aria-checked="true"] .ts-track { background: #4d64c9; border-color: #6d8cff; }
+.theme-sw[aria-checked="true"] .ts-knob { transform: translateX(18px); }
+.theme-sw[aria-checked="false"] .ts-ico:first-child, .theme-sw[aria-checked="true"] .ts-ico:last-child { color: #fff; }
+.theme-sw:hover .ts-track { border-color: #6d8cff; }
+@media (prefers-reduced-motion: reduce) { .theme-sw .ts-knob, .theme-sw .ts-track { transition: none; } }
 .next {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 24px; align-items: end;
   border-top: 1px solid #2a3142; padding-block: 16px;
@@ -415,11 +424,20 @@ a.f1team:hover h4 { color: var(--team); }
 </head>
 <body>
 
+<script>
+  // Gespeichertes Design (hell/dunkel) sofort setzen, damit die Seite nicht kurz im falschen Design aufblitzt.
+  try { var bbtTheme = localStorage.getItem("bbt-theme"); if (bbtTheme === "light" || bbtTheme === "dark") document.documentElement.setAttribute("data-theme", bbtTheme); } catch (e) {}
+</script>
 <header class="board">
   <div class="wrap">
     <div class="brand">
       <h1><span class="b1">Broncos</span><span class="sep">·</span><span class="b2">Red Bull</span><span class="sep">·</span><span class="b3">Toyota</span></h1>
-      <div class="clock" id="clock">Zeit in Wien</div>
+      <div class="brand-side">
+        <div class="clock" id="clock">Zeit in Wien</div>
+        <button type="button" class="theme-sw" id="theme-sw" role="switch" aria-checked="false" aria-label="Dunkles Design" title="Hell / Dunkel umschalten">
+          <span class="ts-ico" aria-hidden="true">☀</span><span class="ts-track" aria-hidden="true"><span class="ts-knob"></span></span><span class="ts-ico" aria-hidden="true">☾</span>
+        </button>
+      </div>
     </div>
     <div class="next" id="next" aria-live="polite"></div>
     <div class="wec-lt-slot" id="lt-board" hidden></div>
@@ -2205,6 +2223,23 @@ a.f1team:hover h4 { color: var(--team); }
     });
     renderAll();
   }
+  /* ---------- Design-Schalter hell / dunkel ----------
+     Ohne eigene Wahl folgt die Seite dem Gerät; die Wahl wird im Browser gespeichert. */
+  var themeSw = document.getElementById("theme-sw"), darkMq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  function isDark() {
+    var t = document.documentElement.getAttribute("data-theme");
+    return t ? t === "dark" : !!(darkMq && darkMq.matches);
+  }
+  function syncThemeSw() { themeSw.setAttribute("aria-checked", String(isDark())); }
+  themeSw.addEventListener("click", function () {
+    var next = isDark() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("bbt-theme", next); } catch (e) {}
+    syncThemeSw();
+  });
+  if (darkMq && darkMq.addEventListener) darkMq.addEventListener("change", syncThemeSw);
+  syncThemeSw();
+
   function renderAll() { renderTrio(); renderCal(); renderResults(); ["broncos", "redbull", "toyota"].forEach(renderTeamCal); }
   window.addEventListener("hashchange", function () { route(); window.scrollTo(0, 0); });
   route();
