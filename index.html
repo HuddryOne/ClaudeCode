@@ -77,6 +77,14 @@ h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-he
   display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 24px; align-items: end;
   border-top: 1px solid #2a3142; padding-block: 16px;
 }
+.lt-box { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--toyota); border-radius: 6px; padding: 10px 14px; }
+.lt-box .lt-what { font-weight: 600; }
+.lt-box .lt-sub { font-size: 13px; color: var(--muted); }
+.lt-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--toyota); color: #fff; font-weight: 700; text-decoration: none; padding: 8px 14px; border-radius: 6px; white-space: nowrap; }
+.lt-btn:hover, .lt-btn:focus-visible { filter: brightness(1.1); text-decoration: underline; }
+.board .lt-box { background: transparent; border-color: rgba(255,255,255,.18); border-left-color: var(--toyota); color: var(--board-ink); margin-top: 10px; }
+.board .lt-box .lt-sub { color: var(--board-muted); }
+.event .lt-box { margin-top: 8px; }
 .next .label { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--board-muted); }
 .next .what { font-family: var(--display); font-size: clamp(24px, 4.2vw, 34px); font-weight: 700; line-height: 1.1; margin-top: 4px; }
 .next .when { color: var(--board-muted); font-size: 14px; margin-top: 2px; }
@@ -414,6 +422,7 @@ a.f1team:hover h4 { color: var(--team); }
       <div class="clock" id="clock">Zeit in Wien</div>
     </div>
     <div class="next" id="next" aria-live="polite"></div>
+    <div class="wec-lt-slot" id="lt-board" hidden></div>
     <nav class="tabs" aria-label="Bereiche">
       <a href="#start">Übersicht</a>
       <a href="#kalender">Kalender</a>
@@ -525,6 +534,7 @@ a.f1team:hover h4 { color: var(--team); }
     <!-- TOYOTA -->
     <section class="view t-toyota" id="v-toyota" hidden>
       <a class="back" href="#wec">← Zurück zur WEC</a>
+      <div class="wec-lt-slot" hidden></div>
       <div class="teamhead">
         <div>
           <div class="eyebrow">FIA WEC · Klasse Hypercar</div>
@@ -600,6 +610,7 @@ a.f1team:hover h4 { color: var(--team); }
       </div>
 
       <div id="tb-wec" class="view" hidden>
+        <div class="wec-lt-slot" hidden></div>
         <div class="seg seg-sm" role="group" aria-label="WEC-Klasse wählen">
           <button id="cls-hy" data-cls="hy" aria-pressed="true">Hypercar</button>
           <button id="cls-gt" data-cls="gt" aria-pressed="false">LMGT3</button>
@@ -887,6 +898,7 @@ a.f1team:hover h4 { color: var(--team); }
     var now = new Date();
     document.getElementById("clock").textContent = fmtClock.format(now) + " · Wien";
     updateTeamTimers();
+    renderWecLt();
     var lh = typeof liveHeader === "function" ? liveHeader() : "";
     if (lh) {
       nextEl.innerHTML = lh;
@@ -972,6 +984,41 @@ a.f1team:hover h4 { color: var(--team); }
     });
   }
 
+  /* ---------- WEC: Knopf „Live-Timing öffnen“ ----------
+     Ab 1 Stunde vor einer WEC-Session bis zu ihrem Ende. Ohne Uhrzeit (dateOnly) gilt der ganze Renntag,
+     bei 24-Stunden-Rennen auch der Folgetag. Der Knopf führt nur zu FIAWEC+ (eigene Anmeldung);
+     die Seite speichert und nutzt keine Zugangsdaten. */
+  var WEC_LT_URL = "https://plus.fiawec.com/en/fia-wec";
+  function ltWindow(e, s) {
+    if (s.dateOnly) {
+      var a = Date.parse(s.start + "T00:00:00Z") - 3600e3, b = Date.parse(s.start + "T23:59:59Z");
+      if (/24 Stunden/.test(e.title)) b += 864e5;
+      return [a, b];
+    }
+    return [sStart(s).getTime() - 3600e3, sEnd(s).getTime()];
+  }
+  function wecLiveSession(now, onlyEvent) {
+    var t = now.getTime(), hit = null;
+    EVENTS.forEach(function (e) {
+      if (hit || e.series !== "WEC" || (onlyEvent && e !== onlyEvent)) return;
+      e.sessions.forEach(function (s) { var w = ltWindow(e, s); if (!hit && t >= w[0] && t < w[1]) hit = { e: e, s: s }; });
+    });
+    return hit;
+  }
+  function ltHtml(h, now) {
+    var running = h.s.dateOnly || sStart(h.s) <= now;
+    var what = esc(h.e.title) + " – " + esc(h.s.name) + (h.s.dateOnly ? " · heute" : running ? " · läuft" : " · ab " + fmtTime.format(sStart(h.s)) + " Uhr");
+    return '<div class="lt-box"><div><div class="lt-what">' + what + '</div><div class="lt-sub">Offizielles Live-Timing in FIAWEC+ (eigene Anmeldung, kostenpflichtig)</div></div>' +
+      '<a class="lt-btn" href="' + WEC_LT_URL + '" target="_blank" rel="noopener">Live-Timing öffnen ↗</a></div>';
+  }
+  function renderWecLt() {
+    var now = new Date(), h = wecLiveSession(now), html = h ? ltHtml(h, now) : "";
+    document.querySelectorAll(".wec-lt-slot").forEach(function (el) {
+      if (el.innerHTML !== html) el.innerHTML = html;
+      el.hidden = !html;
+    });
+  }
+
   /* ---------- Kalender ---------- */
   var state = { teams: { broncos: true, redbull: true, toyota: true }, mainOnly: false, past: false };
   try {
@@ -1006,7 +1053,7 @@ a.f1team:hover h4 { color: var(--team); }
       '<h4>' + esc(e.title) + '</h4>' +
       '<div class="venue">' + esc(e.round) + (e.venue ? " · " + esc(e.venue) : "") + '</div>' +
       (e.bye ? "" : '<table class="sessions"><tbody>' + rows + '</tbody></table>') +
-      (e.note ? '<p class="note">' + esc(e.note) + '</p>' : "") + tv + '</div></article>';
+      (e.note ? '<p class="note">' + esc(e.note) + '</p>' : "") + tv + (e.series === "WEC" && !opts.noLt ? (function () { var h = wecLiveSession(now, e); return h ? ltHtml(h, now) : ""; })() : "") + '</div></article>';
   }
   function nextEvent(now) { return EVENTS.filter(function (e) { return !e.bye && e.last > now; })[0]; }
 
@@ -1061,7 +1108,7 @@ a.f1team:hover h4 { color: var(--team); }
   function renderTeamCal(team) {
     var now = new Date(), nxt = nextEvent(now);
     document.getElementById("team-cal-" + team).innerHTML = EVENTS.filter(function (e) { return e.team === team; })
-      .map(function (e) { return eventCard(e, now, { nextId: nxt }); }).join("");
+      .map(function (e) { return eventCard(e, now, { nextId: nxt, noLt: true }); }).join("");
   }
   document.querySelectorAll(".fbtn[data-team]").forEach(function (b) {
     b.addEventListener("click", function () { var t = b.getAttribute("data-team"); state.teams[t] = !state.teams[t]; save(); renderCal(); });

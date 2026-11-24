@@ -10,11 +10,12 @@ Stand: 4. November 2026. Umgesetzt wird jeweils erst nach Freigabe.
 - **Anzeige:** Live-Karte im Zeitmonitor, auf der Übersicht und auf der Broncos-Seite; nach Spielende Endstand und sofortige Übernahme in die Ergebnistabelle.
 - **Fehlerfälle:** ESPN nicht erreichbar, kein Spiel heute, Spiel verlegt oder verschoben, fehlende Felder, offline, claude.ai-Vorschau ohne Netzzugriff.
 
-## 2. WEC: Live-Timing-Knopf (nach der NFL-Live-Karte)
+## 2. WEC: Live-Timing-Knopf (umgesetzt am 24.11.2026) ✅
 
 - Während einer WEC-Session (1 Stunde vor Beginn bis Ende) zeigt die App im Zeitmonitor, auf der Toyota-Seite und im Kalender einen deutlichen Knopf **„Live-Timing öffnen“**.
 - Der Knopf führt zum offiziellen Live-Timing in FIAWEC+. Dort meldet man sich selbst an. Die App speichert und nutzt **keine** Zugangsdaten.
 - Kein Mitlesen von FIAWEC+ oder Al Kamel (Nutzungsbedingungen, Kontosperre, Sicherheit).
+- Umsetzung: Knopf im Zeitmonitor, im WEC-Tab, auf der Toyota-Seite und an der WEC-Karte im Kalender; Ziel `https://plus.fiawec.com/en/fia-wec`. Bei Terminen ohne Uhrzeit (WEC 2027) gilt der ganze Renntag, bei 24-Stunden-Rennen auch der Folgetag.
 
 ## 3. WEC: Ergebnisse kurz nach jeder Session (nach Punkt 2, Ziel: Saison 2027)
 
