@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:bbt-toyota-2026-04-19-6-stunden-von-imola@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Imola – Rennen
 LOCATION:Autodromo Enzo e Dino Ferrari\, Italien
 DESCRIPTION:WEC · Lauf 1\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
@@ -23,7 +23,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2026-05-09-6-stunden-von-spa-francorchamps@huddryone.github.
  io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Spa-Francorchamps – Rennen
 LOCATION:Circuit de Spa-Francorchamps\, Belgien
 DESCRIPTION:WEC · Lauf 2\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
@@ -35,7 +35,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2026-06-13-24-stunden-von-le-mans@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 24 Stunden von Le Mans – Rennen
 LOCATION:Circuit de la Sarthe\, Frankreich
 DESCRIPTION:WEC · Lauf 3\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
@@ -47,7 +47,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2026-07-12-6-stunden-von-s-o-paulo@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von São Paulo – Rennen
 LOCATION:Autódromo José Carlos Pace (Interlagos)\, Brasilien
 DESCRIPTION:WEC · Lauf 4\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
@@ -59,7 +59,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2026-09-06-lone-star-le-mans@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 Lone Star Le Mans – Rennen
 LOCATION:Circuit of the Americas\, Austin\, USA
 DESCRIPTION:WEC · Lauf 5\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
@@ -71,7 +71,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-09-15-broncos-kansas-city-chiefs@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ Kansas City Chiefs
 LOCATION:Arrowhead Stadium\, Kansas City
 DESCRIPTION:Woche 1\nErgebnis: Niederlage 10:31\nIn Österreich: NFL Game P
@@ -89,7 +89,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-09-20-broncos-vs-jacksonville-jaguars@huddryone.github
  .io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Jacksonville Jaguars
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 2\nErgebnis: Sieg 20:13\nIn Österreich: NFL Game Pass au
@@ -106,7 +106,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2026-09-27-6-stunden-von-fuji@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Fuji – Rennen
 LOCATION:Fuji Speedway\, Japan
 DESCRIPTION:WEC · Lauf 6\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
@@ -118,7 +118,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-09-28-broncos-vs-los-angeles-rams@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Los Angeles Rams
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 3\nErgebnis: Sieg 30:26\nIn Österreich: NFL Game Pass au
@@ -135,7 +135,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-10-04-broncos-san-francisco-49ers@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ San Francisco 49ers
 LOCATION:Levi's Stadium\, Santa Clara
 DESCRIPTION:Woche 4\nErgebnis: Niederlage 14:24\nIn Österreich: NFL Game P
@@ -152,7 +152,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-10-11-broncos-los-angeles-chargers@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ Los Angeles Chargers
 LOCATION:SoFi Stadium\, Inglewood
 DESCRIPTION:Woche 5\nErgebnis: Sieg 23:17\nIn Österreich: NFL Game Pass au
@@ -169,7 +169,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-10-16-broncos-vs-seattle-seahawks@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Seattle Seahawks
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 6\nErgebnis: Sieg 17:14\nIn Österreich: NFL Game Pass au
@@ -186,7 +186,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2026-10-18-6-stunden-von-barcelona@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Barcelona – Rennen
 LOCATION:Circuit de Barcelona-Catalunya\, Spanien
 DESCRIPTION:WEC · Lauf 7\nIn Österreich: ORF Sport+ / ORF ON / Eurosport 
@@ -198,7 +198,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-10-25-broncos-arizona-cardinals@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ Arizona Cardinals
 LOCATION:State Farm Stadium\, Glendale
 DESCRIPTION:Woche 7\nErgebnis: Sieg 30:16\nIn Österreich: NFL Game Pass au
@@ -216,7 +216,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-11-01-broncos-vs-kansas-city-chiefs@huddryone.github.i
  o
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Kansas City Chiefs
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 8\nErgebnis: Sieg 28:24\nIn Österreich: NFL Game Pass au
@@ -233,7 +233,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2026-11-08-6-stunden-von-monza@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Monza – Rennen (6 Stunden)
 LOCATION:Autodromo Nazionale Monza\, Italien
 DESCRIPTION:WEC · Lauf 8 · Saisonfinale\nIn Österreich: ORF Sport+ / ORF
@@ -250,7 +250,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-redbull-2026-11-08-gro-er-preis-von-s-o-paulo@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏎️ Großer Preis von São Paulo – Rennen (71 Runden)
 LOCATION:São Paulo\, Brasilien
 DESCRIPTION:Formel 1 · Autódromo José Carlos Pace (Interlagos)\nIn Öste
@@ -267,7 +267,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-11-08-broncos-carolina-panthers@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ Carolina Panthers
 LOCATION:Bank of America Stadium\, Charlotte
 DESCRIPTION:Woche 9\nErgebnis: Sieg 26:21\nIn Österreich: NFL Game Pass au
@@ -284,7 +284,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-redbull-2026-11-22-gro-er-preis-von-las-vegas@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏎️ Großer Preis von Las Vegas – Rennen (50 Runden)
 LOCATION:Las Vegas\, USA · Nachtrennen am Samstag (Ortszeit)
 DESCRIPTION:Formel 1 · Las Vegas Strip Circuit\nIn Österreich: ServusTV o
@@ -301,7 +301,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-11-22-broncos-vs-las-vegas-raiders@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Las Vegas Raiders
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 11\nErgebnis: Sieg 38:24\nIn Österreich: NFL Game Pass a
@@ -318,12 +318,12 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-11-27-broncos-pittsburgh-steelers@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ Pittsburgh Steelers
 LOCATION:Acrisure Stadium\, Pittsburgh
-DESCRIPTION:Woche 12\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
- L (WOW / Sky Österreich) / RTL / RTL+ (falls ausgewählt)\nhttps://huddry
- one.github.io/ClaudeCode/
+DESCRIPTION:Woche 12\nErgebnis: Niederlage 5:27\nIn Österreich: NFL Game P
+ ass auf DAZN / Sky Sport NFL (WOW / Sky Österreich) / RTL / RTL+ (falls a
+ usgewählt)\nhttps://huddryone.github.io/ClaudeCode/
 URL:https://huddryone.github.io/ClaudeCode/
 DTSTART:20261127T200000Z
 DTEND:20261127T233000Z
@@ -335,7 +335,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-redbull-2026-11-29-gro-er-preis-von-katar@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏎️ Großer Preis von Katar – Rennen
 LOCATION:Lusail\, Katar
 DESCRIPTION:Formel 1 · Lusail International Circuit\nIn Österreich: Servu
@@ -352,7 +352,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-redbull-2026-12-06-gro-er-preis-von-abu-dhabi@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏎️ Großer Preis von Abu Dhabi – Rennen
 LOCATION:Abu Dhabi\, VAE
 DESCRIPTION:Formel 1 · Saisonfinale · Yas Marina Circuit\nIn Österreich:
@@ -369,7 +369,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-12-06-broncos-vs-miami-dolphins@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Miami Dolphins
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 13\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
@@ -386,7 +386,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-12-13-broncos-new-york-jets@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ New York Jets
 LOCATION:MetLife Stadium\, East Rutherford
 DESCRIPTION:Woche 14\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
@@ -403,7 +403,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-12-20-broncos-las-vegas-raiders@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ Las Vegas Raiders
 LOCATION:Allegiant Stadium\, Las Vegas
 DESCRIPTION:Woche 15\nIn Österreich: NFL Game Pass auf DAZN / Sky Sport NF
@@ -420,7 +420,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2026-12-25-broncos-vs-buffalo-bills@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Buffalo Bills
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 16\nIn Österreich: Netflix / NFL Game Pass auf DAZN / RT
@@ -436,7 +436,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2027-01-03-broncos-new-england-patriots@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos @ New England Patriots
 LOCATION:Gillette Stadium\, Foxborough
 DESCRIPTION:Woche 17 · Datum vorläufig\nIn Österreich: NFL Game Pass auf
@@ -451,7 +451,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:bbt-broncos-2027-01-10-broncos-vs-los-angeles-chargers@huddryone.github
  .io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏈 Broncos vs. Los Angeles Chargers
 LOCATION:Empower Field at Mile High\, Denver
 DESCRIPTION:Woche 18 · Datum vorläufig\nIn Österreich: NFL Game Pass auf
@@ -465,7 +465,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-03-27-qatar-1812-km@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 Qatar 1812 km – Rennen
 LOCATION:Lusail International Circuit\, Katar
 DESCRIPTION:WEC 2027 · Lauf 1\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -477,7 +477,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-04-11-6-stunden-von-imola@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Imola – Rennen
 LOCATION:Autodromo Enzo e Dino Ferrari\, Italien
 DESCRIPTION:WEC 2027 · Lauf 2\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -489,7 +489,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-04-25-6-stunden-von-silverstone@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Silverstone – Rennen
 LOCATION:Silverstone Circuit\, Großbritannien
 DESCRIPTION:WEC 2027 · Lauf 3\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -502,7 +502,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-05-15-6-stunden-von-spa-francorchamps@huddryone.github.
  io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Spa-Francorchamps – Rennen
 LOCATION:Circuit de Spa-Francorchamps\, Belgien
 DESCRIPTION:WEC 2027 · Lauf 4\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -514,7 +514,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-06-12-24-stunden-von-le-mans@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 24 Stunden von Le Mans – Rennen
 LOCATION:Circuit de la Sarthe\, Frankreich
 DESCRIPTION:WEC 2027 · Lauf 5\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -526,7 +526,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-07-11-6-stunden-von-s-o-paulo@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von São Paulo – Rennen
 LOCATION:Autódromo José Carlos Pace (Interlagos)\, Brasilien
 DESCRIPTION:WEC 2027 · Lauf 6\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -538,7 +538,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-09-12-lone-star-le-mans@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 Lone Star Le Mans – Rennen
 LOCATION:Circuit of the Americas\, Austin\, USA
 DESCRIPTION:WEC 2027 · Lauf 7\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -550,7 +550,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-09-26-6-stunden-von-fuji@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 6 Stunden von Fuji – Rennen
 LOCATION:Fuji Speedway\, Japan
 DESCRIPTION:WEC 2027 · Lauf 8\nIn Österreich: ORF Sport+ / ORF ON / Euros
@@ -562,7 +562,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bbt-toyota-2027-11-06-8-stunden-von-bahrain@huddryone.github.io
-DTSTAMP:20261123T054810Z
+DTSTAMP:20261128T051203Z
 SUMMARY:🏁 8 Stunden von Bahrain – Rennen
 LOCATION:Bahrain International Circuit\, Sakhir
 DESCRIPTION:WEC 2027 · Lauf 9\nIn Österreich: ORF Sport+ / ORF ON / Euros
